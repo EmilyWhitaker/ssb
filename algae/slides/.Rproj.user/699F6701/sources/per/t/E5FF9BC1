@@ -1,0 +1,29 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1555516452633.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "E5FF9BC1",
+    "lastKnownWriteTime" : 4294967302,
+    "last_content_update" : 1555516452633,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "A46AE6EC",
+        "caption" : "dataset_yrsdate",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=dataset_yrsdate&cache_key=A46AE6EC",
+        "displayedObservations" : 409,
+        "environment" : "",
+        "object" : "dataset_yrsdate",
+        "preview" : 0,
+        "totalObservations" : 409,
+        "variables" : 10
+    },
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1560173335049.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "359863854",
+    "id" : "3E6382FF",
+    "lastKnownWriteTime" : 1560439887,
+    "last_content_update" : 1560439888143,
+    "path" : "~/Documents/GitHub/Sparkling/algae/SFS/trendy.R",
+    "project_path" : "trendy.R",
+    "properties" : {
+        "cursorPosition" : "17,7",
+        "scrollLine" : "10",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

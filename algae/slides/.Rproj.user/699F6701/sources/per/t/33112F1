@@ -1,0 +1,29 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1555518488898.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "33112F1",
+    "lastKnownWriteTime" : 6,
+    "last_content_update" : 1555518488898,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "FA4365A5",
+        "caption" : "monthdateslides",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=monthdateslides&cache_key=FA4365A5",
+        "displayedObservations" : 409,
+        "environment" : "",
+        "object" : "monthdateslides",
+        "preview" : 0,
+        "totalObservations" : 409,
+        "variables" : 10
+    },
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

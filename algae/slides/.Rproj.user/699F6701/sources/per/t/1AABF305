@@ -1,0 +1,29 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1555512225434.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "1AABF305",
+    "lastKnownWriteTime" : 4294967296,
+    "last_content_update" : 1555512225434,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "4F6162B3",
+        "caption" : "slides_date",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=slides_date&cache_key=4F6162B3",
+        "displayedObservations" : 213,
+        "environment" : "",
+        "object" : "slides_date",
+        "preview" : 0,
+        "totalObservations" : 213,
+        "variables" : 9
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}
