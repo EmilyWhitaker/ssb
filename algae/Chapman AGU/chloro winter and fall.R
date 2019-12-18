@@ -32,6 +32,10 @@ meow
 
 ggsave(plot=meow,filename='fig2.png',height = 6, width =10, units = 'in')
 
+
+## run stats on this!!!
+
+
 #SAVE THIS EMILY
 
 
