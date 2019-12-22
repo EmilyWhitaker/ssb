@@ -77,6 +77,20 @@ NakedDinoatzero<- NakedDino %>%
   right_join(zeroschem02, by= c('sampledate'))
 write.csv(NakedDinoatzero, "NakedDinoatzero.csv")
 
+##Cryptomonas####
+Cryptomonas <- read_csv("biovolume1.csv", col_types = cols(sampledate = col_date(format = "%m/%d/%Y"))) %>%
+  filter(Genus == 'Cryptomonas')
+Cryptomonasatzero<- Cryptomonas %>%
+  right_join(zeroschem02, by= c('sampledate'))
+write.csv(Cryptomonasatzero, "Cryptomonasatzero.csv")
+
+###Armored Dinoflagellate###
+Adino <- read_csv("biovolume1.csv", col_types = cols(sampledate = col_date(format = "%m/%d/%Y"))) %>%
+  filter(Genus == 'Armored Dinoflagellate')
+Adinoatzero<- Adino %>%
+  right_join(zeroschem02, by= c('sampledate'))
+write.csv(Adinoatzero, "Adinoatzero.csv")
+
 #### this graphing scheme works####
 
 lzO<- ggplot(Limnothrixatzero2, aes(x= CellBioVol, y=o2))+geom_line()+
@@ -157,10 +171,31 @@ ndzph
 ggsave(plot=ndzph,filename='ndatzerph.png',height = 18, width =16, units = 'in')
 
 #### Cryptomonas ##
+cryzO<- ggplot(Cryptomonasatzero, aes(x= sampledate, y=CellBioVol))+geom_point() +
+  facet_wrap('group')+
+  labs(x = "Biovolume Cryptomonas",
+       y = "o2")+
+  theme_bw()
+cryzO
+ggsave(plot=cryzO,filename='Cryptomonasatzero2.png',height = 18, width =16, units = 'in')
+     ### strange results?##
+#####Armored Dinoflagellate###
+Adinoatzero
+adinozO<- ggplot(Adinoatzero, aes(x= CellBioVol, y=o2))+ geom_point() +
+  facet_wrap('group')+
+  labs(x = "Biovolume Adino",
+       y = "o2")+
+  theme_bw()
+adinozO
+ggsave(plot=adinozO,filename='Adinoatzeroo2.png',height = 18, width =16, units = 'in')
 
-
-
-
+adzph<- ggplot(Adinoatzero, aes(x= CellBioVol, y=ph))+geom_point()+
+  facet_wrap('group')+
+  labs(x = "Biovolume Armored dino",
+       y = "ph")+
+  theme_bw()
+adzph
+ggsave(plot=adzph,filename='Adinoatzerph.png',height = 18, width =16, units = 'in')
 
 
 
