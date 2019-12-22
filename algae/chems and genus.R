@@ -91,6 +91,15 @@ Adinoatzero<- Adino %>%
   right_join(zeroschem02, by= c('sampledate'))
 write.csv(Adinoatzero, "Adinoatzero.csv")
 
+
+### Dinobryon ##### 
+
+Dinobryon <- read_csv("biovolume1.csv", col_types = cols(sampledate = col_date(format = "%m/%d/%Y"))) %>%
+  filter(Genus == 'Dinobryon')
+Dinobryonatzero<- Dinobryon %>%
+  right_join(zeroschem02, by= c('sampledate'))
+write.csv(Dinobryonatzero, "Dinobryonatzero.csv")
+
 #### this graphing scheme works####
 
 lzO<- ggplot(Limnothrixatzero2, aes(x= CellBioVol, y=o2))+geom_line()+
@@ -196,6 +205,25 @@ adzph<- ggplot(Adinoatzero, aes(x= CellBioVol, y=ph))+geom_point()+
   theme_bw()
 adzph
 ggsave(plot=adzph,filename='Adinoatzerph.png',height = 18, width =16, units = 'in')
+
+#####Dinobryon###
+Dinobryonatzero
+
+dinoozO<- ggplot(Dinobryonatzero, aes(x= CellBioVol, y=o2))+ geom_point() +
+  facet_wrap('group')+
+  labs(x = "Biovolume Dinobryon",
+       y = "o2")+
+  theme_bw()
+dinoozO
+ggsave(plot=dinoozO,filename='Dinobryonatzeroo2.png',height = 18, width =16, units = 'in')
+
+dinoozph<- ggplot(Dinobryonatzero, aes(x= CellBioVol, y=ph))+ geom_point() +
+  facet_wrap('group')+
+  labs(x = "Biovolume Dinobryon",
+       y = "ph")+
+  theme_bw()
+dinoozph
+ggsave(plot=dinoozph,filename='Dinobryonatzeroph.png',height = 18, width =16, units = 'in')
 
 
 
