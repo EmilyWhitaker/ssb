@@ -55,10 +55,19 @@ write.csv(Microcystisatzero, "Microcystisatzero.csv")
 ##### Peanut#####
 Peanut <- read_csv("biovolume1.csv", col_types = cols(sampledate = col_date(format = "%m/%d/%Y"))) %>%
   filter(Genus == 'Peanut')
-Peanutatzero<- Microcystis %>%
+Peanutatzero1<- Peanut %>%
   right_join(zeroschem02, by= c('sampledate'))
-Peanutatzero2 <- read_csv('Peanutatzero2.csv',
+write.csv(Peanutatzero1, "Peanutatzero1.csv")
+Peanutatzero2 <- read_csv('Peanutatzero1.csv',
                                col_types = cols(sampledate = col_date(format = "%m/%d/%Y")))
+
+### Cyclotella###
+
+Cyclotella <- read_csv("biovolume1.csv", col_types = cols(sampledate = col_date(format = "%m/%d/%Y"))) %>%
+  filter(Genus == 'Cyclotella')
+Cyclotellaatzero<- Cyclotella %>%
+  right_join(zeroschem02, by= c('sampledate'))
+write.csv(Cyclotellaatzero, "Cyclotellaatzero.csv")
 
 
 
@@ -117,11 +126,10 @@ pzph<- ggplot(Peanutatzero2, aes(x= CellBioVol, y=ph))+geom_line()+
 pzph
 ggsave(plot=pzph,filename='Peanutatzerph.png',height = 18, width =16, units = 'in')
 
-
-
-
-
-
+####Cyclotella###
+cyzO<- ggplot(Cyclotellaatzero, aes(x= CellBioVol, y=o2))+geom_line()
+cyzO
+### observed 1/14/97 through observed 11/16/00
 
 
 
