@@ -35,6 +35,9 @@ totalchems2 = read_csv('o2chems2.csv',
 zeroschem02 <- mutate(totalchems2 %>%
                         filter(depth == '0'))
 
+### Limnothrix######
+Limnothrix <- read_csv("biovolume1.csv", col_types = cols(sampledate = col_date(format = "%m/%d/%Y"))) %>%
+  filter(Genus == 'Limnothrix')
 Limnothrixatzero<- Limnothrix %>%
   right_join(zeroschem02, by= c('sampledate'))
 write.csv(Limnothrixatzero, "Limnothrixatzero.csv")
@@ -42,7 +45,12 @@ write.csv(Limnothrixatzero, "Limnothrixatzero.csv")
 Limnothrixatzero2 <- read_csv('Limnothrixatzero2.csv',
                               col_types = cols(sampledate = col_date(format = "%m/%d/%Y")))
 
-
+#####Microcystis ####
+Microcystis <- read_csv("biovolume1.csv", col_types = cols(sampledate = col_date(format = "%m/%d/%Y"))) %>%
+  filter(Genus == 'Microcystis')
+Microcystisatzero<- Microcystis %>%
+  right_join(zeroschem02, by= c('sampledate'))
+write.csv(Microcystisatzero, "Microcystisatzero.csv")
 #### this graphing scheme works####
 
 lzO<- ggplot(Limnothrixatzero2, aes(x= CellBioVol, y=o2))+geom_line()+
@@ -60,7 +68,28 @@ lzph<- ggplot(Limnothrixatzero, aes(x= CellBioVol, y=ph))+geom_line()+
        y = "ph")+
   theme_bw()
 lzph  
-ggsave(plot=lzph,filename='LimnothrixatzeroO2.png',height = 18, width =16, units = 'in')
+ggsave(plot=lzph,filename='Limnothrixatzeroph.png',height = 18, width =16, units = 'in')
+
+#### Microcystis graphing###
+Microcystisatzero2 <- read_csv('Microcystisatzero2.csv',
+                              col_types = cols(sampledate = col_date(format = "%m/%d/%Y")))
+mzO<- ggplot(Microcystisatzero2, aes(x= CellBioVol, y=o2))+geom_line()+
+  facet_wrap('group')+
+  labs(x = "Biovolume Microcystis",
+       y = "o2")+
+  theme_bw()
+mzO
+ggsave(plot=mzO,filename='Microcystisatzero2.png',height = 18, width =16, units = 'in')
+
+mzph<- ggplot(Microcystisatzero2, aes(x= CellBioVol, y=ph))+geom_line()+
+  facet_wrap('group')+
+  labs(x = "Biovolume Microcystis",
+       y = "ph")+
+  theme_bw()
+mzph
+ggsave(plot=mzph,filename='Microcystisatzerph.png',height = 18, width =16, units = 'in')
+
+
 
 
 
