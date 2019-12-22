@@ -69,7 +69,13 @@ Cyclotellaatzero<- Cyclotella %>%
   right_join(zeroschem02, by= c('sampledate'))
 write.csv(Cyclotellaatzero, "Cyclotellaatzero.csv")
 
+#####Naked Dinoflagellate #####
 
+NakedDino <- read_csv("biovolume1.csv", col_types = cols(sampledate = col_date(format = "%m/%d/%Y"))) %>%
+  filter(Genus == 'Naked Dinoflagellate')
+NakedDinoatzero<- NakedDino %>%
+  right_join(zeroschem02, by= c('sampledate'))
+write.csv(NakedDinoatzero, "NakedDinoatzero.csv")
 
 #### this graphing scheme works####
 
@@ -130,6 +136,29 @@ ggsave(plot=pzph,filename='Peanutatzerph.png',height = 18, width =16, units = 'i
 cyzO<- ggplot(Cyclotellaatzero, aes(x= CellBioVol, y=o2))+geom_line()
 cyzO
 ### observed 1/14/97 through observed 11/16/00
+
+
+###NakedDino####
+ndzO<- ggplot(NakedDinoatzero, aes(x= CellBioVol, y=o2))+geom_line()+
+  facet_wrap('group')+
+  labs(x = "Biovolume naked dino",
+       y = "o2")+
+  theme_bw()
+ndzO
+ggsave(plot=ndzO,filename='ndatzero2.png',height = 18, width =16, units = 'in')
+
+
+ndzph<- ggplot(NakedDinoatzero, aes(x= CellBioVol, y=ph))+geom_line()+
+  facet_wrap('group')+
+  labs(x = "Biovolume naked dino",
+       y = "ph")+
+  theme_bw()
+ndzph
+ggsave(plot=ndzph,filename='ndatzerph.png',height = 18, width =16, units = 'in')
+
+#### Cryptomonas ##
+
+
 
 
 
