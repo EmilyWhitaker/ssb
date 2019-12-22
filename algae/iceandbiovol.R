@@ -6,6 +6,7 @@ library(lubridate)
 icey <- read_csv("iceduraation.csv") %>%
   filter(lakeid== 'SP')
 
+
 tooiceytooice <- read_csv("snowicedepth.csv") %>%
   filter(lakeid== 'SP')
 

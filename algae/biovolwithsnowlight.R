@@ -35,7 +35,7 @@ summary(fit2)
 
 
 #fit2 = lm(surflite ~ avsnow + whiteice + blueice, data = lte_lite)
-slbv <- ggplot(data = all, mapping = aes(x = surflite, y = CellBioVol))+geom_line()
+slbv <- ggplot(data = all, mapping = aes(x = surflite, y = CellBioVol))+geom_point()
 slbv
 
 snbv <- ggplot(data = all, mapping = aes(x = avsnow, y = CellBioVol))+geom_line()
