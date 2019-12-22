@@ -51,6 +51,17 @@ Microcystis <- read_csv("biovolume1.csv", col_types = cols(sampledate = col_date
 Microcystisatzero<- Microcystis %>%
   right_join(zeroschem02, by= c('sampledate'))
 write.csv(Microcystisatzero, "Microcystisatzero.csv")
+
+##### Peanut#####
+Peanut <- read_csv("biovolume1.csv", col_types = cols(sampledate = col_date(format = "%m/%d/%Y"))) %>%
+  filter(Genus == 'Peanut')
+Peanutatzero<- Microcystis %>%
+  right_join(zeroschem02, by= c('sampledate'))
+Peanutatzero2 <- read_csv('Peanutatzero2.csv',
+                               col_types = cols(sampledate = col_date(format = "%m/%d/%Y")))
+
+
+
 #### this graphing scheme works####
 
 lzO<- ggplot(Limnothrixatzero2, aes(x= CellBioVol, y=o2))+geom_line()+
@@ -88,6 +99,29 @@ mzph<- ggplot(Microcystisatzero2, aes(x= CellBioVol, y=ph))+geom_line()+
   theme_bw()
 mzph
 ggsave(plot=mzph,filename='Microcystisatzerph.png',height = 18, width =16, units = 'in')
+
+###Peanut###
+pzO<- ggplot(Peanutatzero2, aes(x= CellBioVol, y=o2))+geom_line()+
+  facet_wrap('group')+
+  labs(x = "Biovolume Peanut",
+       y = "o2")+
+  theme_bw()
+pzO
+ggsave(plot=pzO,filename='Peanutatzero2.png',height = 18, width =16, units = 'in')
+
+pzph<- ggplot(Peanutatzero2, aes(x= CellBioVol, y=ph))+geom_line()+
+  facet_wrap('group')+
+  labs(x = "Biovolume Peanut",
+       y = "ph")+
+  theme_bw()
+pzph
+ggsave(plot=pzph,filename='Peanutatzerph.png',height = 18, width =16, units = 'in')
+
+
+
+
+
+
 
 
 
