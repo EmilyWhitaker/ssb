@@ -13,8 +13,6 @@ chems = read_csv('cheminfo.csv') %>%
   filter(lakeid == 'SP') 
 
 
-
-
 o2profile<- read_csv("sparkling_icesnowo2par.csv", 
   col_types = cols(sampledate = col_date(format = "%m/%d/%Y")))%>% 
   select(sampledate, depth, o2) 
