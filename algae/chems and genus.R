@@ -12,6 +12,9 @@ icey <- read_csv("iceduraation.csv") %>%
 chems = read_csv('cheminfo.csv') %>%
   filter(lakeid == 'SP') 
 
+
+
+
 o2profile<- read_csv("sparkling_icesnowo2par.csv", 
   col_types = cols(sampledate = col_date(format = "%m/%d/%Y")))%>% 
   select(sampledate, depth, o2) 
@@ -103,12 +106,16 @@ write.csv(Dinobryonatzero, "Dinobryonatzero.csv")
 ### Cf. Komvophoron / Trichormus ####
 CfKT <- read_csv("biovolume1.csv", col_types = cols(sampledate = col_date(format = "%m/%d/%Y"))) %>%
   filter(Genus == 'Cf. Komvophoron / Trichormus')
-CfKTatzero<- Dinobryon %>%
+CfKTatzero<- CfKT %>%
   right_join(zeroschem02, by= c('sampledate'))
 write.csv(CfKTatzero, "CfKTatzero.csv")
 
-#### 
-
+#### Small cocconeis ####
+smco <- read_csv("biovolume1.csv", col_types = cols(sampledate = col_date(format = "%m/%d/%Y"))) %>%
+  filter(Genus == 'Small cocconeis')
+smcoatzero<- smco %>%
+  right_join(zeroschem02, by= c('sampledate'))
+write.csv(smcoatzero, "smcoatzero.csv")
 
 
 #### this graphing scheme works####
@@ -253,7 +260,24 @@ CfKTozph<- ggplot(CfKTatzero, aes(x= CellBioVol, y=ph))+ geom_point() +
 CfKTozph
 ggsave(plot=CfKTozph,filename='CfKTzeroph.png',height = 18, width =16, units = 'in')
 
-####
+####Small cocconeis ###
+smcoozO<- ggplot(smcoatzero, aes(x= CellBioVol, y=o2))+ geom_point() +
+  facet_wrap('group')+
+  labs(x = "Biovolume Small cocconeis",
+       y = "o2")+
+  theme_bw()
+smcoozO
+ggsave(plot=smcoozO,filename='smcoatzeroo2.png',height = 18, width =16, units = 'in')
+
+smcoozph<- ggplot(smcoatzero, aes(x= CellBioVol, y=ph))+ geom_point() +
+  facet_wrap('group')+
+  labs(x = "Biovolume Small cocconeis",
+       y = "ph")+
+  theme_bw()
+smcoozph
+ggsave(plot=smcoozph,filename='smcoatzeroph.png',height = 18, width =16, units = 'in')
+
+
 
 
 gplot(cleanPARbv, aes_(x=cleanPARbv$CellBioVol, y=cleanPARbv$extcoef))+ geom_line()+
