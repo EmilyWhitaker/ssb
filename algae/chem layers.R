@@ -25,7 +25,9 @@ layerso2chems <- read_csv("o2andchemlayered.csv",
                     col_types = cols(sampledate = col_date(format = "%m/%d/%Y")))
 View(layerso2chems)
 
+#### plot around the layers: col watercolreal, epi, meta, hypo" ###
 
+#o2 and co2 color ice color facet with fascet with watercol ##
 
 
 
