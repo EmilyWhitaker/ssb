@@ -100,6 +100,17 @@ Dinobryonatzero<- Dinobryon %>%
   right_join(zeroschem02, by= c('sampledate'))
 write.csv(Dinobryonatzero, "Dinobryonatzero.csv")
 
+### Cf. Komvophoron / Trichormus ####
+CfKT <- read_csv("biovolume1.csv", col_types = cols(sampledate = col_date(format = "%m/%d/%Y"))) %>%
+  filter(Genus == 'Cf. Komvophoron / Trichormus')
+CfKTatzero<- Dinobryon %>%
+  right_join(zeroschem02, by= c('sampledate'))
+write.csv(CfKTatzero, "CfKTatzero.csv")
+
+#### 
+
+
+
 #### this graphing scheme works####
 
 lzO<- ggplot(Limnothrixatzero2, aes(x= CellBioVol, y=o2))+geom_line()+
@@ -225,6 +236,24 @@ dinoozph<- ggplot(Dinobryonatzero, aes(x= CellBioVol, y=ph))+ geom_point() +
 dinoozph
 ggsave(plot=dinoozph,filename='Dinobryonatzeroph.png',height = 18, width =16, units = 'in')
 
+### Cf. Komvophoron / Trichormus ####
+CfKTozO<- ggplot(CfKTatzero, aes(x= CellBioVol, y=o2))+ geom_point() +
+  facet_wrap('group')+
+  labs(x = "Biovolume CfKT",
+       y = "o2")+
+  theme_bw()
+CfKTozO
+ggsave(plot=CfKTozO,filename='CfKTatzeroo2.png',height = 18, width =16, units = 'in')
+
+CfKTozph<- ggplot(CfKTatzero, aes(x= CellBioVol, y=ph))+ geom_point() +
+  facet_wrap('group')+
+  labs(x = "Biovolume CfKT",
+       y = "ph")+
+  theme_bw()
+CfKTozph
+ggsave(plot=CfKTozph,filename='CfKTzeroph.png',height = 18, width =16, units = 'in')
+
+####
 
 
 gplot(cleanPARbv, aes_(x=cleanPARbv$CellBioVol, y=cleanPARbv$extcoef))+ geom_line()+
