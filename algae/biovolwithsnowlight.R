@@ -41,3 +41,31 @@ slbv
 snbv <- ggplot(data = all, mapping = aes(x = avsnow, y = CellBioVol))+geom_line()
 snbv
 
+#adding in another column/ multiple columns 
+Limnothrixatzero2 <- read_csv('Limnothrixatzero2.csv',
+                              col_types = cols(sampledate = col_date(format = "%m/%d/%Y")))
+lte_lite <- read_csv('lte_lite.csv',
+                              col_types = cols(sampledate = col_date(format = "%m/%d/%Y")))
+
+Limnothrixlte_lite3 <- lte_lite %>%
+  right_join(Limnothrixatzero2, by= c('sampledate'))
+write.csv(Limnothrixlte_lite3, 'Limnothrixlte_lite3.csv')
+
+lll3light <- ggplot(Limnothrixlte_lite3, aes(x= CellBioVol, y=surflite))+geom_line()+
+  facet_wrap('group')+
+  labs(x = "Biovolume Limnothrix",
+       y = "surf light")+
+  theme_bw()
+lll3light
+
+
+
+
+Microcystisatzero2 <- read_csv('Microcystisatzero2.csv',
+                               col_types = cols(sampledate = col_date(format = "%m/%d/%Y")))
+mzO<- ggplot(Microcystisatzero2, aes(x= CellBioVol, y=o2))+geom_line()+
+  facet_wrap('group')+
+  labs(x = "Biovolume Microcystis",
+       y = "o2")+
+  theme_bw()
+mzO
