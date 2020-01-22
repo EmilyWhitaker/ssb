@@ -15,6 +15,10 @@ Limnothrixlte_lite3 <- lte_lite %>%
   right_join(Limnothrixatzero2, by= c('sampledate'))
 write.csv(Limnothrixlte_lite3, 'Limnothrixlte_lite3.csv')
 
+Limnothrixlte_lite3_chloro <-Limnothrixlte_lite3 %>%
+  right_join(bothchloro, by= c('sampledate'))
+write.csv(Limnothrixlte_lite3_chloro, 'Limnothrixlte_lite3_chloro.csv')
+
 lll3light <- ggplot(Limnothrixlte_lite3, aes(x= CellBioVol, y=surflite))+geom_line()+
   facet_wrap('group')+
   labs(x = "Biovolume Limnothrix",
@@ -47,4 +51,18 @@ lll3blueice <- ggplot(Limnothrixlte_lite3, aes(x= CellBioVol, y=blueice))+geom_l
   theme_bw()
 lll3blueice
 
+lll3surfchloro <-  ggplot(Limnothrixlte_lite3_chloro, aes(x= CellBioVol, y=surfchlor))+geom_point()+
+  facet_wrap('group')+
+  labs(x = "Biovolume Limnothrix",
+       y = "surface chloro")+
+  theme_bw()
+lll3surfchloro
+
+lll3chloro <-  ggplot(Limnothrixlte_lite3_chloro, aes(x= CellBioVol, y=chlor))+geom_point()+
+  facet_wrap('group')+
+  labs(x = "Biovolume Limnothrix",
+       y = "int chloro")+
+  theme_bw()
 lll3chloro
+
+
