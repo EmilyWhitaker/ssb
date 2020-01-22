@@ -90,6 +90,7 @@ pll3o2 <-  ggplot(Peanutlte_lite3_chloro, aes(x= CellBioVol, y=o2))+geom_point()
        y = "int o2")+
   theme_bw()
 pll3o2
+ggsave(plot=pll3o2,filename='Peanutinto2.png',height = 18, width =16, units = 'in')
 
 pll3o2sat <-  ggplot(Peanutlte_lite3_chloro, aes(x= CellBioVol, y=o2sat))+geom_point()+
   facet_wrap('group')+
@@ -97,6 +98,7 @@ pll3o2sat <-  ggplot(Peanutlte_lite3_chloro, aes(x= CellBioVol, y=o2sat))+geom_p
        y = "int o2 sat")+
   theme_bw()
 pll3o2sat
+ggsave(plot=pll3o2sat,filename='Peanutinto2sat.png',height = 18, width =16, units = 'in')
 
 pll3cond <-  ggplot(Peanutlte_lite3_chloro, aes(x= CellBioVol, y=cond))+geom_point()+
   facet_wrap('group')+
@@ -104,6 +106,7 @@ pll3cond <-  ggplot(Peanutlte_lite3_chloro, aes(x= CellBioVol, y=cond))+geom_poi
        y = "int cond")+
   theme_bw()
 pll3cond
+ggsave(plot=pll3cond,filename='Peanutintcond.png',height = 18, width =16, units = 'in')
 
 pll3doc.y <-  ggplot(Peanutlte_lite3_chloro, aes(x= CellBioVol, y=doc.y))+geom_point()+
   facet_wrap('group')+
@@ -111,6 +114,7 @@ pll3doc.y <-  ggplot(Peanutlte_lite3_chloro, aes(x= CellBioVol, y=doc.y))+geom_p
        y = "int doc")+
   theme_bw()
 pll3doc.y
+ggsave(plot=pll3doc.y,filename='Peanutintdoc.png',height = 18, width =16, units = 'in')
 
 pll3ph.y <-  ggplot(Peanutlte_lite3_chloro, aes(x= CellBioVol, y=ph.y))+geom_point()+
   facet_wrap('group')+
@@ -118,6 +122,7 @@ pll3ph.y <-  ggplot(Peanutlte_lite3_chloro, aes(x= CellBioVol, y=ph.y))+geom_poi
        y = "int ph")+
   theme_bw()
 pll3ph.y
+ggsave(plot=pll3ph.y,filename='Peanutintph.png',height = 18, width =16, units = 'in')
 
 
 
