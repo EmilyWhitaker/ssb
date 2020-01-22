@@ -92,6 +92,9 @@ pll3o2 <-  ggplot(Peanutlte_lite3_chloro, aes(x= CellBioVol, y=o2))+geom_point()
 pll3o2
 ggsave(plot=pll3o2,filename='Peanutinto2.png',height = 18, width =16, units = 'in')
 
+
+
+
 pll3o2sat <-  ggplot(Peanutlte_lite3_chloro, aes(x= CellBioVol, y=o2sat))+geom_point()+
   facet_wrap('group')+
   labs(x = "Biovolume Peanut",
@@ -125,4 +128,4 @@ pll3ph.y
 ggsave(plot=pll3ph.y,filename='Peanutintph.png',height = 18, width =16, units = 'in')
 
 
-
+#### tool to graph all te graphs next to eahother~~~~ and then want like types of graphs across 
