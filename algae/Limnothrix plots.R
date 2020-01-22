@@ -8,6 +8,9 @@ Limnothrixatzero2 <- read_csv('Limnothrixatzero2.csv',
 lte_lite <- read_csv('lte_lite.csv',
                      col_types = cols(sampledate = col_date(format = "%m/%d/%Y")))
 
+bothchloro<- read_csv('fullchloro.csv')
+
+
 Limnothrixlte_lite3 <- lte_lite %>%
   right_join(Limnothrixatzero2, by= c('sampledate'))
 write.csv(Limnothrixlte_lite3, 'Limnothrixlte_lite3.csv')

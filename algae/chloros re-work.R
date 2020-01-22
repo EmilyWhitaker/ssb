@@ -1,13 +1,28 @@
 library(tidyverse)
 library(lubridate)
 library(ggplot2)
-
-surface<- read_csv('chloros.csv') %>%
-  filter(depth == '0') 
+library(readr)
 
 
-integrated <- read_csv("Emilychlorophyll.csv") 
+chloro_all <- read_csv("chloro_all.csv", 
+                       col_types = cols(daynum = col_skip(), 
+                                        flagchlor = col_skip(), flagphaeo = col_skip(), 
+                                        phaeo = col_skip(), sampledate = col_date(format = "%Y-%m-%d"))) 
 
-bothchloro <- integrated %>%
-  right_join(surface, by= c('sampledate'))
-write.csv(bothchloro, 'fullchloro')
+chloro_all <- chloro_all %>%
+  filter(depth == '0') %>%
+  filter(lakeid== 'SP') %>%
+  rename(
+    surfchlor = chlor
+  )
+
+
+
+Emilychlorophyll <- read_csv("Emilychlorophyll.csv", 
+                             col_types = cols(sampledate = col_date(format = "%m/%d/%Y"), 
+                                              yearfrac = col_skip()))
+
+bothchloro <- Emilychlorophyll %>%
+  right_join(chloro_all, by= c('sampledate'))
+write.csv(bothchloro, 'fullchloro.csv')
+
