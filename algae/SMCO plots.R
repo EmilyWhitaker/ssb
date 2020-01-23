@@ -51,46 +51,46 @@ SMCOl3whiteice
 ggsave(plot=SMCOl3whiteice,filename='SMCOwhiteice.png',height = 18, width =16, units = 'in')
 
 
-CfKTl3blueice <- ggplot(CfKT_lte_lite3_chloro, aes(x= CellBioVol, y=blueice))+geom_point()+
-  labs(x = "Biovolume CfKT",
+SMCOl3blueice <- ggplot(SMCO_lte_lite3_chloro, aes(x= CellBioVol, y=blueice))+geom_point()+
+  labs(x = "Biovolume SMCO",
        y = "blue ice")+
   theme_bw()
-CfKTl3blueice
-ggsave(plot=CfKTl3blueice,filename='CfKTlueice.png',height = 18, width =16, units = 'in')
+SMCOl3blueice
+ggsave(plot=SMCOl3blueice,filename='SMCOblueice.png',height = 18, width =16, units = 'in')
 
-CfKTl3surfchloro <-  ggplot(CfKT_lte_lite3_chloro, aes(x= CellBioVol, y=surfchlor))+geom_point()+
+SMCOl3surfchloro <-  ggplot(SMCO_lte_lite3_chloro, aes(x= CellBioVol, y=surfchlor))+geom_point()+
   facet_wrap('group')+
-  labs(x = "Biovolume CfKT",
+  labs(x = "Biovolume SMCO",
        y = "surface chloro")+
   theme_bw()
-CfKTl3surfchloro
-ggsave(plot=CfKTl3surfchloro,filename='CfKTsurfchloro.png',height = 18, width =16, units = 'in')
+SMCOl3surfchloro
+ggsave(plot=SMCOl3surfchloro,filename='SMCOsurfchloro.png',height = 18, width =16, units = 'in')
 
-CfKTl3wtemp <-  ggplot(CfKT_lte_lite3_chloro, aes(x= CellBioVol, y=wtemp))+geom_point()+
+SMCOl3wtemp <-  ggplot(SMCO_lte_lite3_chloro, aes(x= CellBioVol, y=wtemp))+geom_point()+
   facet_wrap('group')+
-  labs(x = "Biovolume CfKT",
+  labs(x = "Biovolume SMCO",
        y = "int wtemp")+
   theme_bw()
-CfKTl3wtemp
-ggsave(plot=CfKTl3wtemp,filename='CfKTintwtemp.png',height = 18, width =16, units = 'in')
+SMCOl3wtemp
+ggsave(plot=SMCOl3wtemp,filename='SMCOintwtemp.png',height = 18, width =16, units = 'in')
 
 
-CfKTl3chloro <-  ggplot(CfKT_lte_lite3_chloro, aes(x= CellBioVol, y=chlor))+geom_point()+
+SMCOl3chloro <-  ggplot(SMCO_lte_lite3_chloro, aes(x= CellBioVol, y=chlor))+geom_point()+
   facet_wrap('group')+
-  labs(x = "Biovolume CfKT",
+  labs(x = "Biovolume SMCO",
        y = "int chloro")+
   theme_bw()
-CfKTl3chloro
-ggsave(plot=CfKTl3chloro,filename='CfKTintchloro.png',height = 18, width =16, units = 'in')
+SMCOl3chloro
+ggsave(plot=SMCOl3chloro,filename='SMCOintchloro.png',height = 18, width =16, units = 'in')
 
 
-CfKTl3o2 <-  ggplot(CfKT_lte_lite3_chloro, aes(x= CellBioVol, y=o2))+geom_point()+
+SMCOl3o2 <-  ggplot(SMCO_lte_lite3_chloro, aes(x= CellBioVol, y=o2))+geom_point()+
   facet_wrap('group')+
-  labs(x = "Biovolume CfKT",
+  labs(x = "Biovolume SMCO",
        y = "int o2")+
   theme_bw()
-CfKTl3o2
-ggsave(plot=CfKTl3o2,filename='CfKTinto2.png',height = 18, width =16, units = 'in')
+SMCOl3o2
+ggsave(plot=SMCOl3o2,filename='SMCOinto2.png',height = 18, width =16, units = 'in')
 
 CfKTl3o2sat <-  ggplot(CfKT_lte_lite3_chloro, aes(x= CellBioVol, y=o2sat))+geom_point()+
   facet_wrap('group')+
