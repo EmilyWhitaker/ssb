@@ -17,7 +17,7 @@ write.csv(Adino_lte_lite3, 'Adino_lte_lite3.csv')
 
 Adino_lite3_chloro <-Adino_lte_lite3 %>%
   right_join(bothchloro, by= c('sampledate'))
-write.csv(Adino_lte_lite3, 'Adino_lite3_chloro.csv')
+write.csv(Adino_lite3_chloro, 'Adino_lite3_chloro.csv')
 
 
 adl3light <- ggplot(Adino_lite3_chloro, aes(x= CellBioVol, y=surflite))+geom_line()+
