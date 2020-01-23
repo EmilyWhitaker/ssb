@@ -66,63 +66,63 @@ dbl3surfchloro <-  ggplot(Dinobryon_lte_lite3_chloro, aes(x= CellBioVol, y=surfc
 dbl3surfchloro
 ggsave(plot=dbl3surfchloro,filename='DBsurfchloro.png',height = 18, width =16, units = 'in')
 
-adl3wtemp <-  ggplot(Adino_lite3_chloro, aes(x= CellBioVol, y=wtemp))+geom_point()+
+dbl3wtemp <-  ggplot(Dinobryon_lte_lite3_chloro, aes(x= CellBioVol, y=wtemp))+geom_point()+
   facet_wrap('group')+
-  labs(x = "Biovolume AD",
+  labs(x = "Biovolume Dinobryon",
        y = "int wtemp")+
   theme_bw()
-adl3wtemp
-ggsave(plot=adl3wtemp,filename='adintwtemp.png',height = 18, width =16, units = 'in')
+dbl3wtemp
+ggsave(plot=dbl3wtemp,filename='DBintwtemp.png',height = 18, width =16, units = 'in')
 
 
-adl3chloro <-  ggplot(Adino_lite3_chloro, aes(x= CellBioVol, y=chlor))+geom_point()+
+dbl3chloro <-  ggplot(Dinobryon_lte_lite3_chloro, aes(x= CellBioVol, y=chlor))+geom_point()+
   facet_wrap('group')+
-  labs(x = "Biovolume AD",
+  labs(x = "Biovolume Dinobryon",
        y = "int chloro")+
   theme_bw()
-adl3chloro
-ggsave(plot=adl3chloro,filename='adintchloro.png',height = 18, width =16, units = 'in')
+dbl3chloro
+ggsave(plot=dbl3chloro,filename='DBintchloro.png',height = 18, width =16, units = 'in')
 
 
-adl3o2 <-  ggplot(Adino_lite3_chloro, aes(x= CellBioVol, y=o2))+geom_point()+
+dbl3o2 <-  ggplot(Dinobryon_lte_lite3_chloro, aes(x= CellBioVol, y=o2))+geom_point()+
   facet_wrap('group')+
-  labs(x = "Biovolume AD",
+  labs(x = "Biovolume Dinobryon",
        y = "int o2")+
   theme_bw()
-adl3o2
-ggsave(plot=adl3o2,filename='adinto2.png',height = 18, width =16, units = 'in')
+dbl3o2
+ggsave(plot=dbl3o2,filename='DBinto2.png',height = 18, width =16, units = 'in')
 
-adl3o2sat <-  ggplot(Adino_lite3_chloro, aes(x= CellBioVol, y=o2sat))+geom_point()+
+dbl3o2sat <-  ggplot(Dinobryon_lte_lite3_chloro, aes(x= CellBioVol, y=o2sat))+geom_point()+
   facet_wrap('group')+
-  labs(x = "Biovolume AD",
+  labs(x = "Biovolume Dinobryon",
        y = "int o2 sat")+
   theme_bw()
-adl3o2sat
-ggsave(plot=adl3o2sat,filename='ADinto2sat.png',height = 18, width =16, units = 'in')
+dbl3o2sat
+ggsave(plot=dbl3o2sat,filename='DBinto2sat.png',height = 18, width =16, units = 'in')
 
-adl3cond <-  ggplot(Adino_lite3_chloro, aes(x= CellBioVol, y=cond))+geom_point()+
+dbl3cond <-  ggplot(Dinobryon_lte_lite3_chloro, aes(x= CellBioVol, y=cond))+geom_point()+
   facet_wrap('group')+
-  labs(x = "Biovolume AD",
+  labs(x = "Biovolume Dinobryon",
        y = "int cond")+
   theme_bw()
-adl3cond
-ggsave(plot=adl3cond,filename='adintcond.png',height = 18, width =16, units = 'in')
+dbl3cond
+ggsave(plot=dbl3cond,filename='DBintcond.png',height = 18, width =16, units = 'in')
 
-adl3doc.y <-  ggplot(Adino_lite3_chloro, aes(x= CellBioVol, y=doc.y))+geom_point()+
+dbl3doc.y <-  ggplot(Dinobryon_lte_lite3_chloro, aes(x= CellBioVol, y=doc.y))+geom_point()+
   facet_wrap('group')+
-  labs(x = "Biovolume AD",
+  labs(x = "Biovolume Dinobryon",
        y = "int doc")+
   theme_bw()
-adl3doc.y
-ggsave(plot=adl3doc.y,filename='adintdoc.png',height = 18, width =16, units = 'in')
+dbl3doc.y
+ggsave(plot=dbl3doc.y,filename='DBintdoc.png',height = 18, width =16, units = 'in')
 
-adl3ph.y <-  ggplot(Adino_lite3_chloro, aes(x= CellBioVol, y=ph.y))+geom_point()+
+dbl3ph.y <-  ggplot(Dinobryon_lte_lite3_chloro, aes(x= CellBioVol, y=ph.y))+geom_point()+
   facet_wrap('group')+
-  labs(x = "Biovolume AD",
+  labs(x = "Biovolume Dinobryon",
        y = "int ph")+
   theme_bw()
-adl3ph.y
-ggsave(plot=adl3ph.y,filename='adintph.png',height = 18, width =16, units = 'in')
+dbl3ph.y
+ggsave(plot=dbl3ph.y,filename='DBintph.png',height = 18, width =16, units = 'in')
 
 
 #### tool to graph all te graphs next to eahother~~~~ and then want like types of graphs across 
