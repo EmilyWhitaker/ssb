@@ -43,28 +43,28 @@ dbl3tice <- ggplot(Dinobryon_lte_lite3_chloro, aes(x= CellBioVol, y=totice))+geo
 dbl3tice
 ggsave(plot=dbl3tice,filename='DBtotalice.png',height = 18, width =16, units = 'in')
 
-adl3whiteice <- ggplot(Adino_lite3_chloro, aes(x= CellBioVol, y=whiteice))+geom_point()+
-  labs(x = "Biovolume AD",
+dbl3whiteice <- ggplot(Dinobryon_lte_lite3_chloro, aes(x= CellBioVol, y=whiteice))+geom_point()+
+  labs(x = "Biovolume Dinobryon",
        y = "white ice")+
   theme_bw()
-adl3whiteice
-ggsave(plot=adl3whiteice,filename='adwhiteice.png',height = 18, width =16, units = 'in')
+dbl3whiteice
+ggsave(plot=dbl3whiteice,filename='DBwhiteice.png',height = 18, width =16, units = 'in')
 
 
-adl3blueice <- ggplot(Adino_lite3_chloro, aes(x= CellBioVol, y=blueice))+geom_point()+
-  labs(x = "Biovolume AD",
+dbl3blueice <- ggplot(Dinobryon_lte_lite3_chloro, aes(x= CellBioVol, y=blueice))+geom_point()+
+  labs(x = "Biovolume Dinobryon",
        y = "blue ice")+
   theme_bw()
-adl3blueice
-ggsave(plot=adl3blueice,filename='adblueice.png',height = 18, width =16, units = 'in')
+dbl3blueice
+ggsave(plot=dbl3blueice,filename='DBlueice.png',height = 18, width =16, units = 'in')
 
-adl3surfchloro <-  ggplot(Adino_lite3_chloro, aes(x= CellBioVol, y=surfchlor))+geom_point()+
+dbl3surfchloro <-  ggplot(Dinobryon_lte_lite3_chloro, aes(x= CellBioVol, y=surfchlor))+geom_point()+
   facet_wrap('group')+
-  labs(x = "Biovolume AD",
+  labs(x = "Biovolume Dinobryon",
        y = "surface chloro")+
   theme_bw()
-adl3surfchloro
-ggsave(plot=adl3surfchloro,filename='adsurfchloro.png',height = 18, width =16, units = 'in')
+dbl3surfchloro
+ggsave(plot=dbl3surfchloro,filename='DBsurfchloro.png',height = 18, width =16, units = 'in')
 
 adl3wtemp <-  ggplot(Adino_lite3_chloro, aes(x= CellBioVol, y=wtemp))+geom_point()+
   facet_wrap('group')+
