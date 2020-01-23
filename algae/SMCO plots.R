@@ -92,40 +92,39 @@ SMCOl3o2 <-  ggplot(SMCO_lte_lite3_chloro, aes(x= CellBioVol, y=o2))+geom_point(
 SMCOl3o2
 ggsave(plot=SMCOl3o2,filename='SMCOinto2.png',height = 18, width =16, units = 'in')
 
-CfKTl3o2sat <-  ggplot(CfKT_lte_lite3_chloro, aes(x= CellBioVol, y=o2sat))+geom_point()+
+SMCOl3o2sat <-  ggplot(SMCO_lte_lite3_chloro, aes(x= CellBioVol, y=o2sat))+geom_point()+
   facet_wrap('group')+
-  labs(x = "Biovolume CfKT",
+  labs(x = "Biovolume SMCO",
        y = "int o2 sat")+
   theme_bw()
-CfKTl3o2sat
-ggsave(plot=CfKTl3o2sat,filename='CfKTinto2sat.png',height = 18, width =16, units = 'in')
+SMCOl3o2sat
+ggsave(plot=SMCOl3o2sat,filename='SMCOinto2sat.png',height = 18, width =16, units = 'in')
 
-CfKTl3cond <-  ggplot(CfKT_lte_lite3_chloro, aes(x= CellBioVol, y=cond))+geom_point()+
+SMCOl3cond <-  ggplot(SMCO_lte_lite3_chloro, aes(x= CellBioVol, y=cond))+geom_point()+
   facet_wrap('group')+
-  labs(x = "Biovolume CfKT",
+  labs(x = "Biovolume SMCO",
        y = "int cond")+
   theme_bw()
-CfKTl3cond
-ggsave(plot=CfKTl3cond,filename='CfKTintcond.png',height = 18, width =16, units = 'in')
+SMCOl3cond
+ggsave(plot=SMCOl3cond,filename='SMCOintcond.png',height = 18, width =16, units = 'in')
 
-CfKTl3doc.y <-  ggplot(CfKT_lte_lite3_chloro, aes(x= CellBioVol, y=doc.y))+geom_point()+
+SMCOl3doc.y <-  ggplot(SMCO_lte_lite3_chloro, aes(x= CellBioVol, y=doc.y))+geom_point()+
   facet_wrap('group')+
-  labs(x = "Biovolume CfKT",
+  labs(x = "Biovolume SMCO",
        y = "int doc")+
   theme_bw()
-CfKTl3doc.y
-ggsave(plot=CfKTl3doc.y,filename='CfKTintdoc.png',height = 18, width =16, units = 'in')
+SMCOl3doc.y
+ggsave(plot=SMCOl3doc.y,filename='SMCOintdoc.png',height = 18, width =16, units = 'in')
 
-CfKTl3ph.y <-  ggplot(CfKT_lte_lite3_chloro, aes(x= CellBioVol, y=ph.y))+geom_point()+
+SMCOl3ph.y <-  ggplot(SMCO_lte_lite3_chloro, aes(x= CellBioVol, y=ph.y))+geom_point()+
   facet_wrap('group')+
-  labs(x = "Biovolume CfKT",
+  labs(x = "Biovolume SMCO",
        y = "int ph")+
   theme_bw()
-CfKTl3ph.y
-ggsave(plot=CfKTl3ph.y,filename='CfKTintph.png',height = 18, width =16, units = 'in')
+SMCOl3ph.y
+ggsave(plot=SMCOl3ph.y,filename='SMCOintph.png',height = 18, width =16, units = 'in')
 
 
 #### tool to graph all te graphs next to eahother~~~~ and then want like types of graphs across 
 
-
-
+bv
