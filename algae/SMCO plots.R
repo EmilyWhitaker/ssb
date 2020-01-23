@@ -124,7 +124,29 @@ SMCOl3ph.y <-  ggplot(SMCO_lte_lite3_chloro, aes(x= CellBioVol, y=ph.y))+geom_po
 SMCOl3ph.y
 ggsave(plot=SMCOl3ph.y,filename='SMCOintph.png',height = 18, width =16, units = 'in')
 
+SMCOl3chlorobio <-  ggplot(SMCO_lte_lite3_chloro, aes(x= CellBioVol, y=chlor))+geom_point()+
+  facet_wrap('group')+
+  labs(x = "Biovolume SMCO",
+       y = "int chlor")+
+  theme_bw()
+SMCOl3chlorobio
+ggsave(plot=SMCOl3chlorobio,filename='SMCOintchlorobio.png',height = 18, width =16, units = 'in')
+
+SMCOl3surfchlorobio <-  ggplot(SMCO_lte_lite3_chloro, aes(x= CellBioVol, y=surfchlor))+geom_point()+
+  facet_wrap('group')+
+  labs(x = "Biovolume SMCO",
+       y = "surf chlor")+
+  theme_bw()
+SMCOl3surfchlorobio
+ggsave(plot=SMCOl3surfchlorobio,filename='SMCOsurfchlorobio.png',height = 18, width =16, units = 'in')
 
 #### tool to graph all te graphs next to eahother~~~~ and then want like types of graphs across 
 
-bv
+
+fit = lm(CellBioVol ~ avsnow + whiteice +totice+ blueice + , data = SMCO_lte_lite3_chloro)
+
+summary(fit)
+
+fit2 = lm(surflite ~ avsnow + whiteice + blueice, data = lte_lite)
+
+summary(fit2)
