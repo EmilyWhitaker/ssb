@@ -143,10 +143,6 @@ ggsave(plot=SMCOl3surfchlorobio,filename='SMCOsurfchlorobio.png',height = 18, wi
 #### tool to graph all te graphs next to eahother~~~~ and then want like types of graphs across 
 
 
-fit = lm(CellBioVol ~ avsnow + whiteice +totice+ blueice + , data = SMCO_lte_lite3_chloro)
+cor.test(SMCO_lte_lite3_chloro$CellBioVol, SMCO_lte_lite3_chloro$surfchlor) #not
+cor.test(SMCO_lte_lite3_chloro$CellBioVol, SMCO_lte_lite3_chloro$surflite) #pvalue, .09481
 
-summary(fit)
-
-fit2 = lm(surflite ~ avsnow + whiteice + blueice, data = lte_lite)
-
-summary(fit2)
