@@ -143,12 +143,8 @@ ggsave(plot=SMCOl3surfchlorobio,filename='SMCOsurfchlorobio.png',height = 18, wi
 
 #### tool to graph all te graphs next to eahother~~~~ and then want like types of graphs across 
 
-grid.arrange(SMCOl3ph.y, SMCOl3doc.y, nrow = 1)
 
-gg.arrange(SMCOl3ph.y, SMCOl3doc.y, SMCOl3light + rremove("x.text"), 
-          labels = c("A", "B", "C"),
-          ncol = 2, nrow = 2)
-
+#### graphed by 
 library("cowplot")
 SMOC_all <- plot_grid( SMCOl3snow, SMCOl3tice, SMCOl3whiteice, SMCOl3blueice, SMCOl3ph.y, SMCOl3doc.y, SMCOl3light,SMCOl3surfchloro,
           SMCOl3chloro, SMCOl3wtemp, SMCOl3o2, SMCOl3o2sat,
@@ -156,6 +152,11 @@ SMOC_all <- plot_grid( SMCOl3snow, SMCOl3tice, SMCOl3whiteice, SMCOl3blueice, SM
           ncol = 4, nrow = 3)
 ggsave(plot=SMOC_all,filename='SMOC_all.png',height = 40, width =49, units = 'in')
 
+
+
+
+
+#### all genra by like type  ####
 Snow_All <-plot_grid(lll3snow, mll3snow, pll3snow, ndl3snow, adl3snow, dbl3snow, CfKTl3snow, SMCOl3snow,
                       labels = c("A", "B", "C", "D", "E", "F", "G", "H"),
                       ncol = 3, nrow = 3)
@@ -220,6 +221,25 @@ Total_o2_All <-plot_grid(lll3o2, mll3o2, pll3o2,ndl3o2, adl3o2, dbl3o2, CfKTl3o2
                          ncol = 3, nrow = 3)
 Total_o2_All
 ggsave(plot=Total_o2_All,filename='Total_o2_All.png',height = 40, width =49, units = 'in')  
+
+Total_cond_All <-plot_grid(lll3cond, mll3cond, pll3cond,ndl3cond, adl3cond, dbl3cond, CfKTl3cond, SMCOl3cond,
+                         labels = c("A", "B", "C", "D", "E", "F", "G", "H"),
+                         ncol = 3, nrow = 3)
+Total_cond_All
+ggsave(plot=Total_cond_All,filename='Total_cond_All.png',height = 40, width =49, units = 'in')  
+
+
+Total_doc.y_All <-plot_grid(lll3doc.y, mll3doc.y, pll3doc.y,ndl3doc.y, adl3doc.y, dbl3doc.y, CfKTl3doc.y, SMCOl3doc.y,
+                           labels = c("A", "B", "C", "D", "E", "F", "G", "H"),
+                           ncol = 3, nrow = 3)
+Total_doc.y_All
+ggsave(plot=Total_doc.y_All,filename='Total_doc_All.png',height = 40, width =49, units = 'in')  
+
+Total_ph.y_All <-plot_grid(lll3ph.y, mll3ph.y, pll3ph.y,ndl3ph.y, adl3ph.y, dbl3ph.y, CfKTl3ph.y, SMCOl3ph.y,
+                            labels = c("A", "B", "C", "D", "E", "F", "G", "H"),
+                            ncol = 3, nrow = 3)
+Total_ph.y_All
+ggsave(plot=Total_ph.y_All,filename='Total_ph_All.png',height = 40, width =49, units = 'in')  
 
 
 ### awk stats###

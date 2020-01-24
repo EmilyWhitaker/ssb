@@ -120,3 +120,14 @@ lll3ph.y <-  ggplot(Limnothrixlte_lite3_chloro, aes(x= CellBioVol, y=ph.y))+geom
   theme_bw()
 lll3ph.y
 ggsave(plot=lll3ph.y,filename='Limnothrixintph.png',height = 18, width =16, units = 'in')
+
+
+library("cowplot")
+lll3_all <- plot_grid( lll3snow, lll3tice, lll3whiteice, lll3blueice, lll3ph.y, lll3doc.y, lll3light,lll3surfchloro,
+                       lll3chloro, lll3wtemp, lll3o2,lll3o2sat,
+                       labels = c("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"),
+                       ncol = 4, nrow = 3)
+ggsave(plot=lll3_all,filename='lll3_all.png',height = 40, width =49, units = 'in')
+lll3_all
+
+
