@@ -150,11 +150,20 @@ gg.arrange(SMCOl3ph.y, SMCOl3doc.y, SMCOl3light + rremove("x.text"),
           ncol = 2, nrow = 2)
 
 library("cowplot")
-plot_grid(SMCOl3ph.y, SMCOl3doc.y, SMCOl3light, SMCOl3snow, SMCOl3tice, SMCOl3whiteice, SMCOl3blueice,SMCOl3surfchloro,
+SMOC_all <- plot_grid( SMCOl3snow, SMCOl3tice, SMCOl3whiteice, SMCOl3blueice, SMCOl3ph.y, SMCOl3doc.y, SMCOl3light,SMCOl3surfchloro,
           SMCOl3chloro, SMCOl3wtemp, SMCOl3o2, SMCOl3o2sat,
-          labels = c("A", "B", "C", "D", "E", "F"),
-          ncol = 2, nrow = 2)
+          labels = c("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"),
+          ncol = 4, nrow = 3)
+ggsave(plot=SMOC_all,filename='SMOC_all.png',height = 40, width =49, units = 'in')
 
+Snow_All <-plot_grid(lll3snow, mll3snow, pll3snow, ndl3snow, adl3snow, dbl3snow, CfKTl3snow, SMCOl3snow,
+                      labels = c("A", "B", "C", "D", "E", "F", "G", "H"),
+                      ncol = 3, nrow = 3)
+Snow_All
+ggsave(plot=Snow_All,filename='SSnow_All.png',height = 40, width =49, units = 'in')
+  
+
+  
 ### awk stats###
 cor.test(SMCO_lte_lite3_chloro$CellBioVol, SMCO_lte_lite3_chloro$surfchlor) #not
 cor.test(SMCO_lte_lite3_chloro$CellBioVol, SMCO_lte_lite3_chloro$surflite) #pvalue, .09481

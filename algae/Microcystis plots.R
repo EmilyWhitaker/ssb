@@ -26,11 +26,13 @@ mll3light <- ggplot(Microcystislte_lite3, aes(x= CellBioVol, y=surflite))+geom_l
   theme_bw()
 mll3light
 
-mll3snow <- ggplot(Microcystislte_lite3, aes(x= CellBioVol, y=avsnow))+geom_line()+
+mll3snow <- ggplot(Microcystislte_lite3, aes(x= CellBioVol, y=avsnow))+geom_point()+
   labs(x = "Biovolume Microcystis",
        y = "av snow")+
   theme_bw()
 mll3snow
+ggsave(plot=mll3snow,filename='mll3snow.png',height = 18, width =16, units = 'in')
+
 
 mll3tice <- ggplot(Microcystislte_lite3, aes(x= CellBioVol, y=totice))+geom_line()+
   labs(x = "Biovolume Microcystis",

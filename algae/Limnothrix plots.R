@@ -19,18 +19,21 @@ Limnothrixlte_lite3_chloro <-Limnothrixlte_lite3 %>%
   right_join(bothchloro, by= c('sampledate'))
 write.csv(Limnothrixlte_lite3_chloro, 'Limnothrixlte_lite3_chloro.csv')
 
-lll3light <- ggplot(Limnothrixlte_lite3, aes(x= CellBioVol, y=surflite))+geom_line()+
+lll3light <- ggplot(Limnothrixlte_lite3, aes(x= CellBioVol, y=surflite))+geom_point()+
   facet_wrap('group')+
   labs(x = "Biovolume Limnothrix",
        y = "surf light")+
   theme_bw()
 lll3light
+ggsave(plot=lll3light,filename='lll3light.png',height = 18, width =16, units = 'in')
 
-lll3snow <- ggplot(Limnothrixlte_lite3, aes(x= CellBioVol, y=avsnow))+geom_line()+
+lll3snow <- ggplot(Limnothrixlte_lite3, aes(x= CellBioVol, y=avsnow))+ geom_point()+
   labs(x = "Biovolume Limnothrix",
        y = "av snow")+
   theme_bw()
 lll3snow
+ggsave(plot=lll3snow,filename='lll3snow.png',height = 18, width =16, units = 'in')
+
 
 lll3tice <- ggplot(Limnothrixlte_lite3, aes(x= CellBioVol, y=totice))+geom_line()+
   labs(x = "Biovolume Limnothrix",
