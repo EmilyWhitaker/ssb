@@ -81,3 +81,43 @@ mll3wtemp <-  ggplot(Microcystislte_lite3_chloro, aes(x= CellBioVol, y=wtemp))+g
   theme_bw()
 mll3wtemp
 ggsave(plot=mll3wtemp,filename='Microcystisintwtemp.png',height = 18, width =16, units = 'in')
+
+mll3o2 <-  ggplot(Microcystislte_lite3_chloro, aes(x= CellBioVol, y=o2))+geom_point()+
+  facet_wrap('group')+
+  labs(x = "Biovolume Microcystis",
+       y = "int o2")+
+  theme_bw()
+mll3o2
+ggsave(plot=mll3o2,filename='Microcystiso2.png',height = 18, width =16, units = 'in')
+
+mll3o2sat <-  ggplot(Microcystislte_lite3_chloro, aes(x= CellBioVol, y=o2sat))+geom_point()+
+  facet_wrap('group')+
+  labs(x = "Biovolume Microcystis",
+       y = "int o2 sat")+
+  theme_bw()
+mll3o2sat
+ggsave(plot=mll3o2sat,filename='Microcystisinto2sat.png',height = 18, width =16, units = 'in')
+
+mll3cond <-  ggplot(Microcystislte_lite3_chloro, aes(x= CellBioVol, y=cond))+geom_point()+
+  facet_wrap('group')+
+  labs(x = "Biovolume Microcystis",
+       y = "int cond")+
+  theme_bw()
+mll3cond
+ggsave(plot= mll3cond,filename='Microcystisintcond.png',height = 18, width =16, units = 'in')
+
+mll3doc.y <-  ggplot(Microcystislte_lite3_chloro, aes(x= CellBioVol, y=doc.y))+geom_point()+
+  facet_wrap('group')+
+  labs(x = "Biovolume Microcystis",
+       y = "int doc")+
+  theme_bw()
+mll3doc.y
+ggsave(plot=mll3doc.y,filename='Microcystisintdoc.png',height = 18, width =16, units = 'in')
+
+mll3ph.y <-  ggplot(Microcystislte_lite3_chloro, aes(x= CellBioVol, y=ph.y))+geom_point()+
+  facet_wrap('group')+
+  labs(x = "Biovolume Microcystis",
+       y = "int ph")+
+  theme_bw()
+mll3ph.y
+ggsave(plot=mll3ph.y,filename='Microcystisintph.png',height = 18, width =16, units = 'in')
