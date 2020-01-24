@@ -1,6 +1,7 @@
 library(tidyverse)
 library(lubridate)
 library(ggplot2)
+library(cowplot)
 
 #method to color max point through out? or date?
 
@@ -142,7 +143,19 @@ ggsave(plot=SMCOl3surfchlorobio,filename='SMCOsurfchlorobio.png',height = 18, wi
 
 #### tool to graph all te graphs next to eahother~~~~ and then want like types of graphs across 
 
+grid.arrange(SMCOl3ph.y, SMCOl3doc.y, nrow = 1)
 
+gg.arrange(SMCOl3ph.y, SMCOl3doc.y, SMCOl3light + rremove("x.text"), 
+          labels = c("A", "B", "C"),
+          ncol = 2, nrow = 2)
+
+library("cowplot")
+plot_grid(SMCOl3ph.y, SMCOl3doc.y, SMCOl3light, SMCOl3snow, SMCOl3tice, SMCOl3whiteice, SMCOl3blueice,SMCOl3surfchloro,
+          SMCOl3chloro, SMCOl3wtemp, SMCOl3o2, SMCOl3o2sat,
+          labels = c("A", "B", "C", "D", "E", "F"),
+          ncol = 2, nrow = 2)
+
+### awk stats###
 cor.test(SMCO_lte_lite3_chloro$CellBioVol, SMCO_lte_lite3_chloro$surfchlor) #not
 cor.test(SMCO_lte_lite3_chloro$CellBioVol, SMCO_lte_lite3_chloro$surflite) #pvalue, .09481
 
