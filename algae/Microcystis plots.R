@@ -19,7 +19,7 @@ Microcystislte_lite3_chloro <-Microcystislte_lite3 %>%
   right_join(bothchloro, by= c('sampledate'))
 write.csv(Microcystislte_lite3_chloro, 'Microcystislte_lite3_chloro.csv')
 
-mll3light <- ggplot(Microcystislte_lite3, aes(x= CellBioVol, y=surflite))+geom_line()+
+mll3light <- ggplot(Microcystislte_lite3, aes(x= CellBioVol, y=surflite))+geom_point()+
   facet_wrap('group')+
   labs(x = "Biovolume Microcystis",
        y = "surf light")+

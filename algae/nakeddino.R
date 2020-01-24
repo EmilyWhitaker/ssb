@@ -21,7 +21,7 @@ write.csv(NDlte_lite3_chloro, 'NDlte_lite3_chloro.csv')
 
 
 
-ndl3light <- ggplot(NDlte_lite3_chloro, aes(x= CellBioVol, y=surflite))+geom_line()+
+ndl3light <- ggplot(NDlte_lite3_chloro, aes(x= CellBioVol, y=surflite))+geom_point()+
   facet_wrap('group')+
   labs(x = "Biovolume ND",
        y = "surf light")+

@@ -20,7 +20,7 @@ Peanutlte_lite3_chloro <-Peanutlte_lite3 %>%
   right_join(bothchloro, by= c('sampledate'))
 write.csv(Peanutlte_lite3_chloro, 'Peanutlte_lite3_chloro.csv')
 
-pll3light <- ggplot(Peanutlte_lite3_chloro, aes(x= CellBioVol, y=surflite))+geom_line()+
+pll3light <- ggplot(Peanutlte_lite3_chloro, aes(x= CellBioVol, y=surflite))+geom_point()+
   facet_wrap('group')+
   labs(x = "Biovolume Peanut",
        y = "surf light")+

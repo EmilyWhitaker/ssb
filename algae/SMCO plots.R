@@ -162,6 +162,11 @@ Snow_All <-plot_grid(lll3snow, mll3snow, pll3snow, ndl3snow, adl3snow, dbl3snow,
 Snow_All
 ggsave(plot=Snow_All,filename='SSnow_All.png',height = 40, width =49, units = 'in')
   
+Light_All <-plot_grid(lll3light, mll3light, pll3light, ndl3light, adl3light, dbl3light, CfKTl3light, SMCOl3light,
+                     labels = c("A", "B", "C", "D", "E", "F", "G", "H"),
+                     ncol = 3, nrow = 3)
+Light_All
+ggsave(plot=Light_All,filename='Light_All.png',height = 40, width =49, units = 'in')
 
   
 ### awk stats###
