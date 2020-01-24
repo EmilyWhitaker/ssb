@@ -188,7 +188,11 @@ Total_BlueIce_All
 ggsave(plot=Total_BlueIce_All,filename='Total_BlueIce_All.png',height = 40, width =49, units = 'in')  
 
 
-
+Total_SurfChloro_All <-plot_grid(lll3surfchloro, mll3surfchloro, pll3surfchloro, ndl3surfchloro, adl3surfchloro, dbl3surfchloro, CfKTl3surfchloro, SMCOl3surfchloro,
+                              labels = c("A", "B", "C", "D", "E", "F", "G", "H"),
+                              ncol = 3, nrow = 3)
+Total_SurfChloro_All
+ggsave(plot=Total_SurfChloro_All,filename='Total_SurfChloro_All.png',height = 40, width =49, units = 'in')  
 
 
 

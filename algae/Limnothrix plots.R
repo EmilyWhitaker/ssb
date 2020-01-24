@@ -50,11 +50,12 @@ lll3whiteice
 ggsave(plot=lll3whiteice,filename='lll3whiteice.png',height = 18, width =16, units = 'in')
 
 
-lll3blueice <- ggplot(Limnothrixlte_lite3, aes(x= CellBioVol, y=blueice))+geom_line()+
+lll3blueice <- ggplot(Limnothrixlte_lite3, aes(x= CellBioVol, y=blueice))+geom_point()+
   labs(x = "Biovolume Limnothrix",
        y = "blue ice")+
   theme_bw()
 lll3blueice
+ggsave(plot=lll3blueice,filename='lll3blueice.png',height = 18, width =16, units = 'in')
 
 lll3surfchloro <-  ggplot(Limnothrixlte_lite3_chloro, aes(x= CellBioVol, y=surfchlor))+geom_point()+
   facet_wrap('group')+
@@ -62,6 +63,7 @@ lll3surfchloro <-  ggplot(Limnothrixlte_lite3_chloro, aes(x= CellBioVol, y=surfc
        y = "surface chloro")+
   theme_bw()
 lll3surfchloro
+ggsave(plot=lll3surfchloro,filename='lll3surfchloro.png',height = 18, width =16, units = 'in')
 
 lll3chloro <-  ggplot(Limnothrixlte_lite3_chloro, aes(x= CellBioVol, y=chlor))+geom_point()+
   facet_wrap('group')+
@@ -69,5 +71,6 @@ lll3chloro <-  ggplot(Limnothrixlte_lite3_chloro, aes(x= CellBioVol, y=chlor))+g
        y = "int chloro")+
   theme_bw()
 lll3chloro
+ggsave(plot=lll3chloro,filename='lll3chloro.png',height = 18, width =16, units = 'in')
 
 

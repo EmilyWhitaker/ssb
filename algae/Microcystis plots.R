@@ -63,6 +63,8 @@ mll3surfchloro <-  ggplot(Microcystislte_lite3_chloro, aes(x= CellBioVol, y=surf
        y = "surface chloro")+
   theme_bw()
 mll3surfchloro
+ggsave(plot=mll3surfchloro,filename='mll3surfchloro.png',height = 18, width =16, units = 'in')
+
 
 mll3chloro <-  ggplot(Microcystislte_lite3_chloro, aes(x= CellBioVol, y=chlor))+geom_point()+
   facet_wrap('group')+
