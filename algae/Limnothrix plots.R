@@ -81,4 +81,42 @@ lll3wtemp <-  ggplot(Limnothrixlte_lite3_chloro, aes(x= CellBioVol, y=wtemp))+ge
 lll3wtemp
 ggsave(plot=lll3wtemp,filename='Limnothrixintwtemp.png',height = 18, width =16, units = 'in')
 
+lll3o2 <-  ggplot(Limnothrixlte_lite3_chloro, aes(x= CellBioVol, y=o2))+geom_point()+
+  facet_wrap('group')+
+  labs(x = "Biovolume Limnothrix",
+       y = "int o2")+
+  theme_bw()
+lll3o2
+ggsave(plot=lll3o2,filename='Limnothrixso2.png',height = 18, width =16, units = 'in')
 
+lll3o2sat <-  ggplot(Limnothrixlte_lite3_chloro, aes(x= CellBioVol, y=o2sat))+geom_point()+
+  facet_wrap('group')+
+  labs(x = "Biovolume Limnothrix",
+       y = "int o2 sat")+
+  theme_bw()
+lll3o2sat
+ggsave(plot=lll3o2sat,filename='Limnothrixinto2sat.png',height = 18, width =16, units = 'in')
+
+lll3cond <-  ggplot(Limnothrixlte_lite3_chloro, aes(x= CellBioVol, y=cond))+geom_point()+
+  facet_wrap('group')+
+  labs(x = "Biovolume Limnothrix",
+       y = "int cond")+
+  theme_bw()
+lll3cond
+ggsave(plot= lll3cond,filename='Limnothrixintcond.png',height = 18, width =16, units = 'in')
+
+lll3doc.y <-  ggplot(Limnothrixlte_lite3_chloro, aes(x= CellBioVol, y=doc.y))+geom_point()+
+  facet_wrap('group')+
+  labs(x = "Biovolume Limnothrix",
+       y = "int doc")+
+  theme_bw()
+lll3doc.y
+ggsave(plot=lll3doc.y,filename='Limnothrixintdoc.png',height = 18, width =16, units = 'in')
+
+lll3ph.y <-  ggplot(Limnothrixlte_lite3_chloro, aes(x= CellBioVol, y=ph.y))+geom_point()+
+  facet_wrap('group')+
+  labs(x = "Biovolume Limnothrix",
+       y = "int ph")+
+  theme_bw()
+lll3ph.y
+ggsave(plot=lll3ph.y,filename='Limnothrixintph.png',height = 18, width =16, units = 'in')

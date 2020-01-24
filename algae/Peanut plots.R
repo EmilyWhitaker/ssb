@@ -92,9 +92,6 @@ pll3o2 <-  ggplot(Peanutlte_lite3_chloro, aes(x= CellBioVol, y=o2))+geom_point()
 pll3o2
 ggsave(plot=pll3o2,filename='Peanutinto2.png',height = 18, width =16, units = 'in')
 
-
-
-
 pll3o2sat <-  ggplot(Peanutlte_lite3_chloro, aes(x= CellBioVol, y=o2sat))+geom_point()+
   facet_wrap('group')+
   labs(x = "Biovolume Peanut",
