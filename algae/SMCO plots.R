@@ -201,6 +201,11 @@ Total_IntChloro_All
 ggsave(plot=Total_IntChloro_All,filename='Total_IntChloro_All.png',height = 40, width =49, units = 'in')  
 
 
+Total_WaterTemp_All <-plot_grid(lll3wtemp, mll3wtemp, pll3wtemp,ndl3wtemp, adl3wtemp, dbl3wtemp, CfKTl3wtemp, SMCOl3wtemp,
+                                labels = c("A", "B", "C", "D", "E", "F", "G", "H"),
+                                ncol = 3, nrow = 3)
+Total_WaterTemp_All
+ggsave(plot=Total_WaterTemp_All,filename='Total_WaterTemp_All.png',height = 40, width =49, units = 'in')  
 
 ### awk stats###
 cor.test(SMCO_lte_lite3_chloro$CellBioVol, SMCO_lte_lite3_chloro$surfchlor) #not
