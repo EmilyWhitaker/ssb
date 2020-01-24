@@ -207,6 +207,21 @@ Total_WaterTemp_All <-plot_grid(lll3wtemp, mll3wtemp, pll3wtemp,ndl3wtemp, adl3w
 Total_WaterTemp_All
 ggsave(plot=Total_WaterTemp_All,filename='Total_WaterTemp_All.png',height = 40, width =49, units = 'in')  
 
+
+Total_o2sat_All <-plot_grid(lll3o2sat, mll3o2sat, pll3o2sat,ndl3o2sat, adl3o2sat, dbl3o2sat, CfKTl3o2sat, SMCOl3o2sat,
+                                labels = c("A", "B", "C", "D", "E", "F", "G", "H"),
+                                ncol = 3, nrow = 3)
+Total_o2sat_All
+ggsave(plot=Total_o2sat_All,filename='Total_o2sat_All.png',height = 40, width =49, units = 'in')  
+
+
+Total_o2_All <-plot_grid(lll3o2, mll3o2, pll3o2,ndl3o2, adl3o2, dbl3o2, CfKTl3o2, SMCOl3o2,
+                         labels = c("A", "B", "C", "D", "E", "F", "G", "H"),
+                         ncol = 3, nrow = 3)
+Total_o2_All
+ggsave(plot=Total_o2_All,filename='Total_o2_All.png',height = 40, width =49, units = 'in')  
+
+
 ### awk stats###
 cor.test(SMCO_lte_lite3_chloro$CellBioVol, SMCO_lte_lite3_chloro$surfchlor) #not
 cor.test(SMCO_lte_lite3_chloro$CellBioVol, SMCO_lte_lite3_chloro$surflite) #pvalue, .09481
