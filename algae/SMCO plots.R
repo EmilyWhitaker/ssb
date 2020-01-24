@@ -174,7 +174,24 @@ Total_Ice_All <-plot_grid(lll3tice, mll3tice, pll3tice, ndl3tice, adl3tice, dbl3
 Total_Ice_All
 ggsave(plot=Total_Ice_All,filename='Total_Ice_All.png',height = 40, width =49, units = 'in')
 
-  
+
+Total_WhiteIce_All <-plot_grid(lll3whiteice, mll3whiteice, pll3whiteice, ndl3whiteice, adl3whiteice, dbl3whiteice, CfKTl3whiteice, SMCOl3whiteice,
+                          labels = c("A", "B", "C", "D", "E", "F", "G", "H"),
+                          ncol = 3, nrow = 3)
+Total_WhiteIce_All
+ggsave(plot=Total_WhiteIce_All,filename='Total_WhiteIce_All.png',height = 40, width =49, units = 'in')
+
+Total_BlueIce_All <-plot_grid(lll3blueice, mll3blueice, pll3blueice, ndl3blueice, adl3blueice, dbl3blueice, CfKTl3blueice, SMCOl3blueice,
+                               labels = c("A", "B", "C", "D", "E", "F", "G", "H"),
+                               ncol = 3, nrow = 3)
+Total_BlueIce_All
+ggsave(plot=Total_BlueIce_All,filename='Total_BlueIce_All.png',height = 40, width =49, units = 'in')  
+
+
+
+
+
+
 ### awk stats###
 cor.test(SMCO_lte_lite3_chloro$CellBioVol, SMCO_lte_lite3_chloro$surfchlor) #not
 cor.test(SMCO_lte_lite3_chloro$CellBioVol, SMCO_lte_lite3_chloro$surflite) #pvalue, .09481

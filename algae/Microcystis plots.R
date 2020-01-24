@@ -42,18 +42,20 @@ mll3tice <- ggplot(Microcystislte_lite3, aes(x= CellBioVol, y=totice))+geom_poin
 mll3tice
 ggsave(plot=mll3tice,filename='mll3tice.png',height = 18, width =16, units = 'in')
 
-mll3whiteice <- ggplot(Microcystislte_lite3, aes(x= CellBioVol, y=whiteice))+geom_line()+
+mll3whiteice <- ggplot(Microcystislte_lite3, aes(x= CellBioVol, y=whiteice))+geom_point()+
   labs(x = "Biovolume Microcystis",
        y = "white ice")+
   theme_bw()
 mll3whiteice
+ggsave(plot=mll3whiteice,filename='mll3whiteice.png',height = 18, width =16, units = 'in')
 
 
-mll3blueice <- ggplot(Microcystislte_lite3, aes(x= CellBioVol, y=blueice))+geom_line()+
+mll3blueice <- ggplot(Microcystislte_lite3, aes(x= CellBioVol, y=blueice))+geom_point()+
   labs(x = "Biovolume Microcystis",
        y = "blue ice")+
   theme_bw()
 mll3blueice
+ggsave(plot=mll3blueice,filename='mll3blueice.png',height = 18, width =16, units = 'in')
 
 mll3surfchloro <-  ggplot(Microcystislte_lite3_chloro, aes(x= CellBioVol, y=surfchlor))+geom_point()+
   facet_wrap('group')+

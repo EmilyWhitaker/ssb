@@ -42,11 +42,12 @@ lll3tice <- ggplot(Limnothrixlte_lite3, aes(x= CellBioVol, y=totice))+geom_point
 lll3tice
 ggsave(plot=lll3tice,filename='lll3tice.png',height = 18, width =16, units = 'in')
 
-lll3whiteice <- ggplot(Limnothrixlte_lite3, aes(x= CellBioVol, y=whiteice))+geom_line()+
+lll3whiteice <- ggplot(Limnothrixlte_lite3, aes(x= CellBioVol, y=whiteice))+geom_point()+
   labs(x = "Biovolume Limnothrix",
        y = "white ice")+
   theme_bw()
 lll3whiteice
+ggsave(plot=lll3whiteice,filename='lll3whiteice.png',height = 18, width =16, units = 'in')
 
 
 lll3blueice <- ggplot(Limnothrixlte_lite3, aes(x= CellBioVol, y=blueice))+geom_line()+
