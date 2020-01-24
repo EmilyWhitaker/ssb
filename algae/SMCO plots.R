@@ -168,6 +168,12 @@ Light_All <-plot_grid(lll3light, mll3light, pll3light, ndl3light, adl3light, dbl
 Light_All
 ggsave(plot=Light_All,filename='Light_All.png',height = 40, width =49, units = 'in')
 
+Total_Ice_All <-plot_grid(lll3tice, mll3tice, pll3tice, ndl3tice, adl3tice, dbl3tice, CfKTl3tice, SMCOl3tice,
+                      labels = c("A", "B", "C", "D", "E", "F", "G", "H"),
+                      ncol = 3, nrow = 3)
+Total_Ice_All
+ggsave(plot=Total_Ice_All,filename='Total_Ice_All.png',height = 40, width =49, units = 'in')
+
   
 ### awk stats###
 cor.test(SMCO_lte_lite3_chloro$CellBioVol, SMCO_lte_lite3_chloro$surfchlor) #not

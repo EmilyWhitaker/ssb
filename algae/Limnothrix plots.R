@@ -35,11 +35,12 @@ lll3snow
 ggsave(plot=lll3snow,filename='lll3snow.png',height = 18, width =16, units = 'in')
 
 
-lll3tice <- ggplot(Limnothrixlte_lite3, aes(x= CellBioVol, y=totice))+geom_line()+
+lll3tice <- ggplot(Limnothrixlte_lite3, aes(x= CellBioVol, y=totice))+geom_point()+
   labs(x = "Biovolume Limnothrix",
        y = "total ice")+
   theme_bw()
 lll3tice
+ggsave(plot=lll3tice,filename='lll3tice.png',height = 18, width =16, units = 'in')
 
 lll3whiteice <- ggplot(Limnothrixlte_lite3, aes(x= CellBioVol, y=whiteice))+geom_line()+
   labs(x = "Biovolume Limnothrix",

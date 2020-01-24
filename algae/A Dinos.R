@@ -20,7 +20,7 @@ Adino_lite3_chloro <-Adino_lte_lite3 %>%
 write.csv(Adino_lite3_chloro, 'Adino_lite3_chloro.csv')
 
 
-adl3light <- ggplot(Adino_lite3_chloro, aes(x= CellBioVol, y=surflite))+geom_line()+
+adl3light <- ggplot(Adino_lite3_chloro, aes(x= CellBioVol, y=surflite))+geom_point()+
   facet_wrap('group')+
   labs(x = "Biovolume AD",
        y = "surf light")+

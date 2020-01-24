@@ -25,6 +25,7 @@ mll3light <- ggplot(Microcystislte_lite3, aes(x= CellBioVol, y=surflite))+geom_p
        y = "surf light")+
   theme_bw()
 mll3light
+ggsave(plot=mll3light,filename='mll3light.png',height = 18, width =16, units = 'in')
 
 mll3snow <- ggplot(Microcystislte_lite3, aes(x= CellBioVol, y=avsnow))+geom_point()+
   labs(x = "Biovolume Microcystis",
@@ -34,11 +35,12 @@ mll3snow
 ggsave(plot=mll3snow,filename='mll3snow.png',height = 18, width =16, units = 'in')
 
 
-mll3tice <- ggplot(Microcystislte_lite3, aes(x= CellBioVol, y=totice))+geom_line()+
+mll3tice <- ggplot(Microcystislte_lite3, aes(x= CellBioVol, y=totice))+geom_point()+
   labs(x = "Biovolume Microcystis",
        y = "total ice")+
   theme_bw()
 mll3tice
+ggsave(plot=mll3tice,filename='mll3tice.png',height = 18, width =16, units = 'in')
 
 mll3whiteice <- ggplot(Microcystislte_lite3, aes(x= CellBioVol, y=whiteice))+geom_line()+
   labs(x = "Biovolume Microcystis",
