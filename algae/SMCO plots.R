@@ -194,6 +194,12 @@ Total_SurfChloro_All <-plot_grid(lll3surfchloro, mll3surfchloro, pll3surfchloro,
 Total_SurfChloro_All
 ggsave(plot=Total_SurfChloro_All,filename='Total_SurfChloro_All.png',height = 40, width =49, units = 'in')  
 
+Total_IntChloro_All <-plot_grid(lll3chloro, mll3chloro, pll3chloro,ndl3chloro, adl3chloro, dbl3chloro, CfKTl3chloro, SMCOl3chloro,
+                                 labels = c("A", "B", "C", "D", "E", "F", "G", "H"),
+                                 ncol = 3, nrow = 3)
+Total_IntChloro_All
+ggsave(plot=Total_IntChloro_All,filename='Total_IntChloro_All.png',height = 40, width =49, units = 'in')  
+
 
 
 ### awk stats###

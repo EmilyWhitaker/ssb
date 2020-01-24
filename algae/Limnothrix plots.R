@@ -73,4 +73,11 @@ lll3chloro <-  ggplot(Limnothrixlte_lite3_chloro, aes(x= CellBioVol, y=chlor))+g
 lll3chloro
 ggsave(plot=lll3chloro,filename='lll3chloro.png',height = 18, width =16, units = 'in')
 
+lll3wtemp <-  ggplot(Limnothrixlte_lite3_chloro, aes(x= CellBioVol, y=wtemp))+geom_point()+
+  facet_wrap('group')+
+  labs(x = "Biovolume Limnothrix",
+       y = "int wtemp")+
+  theme_bw()
+lll3wtemp
+ggsave(plot=lll3wtemp,filename='Limnothrixintwtemp.png',height = 18, width =16, units = 'in')
 

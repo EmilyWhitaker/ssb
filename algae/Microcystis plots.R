@@ -72,5 +72,12 @@ mll3chloro <-  ggplot(Microcystislte_lite3_chloro, aes(x= CellBioVol, y=chlor))+
        y = "int chloro")+
   theme_bw()
 mll3chloro
+ggsave(plot=mll3chloro,filename='mll3chloro.png',height = 18, width =16, units = 'in')
 
-
+mll3wtemp <-  ggplot(Microcystislte_lite3_chloro, aes(x= CellBioVol, y=wtemp))+geom_point()+
+  facet_wrap('group')+
+  labs(x = "Biovolume Microcystis",
+       y = "int wtemp")+
+  theme_bw()
+mll3wtemp
+ggsave(plot=mll3wtemp,filename='Microcystisintwtemp.png',height = 18, width =16, units = 'in')
