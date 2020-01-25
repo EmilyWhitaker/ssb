@@ -125,4 +125,12 @@ pll3ph.y
 ggsave(plot=pll3ph.y,filename='Peanutintph.png',height = 18, width =16, units = 'in')
 
 
-#### tool to graph all te graphs next to eahother~~~~ and then want like types of graphs across 
+#### tool to graph all the graphs next to eahother~~~~ and then want like types of graphs across 
+
+library("cowplot")
+pll3_all <- plot_grid( pll3snow, pll3tice, pll3whiteice, pll3blueice, pll3ph.y, pll3doc.y, pll3light, pll3surfchloro,
+                       pll3chloro, pll3wtemp, pll3o2,pll3o2sat,
+                       labels = c("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"),
+                       ncol = 4, nrow = 3)
+ggsave(plot=pll3_all,filename='pll3_all.png',height = 40, width =49, units = 'in')
+pll3_all

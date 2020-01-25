@@ -121,3 +121,24 @@ mll3ph.y <-  ggplot(Microcystislte_lite3_chloro, aes(x= CellBioVol, y=ph.y))+geo
   theme_bw()
 mll3ph.y
 ggsave(plot=mll3ph.y,filename='Microcystisintph.png',height = 18, width =16, units = 'in')
+
+
+
+
+library("cowplot")
+mll3_all <- plot_grid( mll3snow, mll3tice, mll3whiteice, mll3blueice, mll3ph.y, mll3doc.y, mll3light,mll3surfchloro,
+                       mll3chloro, mll3wtemp, mll3o2,mll3o2sat,
+                       labels = c("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"),
+                       ncol = 4, nrow = 3)
+ggsave(plot=mll3_all,filename='mll3_all.png',height = 40, width =49, units = 'in')
+mll3_all
+
+
+
+
+
+
+
+
+
+
