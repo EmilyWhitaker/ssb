@@ -125,7 +125,15 @@ CfKTl3ph.y
 ggsave(plot=CfKTl3ph.y,filename='CfKTintph.png',height = 18, width =16, units = 'in')
 
 
-#### tool to graph all te graphs next to eahother~~~~ and then want like types of graphs across 
+#### tool to graph all the graphs next to eahother~~~~ and then want like types of graphs across 
 
+
+library("cowplot")
+CfKTl3_all <- plot_grid(CfKTl3snow, CfKTl3tice, CfKTl3whiteice, CfKTl3blueice, CfKTl3ph.y, CfKTl3doc.y, CfKTl3light, CfKTl3surfchloro,
+                        CfKTl3chloro, CfKTl3wtemp, CfKTl3o2,CfKTl3o2sat,
+                       labels = c("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"),
+                       ncol = 4, nrow = 3)
+ggsave(plot=CfKTl3_all,filename='CfKTl3_all.png',height = 40, width =49, units = 'in')
+CfKTl3_all
 
 
