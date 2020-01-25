@@ -125,7 +125,13 @@ dbl3ph.y
 ggsave(plot=dbl3ph.y,filename='DBintph.png',height = 18, width =16, units = 'in')
 
 
-#### tool to graph all te graphs next to eahother~~~~ and then want like types of graphs across 
+#### tool to graph all the graphs next to eahother~~~~ and then want like types of graphs across 
 
-
+library("cowplot")
+dbl3_all <- plot_grid( dbl3snow, dbl3tice, dbl3whiteice, dbl3blueice, dbl3ph.y, dbl3doc.y, dbl3light, dbl3surfchloro,
+                       dbl3chloro, dbl3wtemp, dbl3o2,dbl3o2sat,
+                       labels = c("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"),
+                       ncol = 4, nrow = 3)
+ggsave(plot=dbl3_all,filename='dbl3_all.png',height = 40, width =49, units = 'in')
+dbl3_all
 
