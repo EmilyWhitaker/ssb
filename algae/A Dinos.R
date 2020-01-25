@@ -125,4 +125,12 @@ adl3ph.y
 ggsave(plot=adl3ph.y,filename='adintph.png',height = 18, width =16, units = 'in')
 
 
-#### tool to graph all te graphs next to eahother~~~~ and then want like types of graphs across 
+#### tool to graph all the graphs next to eahother~~~~ and then want like types of graphs across 
+
+library("cowplot")
+adl3_all <- plot_grid( adl3snow, adl3tice, adl3whiteice, adl3blueice, adl3ph.y, adl3doc.y, adl3light, adl3surfchloro,
+                       adl3chloro, adl3wtemp, adl3o2,adl3o2sat,
+                       labels = c("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"),
+                       ncol = 4, nrow = 3)
+ggsave(plot=adl3_all,filename='adl3_all.png',height = 40, width =49, units = 'in')
+adl3_all

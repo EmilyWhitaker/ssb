@@ -141,7 +141,8 @@ SMCOl3surfchlorobio <-  ggplot(SMCO_lte_lite3_chloro, aes(x= CellBioVol, y=surfc
 SMCOl3surfchlorobio
 ggsave(plot=SMCOl3surfchlorobio,filename='SMCOsurfchlorobio.png',height = 18, width =16, units = 'in')
 
-#### tool to graph all te graphs next to eahother~~~~ and then want like types of graphs across 
+#### tool to graph all the graphs next to eahother~~~~ and then want like types of graphs across 
+
 
 
 #### graphed by 
