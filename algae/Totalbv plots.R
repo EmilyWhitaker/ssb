@@ -34,98 +34,97 @@ Totalsl3light <- ggplot(Totals_lte_lite3_chloro, aes(x= CellBioVol, y=surflite))
 Totalsl3light
 ggsave(plot=Totalsl3light,filename='Totalsurflight.png',height = 18, width =16, units = 'in')
 
-
-CfKTl3snow <- ggplot(CfKT_lte_lite3_chloro, aes(x= CellBioVol, y=avsnow))+geom_point()+
-  labs(x = "Biovolume CfKT",
+Totalsl3snow <- ggplot(Totals_lte_lite3_chloro, aes(x= CellBioVol, y=avsnow))+geom_point()+
+  labs(x = "Total Biovolume",
        y = "av snow")+
   theme_bw()
-CfKTl3snow
-ggsave(plot=CfKTl3snow,filename='CfKTavsnow.png',height = 18, width =16, units = 'in')
+Totalsl3snow
+ggsave(plot=Totalsl3snow,filename='Totalsl3avsnow.png',height = 18, width =16, units = 'in')
 
-CfKTl3tice <- ggplot(CfKT_lte_lite3_chloro, aes(x= CellBioVol, y=totice))+geom_point()+
-  labs(x = "Biovolume CfKT",
+Totalsl3tice <- ggplot(Totals_lte_lite3_chloro, aes(x= CellBioVol, y=totice))+geom_point()+
+  labs(x = "Total Biovolume",
        y = "total ice")+
   theme_bw()
-CfKTl3tice
-ggsave(plot=CfKTl3tice,filename='CfKTtotalice.png',height = 18, width =16, units = 'in')
+Totalsl3tice
+ggsave(plot=Totalsl3tice,filename='Totalsl3totalice.png',height = 18, width =16, units = 'in')
 
-CfKTl3whiteice <- ggplot(CfKT_lte_lite3_chloro, aes(x= CellBioVol, y=whiteice))+geom_point()+
-  labs(x = "Biovolume CfKT",
+Totalsl3whiteice <- ggplot(Totals_lte_lite3_chloro, aes(x= CellBioVol, y=whiteice))+geom_point()+
+  labs(x = "Total Biovolume",
        y = "white ice")+
   theme_bw()
-CfKTl3whiteice
-ggsave(plot=CfKTl3whiteice,filename='CfKTwhiteice.png',height = 18, width =16, units = 'in')
+Totalsl3whiteice
+ggsave(plot=Totalsl3whiteice,filename='Totalsl3whiteice.png',height = 18, width =16, units = 'in')
 
 
-CfKTl3blueice <- ggplot(CfKT_lte_lite3_chloro, aes(x= CellBioVol, y=blueice))+geom_point()+
-  labs(x = "Biovolume CfKT",
+Totalsl3blueice <- ggplot(Totals_lte_lite3_chloro, aes(x= CellBioVol, y=blueice))+geom_point()+
+  labs(x = "Total Biovolume",
        y = "blue ice")+
   theme_bw()
-CfKTl3blueice
-ggsave(plot=CfKTl3blueice,filename='CfKTlueice.png',height = 18, width =16, units = 'in')
+Totalsl3blueice
+ggsave(plot=Totalsl3blueice,filename='Totalsl3lueice.png',height = 18, width =16, units = 'in')
 
-CfKTl3surfchloro <-  ggplot(CfKT_lte_lite3_chloro, aes(x= CellBioVol, y=surfchlor))+geom_point()+
+Totalsl3surfchloro <-  ggplot(Totals_lte_lite3_chloro, aes(x= CellBioVol, y=surfchlor))+geom_point()+
   facet_wrap('group')+
-  labs(x = "Biovolume CfKT",
+  labs(x = "Total Biovolume",
        y = "surface chloro")+
   theme_bw()
-CfKTl3surfchloro
-ggsave(plot=CfKTl3surfchloro,filename='CfKTsurfchloro.png',height = 18, width =16, units = 'in')
+Totalsl3surfchloro
+ggsave(plot=Totalsl3surfchloro,filename='Totalsl3surfchloro.png',height = 18, width =16, units = 'in')
 
-CfKTl3wtemp <-  ggplot(CfKT_lte_lite3_chloro, aes(x= CellBioVol, y=wtemp))+geom_point()+
+Totalsl3wtemp <-  ggplot(Totals_lte_lite3_chloro, aes(x= CellBioVol, y=wtemp))+geom_point()+
   facet_wrap('group')+
-  labs(x = "Biovolume CfKT",
+  labs(x = "Total Biovolume",
        y = "int wtemp")+
   theme_bw()
-CfKTl3wtemp
-ggsave(plot=CfKTl3wtemp,filename='CfKTintwtemp.png',height = 18, width =16, units = 'in')
+Totalsl3wtemp
+ggsave(plot=Totalsl3wtemp,filename= 'Totalsl3intwtemp.png',height = 18, width =16, units = 'in')
 
 
-CfKTl3chloro <-  ggplot(CfKT_lte_lite3_chloro, aes(x= CellBioVol, y=chlor))+geom_point()+
+Totalsl3chloro <-  ggplot(Totals_lte_lite3_chloro, aes(x= CellBioVol, y=chlor))+geom_point()+
   facet_wrap('group')+
-  labs(x = "Biovolume CfKT",
+  labs(x = "Total Biovolume",
        y = "int chloro")+
   theme_bw()
-CfKTl3chloro
-ggsave(plot=CfKTl3chloro,filename='CfKTintchloro.png',height = 18, width =16, units = 'in')
+Totalsl3chloro
+ggsave(plot=Totalsl3chloro,filename='Totalsl3intchloro.png',height = 18, width =16, units = 'in')
 
 
-CfKTl3o2 <-  ggplot(CfKT_lte_lite3_chloro, aes(x= CellBioVol, y=o2))+geom_point()+
+Totalsl3o2 <-  ggplot(Totals_lte_lite3_chloro, aes(x= CellBioVol, y=o2))+geom_point()+
   facet_wrap('group')+
-  labs(x = "Biovolume CfKT",
+  labs(x = "Total Biovolume",
        y = "int o2")+
   theme_bw()
-CfKTl3o2
-ggsave(plot=CfKTl3o2,filename='CfKTinto2.png',height = 18, width =16, units = 'in')
+Totalsl3o2
+ggsave(plot=Totalsl3o2,filename='Totalsl3into2.png',height = 18, width =16, units = 'in')
 
-CfKTl3o2sat <-  ggplot(CfKT_lte_lite3_chloro, aes(x= CellBioVol, y=o2sat))+geom_point()+
+Totalsl3o2sat <-  ggplot(Totals_lte_lite3_chloro, aes(x= CellBioVol, y=o2sat))+geom_point()+
   facet_wrap('group')+
-  labs(x = "Biovolume CfKT",
+  labs(x = "Total Biovolume",
        y = "int o2 sat")+
   theme_bw()
-CfKTl3o2sat
-ggsave(plot=CfKTl3o2sat,filename='CfKTinto2sat.png',height = 18, width =16, units = 'in')
+Totalsl3o2sat
+ggsave(plot=Totalsl3o2sat,filename='Totalsl3into2sat.png',height = 18, width =16, units = 'in')
 
-CfKTl3cond <-  ggplot(CfKT_lte_lite3_chloro, aes(x= CellBioVol, y=cond))+geom_point()+
+Totalsl3cond <-  ggplot(Totals_lte_lite3_chloro, aes(x= CellBioVol, y=cond))+geom_point()+
   facet_wrap('group')+
-  labs(x = "Biovolume CfKT",
+  labs(x = "Total Biovolume",
        y = "int cond")+
   theme_bw()
-CfKTl3cond
-ggsave(plot=CfKTl3cond,filename='CfKTintcond.png',height = 18, width =16, units = 'in')
+Totalsl3cond
+ggsave(plot=Totalsl3cond,filename='Totalsl3intcond.png',height = 18, width =16, units = 'in')
 
-CfKTl3doc.y <-  ggplot(CfKT_lte_lite3_chloro, aes(x= CellBioVol, y=doc.y))+geom_point()+
+Totalsl3doc.y <-  ggplot(Totals_lte_lite3_chloro, aes(x= CellBioVol, y=doc.y))+geom_point()+
   facet_wrap('group')+
-  labs(x = "Biovolume CfKT",
+  labs(x = "Total Biovolume",
        y = "int doc")+
   theme_bw()
-CfKTl3doc.y
-ggsave(plot=CfKTl3doc.y,filename='CfKTintdoc.png',height = 18, width =16, units = 'in')
+Totalsl3doc.y
+ggsave(plot=Totalsl3doc.y,filename='Totalsl3intdoc.png',height = 18, width =16, units = 'in')
 
-CfKTl3ph.y <-  ggplot(CfKT_lte_lite3_chloro, aes(x= CellBioVol, y=ph.y))+geom_point()+
+Totalsl3ph.y <-  ggplot(Totals_lte_lite3_chloro, aes(x= CellBioVol, y=ph.y))+geom_point()+
   facet_wrap('group')+
-  labs(x = "Biovolume CfKT",
+  labs(x = "Total Biovolume",
        y = "int ph")+
   theme_bw()
-CfKTl3ph.y
-ggsave(plot=CfKTl3ph.y,filename='CfKTintph.png',height = 18, width =16, units = 'in')
+Totalsl3ph.y
+ggsave(plot= Totalsl3ph.y,filename='Totalsl3intph.png',height = 18, width =16, units = 'in')
