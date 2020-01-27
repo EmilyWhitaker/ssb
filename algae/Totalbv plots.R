@@ -3,41 +3,36 @@ library(lubridate)
 library(ggplot2)
 
 #method to color max point through out? or date?
+Totals<- read_csv("biovolume1.csv", col_types = cols(sampledate = col_date(format = "%m/%d/%Y"))) %>%
+  filter(Genus == 'TotalBiovolume')
+write.csv(Totals, 'TotalBVs.csv')
 
-CfKTatzero2 <- read_csv('CfKTatzero.csv')
 lte_lite <- read_csv('lte_lite.csv',
                      col_types = cols(sampledate = col_date(format = "%m/%d/%Y")))
 
 bothchloro<- read_csv('fullchloro.csv')
 
+Totalszeros1<- Totals %>%
+  left_join(zeroschem02, by= c('sampledate'))
+write.csv(Totalszeros1, "Totalszeros1.csv")
 
-CfKT_lte_lite3 <- lte_lite %>%
-  right_join(CfKTatzero2, by= c('sampledate'))
-write.csv(CfKT_lte_lite3, 'CfKT_lte_lite3.csv')
+Totals_lte_lite3 <- lte_lite %>%
+  right_join(Totalszeros1, by= c('sampledate'))
+write.csv(Totals_lte_lite3, 'Totals_lte_lite3.csv')
 
-CfKT_lte_lite3_chloro <-CfKT_lte_lite3 %>%
+Totals_lte_lite3_chloro <-Totals_lte_lite3 %>%
   right_join(bothchloro, by= c('sampledate'))
-write.csv(CfKT_lte_lite3_chloro, 'CfKT_lte_lite3_chloro.csv')
+write.csv(Totals_lte_lite3_chloro, 'Totals_lte_lite3_chloro.csv')
 
 
-CfKTl3light <- ggplot(CfKT_lte_lite3_chloro, aes(x= CellBioVol, y=surflite))+geom_point()+
+
+Totalsl3light <- ggplot(Totals_lte_lite3_chloro, aes(x= CellBioVol, y=surflite))+geom_point()+
   facet_wrap('group')+
-  labs(x = "Biovolume CfKT",
+  labs(x = "Total Biovolume",
        y = "surf light")+
   theme_bw()
-CfKTl3light
-ggsave(plot=CfKTl3light,filename='CfKTsurflight.png',height = 18, width =16, units = 'in')
-
-CfKTl3light2 <- ggplot(CfKT_lte_lite3_chloro, aes(x= CellBioVol, y=surflite, color=year4.x ))+geom_point()+
-  facet_wrap('group')+
-  labs(x = "Biovolume CfKT",
-       y = "surf light")+
-  theme_bw()
-CfKTl3light2
-CfKTl3light2 +scale_color_gradient(low="blue", high="red")
-ggsave(plot=CfKTl3light2,filename='CfKTsurflight2.png',height = 18, width =16, units = 'in')
-
-
+Totalsl3light
+ggsave(plot=Totalsl3light,filename='Totalsurflight.png',height = 18, width =16, units = 'in')
 
 
 CfKTl3snow <- ggplot(CfKT_lte_lite3_chloro, aes(x= CellBioVol, y=avsnow))+geom_point()+
@@ -134,17 +129,3 @@ CfKTl3ph.y <-  ggplot(CfKT_lte_lite3_chloro, aes(x= CellBioVol, y=ph.y))+geom_po
   theme_bw()
 CfKTl3ph.y
 ggsave(plot=CfKTl3ph.y,filename='CfKTintph.png',height = 18, width =16, units = 'in')
-
-
-#### tool to graph all the graphs next to eahother~~~~ and then want like types of graphs across 
-
-
-library("cowplot")
-CfKTl3_all <- plot_grid(CfKTl3snow, CfKTl3tice, CfKTl3whiteice, CfKTl3blueice, CfKTl3ph.y, CfKTl3doc.y, CfKTl3light, CfKTl3surfchloro,
-                        CfKTl3chloro, CfKTl3wtemp, CfKTl3o2,CfKTl3o2sat,
-                       labels = c("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"),
-                       ncol = 4, nrow = 3)
-ggsave(plot=CfKTl3_all,filename='CfKTl3_all.png',height = 40, width =49, units = 'in')
-CfKTl3_all
-
-

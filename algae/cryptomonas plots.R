@@ -124,4 +124,12 @@ ndl3ph.y
 ggsave(plot=ndl3ph.y,filename='ndintph.png',height = 18, width =16, units = 'in')
 
 
-#### tool to graph all te graphs next to eahother~~~~ and then want like types of graphs across 
+#### tool to graph all the graphs next to eahother~~~~ and then want like types of graphs across 
+
+library("cowplot")
+ndl3_all <- plot_grid( ndl3snow, ndl3tice, ndl3whiteice, ndl3blueice, ndl3ph.y, ndl3doc.y, ndl3light, ndl3surfchloro,
+                       ndl3chloro, ndl3wtemp, ndl3o2,ndl3o2sat,
+                       labels = c("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"),
+                       ncol = 4, nrow = 3)
+ggsave(plot=ndl3_all,filename='ndl3_all.png',height = 40, width =49, units = 'in')
+ndl3_all

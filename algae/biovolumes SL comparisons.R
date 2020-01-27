@@ -39,7 +39,7 @@ write.csv(chlorosbv, "chloroandbiovolume.csv")
 #graphhh!!!
   
 #par and totalbiovolume (year, par, biovolume, missing par data)
-a<- ggplot(cleanPARbv, aes_(x=cleanPARbv$CellBioVol, y=cleanPARbv$extcoef))+ geom_line()+
+a<- ggplot(cleanPARbv, aes_(x=cleanPARbv$CellBioVol, y=cleanPARbv$extcoef))+ geom_point()+
   facet_wrap(cleanPARbv$year4)+
   labs(x = "Biovolume",
        y = "PAR")+
