@@ -110,8 +110,6 @@ dbl3blueice2year
 ggsave(plot=dbl3blueice2year,filename='dbl3blueice2year2.png',height = 18, width =16, units = 'cm')
 
 
-
-
 dbl3surfchloro <-  ggplot(Dinobryon_lte_lite3_chloro, aes(x= CellBioVol, y=surfchlor))+geom_point()+
   facet_wrap('group')+
   labs(x = "Biovolume Dinobryon",
@@ -119,6 +117,20 @@ dbl3surfchloro <-  ggplot(Dinobryon_lte_lite3_chloro, aes(x= CellBioVol, y=surfc
   theme_bw()
 dbl3surfchloro
 ggsave(plot=dbl3surfchloro,filename='DBsurfchloro.png',height = 18, width =16, units = 'in')
+
+dbl3surfchloro2 <-  ggplot(Dinobryon_lte_lite3_chloro_datayearonly, aes(x= CellBioVol, y=surfchlor))+geom_point()+
+  facet_wrap('group')+
+  labs(x = "Biovolume Dinobryon",
+       y = "surface chloro")+
+  theme_bw()+
+  ylim(0,15)
+dbl3surfchloro2
+ggsave(plot=dbl3surfchloro2,filename='DBsurfchloro2.png',height = 18, width =16, units = 'in')
+
+dbl3surfchloro2year<- dbl3surfchloro2+ geom_point(aes(color = factor(year4.x)))
+dbl3surfchloro2year
+ggsave(plot=dbl3surfchloro2year,filename='dbl3surfchloro2year2.png',height = 18, width =16, units = 'cm')
+
 
 dbl3wtemp <-  ggplot(Dinobryon_lte_lite3_chloro, aes(x= CellBioVol, y=wtemp))+geom_point()+
   facet_wrap('group')+
