@@ -21,14 +21,14 @@ SMCO_lte_lite3_chloro <-SMCO_lte_lite3 %>%
 write.csv(SMCO_lte_lite3_chloro, 'SMCO_lte_lite3_chloro.csv')
 
 
-SMCOl3light <- ggplot(SMCO_lte_lite3_chloro, aes(x= CellBioVol, y=surflite))+geom_point()+
+SMCOl3light <- ggplot(SMCO_lte_lite3_chloro, aes(x= CellBioVol, y=surflite))+geom_point(size=4)+
   facet_wrap('group')+
   labs(x = "Biovolume SMCO",
        y = "surf light")+
   theme_bw()
 SMCOl3light
 ggsave(plot=SMCOl3light,filename='SMCOsurflight.png',height = 18, width =16, units = 'in')
-
+SMCOl3light+ geom_point(aes(color = factor(surfchlor)))
 
 SMCOl3snow <- ggplot(SMCO_lte_lite3_chloro, aes(x= CellBioVol, y=avsnow))+geom_point()+
   labs(x = "Biovolume SMCO",

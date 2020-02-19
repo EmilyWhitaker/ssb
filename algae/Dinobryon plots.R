@@ -4,6 +4,8 @@ library(ggplot2)
 
 #method to color max point through out? or date?
 
+Dinobryon_lte_lite3_chloro_datayearonly <- read_csv('Dinobryon_lte_lite3_chloro_datayearonly.csv')
+
 Dinobryonatzero2 <- read_csv('Dinobryonatzero.csv')
 lte_lite <- read_csv('lte_lite.csv',
                      col_types = cols(sampledate = col_date(format = "%m/%d/%Y")))
@@ -20,21 +22,32 @@ Dinobryon_lte_lite3_chloro <-Dinobryon_lte_lite3 %>%
 write.csv(Dinobryon_lte_lite3_chloro, 'Dinobryon_lte_lite3_chloro.csv')
 
 
-dbl3light <- ggplot(Dinobryon_lte_lite3_chloro, aes(x= CellBioVol, y=surflite))+geom_point()+
+dbl3light <- ggplot(Dinobryon_lte_lite3_chloro_datayearonly, aes(x= CellBioVol, y=surflite))+geom_point(size=4)+
   facet_wrap('group')+
   labs(x = "Biovolume Dinobryon",
        y = "surf light")+
   theme_bw()
 dbl3light
 ggsave(plot=dbl3light,filename='DBsurflight.png',height = 18, width =16, units = 'in')
+dbl3lightyear<- dbl3light+ geom_point(aes(color = factor(year4.x)))
+ggsave(plot=dbl3lightyear,filename='DBsurflightyear.png',height = 18, width =16, units = 'in')
+dbl3lightycholor<- dbl3light+ geom_point(aes(color = factor(chlor)))
+dbl3lightycholor
+ggsave(plot=dbl3lightycholor,filename='DBsurflightchloro.png',height = 18, width =16, units = 'in')
 
 
-dbl3snow <- ggplot(Dinobryon_lte_lite3_chloro, aes(x= CellBioVol, y=avsnow))+geom_point()+
+dbl3snow2 <- ggplot(Dinobryon_lte_lite3_chloro_datayearonly, aes(x= CellBioVol, y=avsnow))+geom_point(size=4)+
   labs(x = "Biovolume Dinobryon",
        y = "av snow")+
   theme_bw()
-dbl3snow
-ggsave(plot=dbl3snow,filename='DBavsnow.png',height = 18, width =16, units = 'in')
+dbl3snow2
+ggsave(plot=dbl3snow2,filename='DBavsnow2.png',height = 18, width =16, units = 'in')
+
+dbl3snowyear<- dbl3snow2+ geom_point(aes(color = factor(year4.x)))
+dbl3snowyear+ xlim(0, 15000)
+ggsave(plot=dbl3snowyear,filename='DBsnowyear2.png',height = 18, width =16, units = 'in')
+
+
 
 dbl3tice <- ggplot(Dinobryon_lte_lite3_chloro, aes(x= CellBioVol, y=totice))+geom_point()+
   labs(x = "Biovolume Dinobryon",
@@ -43,12 +56,27 @@ dbl3tice <- ggplot(Dinobryon_lte_lite3_chloro, aes(x= CellBioVol, y=totice))+geo
 dbl3tice
 ggsave(plot=dbl3tice,filename='DBtotalice.png',height = 18, width =16, units = 'in')
 
+dbl3tice <- ggplot(Dinobryon_lte_lite3_chloro_datayearonly, aes(x= CellBioVol, y=totice))+geom_point()+
+  labs(x = "Biovolume Dinobryon",
+       y = "total ice")+
+  theme_bw()
+dbl3tice
+ggsave(plot=dbl3tice,filename='DBtotalice.png',height = 18, width =16, units = 'in')
+
+
 dbl3whiteice <- ggplot(Dinobryon_lte_lite3_chloro, aes(x= CellBioVol, y=whiteice))+geom_point()+
   labs(x = "Biovolume Dinobryon",
        y = "white ice")+
   theme_bw()
 dbl3whiteice
 ggsave(plot=dbl3whiteice,filename='DBwhiteice.png',height = 18, width =16, units = 'in')
+
+dbl3whiteice2 <- ggplot(Dinobryon_lte_lite3_chloro, aes(x= CellBioVol, y=whiteice))+geom_point()+
+  labs(x = "Biovolume Dinobryon",
+       y = "white ice")+
+  theme_bw()
+dbl3whiteice2
+ggsave(plot=dbl3whiteice2,filename='DBwhiteice.png',height = 18, width =16, units = 'in')
 
 
 dbl3blueice <- ggplot(Dinobryon_lte_lite3_chloro, aes(x= CellBioVol, y=blueice))+geom_point()+
