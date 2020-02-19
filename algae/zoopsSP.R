@@ -31,13 +31,27 @@ CALANOID
 write.csv(CALANOID, 'CALANOID.csv')
 #not as present during ice on#
 
+LEPTMIN <- ZooTotals %>%
+  filter(species_code == 30402)
+LEPTMIN
+write.csv(LEPTMIN, 'LEPTMIN.csv')
+
+SKISTOREG <- ZooTotals %>%
+  filter(species_code == 30801)
+SKISTOREG
+write.csv(SKISTOREG, 'SKISTOREG.csv')
+
+
 
 xy = ggplot() + 
   geom_point(data = Cope, aes(x = sample_date, y = density), color = "red") +
   geom_point(data = Cyclop, aes(x = sample_date, y = density), color = "green") +
   geom_point(data = DIACYTHOM, aes(x = sample_date, y = density), color = "purple") +
   geom_point(data = CALANOID, aes(x = sample_date, y = density), color = "orange") +
-  #geom_point(data = NDlte_lite3_chloro, aes(x = year4frac, y = CellBioVol), color = "blue") + 
+  geom_point(data = LEPTMIN, aes(x = sample_date, y = density), color = "blue") + 
+  geom_point(data = LEPTMIN, aes(x = sample_date, y = density), color = "pink") + 
+  geom_point(data = LEPTMIN, aes(x = sample_date, y = density), color = "black") + 
+  geom_point(data = LEPTMIN, aes(x = sample_date, y = density), color = "yellow") + 
   xlab('Year') +
   ylab('Density')+
   facet_wrap('group')
