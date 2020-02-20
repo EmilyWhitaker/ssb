@@ -140,6 +140,19 @@ dbl3wtemp <-  ggplot(Dinobryon_lte_lite3_chloro, aes(x= CellBioVol, y=wtemp))+ge
 dbl3wtemp
 ggsave(plot=dbl3wtemp,filename='DBintwtemp.png',height = 18, width =16, units = 'in')
 
+dbl3wtemp2 <-  ggplot(Dinobryon_lte_lite3_chloro_datayearonly, aes(x= CellBioVol, y=wtemp))+geom_point(size=4)+
+  facet_wrap('group')+
+  labs(x = "Biovolume Dinobryon",
+       y = "int wtemp")+
+  theme_bw()
+dbl3wtemp2
+ggsave(plot=dbl3wtemp2,filename='DBintwtemp2.png',height = 18, width =16, units = 'in')
+
+dbl3wtemp2year<- dbl3wtemp2+ geom_point(aes(color = factor(year4.x)))
+dbl3wtemp2year
+ggsave(plot=dbl3wtemp2year,filename='dbl3wtemp2year2.png',height = 18, width =16, units = 'cm')
+
+
 
 dbl3chloro <-  ggplot(Dinobryon_lte_lite3_chloro, aes(x= CellBioVol, y=chlor))+geom_point()+
   facet_wrap('group')+
@@ -149,6 +162,18 @@ dbl3chloro <-  ggplot(Dinobryon_lte_lite3_chloro, aes(x= CellBioVol, y=chlor))+g
 dbl3chloro
 ggsave(plot=dbl3chloro,filename='DBintchloro.png',height = 18, width =16, units = 'in')
 
+dbl3chloro2 <-  ggplot(Dinobryon_lte_lite3_chloro_datayearonly, aes(x= CellBioVol, y=chlor))+geom_point(size=4)+
+  facet_wrap('group')+
+  labs(x = "Biovolume Dinobryon",
+       y = "int chloro")+
+  theme_bw()
+dbl3chloro2
+ggsave(plot=dbl3chloro2,filename='DBintchloro2.png',height = 18, width =16, units = 'in')
+
+dbl3chloro2year<- dbl3chloro2+ geom_point(aes(color = factor(year4.x)))
+dbl3chloro2year
+ggsave(plot=dbl3chloro2year,filename='dbl3chloro2year2.png',height = 18, width =16, units = 'cm')
+
 
 dbl3o2 <-  ggplot(Dinobryon_lte_lite3_chloro, aes(x= CellBioVol, y=o2))+geom_point()+
   facet_wrap('group')+
@@ -157,6 +182,20 @@ dbl3o2 <-  ggplot(Dinobryon_lte_lite3_chloro, aes(x= CellBioVol, y=o2))+geom_poi
   theme_bw()
 dbl3o2
 ggsave(plot=dbl3o2,filename='DBinto2.png',height = 18, width =16, units = 'in')
+
+dbl3o22 <-  ggplot(Dinobryon_lte_lite3_chloro_datayearonly, aes(x= CellBioVol, y=o2))+geom_point(size=4)+
+  facet_wrap('group')+
+  labs(x = "Biovolume Dinobryon",
+       y = "int o2")+
+  theme_bw()
+dbl3o22
+ggsave(plot=dbl3o22,filename='DBinto22.png',height = 18, width =16, units = 'in')
+
+dbl3o22year<- dbl3o22+ geom_point(aes(color = factor(year4.x)))
+dbl3o22year
+ggsave(plot=dbl3o22year,filename='dbl3o22year2.png',height = 18, width =16, units = 'cm')
+
+
 
 dbl3o2sat <-  ggplot(Dinobryon_lte_lite3_chloro, aes(x= CellBioVol, y=o2sat))+geom_point()+
   facet_wrap('group')+
