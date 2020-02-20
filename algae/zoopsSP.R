@@ -49,9 +49,9 @@ xy = ggplot() +
   geom_point(data = DIACYTHOM, aes(x = sample_date, y = density), color = "purple") +
   geom_point(data = CALANOID, aes(x = sample_date, y = density), color = "orange") +
   geom_point(data = LEPTMIN, aes(x = sample_date, y = density), color = "blue") + 
-  geom_point(data = LEPTMIN, aes(x = sample_date, y = density), color = "pink") + 
-  geom_point(data = LEPTMIN, aes(x = sample_date, y = density), color = "black") + 
-  geom_point(data = LEPTMIN, aes(x = sample_date, y = density), color = "yellow") + 
+  geom_point(data = SKISTOREG, aes(x = sample_date, y = density), color = "pink") + 
+  #geom_point(data = LEPTMIN, aes(x = sample_date, y = density), color = "black") + 
+  #geom_point(data = LEPTMIN, aes(x = sample_date, y = density), color = "yellow") + 
   xlab('Year') +
   ylab('Density')+
   facet_wrap('group')
