@@ -28,6 +28,14 @@ Dinobryon_lte_lite3_chloro <-Dinobryon_lte_lite3 %>%
 write.csv(Dinobryon_lte_lite3_chloro, 'Dinobryon_lte_lite3_chloro.csv')
 
 
-dinosexperience <- gam(CellBioVol ~ s(year4.x, bs = "gp")+ s(year4frac), data=Dinobryon_lte_lite3_chloro_datayearonly)
-plot(dinosexperience, page=1)
+dinosexperience <- gam(CellBioVol ~ s(year4.x, bs = "gp")+ s(daynum), data=dinosyears)
+d<-plot(dinosexperience, page=1)
+d
 summary(dinosexperience)
+
+dinosexperience2 <- gam(CellBioVol ~ s(year4.x, bs = "gp")+ s(daynum)+ (surfchlor), data=dinosyears)
+snow<- plot(dinosexperience2, page=1)
+snow
+
+
+
