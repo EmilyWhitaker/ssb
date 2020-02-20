@@ -205,6 +205,20 @@ dbl3o2sat <-  ggplot(Dinobryon_lte_lite3_chloro, aes(x= CellBioVol, y=o2sat))+ge
 dbl3o2sat
 ggsave(plot=dbl3o2sat,filename='DBinto2sat.png',height = 18, width =16, units = 'in')
 
+dbl3o2sat2 <-  ggplot(Dinobryon_lte_lite3_chloro_datayearonly, aes(x= CellBioVol, y=o2sat))+geom_point(size=4)+
+  facet_wrap('group')+
+  labs(x = "Biovolume Dinobryon",
+       y = "int o2 sat")+
+  theme_bw()
+dbl3o2sat2
+ggsave(plot=dbl3o2sat2,filename='DBinto2sat2.png',height = 18, width =16, units = 'in')
+
+dbl3o2sat2year<- dbl3o2sat2+ geom_point(aes(color = factor(year4.x)))
+dbl3o2sat2year
+ggsave(plot=dbl3o22year,filename='dbl3o2sat2year2.png',height = 18, width =16, units = 'cm')
+
+
+
 dbl3cond <-  ggplot(Dinobryon_lte_lite3_chloro, aes(x= CellBioVol, y=cond))+geom_point()+
   facet_wrap('group')+
   labs(x = "Biovolume Dinobryon",
@@ -213,6 +227,35 @@ dbl3cond <-  ggplot(Dinobryon_lte_lite3_chloro, aes(x= CellBioVol, y=cond))+geom
 dbl3cond
 ggsave(plot=dbl3cond,filename='DBintcond.png',height = 18, width =16, units = 'in')
 
+dbl3cond2 <-  ggplot(Dinobryon_lte_lite3_chloro_datayearonly, aes(x= CellBioVol, y=cond))+geom_point(size=4)+
+  facet_wrap('group')+
+  labs(x = "Biovolume Dinobryon",
+       y = "int cond")+
+  theme_bw()
+dbl3cond2
+ggsave(plot=dbl3cond2,filename='DBintcond2.png',height = 18, width =16, units = 'in')
+
+dbl3cond2year<- dbl3cond2+ geom_point(aes(color = factor(year4.x)))
+dbl3cond2year
+ggsave(plot=dbl3cond2year,filename='dbl3cond2year2.png',height = 18, width =16, units = 'cm')
+###############################
+
+dbl3cond2b <-  ggplot(Dinobryon_lte_lite3_chloro_datayearonly, aes(x= CellBioVol, y=cond, shape= factor(group)))+
+  geom_point(size=4)+
+  labs(x = "Biovolume Dinobryon",
+       y = "Integrated Conductivity")+
+  theme_bw()
+dbl3cond2b
+ggsave(plot=dbl3cond2b,filename='DBintcond2b.png',height = 18, width =16, units = 'in')
+
+dbl3cond2yearb<- dbl3cond2+ geom_point(aes(color = factor(year4.x)))+ theme_bw()+  
+  labs(x = "Biovolume Dinobryon",
+      y = "Integrated Conductivity")
+dbl3cond2yearb
+ggsave(plot=dbl3cond2yearb,filename='dbl3cond2year2b.png',height = 18, width =16, units = 'cm')
+
+
+##############################
 dbl3doc.y <-  ggplot(Dinobryon_lte_lite3_chloro, aes(x= CellBioVol, y=doc.y))+geom_point()+
   facet_wrap('group')+
   labs(x = "Biovolume Dinobryon",
