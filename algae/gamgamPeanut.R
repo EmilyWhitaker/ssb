@@ -14,5 +14,32 @@ Peanutyears
 
 Peanutexperience <- gam(CellBioVol ~ s(year4.x, bs = "gp")+ s(daynum), data=Peanutyears)
 Peanutplot<-plot(Peanutexperience, page=1)
-Peanutplot
+b<- plot(Peanutexperience,pages=1,residuals=TRUE,all.terms=TRUE, pch=16)
+
+b <- plot(Peanutexperience, geom_point)
+b        
+          
+          + geom_point(aes(Peanutyears$daynum, Peanutyears$CellBioVol)))
+b
+
+
+
+
+Peanutplot2<- plot(Peanutexperience)+ 
+  geom_point(aes(x=daynum, y=CellBioVol))
 summary(Peanutexperience)
+
+
+
+
+fit_gam <- mydata %>% 
+  gam(CellBioVol ~ s(exposure, k = 5) + covariate, data = .) %>% 
+  predict(newdata = mydata, type = "link", se.fit = TRUE) %>% 
+  as_data_frame() %>% 
+  rename(fit_gam = fit) %>% 
+  mutate(lwr_gam = fit_gam - 2 * se.fit,
+         upr_gam = fit_gam + 2 * se.fit) %>% 
+  select(-se.fit)
+
+
+
