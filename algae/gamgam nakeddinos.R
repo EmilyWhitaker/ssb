@@ -13,7 +13,12 @@ NDyears
 ######daynumb
 
 NDexperience <- gam(CellBioVol ~ s(year4.x, bs = "gp")+ s(daynum), data=NDyears)
-plot<-plot(NDexperience, page=1)
+d<-plot(NDexperience, page=1)
+d<- plot(NDexperience,pages=1,residuals=TRUE,all.terms=TRUE, pch=16)
 plot
 summary(NDexperience)
+
+Peanutexperience <- gam(CellBioVol ~ s(year4.x, bs = "gp")+ s(daynum), data=Peanutyears)
+Peanutplot<-plot(Peanutexperience, page=1)
+c<- plot(Peanutexperience,pages=1,residuals=TRUE,all.terms=TRUE, pch=16)
 

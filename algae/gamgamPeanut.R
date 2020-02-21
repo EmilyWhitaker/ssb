@@ -14,11 +14,11 @@ Peanutyears
 
 Peanutexperience <- gam(CellBioVol ~ s(year4.x, bs = "gp")+ s(daynum), data=Peanutyears)
 Peanutplot<-plot(Peanutexperience, page=1)
-b<- plot(Peanutexperience,pages=1,residuals=TRUE,all.terms=TRUE, pch=16)
-b<-
+c<- plot(Peanutexperience,pages=1,residuals=TRUE,all.terms=TRUE, pch=16)
+c+ 
 
 
-ggsave(plot=b,filename='Peanutgams.png',height = 18, width =16, units = 'cm')
+ggsave(plot=c,filename='Peanutgams.png',height = 18, width =16, units = 'cm')
 #confused why I can't save this 
 
           + geom_point(aes(Peanutyears$daynum, Peanutyears$CellBioVol)))
