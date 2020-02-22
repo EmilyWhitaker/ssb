@@ -2,31 +2,44 @@ library(tidyverse)
 library(lubridate)
 library(ggplot2)
 
+Totals <- read_csv("Totals_lte_lite3_chloro_datayearonly.csv", col_types = cols(sampledate = col_date(format = "%m/%d/%Y")))
+
+
 #method to color max point through out? or date?
-Totals<- read_csv("biovolume1.csv", col_types = cols(sampledate = col_date(format = "%m/%d/%Y"))) %>%
-  filter(Genus == 'TotalBiovolume')
-write.csv(Totals, 'TotalBVs.csv')
+#Totals<- read_csv("biovolume1.csv", col_types = cols(sampledate = col_date(format = "%m/%d/%Y"))) %>%
+#  filter(Genus == 'TotalBiovolume')
+#write.csv(Totals, 'TotalBVs.csv')
 
-lte_lite <- read_csv('lte_lite.csv',
-                     col_types = cols(sampledate = col_date(format = "%m/%d/%Y")))
+#lte_lite <- read_csv('lte_lite.csv',
+#                     col_types = cols(sampledate = col_date(format = "%m/%d/%Y")))
 
-bothchloro<- read_csv('fullchloro.csv')
+#bothchloro<- read_csv('fullchloro.csv')
 
-Totalszeros1<- Totals %>%
-  left_join(zeroschem02, by= c('sampledate'))
-write.csv(Totalszeros1, "Totalszeros1.csv")
+#Totalszeros1<- Totals %>%
+#  left_join(zeroschem02, by= c('sampledate'))
+#write.csv(Totalszeros1, "Totalszeros1.csv")
 
-Totals_lte_lite3 <- lte_lite %>%
-  right_join(Totalszeros1, by= c('sampledate'))
-write.csv(Totals_lte_lite3, 'Totals_lte_lite3.csv')
+#Totals_lte_lite3 <- lte_lite %>%
+#  right_join(Totalszeros1, by= c('sampledate'))
+#write.csv(Totals_lte_lite3, 'Totals_lte_lite3.csv')
 
-Totals_lte_lite3_chloro <-Totals_lte_lite3 %>%
-  right_join(bothchloro, by= c('sampledate'))
-write.csv(Totals_lte_lite3_chloro, 'Totals_lte_lite3_chloro.csv')
+#Totals_lte_lite3_chloro <-Totals_lte_lite3 %>%
+#  right_join(bothchloro, by= c('sampledate'))
+#write.csv(Totals_lte_lite3_chloro, 'Totals_lte_lite3_chloro.csv')
 
+#########
+Totals$daynum<- yday(Totals$sampledate)
+Totals
 
+totalsexperience <- gam(CellBioVol ~ s(year4, bs = "gp")+ s(daynum), data=Totals)
+te<-plot(totalsexperience, page=1)
+te<- plot(totalsexperience,pages=1,residuals=TRUE,all.terms=TRUE, pch=16)
+te
+summary(totalsexperience)
 
-Totalsl3light <- ggplot(Totals_lte_lite3_chloro, aes(x= CellBioVol, y=surflite))+geom_point()+
+#######
+
+Totalsl3light <- ggplot(Totals, aes(x= CellBioVol, y=surflite))+geom_point()+
   facet_wrap('group')+
   labs(x = "Total Biovolume",
        y = "surf light")+
