@@ -15,6 +15,7 @@ Limnothrixyears
 
 Limnothrixexperience <- gam(CellBioVol ~ s(year4.x, bs = "gp")+ s(daynum), data=Limnothrixyears)
 limn<-plot(Limnothrixexperience, page=1)
+limn<- plot(Limnothrixexperience,pages=1,residuals=TRUE,all.terms=TRUE, pch=16)
 limn
 summary(Limnothrixexperience)
 
