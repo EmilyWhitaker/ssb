@@ -15,7 +15,7 @@ Peanutyears
 Peanutexperience <- gam(CellBioVol ~ s(year4.x, bs = "gp")+ s(daynum), data=Peanutyears)
 Peanutplot<-plot(Peanutexperience, page=1)
 c<- plot(Peanutexperience,pages=1,residuals=TRUE,all.terms=TRUE, pch=16)
-c+ 
+c
 
 
 ggsave(plot=c,filename='Peanutgams.png',height = 18, width =16, units = 'cm')

@@ -22,18 +22,30 @@ Dinobryon_lte_lite3_chloro <-Dinobryon_lte_lite3 %>%
 write.csv(Dinobryon_lte_lite3_chloro, 'Dinobryon_lte_lite3_chloro.csv')
 
 
-dbl3light <- ggplot(Dinobryon_lte_lite3_chloro_datayearonly, aes(x= CellBioVol, y=surflite))+geom_point(size=4)+
+dbl3light <- ggplot(Dinobryon_lte_lite3_chloro_datayearonly, aes(x= CellBioVol, y=surflite))+geom_point(size=2)+
   facet_wrap('group')+
   labs(x = "Biovolume Dinobryon",
        y = "surf light")+
   theme_bw()
 dbl3light
-ggsave(plot=dbl3light,filename='DBsurflight.png',height = 18, width =16, units = 'in')
-dbl3lightyear<- dbl3light+ geom_point(aes(color = factor(year4.x)))
-ggsave(plot=dbl3lightyear,filename='DBsurflightyear.png',height = 18, width =16, units = 'in')
-dbl3lightycholor<- dbl3light+ geom_point(aes(color = factor(chlor)))
-dbl3lightycholor
-ggsave(plot=dbl3lightycholor,filename='DBsurflightchloro.png',height = 18, width =16, units = 'in')
+ggsave(plot=dbl3light,filename='DBsurflight.png',height = 18, width =16, units = 'cm')
+dbl3lightyear<- dbl3light+ xlab('Biovolume Dinobryon um3') + ylab('Surface Light (units)')+ ylim(0,1) + geom_point(aes(color = factor(year4.x)))
+dbl3lightyear
+ggsave(plot=dbl3lightyear,filename='DBsurflightyear.png',height = 18, width =16, units = 'cm')
+
+
+
+p1 = ggplot(mtcars) + geom_point(aes(x = mpg, y = hp)) +
+  ylab('horse power')
+p2 = ggplot(mtcars) + geom_line(aes(x = mpg, y = qsec))
+patchwork <- p1 + p2
+patchwork + plot_annotation(
+  tag_levels = 'a',
+  title = 'Figure. a) car miles per gallon (mpg) vs horse power, b) car miles per gallon (mpg) vs qsec'
+)
+
+
+
 
 
 dbl3snow2 <- ggplot(Dinobryon_lte_lite3_chloro_datayearonly, aes(x= CellBioVol, y=avsnow))+geom_point(size=4)+
