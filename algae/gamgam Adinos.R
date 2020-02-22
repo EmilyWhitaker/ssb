@@ -14,5 +14,6 @@ Adinosyears
 
 Adinosexperience <- gam(CellBioVol ~ s(year4.x, bs = "gp")+ s(daynum), data=Adinosyears)
 Ad<-plot(Adinosexperience, page=1)
+Ad<-plot(Adinosexperience,pages=1,residuals=TRUE,all.terms=TRUE, pch=16)
 Ad
 summary(Adinosexperience)
