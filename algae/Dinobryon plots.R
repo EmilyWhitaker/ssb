@@ -26,6 +26,7 @@ dbl3light <- ggplot(Dinobryon_lte_lite3_chloro_datayearonly, aes(x= CellBioVol, 
   facet_wrap('group')+
   labs(x = "Biovolume Dinobryon",
        y = "surf light")+
+  ggtitle('Seasonal Dinobryon Relationship with Surface Light')+
   theme_bw()
 dbl3light
 ggsave(plot=dbl3light,filename='DBsurflight.png',height = 18, width =16, units = 'cm')
