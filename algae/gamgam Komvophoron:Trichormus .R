@@ -14,5 +14,12 @@ CfKTyears
 
 CfKTexperience <- gam(CellBioVol ~ s(year4.x, bs = "gp")+ s(daynum), data=CfKTyears)
 cfkt<-plot(CfKTexperience, page=1)
+cfkt <- plot(CfKTexperience,pages=1,residuals=TRUE,all.terms=TRUE, pch=16)
+cfkt
 summary(CfKTexperience)
-Cf. Komvophoron / Trichormus
+
+
+CfKTexperience2 <- gam(CellBioVol ~ s(year4.x, bs = "gp")+ s(daynum)+ s(CfKTyears$surfchlor), data=CfKTyears)
+cfkt2<-plot(CfKTexperience, page=1)
+cfkt2<- plot(CfKTexperience2,pages=1,residuals=TRUE,all.terms=TRUE, pch=16)
+cfkt
