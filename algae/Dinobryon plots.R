@@ -30,7 +30,9 @@ dbl3light <- ggplot(Dinobryon_lte_lite3_chloro_datayearonly, aes(x= CellBioVol, 
   theme_bw()
 dbl3light
 ggsave(plot=dbl3light,filename='DBsurflight.png',height = 18, width =16, units = 'cm')
-dbl3lightyear<- dbl3light+ xlab('Biovolume Dinobryon um3') + ylab('Surface Light (units)')+ ylim(0,1) + geom_point(aes(color = factor(year4.x)))
+dbl3lightyear<- dbl3light+ xlab('Biovolume Dinobryon um3') + ylab('Surface Light (units)')+ ylim(0,1) + 
+  geom_point(aes(color = factor(year4.x)))+
+  basic+ labs(color="Year")
 dbl3lightyear
 ggsave(plot=dbl3lightyear,filename='DBsurflightyear.png',height = 18, width =16, units = 'cm')
 
