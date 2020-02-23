@@ -194,7 +194,7 @@ dbl3o22 <-  ggplot(Dinobryon_lte_lite3_chloro_datayearonly, aes(x= CellBioVol, y
   facet_wrap('group')+
   labs(x = "Biovolume Dinobryon",
        y = "int o2")+
-  ggtitle('Seasonal Dinobryon Relationship with Integrated Chlorophyll')+
+  ggtitle('Seasonal Dinobryon Relationship with Integrated Dissolved Oxygen')+
   theme_bw()
 dbl3o22
 ggsave(plot=dbl3o22,filename='DBinto22.png',height = 18, width =16, units = 'in')
@@ -209,19 +209,21 @@ dbl3o2sat <-  ggplot(Dinobryon_lte_lite3_chloro, aes(x= CellBioVol, y=o2sat))+ge
   facet_wrap('group')+
   labs(x = "Biovolume Dinobryon",
        y = "int o2 sat")+
+  ggtitle('Seasonal Dinobryon Relationship with Integrated Statured Oxygen')+
   theme_bw()
 dbl3o2sat
 ggsave(plot=dbl3o2sat,filename='DBinto2sat.png',height = 18, width =16, units = 'in')
 
-dbl3o2sat2 <-  ggplot(Dinobryon_lte_lite3_chloro_datayearonly, aes(x= CellBioVol, y=o2sat))+geom_point(size=4)+
+dbl3o2sat2 <-  ggplot(Dinobryon_lte_lite3_chloro_datayearonly, aes(x= CellBioVol, y=o2sat))+geom_point(size=2)+
   facet_wrap('group')+
   labs(x = "Biovolume Dinobryon",
        y = "int o2 sat")+
+  ggtitle('Seasonal Dinobryon Relationship with Integrated Oxygen Saturation')+
   theme_bw()
 dbl3o2sat2
 ggsave(plot=dbl3o2sat2,filename='DBinto2sat2.png',height = 18, width =16, units = 'in')
-
-dbl3o2sat2year<- dbl3o2sat2+ geom_point(aes(color = factor(year4.x)))
+dbl3o2sat2year<- dbl3o2sat2+ xlab('Dinobryon Biovolume (um3)') + ylab('Integrated Saturated O2 ()') + xlim(0, 15000) +
+  geom_point(aes(color = factor(year4.x)))
 dbl3o2sat2year
 ggsave(plot=dbl3o22year,filename='dbl3o2sat2year2.png',height = 18, width =16, units = 'cm')
 
@@ -235,17 +237,19 @@ dbl3cond <-  ggplot(Dinobryon_lte_lite3_chloro, aes(x= CellBioVol, y=cond))+geom
 dbl3cond
 ggsave(plot=dbl3cond,filename='DBintcond.png',height = 18, width =16, units = 'in')
 
-dbl3cond2 <-  ggplot(Dinobryon_lte_lite3_chloro_datayearonly, aes(x= CellBioVol, y=cond))+geom_point(size=4)+
+dbl3cond2 <-  ggplot(Dinobryon_lte_lite3_chloro_datayearonly, aes(x= CellBioVol, y=cond))+geom_point(size=2)+
   facet_wrap('group')+
   labs(x = "Biovolume Dinobryon",
        y = "int cond")+
+  ggtitle('Seasonal Dinobryon Relationship with Integrated Conductivity')+
   theme_bw()
 dbl3cond2
 ggsave(plot=dbl3cond2,filename='DBintcond2.png',height = 18, width =16, units = 'in')
-
-dbl3cond2year<- dbl3cond2+ geom_point(aes(color = factor(year4.x)))
+dbl3cond2year<- dbl3cond2+ xlab('Dinobryon Biovolume (um3)') + ylab('Integrated Conductivity ()') + xlim(0, 15000) +
+  geom_point(aes(color = factor(year4.x)))
 dbl3cond2year
 ggsave(plot=dbl3cond2year,filename='dbl3cond2year2.png',height = 18, width =16, units = 'cm')
+
 ###############################
 
 dbl3cond2b <-  ggplot(Dinobryon_lte_lite3_chloro_datayearonly, aes(x= CellBioVol, y=cond, shape= factor(group)))+
