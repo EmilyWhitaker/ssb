@@ -42,19 +42,10 @@ dbl3snow2 <- ggplot(Dinobryon_lte_lite3_chloro_datayearonly, aes(x= CellBioVol, 
   theme_bw()
 dbl3snow2
 ggsave(plot=dbl3snow2,filename='DBavsnow2.png',height = 18, width =16, units = 'cm')
-
 dbl3snow2<- dbl3snow2+ xlab('Dinobryon Biovolume (um3)') + ylab('Snow (cm)') + xlim(0, 15000) +ylim(0,20)+
   geom_point(aes(color = factor(year4.x)))
 dbl3snow2
 ggsave(plot=dbl3snow2,filename='DBsnow.png',height = 18, width =16, units = 'cm')
-
-
-
-dbl3snowyear<- dbl3snow2+ geom_point(aes(size=3, color = factor(year4.x)))
-dbl3snowyear+ xlim(0, 15000) +ylim(0,20)
-ggsave(plot=dbl3snowyear,filename='DBsnowyear2.png',height = 18, width =16, units = 'in')
-
-
 
 dbl3tice <- ggplot(Dinobryon_lte_lite3_chloro, aes(x= CellBioVol, y=totice))+geom_point()+
   labs(x = "Biovolume Dinobryon",
@@ -94,6 +85,7 @@ dbl3whiteice2 <- ggplot(Dinobryon_lte_lite3_chloro_datayearonly, aes(x= CellBioV
 ggsave(plot=dbl3whiteice2,filename='DBwhiteice2.png',height = 18, width =16, units = 'cm')
 dbl3whiteice2year<- dbl3whiteice2+ geom_point(aes(color = factor(year4.x)))
 dbl3whiteice2year
+ggsave(plot=dbl3whiteice2year,filename='DBwhiteice2year.png',height = 18, width =16, units = 'cm')
 
 dbl3whiteice2year<- dbl3whiteice2year+ xlab('Dinobryon Biovolume (um3)') + ylab('White Ice (cm)') + xlim(0, 15000) +ylim(0,15)+
   geom_point(aes(color = factor(year4.x)))
@@ -116,8 +108,7 @@ dbl3blueice2 <- ggplot(Dinobryon_lte_lite3_chloro_datayearonly, aes(x= CellBioVo
   ggtitle('Seasonal Dinobryon Relationship with Blue Ice')
 dbl3blueice2
 ggsave(plot=dbl3blueice2,filename='DBlueice2.png',height = 18, width =16, units = 'in')
-
-dbl3blueice2<- dbl3blueice2+ xlab('Dinobryon Biovolume (um3)') + ylab('Blue Ice (cm)') + xlim(0, 15000) + ylim(0,50)
+dbl3blueice2<- dbl3blueice2+ xlab('Dinobryon Biovolume (um3)') + ylab('Blue Ice (cm)') + xlim(0, 15000) + ylim(0,50)+
   geom_point(aes(color = factor(year4.x)))
 dbl3blueice2
 ggsave(plot=dbl3blueice2,filename='DBblueice2.png',height = 18, width =16, units = 'cm')
@@ -180,7 +171,7 @@ ggsave(plot=dbl3chloro2,filename='DBintchloro2.png',height = 18, width =16, unit
 dbl3chloro2year<- dbl3chloro2+ xlab('Dinobryon Biovolume (um3)') + ylab('Integrated Chlorophyll ()') + xlim(0, 15000) +
   ylim(0,10)+ geom_point(aes(color = factor(year4.x)))
 dbl3chloro2year
-ggsave(plot=dbl3wtemp2,filename='DBintcholor2.png',height = 18, width =16, units = 'cm')
+ggsave(plot=dbl3chloro2year,filename='DBintcholor2.png',height = 18, width =16, units = 'cm')
 
 dbl3o2 <-  ggplot(Dinobryon_lte_lite3_chloro, aes(x= CellBioVol, y=o2))+geom_point()+
   facet_wrap('group')+
@@ -225,7 +216,7 @@ ggsave(plot=dbl3o2sat2,filename='DBinto2sat2.png',height = 18, width =16, units 
 dbl3o2sat2year<- dbl3o2sat2+ xlab('Dinobryon Biovolume (um3)') + ylab('Integrated Saturated O2 ()') + xlim(0, 15000) +
   geom_point(aes(color = factor(year4.x)))
 dbl3o2sat2year
-ggsave(plot=dbl3o22year,filename='dbl3o2sat2year2.png',height = 18, width =16, units = 'cm')
+ggsave(plot=dbl3o2sat2year,filename='dbl3o2sat2year2.png',height = 18, width =16, units = 'cm')
 
 
 
@@ -280,9 +271,24 @@ dbl3ph.y <-  ggplot(Dinobryon_lte_lite3_chloro, aes(x= CellBioVol, y=ph.y))+geom
   facet_wrap('group')+
   labs(x = "Biovolume Dinobryon",
        y = "int ph")+
+  ggtitle('Seasonal Dinobryon Relationship with Integrated Conductivity')+
   theme_bw()
 dbl3ph.y
 ggsave(plot=dbl3ph.y,filename='DBintph.png',height = 18, width =16, units = 'in')
+
+dbl3ph.y2 <-  ggplot(Dinobryon_lte_lite3_chloro_datayearonly, aes(x= CellBioVol, y=ph.y))+geom_point(size=2)+
+  facet_wrap('group')+
+  labs(x = "Biovolume Dinobryon",
+       y = "int ph")+
+  ggtitle('Seasonal Dinobryon Relationship with Integrated pH')+
+  theme_bw()
+dbl3ph.y2
+ggsave(plot=dbl3ph.y2,filename='DBintph2.png',height = 18, width =16, units = 'in')
+dbl3ph2year<- dbl3ph.y2+ xlab('Dinobryon Biovolume (um3)') + ylab('Integrated pH') + xlim(0, 15000) +
+  ylim(7,7.8)+ geom_point(aes(color = factor(year4.x)))
+dbl3ph2year
+ggsave(plot=dbl3ph2year,filename='dbl3ph2year2.png',height = 18, width =16, units = 'cm')
+
 
 
 #### tool to graph all the graphs next to eahother~~~~ and then want like types of graphs across 
@@ -294,4 +300,12 @@ dbl3_all <- plot_grid( dbl3snow, dbl3tice, dbl3whiteice, dbl3blueice, dbl3ph.y, 
                        ncol = 4, nrow = 3)
 ggsave(plot=dbl3_all,filename='dbl3_all.png',height = 40, width =49, units = 'in')
 dbl3_all
+
+dbl3_all_years <- plot_grid( dbl3snow2, dbl3tice2, dbl3whiteice2year, dbl3blueice2, dbl3lightyear, dbl3surfchloro2, dbl3chloro2year, dbl3wtemp2,
+                       dbl3o2year, dbl3o2sat2year, dbl3cond2year,dbl3ph2year,
+                       labels = c("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"),
+                       ncol = 4, nrow = 3)
+ggsave(plot=dbl3_all_years,filename='dbl3_all_years.png',height = 40, width =49, units = 'cm')
+dbl3_all_years
+
 
