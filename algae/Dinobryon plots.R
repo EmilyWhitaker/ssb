@@ -147,15 +147,6 @@ dbl3surfchloro2
 ggsave(plot=dbl3surfchloro2,filename='DBsurfchloro2.png',height = 18, width =16, units = 'cm')
 
 
-
-dbl3wtemp <-  ggplot(Dinobryon_lte_lite3_chloro, aes(x= CellBioVol, y=wtemp))+geom_point()+
-  facet_wrap('group')+
-  labs(x = "Biovolume Dinobryon",
-       y = "int wtemp")+
-  theme_bw()
-dbl3wtemp
-ggsave(plot=dbl3wtemp,filename='DBintwtemp.png',height = 18, width =16, units = 'in')
-
 dbl3wtemp2 <-  ggplot(Dinobryon_lte_lite3_chloro_datayearonly, aes(x= CellBioVol, y=wtemp))+geom_point(size=2)+
   facet_wrap('group')+
   labs(x = "Dinobryon Biovolume",
@@ -164,13 +155,10 @@ dbl3wtemp2 <-  ggplot(Dinobryon_lte_lite3_chloro_datayearonly, aes(x= CellBioVol
   theme_bw()
 dbl3wtemp2
 ggsave(plot=dbl3wtemp2,filename='DBintwtemp2.png',height = 18, width =16, units = 'in')
-
 dbl3wtemp2<- dbl3wtemp2+ xlab('Dinobryon Biovolume (um3)') + ylab('Integrated Water Temperature (C)') + xlim(0, 15000) +
   geom_point(aes(color = factor(year4.x)))
 dbl3wtemp2
 ggsave(plot=dbl3wtemp2,filename='DBwtemp2.png',height = 18, width =16, units = 'cm')
-
-
 
 
 dbl3chloro <-  ggplot(Dinobryon_lte_lite3_chloro, aes(x= CellBioVol, y=chlor))+geom_point()+
@@ -181,18 +169,18 @@ dbl3chloro <-  ggplot(Dinobryon_lte_lite3_chloro, aes(x= CellBioVol, y=chlor))+g
 dbl3chloro
 ggsave(plot=dbl3chloro,filename='DBintchloro.png',height = 18, width =16, units = 'in')
 
-dbl3chloro2 <-  ggplot(Dinobryon_lte_lite3_chloro_datayearonly, aes(x= CellBioVol, y=chlor))+geom_point(size=4)+
+dbl3chloro2 <-  ggplot(Dinobryon_lte_lite3_chloro_datayearonly, aes(x= CellBioVol, y=chlor))+geom_point(size=2)+
   facet_wrap('group')+
   labs(x = "Biovolume Dinobryon",
        y = "int chloro")+
+  ggtitle('Seasonal Dinobryon Relationship with Integrated Chlorophyll')+
   theme_bw()
 dbl3chloro2
 ggsave(plot=dbl3chloro2,filename='DBintchloro2.png',height = 18, width =16, units = 'in')
-
-dbl3chloro2year<- dbl3chloro2+ geom_point(aes(color = factor(year4.x)))
+dbl3chloro2year<- dbl3chloro2+ xlab('Dinobryon Biovolume (um3)') + ylab('Integrated Chlorophyll ()') + xlim(0, 15000) +
+  ylim(0,10)+ geom_point(aes(color = factor(year4.x)))
 dbl3chloro2year
-ggsave(plot=dbl3chloro2year,filename='dbl3chloro2year2.png',height = 18, width =16, units = 'cm')
-
+ggsave(plot=dbl3wtemp2,filename='DBintcholor2.png',height = 18, width =16, units = 'cm')
 
 dbl3o2 <-  ggplot(Dinobryon_lte_lite3_chloro, aes(x= CellBioVol, y=o2))+geom_point()+
   facet_wrap('group')+
@@ -202,17 +190,18 @@ dbl3o2 <-  ggplot(Dinobryon_lte_lite3_chloro, aes(x= CellBioVol, y=o2))+geom_poi
 dbl3o2
 ggsave(plot=dbl3o2,filename='DBinto2.png',height = 18, width =16, units = 'in')
 
-dbl3o22 <-  ggplot(Dinobryon_lte_lite3_chloro_datayearonly, aes(x= CellBioVol, y=o2))+geom_point(size=4)+
+dbl3o22 <-  ggplot(Dinobryon_lte_lite3_chloro_datayearonly, aes(x= CellBioVol, y=o2))+geom_point(size=2)+
   facet_wrap('group')+
   labs(x = "Biovolume Dinobryon",
        y = "int o2")+
+  ggtitle('Seasonal Dinobryon Relationship with Integrated Chlorophyll')+
   theme_bw()
 dbl3o22
 ggsave(plot=dbl3o22,filename='DBinto22.png',height = 18, width =16, units = 'in')
-
-dbl3o22year<- dbl3o22+ geom_point(aes(color = factor(year4.x)))
-dbl3o22year
-ggsave(plot=dbl3o22year,filename='dbl3o22year2.png',height = 18, width =16, units = 'cm')
+dbl3o2year<- dbl3o22+ xlab('Dinobryon Biovolume (um3)') + ylab('Integrated O2 ()') + xlim(0, 15000) +
+   geom_point(aes(color = factor(year4.x)))
+dbl3o2year
+ggsave(plot=dbl3o2year,filename='DBint022.png',height = 18, width =16, units = 'cm')
 
 
 
