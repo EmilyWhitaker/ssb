@@ -30,13 +30,15 @@ write.csv(Dinobryon_lte_lite3_chloro, 'Dinobryon_lte_lite3_chloro.csv')
 
 dinosexperience <- gam(CellBioVol ~ s(year4.x, bs = "gp")+ s(daynum), data=dinosyears)
 d<-plot(dinosexperience, page=1)
-d<-plot(dinosexperience,pages=2,residuals=TRUE,all.terms=TRUE, pch=16, main="Dinobryn Seasonal Trends")
+d<-plot(dinosexperience,pages=1,residuals=TRUE,all.terms=TRUE, pch=16)
 d
 summary(dinosexperience)
+gam.check(dinosexperience)
 
-dinosexperience2 <- gam(CellBioVol ~ s(year4.x, bs = "gp")+ s(daynum)+ (surfchlor), data=dinosyears)
-snow<- plot(dinosexperience2, page=1)
-snow
-
+dinosexperience2 <- gam(CellBioVol ~ s(year4.x, bs = "cr")+ s(daynum)+ s(surfchlor)+ s(wtemp), data=dinosyears)
+dinosexperience2<- plot(dinosexperience2, page=1, residuals=TRUE,all.terms=TRUE, pch=16)
+dinosexperience2
+summary(dinosexperience2)
+gam.check(dinosexperience2)
 
 
