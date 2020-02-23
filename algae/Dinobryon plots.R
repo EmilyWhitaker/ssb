@@ -30,33 +30,25 @@ dbl3light <- ggplot(Dinobryon_lte_lite3_chloro_datayearonly, aes(x= CellBioVol, 
   theme_bw()
 dbl3light
 ggsave(plot=dbl3light,filename='DBsurflight.png',height = 18, width =16, units = 'cm')
-dbl3lightyear<- dbl3light+ xlab('Biovolume Dinobryon um3') + ylab('Surface Light (units)')+ ylim(0,1) + 
-  geom_point(aes(color = factor(year4.x)))+
-  basic+ labs(color="Year")
+dbl3lightyear<- dbl3light+ xlab('Dinobryon Biovolume um3') + ylab('Surface Light (units)')+ ylim(0,1) + 
+  geom_point(aes(color = factor(year4.x)))
 dbl3lightyear
 ggsave(plot=dbl3lightyear,filename='DBsurflightyear.png',height = 18, width =16, units = 'cm')
-
-
-
-p1 = ggplot(mtcars) + geom_point(aes(x = mpg, y = hp)) +
-  ylab('horse power')
-p2 = ggplot(mtcars) + geom_line(aes(x = mpg, y = qsec))
-patchwork <- p1 + p2
-patchwork + plot_annotation(
-  tag_levels = 'a',
-  title = 'Figure. a) car miles per gallon (mpg) vs horse power, b) car miles per gallon (mpg) vs qsec'
-)
-
-
-
-
-
-dbl3snow2 <- ggplot(Dinobryon_lte_lite3_chloro_datayearonly, aes(x= CellBioVol, y=avsnow))+geom_point(size=4)+
+###needs work##
+dbl3snow2 <- ggplot(Dinobryon_lte_lite3_chloro_datayearonly, aes(x= CellBioVol, y=avsnow))+geom_point(size=2)+
   labs(x = "Biovolume Dinobryon",
        y = "av snow")+
+  ggtitle('Seasonal Dinobryon Relationship with Snow')+
   theme_bw()
 dbl3snow2
-ggsave(plot=dbl3snow2,filename='DBavsnow2.png',height = 18, width =16, units = 'in')
+ggsave(plot=dbl3snow2,filename='DBavsnow2.png',height = 18, width =16, units = 'cm')
+
+dbl3snow2<- dbl3snow2+ xlab('Dinobryon Biovolume (um3)') + ylab('Snow (cm)') + xlim(0, 15000) +ylim(0,20)+
+  geom_point(aes(color = factor(year4.x)))
+dbl3snow2
+ggsave(plot=dbl3snow2,filename='DBsnow.png',height = 18, width =16, units = 'cm')
+
+
 
 dbl3snowyear<- dbl3snow2+ geom_point(aes(size=3, color = factor(year4.x)))
 dbl3snowyear+ xlim(0, 15000) +ylim(0,20)
