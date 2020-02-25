@@ -1,5 +1,5 @@
 ## Clear workspace and console
-rm(list=ls()); cat("\014")
+rm(list=ls()); cat("\014") 
 
 # Load required packages
 library(FSA); library(dplyr);library(magrittr);library(tidyr) # data management
@@ -15,7 +15,7 @@ chl = read.csv('data/chloro_all.csv',stringsAsFactors = F)
 chl %<>% subset(lakeid == "SP" & depth == 0) %>%
   select(year4, daynum, sampledate, chlor)
 chl$sampledate =  ymd(chl$sampledate)
-
+ 
 ice = read.csv('data/snowicedepth.csv',stringsAsFactors = F)
 ice %<>% subset(lakeid == "SP") %>%
   select(year4, daynum, sampledate, avsnow, totice, whiteice, blueice) %>%
@@ -88,7 +88,7 @@ totals %<>% select(-Genus)
 totals$log.chlor = log(totals$chlor)
 totals$log.bv = log(totals$CellBioVol)
 totals.long = pivot_longer(totals, cols=c("chlor","log.chlor","avsnow","totice","whiteice","blueice","perwhiteice","perblueice",
-                                          "light","CellBioVol","log.bv"), names_to="variable", values_to = "value")
+                                  "light","CellBioVol","log.bv"), names_to="variable", values_to = "value")
 
 
 ggplot(totals.long, aes(sampledate, value, color=variable))+
@@ -157,19 +157,19 @@ bv.b = lme(log.bv ~ avsnow + totice + blueice + light, random = ~1|ctr.year, dat
 summary(bv.b) # not significant
 
 # get rid of light - least sig
-bv.c = lme(log.bv ~ avsnow + totice + blueice, random = ~1|ctr.year, data=model.2)
+bv.c = lme(log.bv ~ avsnow + totice + blueice, random = ~1|ctr.year, data=model)
 summary(bv.c) # blue ice not significant
 
 # get rid of blue ice - least sig
-bv.d = lme(log.bv ~ avsnow + totice, random = ~1|ctr.year, data=model.2)
+bv.d = lme(log.bv ~ avsnow + totice, random = ~1|ctr.year, data=model)
 summary(bv.d) # blue ice not significant
 
 # get rid of total ice - least sig
-bv.e = lme(log.bv ~ avsnow + blueice, random = ~1|ctr.year, data=model.2)
+bv.e = lme(log.bv ~ avsnow + blueice, random = ~1|ctr.year, data=model)
 summary(bv.e) # blue ice not significant
 
 # get rid of total ice - least sig
-bv.f = lme(log.bv ~ avsnow, random = ~1|ctr.year, data=model.2)
+bv.f = lme(log.bv ~ avsnow, random = ~1|ctr.year, data=model)
 summary(bv.f) # significant
 
 #========
