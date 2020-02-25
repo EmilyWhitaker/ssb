@@ -76,7 +76,17 @@ lll3tice
 ggsave(plot=lll3tice,filename='lll3tice.png',height = 18, width =16, units = 'in')
 
 
-
+lll3tice <- ggplot(Limnothrix_lte_lite3_chloro_datayearonly, aes(x= CellBioVol, y=totice))+geom_point(size=2)+
+  labs(x = "Limnothrix Biovolume",
+       y = "total ice")+
+  ggtitle('Seasonal Limnothrix Relationship with Ice')+
+  theme_bw()
+lll3tice
+ggsave(plot=lll3tice,filename='lll3tice.png',height = 18, width =16, units = 'cm')
+lll3ticeyear<- lll3tice+ xlab('Limnothrix Biovolume (um3)') + ylab('Total Ice (cm)')+ 
+  geom_point(aes(color = factor(year4.x)))
+lll3ticeyear
+ggsave(plot=lll3ticeyear,filename='LLiceyear.png',height = 18, width =16, units = 'cm')
 
 
 lll3whiteice <- ggplot(Limnothrixlte_lite3, aes(x= CellBioVol, y=whiteice))+geom_point()+
@@ -86,6 +96,18 @@ lll3whiteice <- ggplot(Limnothrixlte_lite3, aes(x= CellBioVol, y=whiteice))+geom
 lll3whiteice
 ggsave(plot=lll3whiteice,filename='lll3whiteice.png',height = 18, width =16, units = 'in')
 
+lll3whiteice <- ggplot(Limnothrix_lte_lite3_chloro_datayearonly, aes(x= CellBioVol, y=whiteice))+geom_point(size=2)+
+  labs(x = "Limnothrix Biovolume",
+       y = "white ice")+
+  ggtitle('Seasonal Limnothrix Relationship with White Ice')+
+  theme_bw()
+lll3whiteice
+ggsave(plot=lll3whiteice,filename='lll3whiteice.png',height = 18, width =16, units = 'cm')
+lll3whiteiceyear<- lll3whiteice+ xlab('Limnothrix Biovolume (um3)') + ylab('Total White Ice (cm)')+ 
+  geom_point(aes(color = factor(year4.x)))
+lll3whiteiceyear
+ggsave(plot=lll3whiteiceyear,filename='LLwhiteiceyear.png',height = 18, width =16, units = 'cm')
+
 
 lll3blueice <- ggplot(Limnothrixlte_lite3, aes(x= CellBioVol, y=blueice))+geom_point()+
   labs(x = "Biovolume Limnothrix",
@@ -94,6 +116,19 @@ lll3blueice <- ggplot(Limnothrixlte_lite3, aes(x= CellBioVol, y=blueice))+geom_p
 lll3blueice
 ggsave(plot=lll3blueice,filename='lll3blueice.png',height = 18, width =16, units = 'in')
 
+lll3blueice <- ggplot(Limnothrix_lte_lite3_chloro_datayearonly, aes(x= CellBioVol, y=blueice))+geom_point(size=2)+
+  labs(x = "Limnothrix Biovolume",
+       y = "Blue ice")+
+  ggtitle('Seasonal Limnothrix Relationship with Blue Ice')+
+  theme_bw()
+lll3blueice
+ggsave(plot=lll3blueice,filename='lll3blueice.png',height = 18, width =16, units = 'cm')
+lll3blueiceyear<- lll3whiteice+ xlab('Limnothrix Biovolume (um3)') + ylab('Total Blue Ice (cm)')+ 
+  geom_point(aes(color = factor(year4.x)))
+lll3blueiceyear
+ggsave(plot=lll3blueiceyear,filename='LLblueiceyear.png',height = 18, width =16, units = 'cm')
+
+
 lll3surfchloro <-  ggplot(Limnothrixlte_lite3_chloro, aes(x= CellBioVol, y=surfchlor))+geom_point()+
   facet_wrap('group')+
   labs(x = "Biovolume Limnothrix",
@@ -101,6 +136,22 @@ lll3surfchloro <-  ggplot(Limnothrixlte_lite3_chloro, aes(x= CellBioVol, y=surfc
   theme_bw()
 lll3surfchloro
 ggsave(plot=lll3surfchloro,filename='lll3surfchloro.png',height = 18, width =16, units = 'in')
+
+lll3surfchloro <- ggplot(Limnothrix_lte_lite3_chloro_datayearonly, aes(x= CellBioVol, y=surfchlor))+geom_point(size=2)+
+  facet_wrap('group')+
+  labs(x = "Limnothrix Biovolume",
+       y = "surface chloro")+
+  ggtitle('Seasonal Limnothrix Relationship with Surface Chloro')+
+  theme_bw()
+lll3blueice
+ggsave(plot=lll3blueice,filename='lll3blueice.png',height = 18, width =16, units = 'cm')
+lll3blueiceyear<- lll3whiteice+ xlab('Limnothrix Biovolume (um3)') + ylab('Total Blue Ice (cm)')+ 
+  geom_point(aes(color = factor(year4.x)))
+lll3blueiceyear
+ggsave(plot=lll3blueiceyear,filename='LLblueiceyear.png',height = 18, width =16, units = 'cm')
+
+
+
 
 lll3chloro <-  ggplot(Limnothrixlte_lite3_chloro, aes(x= CellBioVol, y=chlor))+geom_point()+
   facet_wrap('group')+
