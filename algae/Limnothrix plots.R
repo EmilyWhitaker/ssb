@@ -316,4 +316,26 @@ lll3_all <- plot_grid( lll3snow, lll3tice, lll3whiteice, lll3blueice, lll3ph.y, 
 ggsave(plot=lll3_all,filename='lll3_all.png',height = 40, width =49, units = 'in')
 lll3_all
 
+lll3_allyears <- plot_grid (lll3snowyear, lll3ticeyear,lll3whiteiceyear, lll3blueiceyear, lll3lightyear, lll3surfchloroyear, 
+                            lll3chloroyear,lll3wtempyear, lll3o2year,lll3o2satyear,
+                            labels = c("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"),
+                            ncol = 3, nrow = 4)
+ggsave(plot=lll3_allyears,filename='lll3_allyears.png',height = 40, width =49, units = 'in')
+lll3_allyears
 
+
+
+library("cowplot")
+dbandll<-plot_grid(dbl3lightyear,lll3lightyear, dbl3snow2, lll3snowyear,
+                   labels = c("A", "B", "C", "D"),
+                   ncol = 2, nrow = 2)
+dbandll
+ggsave(plot=dbandll,filename='snowandlightdbll.png',height = 40, width =49, units = 'cm')
+
+
+dbl3_all_years <- plot_grid(dbl3snow2, dbl3tice2, dbl3whiteice2year, dbl3blueice2, dbl3lightyear, dbl3surfchloro2, dbl3chloro2year, dbl3wtemp2,
+                             dbl3o2year, dbl3o2sat2year, dbl3cond2year,dbl3ph2year,
+                             labels = c("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"),
+                             ncol = 4, nrow = 3)
+ggsave(plot=dbl3_all_years,filename='dbl3_all_years.png',height = 40, width =49, units = 'cm')
+dbl3_all_years
