@@ -138,7 +138,7 @@ winter_lm_smooth_years<- ggplot(winter, aes(year, value, color=variable))+
   geom_smooth(method='lm', aes(group=variable))+
   #geom_line(aes(group=variable))+
   facet_wrap(~variable, scales='free')
-ggsave(plot=winter_lm_smooth_years,filename='data/winter_lm_smooth_year.png',height = 18, width =16, units = 'cm')
+ggsave(plot=winter_lm_smooth_years,filename='data/winter_lm_smooth_year.png',height = 26, width =24, units = 'cm')
 
 
 #==============
