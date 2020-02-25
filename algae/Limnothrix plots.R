@@ -19,6 +19,11 @@ Limnothrixlte_lite3_chloro <-Limnothrixlte_lite3 %>%
   right_join(bothchloro, by= c('sampledate'))
 write.csv(Limnothrixlte_lite3_chloro, 'Limnothrixlte_lite3_chloro.csv')
 
+Limnothrix_lte_lite3_chloro_datayearonly <- read_csv('Limnothrixlte_lite3_chloro_datayearonly.csv',
+                                                     col_types = cols(sampledate = col_date(format = "%m/%d/%Y")))
+
+
+
 lll3light <- ggplot(Limnothrixlte_lite3, aes(x= CellBioVol, y=surflite))+geom_point()+
   facet_wrap('group')+
   labs(x = "Biovolume Limnothrix",
@@ -26,6 +31,31 @@ lll3light <- ggplot(Limnothrixlte_lite3, aes(x= CellBioVol, y=surflite))+geom_po
   theme_bw()
 lll3light
 ggsave(plot=lll3light,filename='lll3light.png',height = 18, width =16, units = 'in')
+
+lll3light <- ggplot(Limnothrix_lte_lite3_chloro_datayearonly, aes(x= CellBioVol, y=surflite))+geom_point(size=2)+
+  facet_wrap('group')+
+  labs(x = "Limnothrix Biovolume",
+       y = "surf light")+
+  ggtitle('Seasonal Limnothrix Relationship with Surface Light')+
+  theme_bw()
+lll3light
+ggsave(plot=lll3light,filename='LLsurflight.png',height = 18, width =16, units = 'cm')
+lll3lightyear<- lll3light+ xlab('Limnothrix Biovolume (um3)') + ylab('Surface Light (units)')+ ylim(0,1)+
+  geom_point(aes(color = factor(year4.x)))
+lll3lightyear
+ggsave(plot=lll3lightyear,filename='LLsurflightyear.png',height = 18, width =16, units = 'cm')
+###needs work##
+
+
+
+
+
+
+
+
+
+
+
 
 lll3snow <- ggplot(Limnothrixlte_lite3, aes(x= CellBioVol, y=avsnow))+ geom_point()+
   labs(x = "Biovolume Limnothrix",
