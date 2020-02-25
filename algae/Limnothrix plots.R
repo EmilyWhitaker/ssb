@@ -226,6 +226,22 @@ lll3o2sat <-  ggplot(Limnothrixlte_lite3_chloro, aes(x= CellBioVol, y=o2sat))+ge
 lll3o2sat
 ggsave(plot=lll3o2sat,filename='Limnothrixinto2sat.png',height = 18, width =16, units = 'in')
 
+lll3o2sat <- ggplot(Limnothrix_lte_lite3_chloro_datayearonly, aes(x= CellBioVol, y=o2sat))+geom_point(size=2)+
+  facet_wrap('group')+
+  labs(x = "Limnothrix Biovolume",
+       y = "Int 02 sat")+
+  ggtitle('Seasonal Limnothrix Relationship with Integrated Staturated Oxygen')+
+  theme_bw()
+lll3o2sat
+ggsave(plot=lll3o2sat,filename='lll3o2sat.png',height = 18, width =16, units = 'cm')
+lll3o2satyear<- lll3o2sat+ xlab('Limnothrix Biovolume (um3)') + ylab('Integrated Staturated Oxygen ()')+ ylim(60,120)+
+  geom_point(aes(color = factor(year4.x)))
+lll3o2satyear
+ggsave(plot=lll3o2satyear,filename='lll3o2satyear.png',height = 18, width =16, units = 'cm')
+
+
+
+
 lll3cond <-  ggplot(Limnothrixlte_lite3_chloro, aes(x= CellBioVol, y=cond))+geom_point()+
   facet_wrap('group')+
   labs(x = "Biovolume Limnothrix",
