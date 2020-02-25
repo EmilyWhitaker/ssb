@@ -47,16 +47,6 @@ ggsave(plot=lll3lightyear,filename='LLsurflightyear.png',height = 18, width =16,
 ###needs work##
 
 
-
-
-
-
-
-
-
-
-
-
 lll3snow <- ggplot(Limnothrixlte_lite3, aes(x= CellBioVol, y=avsnow))+ geom_point()+
   labs(x = "Biovolume Limnothrix",
        y = "av snow")+
@@ -65,12 +55,29 @@ lll3snow
 ggsave(plot=lll3snow,filename='lll3snow.png',height = 18, width =16, units = 'in')
 
 
+lll3snow <- ggplot(Limnothrix_lte_lite3_chloro_datayearonly, aes(x= CellBioVol, y=avsnow))+geom_point(size=2)+
+  labs(x = "Limnothrix Biovolume",
+       y = "av snow")+
+  ggtitle('Seasonal Limnothrix Relationship with Average Snow')+
+  theme_bw()
+lll3snow
+ggsave(plot=lll3snow,filename='LLsnow.png',height = 18, width =16, units = 'cm')
+lll3snowyear<- lll3snow+ xlab('Limnothrix Biovolume (um3)') + ylab('Average Snow (cm)')+ 
+  geom_point(aes(color = factor(year4.x)))
+lll3snowyear
+ggsave(plot=lll3snowyear,filename='LLsnowyear.png',height = 18, width =16, units = 'cm')
+
+
 lll3tice <- ggplot(Limnothrixlte_lite3, aes(x= CellBioVol, y=totice))+geom_point()+
   labs(x = "Biovolume Limnothrix",
        y = "total ice")+
   theme_bw()
 lll3tice
 ggsave(plot=lll3tice,filename='lll3tice.png',height = 18, width =16, units = 'in')
+
+
+
+
 
 lll3whiteice <- ggplot(Limnothrixlte_lite3, aes(x= CellBioVol, y=whiteice))+geom_point()+
   labs(x = "Biovolume Limnothrix",
