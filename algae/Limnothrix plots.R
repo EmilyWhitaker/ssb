@@ -143,14 +143,12 @@ lll3surfchloro <- ggplot(Limnothrix_lte_lite3_chloro_datayearonly, aes(x= CellBi
        y = "surface chloro")+
   ggtitle('Seasonal Limnothrix Relationship with Surface Chloro')+
   theme_bw()
-lll3blueice
-ggsave(plot=lll3blueice,filename='lll3blueice.png',height = 18, width =16, units = 'cm')
-lll3blueiceyear<- lll3whiteice+ xlab('Limnothrix Biovolume (um3)') + ylab('Total Blue Ice (cm)')+ 
+lll3surfchloro
+ggsave(plot=lll3surfchloro,filename='lll3surfchloro.png',height = 18, width =16, units = 'cm')
+lll3surfchloroyear<- lll3surfchloro+ xlab('Limnothrix Biovolume (um3)') + ylab('Surface Chloro ()')+ ylim(0,10)+
   geom_point(aes(color = factor(year4.x)))
-lll3blueiceyear
-ggsave(plot=lll3blueiceyear,filename='LLblueiceyear.png',height = 18, width =16, units = 'cm')
-
-
+lll3surfchloroyear
+ggsave(plot=lll3surfchloroyear,filename='lll3surfchloroyear.png',height = 18, width =16, units = 'cm')
 
 
 lll3chloro <-  ggplot(Limnothrixlte_lite3_chloro, aes(x= CellBioVol, y=chlor))+geom_point()+
@@ -161,6 +159,20 @@ lll3chloro <-  ggplot(Limnothrixlte_lite3_chloro, aes(x= CellBioVol, y=chlor))+g
 lll3chloro
 ggsave(plot=lll3chloro,filename='lll3chloro.png',height = 18, width =16, units = 'in')
 
+lll3chloro <- ggplot(Limnothrix_lte_lite3_chloro_datayearonly, aes(x= CellBioVol, y=chlor))+geom_point(size=2)+
+  facet_wrap('group')+
+  labs(x = "Limnothrix Biovolume",
+       y = "Int chloro")+
+  ggtitle('Seasonal Limnothrix Relationship with Integrated Chloro')+
+  theme_bw()
+lll3chloro
+ggsave(plot=lll3chloro,filename='lll3chloro.png',height = 18, width =16, units = 'cm')
+lll3chloroyear<- lll3chloro+ xlab('Limnothrix Biovolume (um3)') + ylab('Integrated Chloro ()')+ ylim(0,10)+
+  geom_point(aes(color = factor(year4.x)))
+lll3chloroyear
+ggsave(plot=lll3chloroyear,filename='lll3chloroyear.png',height = 18, width =16, units = 'cm')
+
+
 lll3wtemp <-  ggplot(Limnothrixlte_lite3_chloro, aes(x= CellBioVol, y=wtemp))+geom_point()+
   facet_wrap('group')+
   labs(x = "Biovolume Limnothrix",
@@ -168,6 +180,23 @@ lll3wtemp <-  ggplot(Limnothrixlte_lite3_chloro, aes(x= CellBioVol, y=wtemp))+ge
   theme_bw()
 lll3wtemp
 ggsave(plot=lll3wtemp,filename='Limnothrixintwtemp.png',height = 18, width =16, units = 'in')
+
+lll3wtemp <- ggplot(Limnothrix_lte_lite3_chloro_datayearonly, aes(x= CellBioVol, y=wtemp))+geom_point(size=2)+
+  facet_wrap('group')+
+  labs(x = "Limnothrix Biovolume",
+       y = "Int Water Temp")+
+  ggtitle('Seasonal Limnothrix Relationship with Integrated Water Temperature')+
+  theme_bw()
+lll3wtemp
+ggsave(plot=lll3wtemp,filename='lll3wtemp.png',height = 18, width =16, units = 'cm')
+lll3wtempyear<- lll3wtemp+ xlab('Limnothrix Biovolume (um3)') + ylab('Integrated Water Temp (C)')+ 
+  geom_point(aes(color = factor(year4.x)))
+lll3wtempyear
+ggsave(plot=lll3wtempyear,filename='lll3wtempyear.png',height = 18, width =16, units = 'cm')
+
+
+
+
 
 lll3o2 <-  ggplot(Limnothrixlte_lite3_chloro, aes(x= CellBioVol, y=o2))+geom_point()+
   facet_wrap('group')+
