@@ -272,6 +272,20 @@ lll3doc.y <-  ggplot(Limnothrixlte_lite3_chloro, aes(x= CellBioVol, y=doc.y))+ge
 lll3doc.y
 ggsave(plot=lll3doc.y,filename='Limnothrixintdoc.png',height = 18, width =16, units = 'in')
 
+lll3doc.y <- ggplot(Limnothrix_lte_lite3_chloro_datayearonly, aes(x= CellBioVol, y=doc.y))+geom_point(size=2)+
+  facet_wrap('group')+
+  labs(x = "Limnothrix Biovolume",
+       y = "Int DOC")+
+  ggtitle('Seasonal Limnothrix Relationship with Integrated DOC')+
+  theme_bw()
+lll3doc.y
+ggsave(plot=lll3doc.y,filename='lll3doc.png',height = 18, width =16, units = 'cm')
+lll3doc.yyear<- lll3doc.y+ xlab('Limnothrix Biovolume (um3)') + ylab('Integrated DOC ()')+
+  geom_point(aes(color = factor(year4.x)))
+lll3doc.yyear
+ggsave(plot=lll3doc.yyear,filename='lll3docyear.png',height = 18, width =16, units = 'cm')
+
+
 lll3ph.y <-  ggplot(Limnothrixlte_lite3_chloro, aes(x= CellBioVol, y=ph.y))+geom_point()+
   facet_wrap('group')+
   labs(x = "Biovolume Limnothrix",
@@ -279,6 +293,19 @@ lll3ph.y <-  ggplot(Limnothrixlte_lite3_chloro, aes(x= CellBioVol, y=ph.y))+geom
   theme_bw()
 lll3ph.y
 ggsave(plot=lll3ph.y,filename='Limnothrixintph.png',height = 18, width =16, units = 'in')
+
+lll3cond <- ggplot(Limnothrix_lte_lite3_chloro_datayearonly, aes(x= CellBioVol, y=cond))+geom_point(size=2)+
+  facet_wrap('group')+
+  labs(x = "Limnothrix Biovolume",
+       y = "Int cond")+
+  ggtitle('Seasonal Limnothrix Relationship with Integrated Cond')+
+  theme_bw()
+lll3cond
+ggsave(plot=lll3cond,filename='lll3cond.png',height = 18, width =16, units = 'cm')
+lll3condyear<- lll3cond+ xlab('Limnothrix Biovolume (um3)') + ylab('Integrated Cond Oxygen ()')+
+  geom_point(aes(color = factor(year4.x)))
+lll3condyear
+ggsave(plot=lll3condyear,filename='lll3condyear.png',height = 18, width =16, units = 'cm')
 
 
 library("cowplot")
