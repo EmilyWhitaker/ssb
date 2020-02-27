@@ -247,12 +247,50 @@ genus[genus=="Large Cryptomonad-esque cell husks"] <- 'Cryptomonad'
 genus[genus=="Cryptomonas"] <- 'Cryptomonad'
 genus[genus=="large Cryptomonad"] <- 'Cryptomonad'
 genus[genus=="Dinobryon small"] <- 'Dinobryon'
+genus[genus=="Cf. Cyanobium"] <- NA
+genus[genus=="Actinastrum hantzchii"] <- NA
+genus[genus=="Chamaecalyx"] <- NA
+genus[genus=="Ankistrodesmus falcatus"] <- NA
+genus[genus=="Actinastrum hantzchii"] <- NA
+genus[genus=="Actinastrum hantzchii (colony)"] <- NA
+genus[genus=="?10"] <- NA
+genus[genus=="Hydrococcus"] <- NA
+genus[genus=="Prestauroneis protracta"] <- NA
+genus[genus=="Ulnaria cf. acus"] <- NA
+genus[genus=="Closteriopsis longissima"] <- NA
+genus[genus=="Karayevia"] <- NA
+genus[genus=="Cymbella"] <- NA
+genus[genus=="Eunota"] <- NA
+genus[genus=="Staurastrum"] <- NA
+genus[genus=="Chrysosphaerella"] <- NA
+genus[genus=="Uroslenia"] <- NA
+genus[genus=="Cf. Actinocyclus"] <- NA
+genus[genus=="Cf. Fragilariforma constricta"] <- NA
+genus[genus=="Actinastrum falcatus"] <- NA
+genus[genus=="Cf. Chlorallantus oblongus"] <- NA
+genus[genus=="Cf. Tetraedron victoriae"] <- NA
+genus[genus=="Cf. Chlorallantus oblongus"] <- NA
+genus[genus=="Eunotia"] <- NA
+genus[genus=="Cf. Eutrepita globulifera"] <- NA
+genus[genus=="Cf. Rossithidium linearis"] <- NA
+genus[genus=="Ceratium"] <- NA
+genus[genus=="Cf. Chlorallantis oblongus"] <- NA
+genus[genus=="Cf. Anabaenopsis elenkinii (colony)"] <- NA
+genus[genus=="Actinastrum falcatus"] <- NA
+genus[genus=="unID chrysophyte"] <- NA
+genus[genus=="Aphanothece bacilloidea"] <- NA
+genus[genus=="Cyanobium"] <- NA
+genus[genus=="Statospore"] <- NA
+genus[genus=="unID pennate diatom with stauros"] <- NA
 genus[genus=="Fragilaria"] <- 'Fragilaria'
 genus[genus=="Fragilaria"] <- 'Fragilaria'
 genus[genus=="Fragilaria"] <- 'Fragilaria'
 genus[genus=="Fragilaria"] <- 'Fragilaria'
 genus[genus=="Fragilaria"] <- 'Fragilaria'
 genus[genus=="Fragilaria"] <- 'Fragilaria'
+genus[genus=="Fragilaria"] <- 'Fragilaria'
+genus[genus=="Fragilaria"] <- 'Fragilaria'
+
 #======== Spell Check
 
 start = c("Limnothrix", "Microcystis", "Peanut", "Naked Dinoflagellate", "Dinobryon", "Armored Dinoflagellate")
