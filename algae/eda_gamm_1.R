@@ -221,7 +221,7 @@ genus[genus=="Chroococcus "] <- 'Chroococcus'
 genus[genus=="Small chroococcus"] <- 'Small Chroococcus'
 genus[genus=="Dinobryon internal organelles ONLY"] <- NA
 genus[genus=="Cf. Fragilariforma constricta"] <- NA
-genus[genus=="?17"] <- NA
+genus[genus=="?17"] <- 'Chroococcus cf. kidneys'
 genus[genus=="Fragilaria crototensis"] <- 'Fragilaria'
 genus[genus=="Fragilaria "] <- 'Fragilaria'
 genus[genus=="Fragilaria intermedia"] <- 'Fragilaria'
