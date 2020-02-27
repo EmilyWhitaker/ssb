@@ -175,13 +175,74 @@ summary(bv.f) # significant
 #========
 # genus trends over time
 
-unique(genus$Genus) # shows all names there
+d<- unique(genus$Genus)# shows all names there
+d
+write.csv(d, 'data/unique.genus.csv')
+
+#==============
+#SpellCheck
 
 genus[genus=="unID cyanobacteria (colony)"] <- NA
+genus[genus=="?10"] <- NA
+genus[genus=="Cyclotella"] <- 'Lindavia comensis'
+genus[genus=="Cyclotella ocellata"] <- 'Lindavia comensis'
+genus[genus=="Cyclotella distinguenda"] <- 'Lindavia comensis'
+genus[genus=="?11"] <- NA
+genus[genus=="Microplastic - blue filament"] <- NA
+genus[genus=="Microcyctis"] <- 'Microcystis'
+genus[genus=="Microcystis (small)"] <- 'Microcystis'
+genus[genus=="Microcystis (large)"] <- 'Microcystis'
+genus[genus=="Thin Rod"] <- NA
+genus[genus=="Lindavia comensis"] <- 'Lindavia'
+genus[genus=="Lindavia affinis"] <- 'Lindavia'
+genus[genus=="Lindavia "] <- 'Lindavia'
+genus[genus=="Lindavia (Lindavia affinis)"] <- 'Lindavia'
+genus[genus=="Lindavia cf. bodanica"] <- 'Lindavia'
+genus[genus=="Cf. Cryptomonad (NEW CATEGORY)"] <- 'Cf. Cryptomonad'
+genus[genus=="Segmented green"] <- 'Segmented Green'
+genus[genus=="Mallomonas c"] <- 'Mallomonas'
+genus[genus=="Mallomonas (colony)"] <- 'Mallomonas'
+genus[genus=="Mallomonas Colony"] <- 'Mallomonas'
+genus[genus=="Lindavia comensis (C. Comensis))"] <- 'Lindavia'
+genus[genus=="Flagellated green"] <- 'Flagellated Green'
+genus[genus=="Cyanobacterium diachloros"] <- 'Cyanobacteria'
+genus[genus=="Cyanobacteria diachloros"] <- 'Cyanobacteria'
+genus[genus=="Cyanobacteria diachlorus"] <- 'Cyanobacteria'
+genus[genus=="unID colonial Cyanobacteria"] <- 'Cyanobacteria'
+genus[genus=="unID Cyanobacteria"] <- 'Cyanobacteria'
+genus[genus=="unID cyanobacteria"] <- 'Cyanobacteria'
+genus[genus=="Thin rod"] <- NA
+genus[genus=="Lindavia comensis (C. Comensis)"] <- 'Lindavia'
+genus[genus=="Aulacoseira cf. subarctica"] <- 'Aulacoseira'
+genus[genus=="Aulacoseira cf. ambigua"] <- 'Aulacoseira'
+genus[genus=="Aulacoseira cf. islandica"] <- 'Aulacoseira'
+genus[genus=="Chroococcus cf. kidneys"] <- 'Chroococcus'
+genus[genus=="Chroococcus "] <- 'Chroococcus'
+genus[genus=="Small chroococcus"] <- 'Small Chroococcus'
+genus[genus=="Dinobryon internal organelles ONLY"] <- NA
+genus[genus=="Cf. Fragilariforma constricta"] <- NA
+genus[genus=="?17"] <- NA
+genus[genus=="Fragilaria crototensis"] <- 'Fragilaria'
+genus[genus=="Fragilaria "] <- 'Fragilaria'
+genus[genus=="Fragilaria intermedia"] <- 'Fragilaria'
+genus[genus=="Fragilaria tenera"] <- 'Fragilaria'
+genus[genus=="Fragilaria crotonensis"] <- 'Fragilaria'
+genus[genus=="Microcystis (large)"] <- 'Microcystis'
+genus[genus=="Microcystis (large)"] <- 'Microcystis'
+genus[genus=="Microcystis (large)"] <- 'Microcystis'
+genus[genus=="Microcystis (large)"] <- 'Microcystis'
+genus[genus=="Microcystis (large)"] <- 'Microcystis'
+
+
+#======== Spell Check
 
 start = c("Limnothrix", "Microcystis", "Peanut", "Naked Dinoflagellate", "Dinobryon", "Armored Dinoflagellate")
 
 ggplot(subset(genus,Genus %in% start), aes(year, log(CellBioVol), color=Genus))+
+  geom_point(aes(group=Genus))+
+  geom_smooth(aes(group=Genus),se=F)
+
+ggplot(subset(genus,Genus %in% start), aes(daynum, log(CellBioVol), color=Genus))+
   geom_point(aes(group=Genus))+
   geom_smooth(aes(group=Genus),se=F)
 
