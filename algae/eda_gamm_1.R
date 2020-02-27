@@ -232,14 +232,18 @@ genus[genus=="Planktothrix strand"] <- NA
 genus[genus=="cf. Planktolyngabia"] <- 'Planktolyngabia'
 genus[genus=="NA"] <- NA
 genus[genus=="Mallomonas colony"] <- 'Mallomonas'
-genus[genus=="Fragilaria "] <- 'Fragilaria'
-genus[genus=="Fragilaria "] <- 'Fragilaria'
-genus[genus=="Fragilaria "] <- 'Fragilaria'
-genus[genus=="Fragilaria "] <- 'Fragilaria'
-genus[genus=="Fragilaria "] <- 'Fragilaria'
-genus[genus=="Fragilaria "] <- 'Fragilaria'
-genus[genus=="Fragilaria "] <- 'Fragilaria'
-genus[genus=="Fragilaria "] <- 'Fragilaria'
+genus[genus=="Discostella "] <- 'Discostella'
+genus[genus=="Discotella"] <- 'Discostella'
+genus[genus=="Fragilaria"] <- 'Fragilaria'
+genus[genus=="Fragilaria"] <- 'Fragilaria'
+genus[genus=="Fragilaria"] <- 'Fragilaria'
+genus[genus=="Fragilaria"] <- 'Fragilaria'
+genus[genus=="Fragilaria"] <- 'Fragilaria'
+genus[genus=="Fragilaria"] <- 'Fragilaria'
+genus[genus=="Fragilaria"] <- 'Fragilaria'
+genus[genus=="Fragilaria"] <- 'Fragilaria'
+genus[genus=="Fragilaria"] <- 'Fragilaria'
+genus[genus=="Fragilaria"] <- 'Fragilaria'
 #======== Spell Check
 
 start = c("Limnothrix", "Microcystis", "Peanut", "Naked Dinoflagellate", "Dinobryon", "Armored Dinoflagellate")
