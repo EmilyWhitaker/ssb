@@ -218,6 +218,8 @@ genus[genus=="Aulacoseira cf. ambigua"] <- 'Aulacoseira'
 genus[genus=="Aulacoseira cf. islandica"] <- 'Aulacoseira'
 genus[genus=="Chroococcus cf. kidneys"] <- 'Chroococcus'
 genus[genus=="Chroococcus "] <- 'Chroococcus'
+genus[genus=="Cosmarium (Croococcus cf. kidneys)"] <- 'Chroococcus'
+genus[genus=="Croococcus cf. kidneys"] <- 'Chroococcus'
 genus[genus=="Small chroococcus"] <- 'Small Chroococcus'
 genus[genus=="Dinobryon internal organelles ONLY"] <- NA
 genus[genus=="Cf. Fragilariforma constricta"] <- NA
@@ -239,6 +241,7 @@ genus[genus=="Small cocconeis"] <- 'Cocconeis'
 genus[genus=="unID Cocconeis"] <- 'Cocconeis'
 genus[genus=="Small cocconies"] <- 'Cocconeis'
 genus[genus=="Hydrococcus"] <- NA
+genus[genus=="Hydrococus"] <- NA
 genus[genus=="Actinastrum falcatus"] <- NA
 genus[genus=="Cf. Actinastrum falcatus"] <- NA
 genus[genus=="cryptomonad"] <- 'Cryptomonad'
