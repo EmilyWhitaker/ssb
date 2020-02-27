@@ -241,6 +241,15 @@ genus[genus=="Small cocconies"] <- 'Cocconeis'
 genus[genus=="Hydrococcus"] <- NA
 genus[genus=="Actinastrum falcatus"] <- NA
 genus[genus=="Cf. Actinastrum falcatus"] <- NA
+genus[genus=="cryptomonad"] <- 'Cryptomonad'
+genus[genus=="Cf. Cryptomonad"] <- 'Cryptomonad'
+genus[genus=="Large Cryptomonad-esque cell husks"] <- 'Cryptomonad'
+genus[genus=="Cryptomonas"] <- 'Cryptomonad'
+genus[genus=="large Cryptomonad"] <- 'Cryptomonad'
+genus[genus=="Dinobryon small"] <- 'Dinobryon'
+genus[genus=="Fragilaria"] <- 'Fragilaria'
+genus[genus=="Fragilaria"] <- 'Fragilaria'
+genus[genus=="Fragilaria"] <- 'Fragilaria'
 genus[genus=="Fragilaria"] <- 'Fragilaria'
 genus[genus=="Fragilaria"] <- 'Fragilaria'
 genus[genus=="Fragilaria"] <- 'Fragilaria'
