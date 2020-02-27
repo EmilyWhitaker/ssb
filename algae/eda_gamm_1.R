@@ -234,13 +234,13 @@ genus[genus=="NA"] <- NA
 genus[genus=="Mallomonas colony"] <- 'Mallomonas'
 genus[genus=="Discostella "] <- 'Discostella'
 genus[genus=="Discotella"] <- 'Discostella'
-genus[genus=="Fragilaria"] <- 'Fragilaria'
-genus[genus=="Fragilaria"] <- 'Fragilaria'
-genus[genus=="Fragilaria"] <- 'Fragilaria'
-genus[genus=="Fragilaria"] <- 'Fragilaria'
-genus[genus=="Fragilaria"] <- 'Fragilaria'
-genus[genus=="Fragilaria"] <- 'Fragilaria'
-genus[genus=="Fragilaria"] <- 'Fragilaria'
+genus[genus=="Small Cocconeis"] <- 'Cocconeis'
+genus[genus=="Small cocconeis"] <- 'Cocconeis'
+genus[genus=="unID Cocconeis"] <- 'Cocconeis'
+genus[genus=="Small cocconies"] <- 'Cocconeis'
+genus[genus=="Hydrococcus"] <- NA
+genus[genus=="Actinastrum falcatus"] <- NA
+genus[genus=="Cf. Actinastrum falcatus"] <- NA
 genus[genus=="Fragilaria"] <- 'Fragilaria'
 genus[genus=="Fragilaria"] <- 'Fragilaria'
 genus[genus=="Fragilaria"] <- 'Fragilaria'
