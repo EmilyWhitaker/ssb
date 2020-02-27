@@ -300,13 +300,18 @@ genus[genus=="Nitzschioid diatom"] <- NA
 genus[genus=="unID Naviculoid diatom"] <- NA
 genus[genus=="Planktolyngabia"] <- NA
 genus[genus=="Cf. Chlorallantus oblongus"] <- NA
-genus[genus=="Cosmarium"] <- NA
-genus[genus=="Cosmarium"] <- NA
-genus[genus=="Cosmarium"] <- NA
-genus[genus=="Cosmarium"] <- NA
-genus[genus=="Cosmarium"] <- NA
-genus[genus=="Cosmarium"] <- NA
-genus[genus=="Cosmarium"] <- NA
+genus[genus=="Pinnularia"] <- NA
+genus[genus=="Cf. Raphidocelis subcapitata"] <- NA
+genus[genus=="Cf. Decussata"] <- NA
+genus[genus=="Fragilaria tenera"] <- NA
+genus[genus=="Photosynthetic Euglenoid"] <- NA
+genus[genus=="unID Ciliate"] <- NA
+genus[genus=="Cf. Karayevia"] <- NA
+genus[genus=="Cf. Staurosirella leptostauron var dubia"] <- NA
+genus[genus=="Cf. Golenkinia"] <- NA
+genus[genus=="Adlafia"] <- NA
+genus[genus=="Cf. Golenkinia"] <- NA
+
 #======== Spell Check
 
 start = c("Limnothrix", "Microcystis", "Peanut", "Naked Dinoflagellate", "Dinobryon", "Armored Dinoflagellate")
