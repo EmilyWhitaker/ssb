@@ -282,15 +282,31 @@ genus[genus=="Aphanothece bacilloidea"] <- NA
 genus[genus=="Cyanobium"] <- NA
 genus[genus=="Statospore"] <- NA
 genus[genus=="unID pennate diatom with stauros"] <- NA
+genus[genus=="Perdinium"] <- NA
+genus[genus=="unID pennate diatom"] <- NA
+genus[genus=="unID bacilliariales diatom"] <- NA
+genus[genus=="Cosmarium"] <- NA
+genus[genus=="Actinastrum falcatus"] <- NA
+genus[genus=="Cf. Ulnaria"] <- NA
+genus[genus=="unID cilliate"] <- NA
 genus[genus=="Fragilaria"] <- 'Fragilaria'
-genus[genus=="Fragilaria"] <- 'Fragilaria'
-genus[genus=="Fragilaria"] <- 'Fragilaria'
-genus[genus=="Fragilaria"] <- 'Fragilaria'
-genus[genus=="Fragilaria"] <- 'Fragilaria'
-genus[genus=="Fragilaria"] <- 'Fragilaria'
-genus[genus=="Fragilaria"] <- 'Fragilaria'
-genus[genus=="Fragilaria"] <- 'Fragilaria'
-
+genus[genus=="Small green filament"] <- NA
+genus[genus=="unID Ciliate"] <- NA
+genus[genus=="Cf. Cymbella"] <- NA
+genus[genus=="Planktothrix strand"] <- NA
+genus[genus=="Cf. Aphanocapsa inserta colony"] <- NA
+genus[genus=="Cf. Actinastrum falcatus"] <- NA
+genus[genus=="Nitzschioid diatom"] <- NA
+genus[genus=="unID Naviculoid diatom"] <- NA
+genus[genus=="Planktolyngabia"] <- NA
+genus[genus=="Cf. Chlorallantus oblongus"] <- NA
+genus[genus=="Cosmarium"] <- NA
+genus[genus=="Cosmarium"] <- NA
+genus[genus=="Cosmarium"] <- NA
+genus[genus=="Cosmarium"] <- NA
+genus[genus=="Cosmarium"] <- NA
+genus[genus=="Cosmarium"] <- NA
+genus[genus=="Cosmarium"] <- NA
 #======== Spell Check
 
 start = c("Limnothrix", "Microcystis", "Peanut", "Naked Dinoflagellate", "Dinobryon", "Armored Dinoflagellate")
