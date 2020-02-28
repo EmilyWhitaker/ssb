@@ -359,7 +359,8 @@ genus[genus=="Hydrococcus"] <- NA
 #one Lindavia needs a bv of 44.42277385
 #one peanut needs a bv 84.9851
 
-#======== Spell Check
+#======== 
+genus$sampledate =  ymd(genus$sampledate)
 
 start = c("Limnothrix", "Microcystis", "Peanut", "Naked Dinoflagellate", "Dinobryon", "Armored Dinoflagellate")
 
@@ -372,9 +373,32 @@ ggplot(subset(genus,Genus %in% start), aes(daynum, log(CellBioVol), color=Genus)
   geom_smooth(aes(group=Genus),se=F)
 
 
-ggplot(Genus), aes(year, log(CellBioVol), color=Genus))+
+ggplot(genus, aes(year, log(CellBioVol), color=Genus))+
   geom_point(aes(group=Genus))+
   geom_smooth(aes(group=Genus),se=F)
+
+e<-ggplot(genus, aes(sampledate, log(CellBioVol), color=Genus))+
+  geom_point(aes(group=Genus))+
+  geom_smooth(aes(group=Genus),se=F)
+e
+
+start = c("Limnothrix", "Microcystis", "Peanut","Lindavia","Cyclostephanos","Cryptomonad","Cf. Komvophoron / Trichormus", "Naked Dinoflagellate", "Cf. Planktolyngabia","Cocconeis")
+a<- ggplot(subset(genus,Genus %in% start), aes(sampledate, log(CellBioVol), color=Genus))+
+  geom_point(aes(group=Genus))+
+  geom_smooth(aes(group=Genus),se=F)
+a
+
+middle1 = c("Rhoicosphenia", "Armored Dinoflagellate", "Sellaphora","Diatoma mesodon","Navicula","Dinobryon","Elakatothrix", "Nostoc", "Cf. Craspedostauros","Cyanobacteria")
+b<- ggplot(subset(genus,Genus %in% middle1), aes(sampledate, log(CellBioVol), color=Genus))+
+  geom_point(aes(group=Genus))+
+  geom_smooth(aes(group=Genus),se=F)
+b
+
+
+
+
+
+
 
 
 
