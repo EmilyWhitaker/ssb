@@ -432,3 +432,8 @@ h
 
 
 #======= filling winter col in with zeros
+genus$avsnow[is.na(genus$avsnow)] = 0
+genus$totice[is.na(genus$totice)] = 0
+genus$whiteice[is.na(genus$whiteice)] = 0
+genus$blueice[is.na(genus$blueice)] = 0
+
