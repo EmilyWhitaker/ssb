@@ -353,9 +353,11 @@ genus[genus=="Cf. Aphanothece bacilloidea"] <- 'Aphanothece bacilloidea' #appear
 genus[genus=="Eunota"] <- NA 
 genus[genus=="Cymbella"] <- NA
 genus[genus=="Karayevia"] <- NA
-genus[genus=="Small cocconies"] <- 'Cocconeis'
+genus[genus=="Coleosphaerum"] <- NA
 genus[genus=="Hydrococcus"] <- NA
-
+#Cf. Tetraedron victoriae needs biovolume of 47.2472
+#one Lindavia needs a bv of 44.42277385
+#one peanut needs a bv 84.9851
 Filamentous Green
 #======== Spell Check
 
