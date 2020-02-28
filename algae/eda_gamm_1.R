@@ -234,7 +234,7 @@ genus[genus=="Planktothrix strand"] <- NA
 genus[genus=="cf. Planktolyngabia"] <- 'Planktolyngabia'
 genus[genus=="NA"] <- NA
 genus[genus=="Mallomonas colony"] <- 'Mallomonas'
-genus[genus=="Discostella "] <- 'Discostella'
+genus[genus=="Discostella "] <- 'Discostella' #one bv is zero need to change to 350.7702735
 genus[genus=="Discotella"] <- 'Discostella'
 genus[genus=="Small Cocconeis"] <- 'Cocconeis'
 genus[genus=="Small cocconeis"] <- 'Cocconeis'
@@ -344,11 +344,19 @@ genus[genus=="Cf. Achnanthidium"] <- 'Achnanthidium'
 genus[genus=="Staurosira construens"] <- 'Staurosira'
 genus[genus=="Cf. Staurosira"] <- 'Staurosira'
 genus[genus=="Gomphonema"] <- 'Gomphoneis'
-genus[genus=="Fragillaria"] <- 'Fragilaria'
-genus[genus=="Fragillaria"] <- 'Fragilaria'
-genus[genus=="Fragillaria"] <- 'Fragilaria'
-genus[genus=="Fragillaria"] <- 'Fragilaria'
-genus[genus=="Fragillaria"] <- 'Fragilaria'
+genus[genus=="Synura colony"] <- 'Synura'
+genus[genus=="Discostella stelligera"] <- 'Discostella'
+genus[genus=="Cf. Anabaena"] <- 'Anabaena'
+genus[genus=="Anabaena eucompacta"] <- 'Anabaena'
+genus[genus=="Filamentous Green"] <- NA
+genus[genus=="Cf. Aphanothece bacilloidea"] <- 'Aphanothece bacilloidea' #appears once
+genus[genus=="Eunota"] <- NA 
+genus[genus=="Cymbella"] <- NA
+genus[genus=="Karayevia"] <- NA
+genus[genus=="Small cocconies"] <- 'Cocconeis'
+genus[genus=="Hydrococcus"] <- NA
+
+Filamentous Green
 #======== Spell Check
 
 start = c("Limnothrix", "Microcystis", "Peanut", "Naked Dinoflagellate", "Dinobryon", "Armored Dinoflagellate")
