@@ -358,7 +358,7 @@ genus[genus=="Hydrococcus"] <- NA
 #Cf. Tetraedron victoriae needs biovolume of 47.2472
 #one Lindavia needs a bv of 44.42277385
 #one peanut needs a bv 84.9851
-Filamentous Green
+
 #======== Spell Check
 
 start = c("Limnothrix", "Microcystis", "Peanut", "Naked Dinoflagellate", "Dinobryon", "Armored Dinoflagellate")
@@ -372,7 +372,9 @@ ggplot(subset(genus,Genus %in% start), aes(daynum, log(CellBioVol), color=Genus)
   geom_smooth(aes(group=Genus),se=F)
 
 
-
+ggplot(Genus), aes(year, log(CellBioVol), color=Genus))+
+  geom_point(aes(group=Genus))+
+  geom_smooth(aes(group=Genus),se=F)
 
 
 
