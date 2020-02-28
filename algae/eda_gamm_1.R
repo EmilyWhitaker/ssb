@@ -394,8 +394,31 @@ b<- ggplot(subset(genus,Genus %in% middle1), aes(sampledate, log(CellBioVol), co
   geom_smooth(aes(group=Genus),se=F)
 b
 
+middle2 = c("Fragilaria", "Asterionella", "Merismopedia","Cf. Cavinula","Diploneis","Encyonema","Planothidium", "Hippodonta", "Cf. Coelosphaerium","Tetraedron victoriae")
+c<- ggplot(subset(genus,Genus %in% middle2), aes(sampledate, log(CellBioVol), color=Genus))+
+  geom_point(aes(group=Genus))+
+  geom_smooth(aes(group=Genus),se=F)
+c
 
 
+middle3 = c("Placoneis", "Epithemia", "Asterocapsa","Euglena","Flagellated Green","Tabellaria","Aulacoseira", "Hippodonta", "Stephanodiscus","Pseudostaurosira")
+f<- ggplot(subset(genus,Genus %in% middle3), aes(sampledate, log(CellBioVol), color=Genus))+
+  geom_point(aes(group=Genus))+
+  geom_smooth(aes(group=Genus),se=F)
+f
+
+middle4 = c("Stauroforma", "Achnanthidium", "Segmented Green","Gomphoneis","Mallomonas","Synura","Nitzschia", "Cyclotella", "Discostella","Anabaena")
+g<- ggplot(subset(genus,Genus %in% middle4), aes(sampledate, log(CellBioVol), color=Genus))+
+  geom_point(aes(group=Genus))+
+  geom_smooth(aes(group=Genus),se=F)
+g
+
+
+end = c("Chroococcus", "Staurosira", "Planktothrix","Small Chroococcus","Long thin rod","Aphanothece bacilloidea","Gloeocapsa", NA)
+h<- ggplot(subset(genus,Genus %in% end), aes(sampledate, log(CellBioVol), color=Genus))+
+  geom_point(aes(group=Genus))+
+  geom_smooth(aes(group=Genus),se=F)
+h
 
 
 
