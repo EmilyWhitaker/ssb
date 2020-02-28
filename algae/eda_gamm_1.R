@@ -314,7 +314,37 @@ genus[genus=="Cf. Staurosirella leptostauron var dubia"] <- NA
 genus[genus=="Cf. Golenkinia"] <- NA
 genus[genus=="Adlafia"] <- NA
 genus[genus=="Cf. Golenkinia"] <- NA
-
+genus[genus=="Fragillaria"] <- 'Fragilaria'
+genus[genus=="Cyclostephanos invisitatus"] <- 'Cyclostephanos'
+genus[genus=="Large Cryptomonad"] <- 'Cryptomonad'
+genus[genus=="Large cryptomonad"] <- 'Cryptomonad'
+genus[genus=="Cf. Sellaphora pupula"] <- 'Sellaphora'
+genus[genus=="Cf. Encyonema"] <- 'Encyonema'
+genus[genus=="Cf. Sellaphora (small)"] <- 'Sellaphora' #small are 110 bv not small are 120
+genus[genus=="Cf. Elakatothrix"] <- 'Elakatothrix'
+genus[genus=="Cf. Diatoma mesodon"] <- 'Diatoma mesodon'
+genus[genus=="Cf. Planothidium"] <- 'Planothidium'
+genus[genus=="Asterionella formosa"] <- 'Asterionella'
+genus[genus=="Cf. Merispomedia"] <- 'Merismopedia'
+genus[genus=="Cf. Hippodonta"] <- 'Hippodonta'
+genus[genus=="Hippodonta capitata"] <- 'Hippodonta'
+genus[genus=="Cyclotella meneghiniana"] <- 'Cyclotella'
+genus[genus=="Cyclotella comensis"] <- 'Cyclotella'
+genus[genus=="unID Cyclotella"] <- 'Cyclotella'
+genus[genus=="Cf. Placoneis"] <- 'Placoneis'
+genus[genus=="Cf. Asterocapsa"] <- 'Asterocapsa'
+genus[genus=="Photosynthetic Euglena"] <- 'Euglena'
+genus[genus=="Stephanodiscus cf. alpinus"] <- 'Stephanodiscus'
+genus[genus=="Stephanodiscus hantzschii"] <- 'Stephanodiscus'
+genus[genus=="Stephanodiscus niagarae"] <- 'Stephanodiscus'
+genus[genus=="Stephanodiscus niagare"] <- 'Stephanodiscus'
+genus[genus=="Stephanodiscus small"] <- 'Stephanodiscus'
+genus[genus=="Fragillaria"] <- 'Fragilaria'
+genus[genus=="Fragillaria"] <- 'Fragilaria'
+genus[genus=="Fragillaria"] <- 'Fragilaria'
+genus[genus=="Fragillaria"] <- 'Fragilaria'
+genus[genus=="Fragillaria"] <- 'Fragilaria'
+genus[genus=="Fragillaria"] <- 'Fragilaria'
 #======== Spell Check
 
 start = c("Limnothrix", "Microcystis", "Peanut", "Naked Dinoflagellate", "Dinobryon", "Armored Dinoflagellate")
