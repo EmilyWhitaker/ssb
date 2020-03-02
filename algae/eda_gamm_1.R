@@ -198,6 +198,7 @@ genus[genus=="Lindavia affinis"] <- 'Lindavia'
 genus[genus=="Lindavia "] <- 'Lindavia'
 genus[genus=="Lindavia (Lindavia affinis)"] <- 'Lindavia'
 genus[genus=="Lindavia cf. bodanica"] <- 'Lindavia'
+#genus[Genus=="Lindavia"]== genus[BioVolume== '44.42277385']
 genus[genus=="Cf. Cryptomonad (NEW CATEGORY)"] <- 'Cf. Cryptomonad'
 genus[genus=="Segmented green"] <- 'Segmented Green'
 genus[genus=="Mallomonas c"] <- 'Mallomonas'
@@ -242,8 +243,9 @@ genus[genus=="unID Cocconeis"] <- 'Cocconeis'
 genus[genus=="Small cocconies"] <- 'Cocconeis'
 genus[genus=="Hydrococcus"] <- NA
 genus[genus=="Hydrococus"] <- NA
-genus[genus=="Actinastrum falcatus"] <- NA
-genus[genus=="Cf. Actinastrum falcatus"] <- NA
+genus[genus=="Actinastrum falcatus"] <- 'Ankistrodesmus falcatus' #ID error
+genus[genus=="Cf. Actinastrum falcatus"] <- 'Ankistrodesmus falcatus' #ID error
+genus[genus=="Ankistrodesmus falcatus"] <- NA #no biovolume info available 
 genus[genus=="cryptomonad"] <- 'Cryptomonad'
 genus[genus=="Cf. Cryptomonad"] <- 'Cryptomonad'
 genus[genus=="Large Cryptomonad-esque cell husks"] <- 'Cryptomonad'
@@ -269,7 +271,6 @@ genus[genus=="Chrysosphaerella"] <- NA
 genus[genus=="Uroslenia"] <- NA
 genus[genus=="Cf. Actinocyclus"] <- NA
 genus[genus=="Cf. Fragilariforma constricta"] <- NA
-genus[genus=="Actinastrum falcatus"] <- NA
 genus[genus=="Cf. Chlorallantus oblongus"] <- NA
 genus[genus=="Cf. Tetraedron victoriae"] <- NA
 genus[genus=="Cf. Chlorallantus oblongus"] <- NA
@@ -299,9 +300,8 @@ genus[genus=="Cf. Cymbella"] <- NA
 genus[genus=="Planktothrix strand"] <- NA
 genus[genus=="Cf. Aphanocapsa inserta colony"] <- NA
 genus[genus=="Cf. Actinastrum falcatus"] <- NA
-genus[genus=="Nitzschioid diatom"] <- NA
+genus[genus=="Nitzschioid diatom"] <- 'Nitzschia'
 genus[genus=="unID Naviculoid diatom"] <- NA
-genus[genus=="Planktolyngabia"] <- NA
 genus[genus=="Cf. Chlorallantus oblongus"] <- NA
 genus[genus=="Pinnularia"] <- NA
 genus[genus=="Cf. Raphidocelis subcapitata"] <- NA
@@ -431,9 +431,27 @@ h
 
 
 
-#======= filling winter col in with zeros
+#========== 
+#### filling winter col in with zeros
 genus$avsnow[is.na(genus$avsnow)] = 0
 genus$totice[is.na(genus$totice)] = 0
 genus$whiteice[is.na(genus$whiteice)] = 0
 genus$blueice[is.na(genus$blueice)] = 0
+genus$perblueice[is.na(genus$perblueice)] = 0
+genus$perwhiteice[is.na(genus$perwhiteice)] = 0
 
+#==============
+#filling in bvs with 0s when needed, pair sampledate.df with genus.df
+
+
+
+
+
+
+abiotic = full_join(abiotic, new, by=c("year","daynum","sampledate"))
+
+#genus$Genus$name= needed bv?
+#===============
+ggplot(subset(genus,Genus %in% start), aes(year, avsnow, color=Genus))+
+  geom_point(aes(group=Genus))+
+  geom_smooth(aes(group=Genus),se=F)
