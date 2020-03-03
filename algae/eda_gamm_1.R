@@ -289,7 +289,7 @@ genus[genus=="unID pennate diatom with stauros"] <- NA
 genus[genus=="Perdinium"] <- NA
 genus[genus=="unID pennate diatom"] <- NA
 genus[genus=="unID bacilliariales diatom"] <- NA
-genus[genus=="Cosmarium"] <- NA
+#genus[genus=="Cosmarium"] <- NA
 genus[genus=="Actinastrum falcatus"] <- NA
 genus[genus=="Cf. Ulnaria"] <- NA
 genus[genus=="unID cilliate"] <- NA
@@ -355,6 +355,8 @@ genus[genus=="Cymbella"] <- NA
 genus[genus=="Karayevia"] <- NA
 genus[genus=="Coleosphaerum"] <- NA
 genus[genus=="Hydrococcus"] <- NA
+genus[genus=="Cf. Craspedostauros"] <- NA
+
 #Cf. Tetraedron victoriae needs biovolume of 47.2472
 #one Lindavia needs a bv of 44.42277385
 #one peanut needs a bv 84.9851
@@ -421,16 +423,6 @@ h<- ggplot(subset(genus,Genus %in% end), aes(sampledate, log(CellBioVol), color=
 h
 
 
-
-
-
-
-
-
-
-
-
-
 #========== 
 #### filling winter col in with zeros
 genus$avsnow[is.na(genus$avsnow)] = 0
@@ -443,6 +435,16 @@ genus$perwhiteice[is.na(genus$perwhiteice)] = 0
 #==============
 #filling in bvs with 0s when needed, pair sampledate.df with genus.df
 
+#want year|daynumn|sampledate|genus|bv|variables
+
+new.genera.info <- genus%>% 
+  select(c(3,12,13))
+
+genera.long <- new.genera.info %>%
+  pivot_longer(new.genera.info, cols=c("Genus", "CellBioVol"), names_to="variable", values_to = "value")
+
+genera.long
+
 
 
 
@@ -450,7 +452,7 @@ genus$perwhiteice[is.na(genus$perwhiteice)] = 0
 
 abiotic = full_join(abiotic, new, by=c("year","daynum","sampledate"))
 
-#genus$Genus$name= needed bv?
+
 #===============
 ggplot(subset(genus,Genus %in% start), aes(year, avsnow, color=Genus))+
   geom_point(aes(group=Genus))+
