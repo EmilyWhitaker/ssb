@@ -35,7 +35,7 @@ new$daynum = yday(new$sampledate)
 abiotic = full_join(abiotic, new, by=c("year","daynum","sampledate"))
 
 # deal with algae dataset
-algae = read.csv('data/biovolume1.csv',stringsAsFactors = F)
+algae = read.csv('data/biovolumereal.csv',stringsAsFactors = F)
 
 algae %<>% select(sampledate, Genus, CellBioVol)
 
@@ -434,23 +434,6 @@ genus$perwhiteice[is.na(genus$perwhiteice)] = 0
 
 #==============
 #filling in bvs with 0s when needed, pair sampledate.df with genus.df
-
-#want year|daynumn|sampledate|genus|bv|variables
-
-new.genera.info <- genus%>% 
-  select(c(3,12,13))
-
-genera.long <- new.genera.info %>%
-  pivot_longer(new.genera.info, cols=c("Genus", "CellBioVol"), names_to="variable", values_to = "value")
-
-genera.long
-
-
-
-
-
-
-abiotic = full_join(abiotic, new, by=c("year","daynum","sampledate"))
 
 
 #===============
