@@ -45,11 +45,11 @@ data = full_join(abiotic, algae, by=c("year","daynum","sampledate"))
 
 data %<>% subset(year > 1996)
 
-write.csv(data, 'data/clean_algae_abiotic_03032020.csv',row.names = F)
+write.csv(data, 'data/clean_algae_abiotic_03202020.csv',row.names = F)
 
 
 #======================
-data = read.csv('data/clean_algae_abiotic_03032020.csv',stringsAsFactors = F)
+data = read.csv('data/clean_algae_abiotic_03202020.csv',stringsAsFactors = F)
 
 # pull out total biovolumes
 totals = subset(data, Genus == "TotalBiovolume")
@@ -294,12 +294,12 @@ genus.long$CellBioVol[is.na(genus.long$CellBioVol)] = 0
 ggplot(subset(genus.long, sampledate=='1997-01-14'), aes(Genus, CellBioVol))+
   geom_point()
 
-write.csv(genus.long, 'data/genus_clean_03032020.csv', row.names = F)
+write.csv(genus.long, 'data/genus_clean_03202020.csv', row.names = F)
 
 #======== 
 
 # start looking at genus-specific trends
-genus = read.csv('data/genus_clean_03032020.csv', stringsAsFactors = F)
+genus = read.csv('data/genus_clean_03202020.csv', stringsAsFactors = F)
 genus$CellBioVol[genus$CellBioVol==0] <- NA
 
 genus$chlor = abs(genus$chlor)
@@ -421,4 +421,22 @@ ggplot(subset(genus, Genus %in% gen.nine), aes(sampledate, log(CellBioVol), colo
   facet_wrap(~ice.pres, labeller=labeller(ice.pres = ice.labs))+
   theme_classic()+
   labs(x='Year')
+
+#interesting genus to pull out 
+# Limnothrix, Lindavia, Microcystis
+#Peanut, Cocconeis 
+
+
+#######
+
+#Want to create ice off var sheet and ice on var sheet-- did we kind of already do this?
+  # is there a way to graph NAs? couldnt get a line when I tried 
+
+#add additional perams to genus dataset/ then copy process to totals dataset
+
+
+
+
+
+
 
