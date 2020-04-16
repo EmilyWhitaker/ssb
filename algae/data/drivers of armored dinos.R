@@ -25,7 +25,20 @@ totals_and_genus$logint.cbv =as.integer(log(totals_and_genus$oneint.cbv))
 ice.on = subset(totals_and_genus, ice.pres == 1)
 gen.keep1=c("Armored Dinoflagellate")
 genus.sub1 = subset(totals_and_genus, Genus %in% gen.keep1)
-ND.ice.on = subset(genus.sub1, ice.pres == 1) #correct
+AD.ice.on = subset(genus.sub1, ice.pres == 1) #correct
+
+##====
+#Linear graphs Ice on
+ggplot(AD.ice.on, aes(cond, log.cbv))+
+  geom_point()+
+  geom_smooth(method='lm',se=F, aes(group=Genus))+
+  scale_color_brewer(palette = 'Paired')
+
+ggplot(AD.ice.on, aes(iceduration, log.cbv))+
+  geom_point()+
+  geom_smooth(method='lm',se=F)+
+  scale_color_brewer(palette = 'Paired')
+
 
 
 #========
@@ -34,8 +47,18 @@ ND.ice.on = subset(genus.sub1, ice.pres == 1) #correct
 ice.off = subset(totals_and_genus, ice.pres == 0)
 gen.keep1=c("Armored Dinoflagellate")
 genus.sub1 = subset(totals_and_genus, Genus %in% gen.keep1)
-ND.ice.off = subset(genus.sub1, ice.pres == 0) #correct
+AD.ice.off = subset(genus.sub1, ice.pres == 0) #correct
 
+##====
+#Linear graphs Ice off
+ggplot(AD.ice.off, aes(cond, log.cbv))+
+  geom_point()+
+  geom_smooth(method='lm',se=F, aes(group=Genus))+
+  scale_color_brewer(palette = 'Paired')
 
+ggplot(AD.ice.off, aes(iceduration, log.cbv))+
+  geom_point()+
+  geom_smooth(method='lm',se=F)+
+  scale_color_brewer(palette = 'Paired')
 
 
