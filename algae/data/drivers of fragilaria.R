@@ -29,7 +29,7 @@ gen.keep1=c("Fragilaria")
 genus.sub1 = subset(totals_and_genus, Genus %in% gen.keep1)
 Frag.ice.on = subset(genus.sub1, ice.pres == 1) #correct
 
-hist(Frag.ice.on$log.cbv) #zero-inflated!!!!!!
+hist(Frag.ice.on$log.cbv) #slightly__zero-inflated
 
 #===== 
 #Linear graphs Ice on
@@ -241,7 +241,7 @@ gen.keep1=c("Fragilaria")
 genus.sub1 = subset(totals_and_genus, Genus %in% gen.keep1)
 Frag.ice.off = subset(genus.sub1, ice.pres == 0) #correct
 
-hist(Frag.ice.off$log.cbv) #zero inflated  
+hist(Frag.ice.off$log.cbv)  
 
 #=======
 #Linear graphs Ice off
