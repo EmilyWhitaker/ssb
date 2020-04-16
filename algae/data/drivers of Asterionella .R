@@ -29,7 +29,7 @@ gen.keep1=c("Asterionella")
 genus.sub1 = subset(totals_and_genus, Genus %in% gen.keep1)
 Aster.ice.on = subset(genus.sub1, ice.pres == 1) #correct
 
-hist(Aster.ice.on$log.cbv) #nice!!!!!!
+hist(Aster.ice.on$log.cbv) #NOPE zero-inflated!!!!!!
 
 #===== 
 #Linear graphs Ice on
@@ -241,7 +241,7 @@ gen.keep1=c("Asterionella")
 genus.sub1 = subset(totals_and_genus, Genus %in% gen.keep1)
 Aster.ice.off = subset(genus.sub1, ice.pres == 0) #correct
 
-hist(Aster.ice.off$log.cbv) #beautiful 
+hist(Aster.ice.off$log.cbv) #zero inflated  
 
 #=======
 #Linear graphs Ice off
