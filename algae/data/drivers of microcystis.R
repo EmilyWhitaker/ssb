@@ -235,7 +235,7 @@ ggplot(Micro.ice.on, aes(iceduration, log.cbv))+
   scale_color_brewer(palette = 'Paired')
 
 #=======
-#Microcystis Dinoflagellate ice off
+#Microcystis ice off
 
 ice.off = subset(totals_and_genus, ice.pres == 0)
 gen.keep1=c("Microcystis")
