@@ -27,6 +27,9 @@ gen.keep1=c("Armored Dinoflagellate")
 genus.sub1 = subset(totals_and_genus, Genus %in% gen.keep1)
 AD.ice.on = subset(genus.sub1, ice.pres == 1) #correct
 
+hist(AD.ice.on$log.cbv) #zero inflated data-- need to transform 
+
+
 ##====
 #Linear graphs Ice on
 ggplot(AD.ice.on, aes(wtemp, log.cbv))+
@@ -235,6 +238,8 @@ ice.off = subset(totals_and_genus, ice.pres == 0)
 gen.keep1=c("Armored Dinoflagellate")
 genus.sub1 = subset(totals_and_genus, Genus %in% gen.keep1)
 AD.ice.off = subset(genus.sub1, ice.pres == 0) #correct
+
+hist(AD.ice.off$log.cbv)
 
 ##====
 #Linear graphs Ice off
