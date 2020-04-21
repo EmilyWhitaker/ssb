@@ -33,50 +33,63 @@ hist(Aster.ice.on$log.cbv) #NOPE zero-inflated!!!!!!
 
 #===== 
 #Linear graphs Ice on
-ggplot(Aster.ice.on, aes(wtemp, log.cbv))+
+ast_wtemp<- ggplot(Aster.ice.on, aes(wtemp, log.cbv))+
+  #geom_point(size=4)+
   geom_point()+
-  geom_smooth(method=lm , color="red", fill="#69b3a2", se=TRUE)
+  geom_smooth(method=lm, se=TRUE)
   scale_color_brewer(palette = 'Paired')
-
+ast_wtemp  
+ggsave(plot= ast_wtemp, filename ='figures/AsterionellaWTemp.png',height=18, width = 16, units = 'in')
 
 #p3 <- ggplot(data, aes(x=my_x, y=my_y)) +
 #  geom_point() +
 #  geom_smooth(method=lm , color="red", fill="#69b3a2", se=TRUE) +
 #  theme_ipsum()
 
-ggplot(Aster.ice.on, aes(o2, log.cbv))+
+ast_o2<- ggplot(Aster.ice.on, aes(o2, log.cbv))+
   geom_point()+
   geom_smooth(method='lm',se=TRUE)+
   scale_color_brewer(palette = 'Paired')
+ast_o2
+ggsave(plot= ast_o2, filename ='figures/Asterionellao2.png',height=18, width = 16, units = 'in')
 
-ggplot(Aster.ice.on, aes(o2sat, log.cbv))+
+ast_o2sat<- ggplot(Aster.ice.on, aes(o2sat, log.cbv))+
   geom_point()+
   geom_smooth(method='lm',se=TRUE)+
   scale_color_brewer(palette = 'Paired')
+ast_o2sat
+ggsave(plot= ast_o2sat, filename ='figures/Asterionellao2sat.png',height=18, width = 16, units = 'in')
 
-ggplot(Aster.ice.on, aes(cond, log.cbv))+
-  geom_point()+
-  geom_smooth(method='lm',se=F)+
-  scale_color_brewer(palette = 'Paired')
 
-ggplot(Aster.ice.on, aes(frlight, log.cbv))+
+ast_cond<-ggplot(Aster.ice.on, aes(cond, log.cbv))+
   geom_point()+
-  geom_smooth(method='lm',se=F, aes(group=Genus))+
+  geom_smooth(method='lm',se=TRUE)+
   scale_color_brewer(palette = 'Paired')
+ast_cond
+ggsave(plot= ast_cond, filename ='figures/Asterionellacond.png',height=18, width = 16, units = 'in')
 
-ggplot(Aster.ice.on, aes(chlor.int, log.cbv))+
+ast_frlight<-ggplot(Aster.ice.on, aes(frlight, log.cbv))+
   geom_point()+
-  geom_smooth(method='lm',se=F)+
+  geom_smooth(method='lm',se=TRUE, aes(group=Genus))+
   scale_color_brewer(palette = 'Paired')
+ast_frlight
+ggsave(plot= ast_frlight, filename ='figures/Asterionellafrlight.png',height=18, width = 16, units = 'in')
+
+ast_chlor_int<- ggplot(Aster.ice.on, aes(chlor.int, log.cbv))+
+  geom_point()+
+  geom_smooth(method='lm',se=T)+
+  scale_color_brewer(palette = 'Paired')
+ast_chlor_int
+ggsave(plot= ast_chlor_int, filename ='figures/AsterionellaChlorInt.png',height=18, width = 16, units = 'in')
 
 ggplot(Aster.ice.on, aes(phaeo, log.cbv))+
   geom_point()+
-  geom_smooth(method='lm',se=F, aes(group=Genus))+
+  geom_smooth(method='lm',se=T)+
   scale_color_brewer(palette = 'Paired')
 
 ggplot(Aster.ice.on, aes(ph, log.cbv))+
   geom_point()+
-  geom_smooth(method='lm',se=F, aes(group=Genus))+
+  geom_smooth(method='lm',se=T)+
   scale_color_brewer(palette = 'Paired')
 
 ggplot(Aster.ice.on, aes(phair, log.cbv))+
