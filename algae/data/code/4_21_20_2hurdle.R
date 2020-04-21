@@ -36,5 +36,49 @@ mod.hurdle <- hurdle(log.cbv ~ ., data = AD.ice.on)
 mod.hurdle <- hurdle(log.cbv ~ ., data = AD.ice.on, dist = "poisson", zero.dist = "binomial")
 summary(mod.hurdle)
 
-Call:
-  hurdle(formula = visits ~ ., data = nmes)
+
+
+install.packages("AER") 
+library(AER)
+data("NMES1988")
+
+# select certain columns; Col 1 is number of visits
+#nmes <- NMES1988[, c(1, 6:8, 13, 15, 18)]
+ades<- AD.ice.on[,c(7,38, 39, 41, 45, 53)]
+#plot(table(nmes$visits))
+plot(table(ades$logint.cbv))
+#mod1 <- glm(visits ~ ., data = nmes, family = "poisson")
+mod2<- glm(logint.cbv ~., data = ades, family= "poisson")
+#mu <- predict(mod1, type = "response")
+mu2 <- predict(mod2, type = "response")
+#exp <- sum(dpois(x = 0, lambda = mu)) 
+exp2 <- sum(dpois(x = 0, lambda = mu2)) 
+#round(exp)
+round(exp2)
+
+# install.packages("pscl")
+library(pscl)
+mod.hurdle <- hurdle(visits ~ ., data = nmes)
+
+mod.hurdle2 <- hurdle(logint.cbv ~ ., data = ades)
+
+
+# same as this:
+mod.hurdle <- hurdle(visits ~ ., data = nmes, 
+                     dist = "poisson", 
+                     zero.dist = "binomial")
+
+summary(mod.hurdle)
+
+summary(mod.hurdle2)
+
+
+
+#Call:
+#hurdle(formula = visits ~ ., data = nmes, dist = "poisson", zero.dist = "binomial")
+#sum(predict(mod.hurdle, type = "prob")[,1])
+
+
+hurdle(formula = logint.cbv ~ ., data = ades, dist = "poisson", zero.dist = "binomial")
+sum(predict(mod.hurdle2, type = "prob")[,1])
+
