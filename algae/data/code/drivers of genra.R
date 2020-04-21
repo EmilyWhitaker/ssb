@@ -107,6 +107,8 @@ gen.keep2=c("Limnothrix")
 genus.sub2 = subset(totals_and_genus, Genus %in% gen.keep2)
 LX.ice.off = subset(genus.sub2, ice.pres == 0) #correct
 
+hist(LX.ice.off$log.cbv) #zeroinflated
+
 
 ##====
 #Linear graphs Ice on
@@ -129,6 +131,7 @@ genus.sub2 = subset(totals_and_genus, Genus %in% gen.keep2)
 LX.ice.on = subset(genus.sub2, ice.pres == 1) #correct
 write.csv(LX.ice.on, 'data/lx_factors.csv', row.names = F)
 
+hist(LX.ice.on$log.cbv) #zeroinflated
 
 LXon.lm1 = lm(log.cbv ~ wtemp+ avsnow +blueice+ chlor.int + chlor.surf+ o2 + cond+ totpuf+ o2sat, data=LX.ice.on)
 summary(LXon.lm1) #0.9721,

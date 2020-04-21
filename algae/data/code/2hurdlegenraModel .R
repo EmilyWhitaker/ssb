@@ -123,8 +123,6 @@ nakeddinos.hurdle <- hurdle(int.cbv ~ chlor.surf+ avsnow+ totice+ whiteice+ int.
 #error
 summary(nakeddinos.hurdle)
 whiteice+ blueice
-mn+ fe+ 
-  k+ nh4+ totnf+ totnuf+ totpf+ drsif
 
 lognakeddinos.hurdle <- hurdle(log.cbv ~ ., data = ice.on1)
 
