@@ -35,17 +35,23 @@ hist(Aster.ice.on$log.cbv) #NOPE zero-inflated!!!!!!
 #Linear graphs Ice on
 ggplot(Aster.ice.on, aes(wtemp, log.cbv))+
   geom_point()+
-  geom_smooth(method='lm',se=F, aes(group=Genus))+
+  geom_smooth(method=lm , color="red", fill="#69b3a2", se=TRUE)
   scale_color_brewer(palette = 'Paired')
+
+
+#p3 <- ggplot(data, aes(x=my_x, y=my_y)) +
+#  geom_point() +
+#  geom_smooth(method=lm , color="red", fill="#69b3a2", se=TRUE) +
+#  theme_ipsum()
 
 ggplot(Aster.ice.on, aes(o2, log.cbv))+
   geom_point()+
-  geom_smooth(method='lm',se=F)+
+  geom_smooth(method='lm',se=TRUE)+
   scale_color_brewer(palette = 'Paired')
 
 ggplot(Aster.ice.on, aes(o2sat, log.cbv))+
   geom_point()+
-  geom_smooth(method='lm',se=F, aes(group=Genus))+
+  geom_smooth(method='lm',se=TRUE)+
   scale_color_brewer(palette = 'Paired')
 
 ggplot(Aster.ice.on, aes(cond, log.cbv))+
