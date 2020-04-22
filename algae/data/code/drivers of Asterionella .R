@@ -166,109 +166,116 @@ ast_totnuf<-ggplot(Aster.ice.on, aes(totnuf, log.cbv))+
   scale_color_brewer(palette = 'Paired')
 ast_totnuf
 
-ggplot(Aster.ice.on, aes(totpf, log.cbv))+
+ast_totpf<-ggplot(Aster.ice.on, aes(totpf, log.cbv))+
   geom_point()+
-  geom_smooth(method='lm',se=F, aes(group=Genus))+
+  geom_smooth(method='lm',se=T)+
   scale_color_brewer(palette = 'Paired')
+ast_totpf
 
-ggplot(Aster.ice.on, aes(totpuf, log.cbv))+
+ast_totpuf<-ggplot(Aster.ice.on, aes(totpuf, log.cbv))+
   geom_point()+
-  geom_smooth(method='lm',se=F, aes(group=Genus))+
+  geom_smooth(method='lm',se=T)+
   scale_color_brewer(palette = 'Paired')
+ast_totpuf
 
-ggplot(Aster.ice.on, aes(drsif, log.cbv))+
+ast_drsif<-ggplot(Aster.ice.on, aes(drsif, log.cbv))+
   geom_point()+
-  geom_smooth(method='lm',se=F, aes(group=Genus))+
+  geom_smooth(method='lm',se=T)+
   scale_color_brewer(palette = 'Paired')
+ast_drsif
 
-ggplot(Aster.ice.on, aes(brsif, log.cbv))+
+ast_brsif<-ggplot(Aster.ice.on, aes(brsif, log.cbv))+
   geom_point()+
-  geom_smooth(method='lm',se=F, aes(group=Genus))+
+  geom_smooth(method='lm',se=T)+
   scale_color_brewer(palette = 'Paired')
+ast_brsif
 
-ggplot(Aster.ice.on, aes(brsiuf, log.cbv))+
+ast_brsiuf<-ggplot(Aster.ice.on, aes(brsiuf, log.cbv))+
   geom_point()+
-  geom_smooth(method='lm',se=F, aes(group=Genus))+
+  geom_smooth(method='lm',se=T)+
   scale_color_brewer(palette = 'Paired')
+ast_brsiuf
 
-ggplot(Aster.ice.on, aes(tpm, log.cbv))+
-  geom_point()+
-  geom_smooth(method='lm',se=F, aes(group=Genus))+
-  scale_color_brewer(palette = 'Paired')
+#no vaules 
+#ast_tpm<-ggplot(Aster.ice.on, aes(tpm, log.cbv))+
+#  geom_point()+
+#  geom_smooth(method='lm',se=T)+
+#  scale_color_brewer(palette = 'Paired')
+#ast_tpm
 
 ggplot(Aster.ice.on, aes(cl, log.cbv))+
   geom_point()+
-  geom_smooth(method='lm',se=F, aes(group=Genus))+
+  geom_smooth(method='lm',se=T)+
   scale_color_brewer(palette = 'Paired')
 
 ggplot(Aster.ice.on, aes(so4, log.cbv))+
   geom_point()+
-  geom_smooth(method='lm',se=F, aes(group=Genus))+
+  geom_smooth(method='lm',se=T)+
   scale_color_brewer(palette = 'Paired')
 
 ggplot(Aster.ice.on, aes(ca, log.cbv))+
   geom_point()+
-  geom_smooth(method='lm',se=F, aes(group=Genus))+
+  geom_smooth(method='lm',se=T)+
   scale_color_brewer(palette = 'Paired')
 
 ggplot(Aster.ice.on, aes(mg, log.cbv))+
   geom_point()+
-  geom_smooth(method='lm',se=F, aes(group=Genus))+
+  geom_smooth(method='lm',se=T)+
   scale_color_brewer(palette = 'Paired')
 
 ggplot(Aster.ice.on, aes(na, log.cbv))+
   geom_point()+
-  geom_smooth(method='lm',se=F, aes(group=Genus))+
+  geom_smooth(method='lm',se=T)+
   scale_color_brewer(palette = 'Paired')
 
 ggplot(Aster.ice.on, aes(k, log.cbv))+
   geom_point()+
-  geom_smooth(method='lm',se=F, aes(group=Genus))+
+  geom_smooth(method='lm',se=T)+
   scale_color_brewer(palette = 'Paired')
 
 ggplot(Aster.ice.on, aes(fe, log.cbv))+
   geom_point()+
-  geom_smooth(method='lm',se=F, aes(group=Genus))+
+  geom_smooth(method='lm',se=T)+
   scale_color_brewer(palette = 'Paired')
 
 ggplot(Aster.ice.on, aes(mn, log.cbv))+
   geom_point()+
-  geom_smooth(method='lm',se=F, aes(group=Genus))+
+  geom_smooth(method='lm',se=T)+
   scale_color_brewer(palette = 'Paired')
 
 ggplot(Aster.ice.on, aes(chlor.surf, log.cbv))+
   geom_point()+
-  geom_smooth(method='lm',se=F, aes(group=Genus))+
+  geom_smooth(method='lm',se=T)+
   scale_color_brewer(palette = 'Paired')
 
 ggplot(Aster.ice.on, aes(avsnow, log.cbv))+
   geom_point()+
-  geom_smooth(method='lm',se=F, aes(group=Genus))+
+  geom_smooth(method='lm',se=T)+
   scale_color_brewer(palette = 'Paired')
 
 ggplot(Aster.ice.on, aes(totice, log.cbv))+
   geom_point()+
-  geom_smooth(method='lm',se=F, aes(group=Genus))+
+  geom_smooth(method='lm',se=T)+
   scale_color_brewer(palette = 'Paired')
 
 ggplot(Aster.ice.on, aes(whiteice, log.cbv))+
   geom_point()+
-  geom_smooth(method='lm',se=F, aes(group=Genus))+
+  geom_smooth(method='lm',se=T)+
   scale_color_brewer(palette = 'Paired')
 
 ggplot(Aster.ice.on, aes(blueice, log.cbv))+
   geom_point()+
-  geom_smooth(method='lm',se=F, aes(group=Genus))+
+  geom_smooth(method='lm',se=T)+
   scale_color_brewer(palette = 'Paired')
 
 ggplot(Aster.ice.on, aes(light, log.cbv))+
   geom_point()+
-  geom_smooth(method='lm',se=F, aes(group=Genus))+
+  geom_smooth(method='lm',se=T)+
   scale_color_brewer(palette = 'Paired')
 
 ggplot(Aster.ice.on, aes(iceduration, log.cbv))+
   geom_point()+
-  geom_smooth(method='lm',se=F, aes(group=Genus))+
+  geom_smooth(method='lm',se=T)+
   scale_color_brewer(palette = 'Paired')
 
 #=======
