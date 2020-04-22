@@ -307,32 +307,33 @@ hist(Aster.ice.off$log.cbv) #zero inflated
 #Linear graphs Ice off
 ggplot(Aster.ice.off, aes(wtemp, log.cbv))+
   geom_point()+
-  geom_smooth(method='lm',se=F, aes(group=Genus))+
+  geom_smooth(method='lm',se=T)+
   scale_color_brewer(palette = 'Paired')
+
 
 ggplot(Aster.ice.off, aes(o2, log.cbv))+
   geom_point()+
-  geom_smooth(method='lm',se=F)+
+  geom_smooth(method='lm',se=T)+
   scale_color_brewer(palette = 'Paired')
 
 ggplot(Aster.ice.off, aes(o2sat, log.cbv))+
   geom_point()+
-  geom_smooth(method='lm',se=F, aes(group=Genus))+
+  geom_smooth(method='lm',se=T)+
   scale_color_brewer(palette = 'Paired')
 
 ggplot(Aster.ice.off, aes(cond, log.cbv))+
   geom_point()+
-  geom_smooth(method='lm',se=F)+
+  geom_smooth(method='lm',se=T)+
   scale_color_brewer(palette = 'Paired')
 
 ggplot(Aster.ice.off, aes(frlight, log.cbv))+
   geom_point()+
-  geom_smooth(method='lm',se=F, aes(group=Genus))+
+  geom_smooth(method='lm',se=T)+
   scale_color_brewer(palette = 'Paired')
 
 ggplot(Aster.ice.off, aes(chlor.int, log.cbv))+
   geom_point()+
-  geom_smooth(method='lm',se=F)+
+  geom_smooth(method='lm',se=T)+
   scale_color_brewer(palette = 'Paired')
 
 ggplot(Aster.ice.off, aes(phaeo, log.cbv))+
