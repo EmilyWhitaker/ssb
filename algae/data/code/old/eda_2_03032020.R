@@ -488,3 +488,40 @@ ggplot(subset(genus2, Genus %in% gen.8), aes(sampledate, log(CellBioVol), color=
   facet_wrap(~ice.pres, labeller=labeller(ice.pres = ice.labs))+
   theme_classic()+
   labs(x='Year')
+
+ggplot(genus2$Genus, aes(sampledate, log(CellBioVol), color=Genus))+
+  geom_vline(data=ice, aes(xintercept=ice.on), linetype='dashed')+
+  geom_vline(data=ice, aes(xintercept=ice.off), linetype='dotted')+
+  geom_point()+
+  geom_smooth(aes(color=Genus), se=F)+
+  scale_color_brewer(palette = 'Paired')+
+  theme_classic()
+
+ggplot(subset(genus2, Genus %in% gen.keep), aes(sampledate, log(CellBioVol), color=Genus))+
+  geom_vline(data=ice, aes(xintercept=ice.on), linetype='dashed')+
+  geom_vline(data=ice, aes(xintercept=ice.off), linetype='dotted')+
+  geom_point()+
+  geom_smooth(aes(color=Genus), method='lm',se=F)+
+  scale_color_brewer(palette = 'Paired')+
+  theme_classic()
+
+ice.labs <- c("Ice Off", "Ice On")
+names(ice.labs) <- c(0, 1)
+
+ggplot(subset(genus2, Genus %in% gen.main.total), aes(sampledate, log(CellBioVol), color=Genus))+
+  #geom_vline(data=ice, aes(xintercept=ice.on), linetype='dashed')+
+  #geom_vline(data=ice, aes(xintercept=ice.off), linetype='dotted')+
+  geom_point(data=subset(genus2, Genus %in% gen.main.total), aes(sampledate, log(CellBioVol), color=Genus))+
+  geom_smooth(data=subset(genus2, Genus %in% gen.main.total), aes(sampledate, log(CellBioVol), color=Genus), method='lm', se=T)+
+  scale_color_brewer(palette = 'Paired')+
+  facet_wrap(~ice.pres, labeller=labeller(ice.pres = ice.labs))+
+  theme_classic()+
+  labs(x='Year')
+
+gen.main = c("Armored Dinoflagellate","Naked Dinoflagellate","Limnothrix","Microcystis","Lindavia",
+             "Cryptomonad", "Asterionella", "Dinobryon", "Fragilaria", "Asterocapsa","Cocconeis","Flagellated Green", "Cf. Komvophoron / Trichormus","Cyanobacteria","Elakatothrix","Mallomonas",
+          "Segmented Green", "Peanut")
+
+gen.main.total = c("Armored Dinoflagellate","Naked Dinoflagellate","Limnothrix","Microcystis","Lindavia",
+             "Cryptomonad", "Asterionella", "Dinobryon", "Fragilaria", "Asterocapsa","Cocconeis","Flagellated Green", "Cf. Komvophoron / Trichormus","Cyanobacteria","Elakatothrix","Mallomonas",
+             "Segmented Green", "Peanut","Total")
