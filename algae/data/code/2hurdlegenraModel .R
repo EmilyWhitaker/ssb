@@ -122,7 +122,7 @@ class(ice.on1)
 nakeddinos.hurdle <- hurdle(int.cbv ~ chlor.surf+ avsnow+ totice+ whiteice+ int.blueice, data = ice.on1)
 #error
 summary(nakeddinos.hurdle)
-whiteice+ blueice
+
 
 lognakeddinos.hurdle <- hurdle(log.cbv ~ ., data = ice.on1)
 
