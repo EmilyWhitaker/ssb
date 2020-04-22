@@ -203,80 +203,95 @@ ast_brsiuf
 #  scale_color_brewer(palette = 'Paired')
 #ast_tpm
 
-ggplot(Aster.ice.on, aes(cl, log.cbv))+
+ast_cl<-ggplot(Aster.ice.on, aes(cl, log.cbv))+
   geom_point()+
   geom_smooth(method='lm',se=T)+
   scale_color_brewer(palette = 'Paired')
+ast_cl
 
-ggplot(Aster.ice.on, aes(so4, log.cbv))+
+ast_so4<-ggplot(Aster.ice.on, aes(so4, log.cbv))+
   geom_point()+
   geom_smooth(method='lm',se=T)+
   scale_color_brewer(palette = 'Paired')
+ast_so4
 
-ggplot(Aster.ice.on, aes(ca, log.cbv))+
+ast_ca<-ggplot(Aster.ice.on, aes(ca, log.cbv))+
   geom_point()+
   geom_smooth(method='lm',se=T)+
   scale_color_brewer(palette = 'Paired')
+ast_ca
 
-ggplot(Aster.ice.on, aes(mg, log.cbv))+
+ast_mg<-ggplot(Aster.ice.on, aes(mg, log.cbv))+
   geom_point()+
   geom_smooth(method='lm',se=T)+
   scale_color_brewer(palette = 'Paired')
+ast_mg
 
-ggplot(Aster.ice.on, aes(na, log.cbv))+
+ast_na<-ggplot(Aster.ice.on, aes(na, log.cbv))+
   geom_point()+
   geom_smooth(method='lm',se=T)+
   scale_color_brewer(palette = 'Paired')
+ast_na
 
-ggplot(Aster.ice.on, aes(k, log.cbv))+
+ast_k<-ggplot(Aster.ice.on, aes(k, log.cbv))+
   geom_point()+
   geom_smooth(method='lm',se=T)+
   scale_color_brewer(palette = 'Paired')
+ast_k
 
-ggplot(Aster.ice.on, aes(fe, log.cbv))+
+ast_fe<-ggplot(Aster.ice.on, aes(fe, log.cbv))+
   geom_point()+
   geom_smooth(method='lm',se=T)+
   scale_color_brewer(palette = 'Paired')
+ast_fe
 
-ggplot(Aster.ice.on, aes(mn, log.cbv))+
+ast_mn<-ggplot(Aster.ice.on, aes(mn, log.cbv))+
   geom_point()+
   geom_smooth(method='lm',se=T)+
   scale_color_brewer(palette = 'Paired')
+ast_mn
 
-ggplot(Aster.ice.on, aes(chlor.surf, log.cbv))+
+ast_chlorsurf<-ggplot(Aster.ice.on, aes(chlor.surf, log.cbv))+
   geom_point()+
   geom_smooth(method='lm',se=T)+
   scale_color_brewer(palette = 'Paired')
+ast_chlorsurf
 
-ggplot(Aster.ice.on, aes(avsnow, log.cbv))+
+ast_avsnow<-ggplot(Aster.ice.on, aes(avsnow, log.cbv))+
   geom_point()+
   geom_smooth(method='lm',se=T)+
   scale_color_brewer(palette = 'Paired')
+ast_avsnow
 
-ggplot(Aster.ice.on, aes(totice, log.cbv))+
+ast_totice<-ggplot(Aster.ice.on, aes(totice, log.cbv))+
   geom_point()+
   geom_smooth(method='lm',se=T)+
   scale_color_brewer(palette = 'Paired')
+ast_totice
 
-ggplot(Aster.ice.on, aes(whiteice, log.cbv))+
+ast_whiteice<-ggplot(Aster.ice.on, aes(whiteice, log.cbv))+
   geom_point()+
   geom_smooth(method='lm',se=T)+
   scale_color_brewer(palette = 'Paired')
+ast_whiteice
 
-ggplot(Aster.ice.on, aes(blueice, log.cbv))+
+ast_blueice<-ggplot(Aster.ice.on, aes(blueice, log.cbv))+
   geom_point()+
   geom_smooth(method='lm',se=T)+
   scale_color_brewer(palette = 'Paired')
+ast_blueice
 
-ggplot(Aster.ice.on, aes(light, log.cbv))+
+ast_light<-ggplot(Aster.ice.on, aes(light, log.cbv))+
   geom_point()+
   geom_smooth(method='lm',se=T)+
   scale_color_brewer(palette = 'Paired')
+ast_light
 
-ggplot(Aster.ice.on, aes(iceduration, log.cbv))+
+ast_iceduration<-ggplot(Aster.ice.on, aes(iceduration, log.cbv))+
   geom_point()+
   geom_smooth(method='lm',se=T)+
   scale_color_brewer(palette = 'Paired')
+ast_iceduration
 
 #=======
 #Asterionella ice off
