@@ -454,7 +454,7 @@ ggplot(subset(genus2, Genus %in% gen.keep), aes(sampledate, log(CellBioVol), col
   #geom_vline(data=ice, aes(xintercept=ice.on), linetype='dashed')+
   #geom_vline(data=ice, aes(xintercept=ice.off), linetype='dotted')+
   geom_point(data=subset(genus, Genus %in% gen.keep), aes(sampledate, log(CellBioVol), color=Genus))+
-  geom_smooth(data=subset(genus, Genus %in% gen.keep), aes(sampledate, log(CellBioVol), color=Genus), method='lm', se=F)+
+  geom_smooth(data=subset(genus, Genus %in% gen.keep), aes(sampledate, log(CellBioVol), color=Genus), method='lm', se=T)+
   scale_color_brewer(palette = 'Paired')+
   facet_wrap(~ice.pres, labeller=labeller(ice.pres = ice.labs))+
   theme_classic()+
@@ -464,7 +464,7 @@ ggplot(subset(genus2, Genus %in% gen.8), aes(sampledate, log(CellBioVol), color=
   geom_vline(data=ice, aes(xintercept=ice.on), linetype='dashed')+
   geom_vline(data=ice, aes(xintercept=ice.off), linetype='dotted')+
   geom_point()+
-  geom_smooth(aes(color=Genus), se=F)+
+  geom_smooth(aes(color=Genus), se=T)+
   scale_color_brewer(palette = 'Paired')+
   theme_classic()
 
@@ -483,7 +483,7 @@ ggplot(subset(genus2, Genus %in% gen.8), aes(sampledate, log(CellBioVol), color=
   #geom_vline(data=ice, aes(xintercept=ice.on), linetype='dashed')+
   #geom_vline(data=ice, aes(xintercept=ice.off), linetype='dotted')+
   geom_point(data=subset(genus2, Genus %in% gen.8), aes(sampledate, log(CellBioVol), color=Genus))+
-  geom_smooth(data=subset(genus2, Genus %in% gen.8), aes(sampledate, log(CellBioVol), color=Genus), method='lm', se=T)+
+  geom_smooth(data=subset(genus2, Genus %in% gen.8), aes(sampledate, log(CellBioVol), color=Genus), method='lm', se=F)+
   scale_color_brewer(palette = 'Paired')+
   facet_wrap(~ice.pres, labeller=labeller(ice.pres = ice.labs))+
   theme_classic()+
