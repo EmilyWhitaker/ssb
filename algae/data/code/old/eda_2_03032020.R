@@ -507,11 +507,21 @@ ggplot(subset(genus2, Genus %in% gen.keep), aes(sampledate, log(CellBioVol), col
   theme_classic()
 
 gen.dinos<- c('Naked Dinoflagellate','Armored Dinoflagellate')
+gen.main = c("Armored Dinoflagellate","Naked Dinoflagellate","Limnothrix","Microcystis","Lindavia",
+             "Cryptomonad", "Asterionella", "Dinobryon", "Fragilaria", "Asterocapsa","Cocconeis",
+             "Flagellated Green", "Cf. Komvophoron / Trichormus","Cyanobacteria","Elakatothrix",
+             "Mallomonas", "Segmented Green", "Peanut")
 
-ggplot(subset(genus2, Genus %in%gen.dinos), aes(sampledate, log(CellBioVol), color=Genus))+
+gen.main.total = c("Armored Dinoflagellate","Naked Dinoflagellate","Limnothrix","Microcystis","Lindavia",
+                   "Cryptomonad", "Asterionella", "Dinobryon", "Fragilaria", "Asterocapsa","Cocconeis",
+                   "Flagellated Green", "Cf. Komvophoron / Trichormus","Cyanobacteria","Elakatothrix","Mallomonas",
+                   "Segmented Green", "Peanut","Total")
+gen.ndmi=c("Naked Dinoflagellate","Elakatothrix")
+
+ggplot(subset(genus2, Genus %in%gen.ndmi), aes(sampledate, log(CellBioVol), color=Genus))+
   geom_vline(data=ice, aes(xintercept=ice.on), linetype='dashed')+
   geom_vline(data=ice, aes(xintercept=ice.off), linetype='dotted')+
-  geom_point()+
+  geom_point(size=3)+
   geom_line(linetype='dotted')+
   geom_smooth(aes(color=Genus), method='lm',se=T)+
   scale_color_brewer(palette = 'Paired')+
@@ -525,12 +535,13 @@ library(RColorBrewer)
 colourCount = length(unique(gen.main.total))
 getPalette = colorRampPalette(brewer.pal(9, "Set1"))
 
-ggplot(subset(genus2, Genus %in% gen.main.total), aes(sampledate, log(CellBioVol), color=Genus))+
+ggplot(subset(genus2, Genus %in% gen.ndmi), aes(sampledate, log(CellBioVol), color=Genus))+
   #geom_vline(data=ice, aes(xintercept=ice.on), linetype='dashed')+
   #geom_vline(data=ice, aes(xintercept=ice.off), linetype='dotted')+
-  geom_point(data=subset(genus2, Genus %in% gen.main.total), aes(sampledate, log(CellBioVol), color=Genus))+
-  geom_smooth(data=subset(genus2, Genus %in% gen.main.total), aes(sampledate, log(CellBioVol), color=Genus), method='lm', se=F)+
+  geom_point(data=subset(genus2, Genus %in% gen.ndmi), aes(sampledate, log(CellBioVol), color=Genus), size=3)+
+  geom_smooth(data=subset(genus2, Genus %in% gen.ndmi), aes(sampledate, log(CellBioVol), color=Genus), method='lm', se=T)+
   #scale_fill_brewer(palette = 'Set1')+
+  geom_line(linetype='dotted')+
   scale_fill_manual(values = getPalette(colourCount))+
   facet_wrap(~ice.pres, labeller=labeller(ice.pres = ice.labs))+
   theme_classic()+
