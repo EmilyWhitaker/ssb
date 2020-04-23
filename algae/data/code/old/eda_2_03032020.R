@@ -501,9 +501,22 @@ ggplot(subset(genus2, Genus %in% gen.keep), aes(sampledate, log(CellBioVol), col
   geom_vline(data=ice, aes(xintercept=ice.on), linetype='dashed')+
   geom_vline(data=ice, aes(xintercept=ice.off), linetype='dotted')+
   geom_point()+
+  geom_line(linetype='dotted')+
   geom_smooth(aes(color=Genus), method='lm',se=F)+
   scale_color_brewer(palette = 'Paired')+
   theme_classic()
+
+gen.dinos<- c('Naked Dinoflagellate','Armored Dinoflagellate')
+
+ggplot(subset(genus2, Genus %in%gen.dinos), aes(sampledate, log(CellBioVol), color=Genus))+
+  geom_vline(data=ice, aes(xintercept=ice.on), linetype='dashed')+
+  geom_vline(data=ice, aes(xintercept=ice.off), linetype='dotted')+
+  geom_point()+
+  geom_line(linetype='dotted')+
+  geom_smooth(aes(color=Genus), method='lm',se=T)+
+  scale_color_brewer(palette = 'Paired')+
+  theme_classic()
+
 
 ice.labs <- c("Ice Off", "Ice On")
 names(ice.labs) <- c(0, 1)
@@ -532,3 +545,23 @@ gen.main.total = c("Armored Dinoflagellate","Naked Dinoflagellate","Limnothrix",
              "Cryptomonad", "Asterionella", "Dinobryon", "Fragilaria", "Asterocapsa","Cocconeis",
              "Flagellated Green", "Cf. Komvophoron / Trichormus","Cyanobacteria","Elakatothrix","Mallomonas",
              "Segmented Green", "Peanut","Total")
+
+
+
+ggplot(subset(genus2, Genus %in% gen.main.total), aes(sampledate, log(CellBioVol), color=Genus))+
+  geom_vline(data=ice, aes(xintercept=ice.on), linetype='dashed')+
+  geom_vline(data=ice, aes(xintercept=ice.off), linetype='dotted')+
+  geom_point()+
+  geom_line(linetype='dotted')+
+ # geom_smooth(aes(color=Genus), se=F)+
+  scale_color_brewer(palette = 'Paired')+
+  theme_classic()
+
+ggplot(subset(genus2, Genus %in% gen.8), aes(sampledate, log(CellBioVol), color=Genus))+
+  geom_vline(data=ice, aes(xintercept=ice.on), linetype='dashed')+
+  geom_vline(data=ice, aes(xintercept=ice.off), linetype='dotted')+
+  geom_point()+
+  geom_smooth(aes(color=Genus), method='lm',se=F)+
+  scale_color_brewer(palette = 'Paired')+
+  theme_classic()
+
