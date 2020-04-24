@@ -523,7 +523,7 @@ gen.main.total = c("Armored Dinoflagellate","Naked Dinoflagellate","Limnothrix",
                    "Segmented Green", "Peanut","Other")
 
 
-gen.ndmi=c("Armored Dinoflagellate","Dinobryon")
+gen.ndmi=c("Armored Dinoflagellate","Fragilaria")
 
 ggplot(subset(genus2, Genus %in%gen.ndmi), aes(sampledate, log(CellBioVol), color=Genus))+
   geom_vline(data=ice, aes(xintercept=ice.on), linetype='dashed')+
