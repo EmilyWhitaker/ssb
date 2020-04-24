@@ -518,12 +518,14 @@ gen.main = c("Armored Dinoflagellate","Naked Dinoflagellate","Limnothrix","Micro
              "Mallomonas", "Segmented Green", "Peanut")
 
 gen.main.total = c("Armored Dinoflagellate","Naked Dinoflagellate","Limnothrix","Microcystis","Lindavia",
-                   "Cryptomonad", "Asterionella", "Dinobryon", "Fragilaria", "Asterocapsa","Cocconeis",
+                   "Cryptomonad", "Asterionella", "Dinobryon", "Fragilaria","Cocconeis",
                    "Flagellated Green", "Cf. Komvophoron / Trichormus","Cyanobacteria","Elakatothrix","Mallomonas",
                    "Segmented Green", "Peanut","Other")
 
 
-gen.ndmi=c("Armored Dinoflagellate","Fragilaria")
+#Asterocapsa-- NOT ENOUGH DATA
+
+gen.ndmi=c("Segmented Green","Cf. Komvophoron / Trichormus")
 
 ggplot(subset(genus2, Genus %in%gen.ndmi), aes(sampledate, log(CellBioVol), color=Genus))+
   geom_vline(data=ice, aes(xintercept=ice.on), linetype='dashed')+
