@@ -525,7 +525,7 @@ gen.main.total = c("Armored Dinoflagellate","Naked Dinoflagellate","Limnothrix",
 
 #Asterocapsa-- NOT ENOUGH DATA
 
-gen.ndmi=c("Armored Dinoflagellate","Cyanobacteria")
+gen.ndmi=c("Armored Dinoflagellate","Peanut")
 
 ggplot(subset(genus2, Genus %in%gen.ndmi), aes(sampledate, log(CellBioVol), color=Genus))+
   geom_vline(data=ice, aes(xintercept=ice.on), linetype='dashed')+
