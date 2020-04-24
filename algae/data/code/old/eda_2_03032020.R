@@ -387,7 +387,7 @@ ggplot(subset(genus, Genus %in% gen.keep), aes(sampledate, log(CellBioVol), colo
   labs(x='Year')
 
 
-
+genus2[Genus==is.na] <- 'Other'
 
 gen.nine = c('NA',"Asterocapsa","Cocconeis","Flagellated Green", "Cf. Komvophoron / Trichormus","Cyanobacteria","Elakatothrix","Mallomonas",
                          "Segmented Green", "Peanut")
@@ -429,6 +429,11 @@ ggplot(subset(genus, Genus %in% gen.nine), aes(sampledate, log(CellBioVol), colo
 
 genus2= read.csv('data/clean_abiotic_genus_03262020.csv', stringsAsFactors = F)
 genus2$sampledate = mdy(genus2$sampledate)
+
+genus3= read.csv('data/Na_as_Other_clean_abiotic_genus_03262020.csv', stringsAsFactors = F)
+genus3$sampledate = mdy(genus3$sampledate)
+
+genus[genus=="Cf. Craspedostauros"] <- NA
 
 
 ggplot(subset(genus2, Genus %in% gen.keep), aes(sampledate, log(CellBioVol), color=Genus))+
@@ -515,8 +520,10 @@ gen.main = c("Armored Dinoflagellate","Naked Dinoflagellate","Limnothrix","Micro
 gen.main.total = c("Armored Dinoflagellate","Naked Dinoflagellate","Limnothrix","Microcystis","Lindavia",
                    "Cryptomonad", "Asterionella", "Dinobryon", "Fragilaria", "Asterocapsa","Cocconeis",
                    "Flagellated Green", "Cf. Komvophoron / Trichormus","Cyanobacteria","Elakatothrix","Mallomonas",
-                   "Segmented Green", "Peanut","Total")
-gen.ndmi=c("Naked Dinoflagellate","Elakatothrix")
+                   "Segmented Green", "Peanut","Other")
+
+
+gen.ndmi=c("Armored Dinoflagellate","Microcystis")
 
 ggplot(subset(genus2, Genus %in%gen.ndmi), aes(sampledate, log(CellBioVol), color=Genus))+
   geom_vline(data=ice, aes(xintercept=ice.on), linetype='dashed')+
