@@ -524,8 +524,9 @@ gen.main.total = c("Armored Dinoflagellate","Naked Dinoflagellate","Limnothrix",
 
 
 #Asterocapsa-- NOT ENOUGH DATA
+#DONT LOOK @ Cyanobacteria in WINTER
 
-gen.ndmi=c("Limnothrix","Cf. Komvophoron / Trichormus")
+gen.ndmi=c("Microcystis","Lindavia")
 
 ggplot(subset(genus2, Genus %in%gen.ndmi), aes(sampledate, log(CellBioVol), color=Genus))+
   geom_vline(data=ice, aes(xintercept=ice.on), linetype='dashed')+
@@ -547,11 +548,11 @@ getPalette = colorRampPalette(brewer.pal(9, "Set1"))
 ggplot(subset(genus2, Genus %in% gen.ndmi), aes(sampledate, log(CellBioVol), color=Genus))+
   #geom_vline(data=ice, aes(xintercept=ice.on), linetype='dashed')+
   #geom_vline(data=ice, aes(xintercept=ice.off), linetype='dotted')+
-  geom_point(data=subset(genus2, Genus %in% gen.ndmi), aes(sampledate, log(CellBioVol), color=Genus), size=3)+
+  geom_point(data=subset(genus2,Genus %in% gen.ndmi), aes(sampledate, log(CellBioVol), color=Genus), size=3)+
   geom_smooth(data=subset(genus2, Genus %in% gen.ndmi), aes(sampledate, log(CellBioVol), color=Genus), method='lm', se=T)+
   #scale_fill_brewer(palette = 'Set1')+
   geom_line(linetype='dotted')+
-  scale_fill_manual(values = getPalette(colourCount))+
+  scale_fill_manual()+
   facet_wrap(~ice.pres, labeller=labeller(ice.pres = ice.labs))+
   theme_classic()+
   labs(x='Year')
