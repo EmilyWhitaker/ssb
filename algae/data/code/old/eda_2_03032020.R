@@ -526,7 +526,7 @@ gen.main.total = c("Armored Dinoflagellate","Naked Dinoflagellate","Limnothrix",
 #Asterocapsa-- NOT ENOUGH DATA
 #DONT LOOK @ Cyanobacteria in WINTER
 
-gen.ndmi=c("Cryptomonad","Flagellated Green")
+gen.ndmi=c("Cryptomonad","Cyanobacteria")
 
 ggplot(subset(genus2, Genus %in%gen.ndmi), aes(sampledate, log(CellBioVol), color=Genus))+
   geom_vline(data=ice, aes(xintercept=ice.on), linetype='dashed')+
@@ -549,7 +549,7 @@ ggplot(subset(genus2, Genus %in% gen.ndmi), aes(sampledate, log(CellBioVol), col
   #geom_vline(data=ice, aes(xintercept=ice.on), linetype='dashed')+
   #geom_vline(data=ice, aes(xintercept=ice.off), linetype='dotted')+
   geom_point(data=subset(genus2,Genus %in% gen.ndmi), aes(sampledate, log(CellBioVol), color=Genus), size=3)+
-  geom_smooth(data=subset(genus2, Genus %in% gen.ndmi), aes(sampledate, log(CellBioVol), color=Genus), method='lm', se=T)+
+  geom_smooth(data=subset(genus2, Genus %in% gen.ndmi), aes(sampledate, log(CellBioVol), color=Genus), method='lm', se=F)+
   #scale_fill_brewer(palette = 'Set1')+
   geom_line(linetype='dotted')+
   scale_fill_manual()+
