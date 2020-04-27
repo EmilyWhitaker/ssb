@@ -526,7 +526,7 @@ gen.main.total = c("Armored Dinoflagellate","Naked Dinoflagellate","Limnothrix",
 #Asterocapsa-- NOT ENOUGH DATA
 #DONT LOOK @ Cyanobacteria in WINTER
 
-gen.ndmi=c("Lindavia","Cocconeis")
+gen.ndmi=c("Lindavia","Segmented Green")
 
 ggplot(subset(genus2, Genus %in%gen.ndmi), aes(sampledate, log(CellBioVol), color=Genus))+
   geom_vline(data=ice, aes(xintercept=ice.on), linetype='dashed')+
