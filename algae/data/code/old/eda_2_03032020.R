@@ -526,6 +526,8 @@ gen.main.total = c("Armored Dinoflagellate","Naked Dinoflagellate","Limnothrix",
 #Asterocapsa-- NOT ENOUGH DATA
 #DONT LOOK @ Cyanobacteria in WINTER
 
+#Just need to go through Others 
+
 gen.ndmi=c("Segmented Green","Peanut")
 
 ggplot(subset(genus2, Genus %in%gen.ndmi), aes(sampledate, log(CellBioVol), color=Genus))+
