@@ -523,12 +523,33 @@ gen.main.total = c("Armored Dinoflagellate","Naked Dinoflagellate","Limnothrix",
                    "Segmented Green", "Peanut","Other")
 
 
+
+chems = c("wtemp","o2","o2sat","cond","frlight","chlor.int", "phaeo", "ph",	"phair","alk","dic","tic",
+          "doc","toc","no3no2", "no2","nh4","totnf","totnuf","totpf", "totpuf", "drsif",	"brsif",	
+          "brsiuf",	"tpm","cl",	"so4",	"ca",	"mg",	"na",	"k",	"fe", "mn",	"chlor.surf",	"avsnow",	"totice",
+          "whiteice", "blueice","light","iceduration")
+
+
 #Asterocapsa-- NOT ENOUGH DATA
 #DONT LOOK @ Cyanobacteria in WINTER
 
 #Just need to go through Others 
 
 gen.ndmi=c("Segmented Green","Peanut")
+
+
+#chems
+ggplot(subset(genus2, Genus %in%gen.ndmi), aes(sampledate, log(CellBioVol), color=Genus))+
+  geom_vline(data=ice, aes(xintercept=ice.on), linetype='dashed')+
+  geom_vline(data=ice, aes(xintercept=ice.off), linetype='dotted')+
+  geom_point(size=3)+
+  geom_line(linetype='dotted')+
+  geom_smooth(aes(color=Genus), method='lm',se=T)+
+  scale_color_brewer(palette = 'Paired')+
+  theme_classic()
+
+
+
 
 ggplot(subset(genus2, Genus %in%gen.ndmi), aes(sampledate, log(CellBioVol), color=Genus))+
   geom_vline(data=ice, aes(xintercept=ice.on), linetype='dashed')+
@@ -588,3 +609,15 @@ ggplot(subset(genus2, Genus %in% gen.8), aes(sampledate, log(CellBioVol), color=
   scale_color_brewer(palette = 'Paired')+
   theme_classic()
 
+
+ggplot(genus2, o2sat, aes(sampledate, log(CellBioVol), color=Genus))+
+  #geom_vline(data=ice, aes(xintercept=ice.on), linetype='dashed')+
+  #geom_vline(data=ice, aes(xintercept=ice.off), linetype='dotted')+
+  geom_point(data=genus2,o2, aes(sampledate, log(CellBioVol), color=Genus), size=3)+
+  geom_smooth(data=genus2, o2, aes(sampledate, log(CellBioVol), color=Genus), method='lm', se=T)+
+  #scale_fill_brewer(palette = 'Set1')+
+  geom_line(linetype='dotted')+
+  scale_fill_manual()+
+  facet_wrap(~ice.pres, labeller=labeller(ice.pres = ice.labs))+
+  theme_classic()+
+  labs(x='Year')
