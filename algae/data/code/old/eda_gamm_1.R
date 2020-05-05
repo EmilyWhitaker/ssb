@@ -51,8 +51,20 @@ write.csv(data, 'data/clean_algae_abiotic_02252020.csv',row.names = F)
 
 
 #======================
-data = read.csv('data/clean_algae_abiotic_02252020.csv',stringsAsFactors = F)
+#data = read.csv('data/clean_algae_abiotic_02252020.csv',stringsAsFactors = F)
 
+totals = read.csv('data/abiotic_total_biovolume.csv',stringsAsFactors = F)
+
+
+#totals = read.csv("data/clean_abiotic_genus_03262020.csv", stringsAsFactors = F)
+#totals$sampledate = mdy(totals$sampledate)
+
+#add those cols 
+totals$one.cbv = totals$CellBioVol+1
+totals$log.cbv = log(totals$one.cbv)
+totals$int.cbv=as.integer(totals$CellBioVol)
+totals$oneint.cbv = totals$int.cbv+1
+totals$logint.cbv =as.integer(log(totals$oneint.cbv))
 
 
 # pull out total biovolumes
@@ -89,10 +101,12 @@ hist(log(totals$CellBioVol)) # log bv
 totals %<>% select(-Genus)
 totals$log.chlor = log(totals$chlor)
 totals$log.bv = log(totals$CellBioVol)
-totals.long = pivot_longer(totals, cols=c("chlor","log.chlor","avsnow","totice","whiteice","blueice","perwhiteice","perblueice",
-                                  "light","CellBioVol","log.bv"), names_to="variable", values_to = "value")
+totals.long = pivot_longer(totals, cols=c(chems = c("totnuf","totpf", "totpuf", "drsif",	"brsif",	
+                                                    "brsiuf",	"tpm","cl",	"so4",	"ca",	"mg",	"na",	"k",	"fe", "mn",	"chlor.surf",	"avsnow",	"totice",
+                                                    "whiteice", "blueice","light","iceduration"), names_to="variable", values_to = "value"))
 
-
+"wtemp","o2","o2sat","cond","frlight","chlor.int", "phaeo", "ph",	"phair","alk","dic","tic",
+"doc","toc","no3no2", "no2","nh4","totnf",
 
 
 ggplot(totals.long, aes(sampledate, value, color=variable))+
