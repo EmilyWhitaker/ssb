@@ -53,6 +53,8 @@ write.csv(data, 'data/clean_algae_abiotic_02252020.csv',row.names = F)
 #======================
 data = read.csv('data/clean_algae_abiotic_02252020.csv',stringsAsFactors = F)
 
+
+
 # pull out total biovolumes
 totals = subset(data, Genus == "TotalBiovolume")
 totals$chlor = abs(totals$chlor)
@@ -89,6 +91,8 @@ totals$log.chlor = log(totals$chlor)
 totals$log.bv = log(totals$CellBioVol)
 totals.long = pivot_longer(totals, cols=c("chlor","log.chlor","avsnow","totice","whiteice","blueice","perwhiteice","perblueice",
                                   "light","CellBioVol","log.bv"), names_to="variable", values_to = "value")
+
+
 
 
 ggplot(totals.long, aes(sampledate, value, color=variable))+

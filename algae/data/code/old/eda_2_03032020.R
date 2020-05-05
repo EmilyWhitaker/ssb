@@ -6,6 +6,7 @@ library(FSA); library(dplyr);library(magrittr);library(tidyr) # data management
 library(mgcv);library(nlme); library(lme4) # modeling
 library(viridisLite); library(gridExtra); library(ggplot2) # data viz 
 library(lubridate) # dealing with dates
+library(ggpubr)
 
 #=========
 # skip ahead
@@ -535,7 +536,7 @@ chems = c("wtemp","o2","o2sat","cond","frlight","chlor.int", "phaeo", "ph",	"pha
 
 #Just need to go through Others 
 
-gen.ndmi=c("Segmented Green","Peanut")
+gen.ndmi=c("Asterionella")
 
 
 #chems
@@ -544,12 +545,27 @@ ggplot(subset(genus2, Genus %in%gen.ndmi), aes(sampledate, log(CellBioVol), colo
   geom_vline(data=ice, aes(xintercept=ice.off), linetype='dotted')+
   geom_point(size=3)+
   geom_line(linetype='dotted')+
+  stat_regline_equation()+
   geom_smooth(aes(color=Genus), method='lm',se=T)+
   scale_color_brewer(palette = 'Paired')+
   theme_classic()
 
 
+ggplot(subset(genus2, Genus %in% gen.ndmi), aes(sampledate, log(CellBioVol), color=Genus))+
+  #geom_vline(data=ice, aes(xintercept=ice.on), linetype='dashed')+
+  #geom_vline(data=ice, aes(xintercept=ice.off), linetype='dotted')+
+  geom_point(data=subset(genus2,Genus %in% gen.ndmi), aes(sampledate, log(CellBioVol), color=Genus), size=3)+
+  geom_smooth(data=subset(genus2, Genus %in% gen.ndmi), aes(sampledate, log(CellBioVol), color=Genus), method='lm', se=F)+
+  #scale_fill_brewer(palette = 'Set1')+
+  stat_regline_equation()+
+  geom_line(linetype='dotted')+
+  scale_fill_manual()+
+  facet_wrap(~ice.pres, labeller=labeller(ice.pres = ice.labs))+
+  theme_classic()+
+  labs(x='Year')
 
+
+lm(formula= gen.ndmi)
 
 ggplot(subset(genus2, Genus %in%gen.ndmi), aes(sampledate, log(CellBioVol), color=Genus))+
   geom_vline(data=ice, aes(xintercept=ice.on), linetype='dashed')+
@@ -574,6 +590,7 @@ ggplot(subset(genus2, Genus %in% gen.ndmi), aes(sampledate, log(CellBioVol), col
   geom_point(data=subset(genus2,Genus %in% gen.ndmi), aes(sampledate, log(CellBioVol), color=Genus), size=3)+
   geom_smooth(data=subset(genus2, Genus %in% gen.ndmi), aes(sampledate, log(CellBioVol), color=Genus), method='lm', se=T)+
   #scale_fill_brewer(palette = 'Set1')+
+  stat_regline_equation()+
   geom_line(linetype='dotted')+
   scale_fill_manual()+
   facet_wrap(~ice.pres, labeller=labeller(ice.pres = ice.labs))+
@@ -609,6 +626,9 @@ ggplot(subset(genus2, Genus %in% gen.8), aes(sampledate, log(CellBioVol), color=
   scale_color_brewer(palette = 'Paired')+
   theme_classic()
 
+
+
+#chem try
 
 ggplot(genus2, o2sat, aes(sampledate, log(CellBioVol), color=Genus))+
   #geom_vline(data=ice, aes(xintercept=ice.on), linetype='dashed')+
