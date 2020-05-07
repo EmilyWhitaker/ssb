@@ -51,13 +51,14 @@ write.csv(data, 'data/clean_algae_abiotic_02252020.csv',row.names = F)
 
 
 #======================
-#data = read.csv('data/clean_algae_abiotic_02252020.csv',stringsAsFactors = F)
+data = read.csv('data/clean_algae_abiotic_02252020.csv',stringsAsFactors = F)
 
-totals = read.csv('data/abiotic_total_biovolume.csv',stringsAsFactors = F)
+#totals = read.csv('data/abiotic_total_biovolume.csv',stringsAsFactors = F)
 
+abiotic = full_join(data, dara, by=c("sampledate"))
 
-#totals = read.csv("data/clean_abiotic_genus_03262020.csv", stringsAsFactors = F)
-#totals$sampledate = mdy(totals$sampledate)
+dara = read.csv("data/clean_abiotic_genus_03262020.csv", stringsAsFactors = F)
+dara$sampledate = mdy(totals$sampledate)
 
 #add those cols 
 totals$one.cbv = totals$CellBioVol+1
