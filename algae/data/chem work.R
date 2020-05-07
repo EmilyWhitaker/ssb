@@ -76,21 +76,21 @@ gen.main.total = c("Armored Dinoflagellate","Naked Dinoflagellate","Limnothrix",
 #DONT LOOK @ Cyanobacteria in WINTER
 
 
-gen.ndmi=c("Limnothrix")
+gen.ndmi=c("Asterionella")
 
-ggplot((subset(totals, Genus %in%gen.ndmi)), aes(chlor.int,log(CellBioVol)))+
+ggplot((subset(totals, Genus %in%gen.ndmi)), aes(chlor.surf,log(CellBioVol)))+
   geom_point()+
   geom_smooth()+
-  labs(title="Limnothrix")+
+  labs(title="Asterionella")+
   #facet_wrap(~ice.pres, scales='free')
   #scale_color_brewer()+
   facet_wrap(~ice.pres, labeller=labeller(ice.pres = ice.labs))
   
 
-ggplot((subset(totals, Genus %in%gen.ndmi)), aes(chlor.int,log(CellBioVol)))+
+ggplot((subset(totals, Genus %in%gen.ndmi)), aes(chlor.surf,log(CellBioVol)))+
   geom_point()+
   geom_smooth(method=lm)+
-  labs(title="Limnothrix")+
+  labs(title="Asterionella")+
   facet_wrap(~ice.pres, labeller=labeller(ice.pres = ice.labs))
 
 
