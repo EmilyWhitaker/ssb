@@ -60,6 +60,34 @@ ggplot(totals, aes(sampledate, chlor.int))+
 summary(summer$chlor.surf)
 
 
+hist(totals$chlor.surf)
+hist(log(totals$chlor.surf))
+shapiro.test(log(totals$chlor.surf))
+
+#####==========
+#Chlor surf 
+gen.main.total = c("Armored Dinoflagellate","Naked Dinoflagellate","Limnothrix","Microcystis","Lindavia",
+                   "Cryptomonad", "Asterionella", "Dinobryon", "Fragilaria","Cocconeis",
+                   "Flagellated Green", "Cf. Komvophoron / Trichormus","Cyanobacteria","Elakatothrix","Mallomonas",
+                   "Segmented Green", "Peanut","Other")
+
+
+#Asterocapsa-- NOT ENOUGH DATA
+#DONT LOOK @ Cyanobacteria in WINTER
+
+
+gen.ndmi=c("Asterionella")
+
+ggplot((subset(totals, Genus %in%gen.ndmi)), aes(chlor.surf,log(CellBioVol)))+
+  geom_point((color=subset(gen.ndmi$sampledate)))+
+  geom_smooth()+
+  labs(title="Asterionella")+
+  #facet_wrap(~ice.pres, scales='free')
+  #scale_color_brewer()+
+  facet_wrap(~ice.pres, labeller=labeller(ice.pres = ice.labs))
+  
+
+
 
 ########===================
 
