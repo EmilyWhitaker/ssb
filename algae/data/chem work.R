@@ -95,6 +95,14 @@ ggplot((subset(totals, Genus %in%gen.ndmi)), aes(chlor.int,log(CellBioVol)))+
 
 
 
+ggplot((subset(totals, Genus %in%gen.ndmi)), aes(chlor.int,log(CellBioVol)))+
+  geom_point()+
+  geom_smooth()+
+  labs()+
+  facet_wrap(~ice.pres, labeller=labeller(ice.pres = ice.labs))
+
+
+
 
 ########===================
 
