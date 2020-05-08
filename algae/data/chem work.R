@@ -125,21 +125,21 @@ totals.new <-
               )
     )
 gen.main.total = c("Armored Dinoflagellate","Naked Dinoflagellate","Limnothrix","Microcystis","Lindavia",
-                   "Cryptomonad", "Asterionella", "Dinobryon", "Fragilaria","Cocconeis",
+                   "Cryptomonad(DONE)", "Asterionella", "Dinobryon", "Fragilaria","Cocconeis",
                    "Flagellated Green", "Cf. Komvophoron / Trichormus","Cyanobacteria","Elakatothrix","Mallomonas",
                    "Segmented Green", "Peanut","Other")
-gen.ndmi=c("Cryptomonad")
+gen.ndmi=c("Naked Dinoflagellate")
 
 ggplot((subset(totals.new, Genus %in%gen.ndmi)), aes(sampledate,log(CellBioVol)))+
   geom_point(aes(col=chlor.int), size=2)+
   geom_smooth(method=lm)+
-  labs(title="Cryptomonad Integrated Chlorophyll")+
+  labs(title="Naked Dinoflagellate Integrated Chlorophyll")+
   facet_wrap(~ice.pres, labeller=labeller(ice.pres = ice.labs))
 
 ggplot((subset(totals.new, Genus %in%gen.ndmi)), aes(sampledate,log(CellBioVol)))+
   geom_point(aes(col=chlor.int), size=2)+
   geom_smooth()+
-  labs(title="Cryptomonad Integrated Chlorophyll")+
+  labs(title="Naked Dinoflagellate Integrated Chlorophyll")+
   facet_wrap(~ice.pres, labeller=labeller(ice.pres = ice.labs))
 
 
