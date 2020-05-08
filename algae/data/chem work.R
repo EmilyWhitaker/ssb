@@ -107,7 +107,7 @@ gg <- ggplot(totals.new, aes(x=sampledate, y=log(CellBioVol))) +
   facet_wrap(~ice.pres, labeller=labeller(ice.pres = ice.labs))
 plot(gg)
 
-gg <- ggplot(Microcystiswinter, aes(x=sampledate, y=Microcystis.log.bv)) + 
+gg <- ggplot(subset(totals.new, Genus %in%gen.ndmi, aes(x=sampledate, y=log(CellBioVol)))) + 
   geom_point(aes(col=chlor.int))+ 
   geom_smooth()+
   facet_wrap(~ice.pres, labeller=labeller(ice.pres = ice.labs))
@@ -124,6 +124,23 @@ totals.new <-
                lables= c("0-1","1-3", "3-5", "5-8","8+")
               )
     )
+gen.main.total = c("Armored Dinoflagellate","Naked Dinoflagellate","Limnothrix","Microcystis","Lindavia",
+                   "Cryptomonad", "Asterionella", "Dinobryon", "Fragilaria","Cocconeis",
+                   "Flagellated Green", "Cf. Komvophoron / Trichormus","Cyanobacteria","Elakatothrix","Mallomonas",
+                   "Segmented Green", "Peanut","Other")
+gen.ndmi=c("Cryptomonad")
+
+ggplot((subset(totals.new, Genus %in%gen.ndmi)), aes(sampledate,log(CellBioVol)))+
+  geom_point(aes(col=chlor.int), size=2)+
+  geom_smooth(method=lm)+
+  labs(title="Cryptomonad Integrated Chlorophyll")+
+  facet_wrap(~ice.pres, labeller=labeller(ice.pres = ice.labs))
+
+ggplot((subset(totals.new, Genus %in%gen.ndmi)), aes(sampledate,log(CellBioVol)))+
+  geom_point(aes(col=chlor.int), size=2)+
+  geom_smooth()+
+  labs(title="Cryptomonad Integrated Chlorophyll")+
+  facet_wrap(~ice.pres, labeller=labeller(ice.pres = ice.labs))
 
 
 #totals.surf<-
