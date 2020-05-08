@@ -138,7 +138,7 @@ ggplot((subset(totals.new, Genus %in%gen.ndmi)), aes(sampledate,log(CellBioVol))
 
 ggplot((subset(totals.new, Genus %in%gen.ndmi)), aes(sampledate,log(CellBioVol)))+
   geom_point(aes(col=chlor.int), size=2)+
-  geom_smooth(se=F)+
+  geom_smooth(se=T)+
   labs(title="Cf. Komvophoron / Trichormus Integrated Chlorophyll")+
   facet_wrap(~ice.pres, labeller=labeller(ice.pres = ice.labs))
 
