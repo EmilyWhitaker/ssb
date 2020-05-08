@@ -76,7 +76,7 @@ gen.main.total = c("Armored Dinoflagellate","Naked Dinoflagellate","Limnothrix",
 #DONT LOOK @ Cyanobacteria in WINTER
 
 
-gen.ndmi=c("Peanut")
+gen.ndmi=c("Cryptomonad")
 
 ggplot((subset(totals, Genus %in%gen.ndmi)), aes(chlor.int,log(CellBioVol)))+
   geom_point()+
@@ -95,12 +95,45 @@ ggplot((subset(totals, Genus %in%gen.ndmi)), aes(chlor.int,log(CellBioVol)))+
 
 
 
-ggplot((subset(totals, Genus %in%gen.ndmi)), aes(chlor.int,log(CellBioVol)))+
+ggplot(+ aes(chlor.int,log(CellBioVol)))+
   geom_point()+
   geom_smooth()+
   labs()+
   facet_wrap(~ice.pres, labeller=labeller(ice.pres = ice.labs))
 
+gg <- ggplot(totals.new, aes(x=sampledate, y=log(CellBioVol))) + 
+  geom_point(aes(col=chlor.int))+ 
+  geom_smooth()+
+  facet_wrap(~ice.pres, labeller=labeller(ice.pres = ice.labs))
+plot(gg)
+
+gg <- ggplot(Microcystiswinter, aes(x=sampledate, y=Microcystis.log.bv)) + 
+  geom_point(aes(col=chlor.int))+ 
+  geom_smooth()+
+  facet_wrap(~ice.pres, labeller=labeller(ice.pres = ice.labs))
+plot(gg)
+
+#need to factor my chlor.int and surf to get readable colors because right now we are on a cont path
+#this is for ease of coloring 
+
+totals.new <- 
+  totals %>%
+  mutate(
+    chlor.int= cut(chlor.int,
+               breaks = c(-Inf, 1, 3, 5, 8, Inf),
+               lables= c("0-1","1-3", "3-5", "5-8","8+")
+              )
+    )
+
+
+#totals.surf<-
+ # totals %>%
+  #mutate(
+   # chlor.surf= cut(chlor.surf,
+    #               breaks = c(-Inf, 1, 3, 5, 8, Inf),
+     #              lables= c("0-1","1-3", "3-5", "5-8","8+")
+    #)
+  #)
 
 
 
