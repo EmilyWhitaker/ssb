@@ -1,5 +1,3 @@
-#okay damn
-
 ## Clear workspace and console
 rm(list=ls()); cat("\014")
 
@@ -13,6 +11,12 @@ library(lubridate) # dealing with dates
 
 totals = read.csv("data/clean_abiotic_genus_03262020.csv", stringsAsFactors = F)
 totals$sampledate = mdy(totals$sampledate)
+
+lightext = read.csv("data/light_ext_v1-2.csv", stringsAsFactors = F)
+lightext$sampledate = mdy(lightext$sampledate)
+
+
+lightextfull = full_join(totals, lightext, by=c("sampledate"))
 
 
 #define seasons
@@ -97,6 +101,14 @@ ggplot((subset(totals)), aes(chlor.int,log(CellBioVol)))+
   facet_wrap(~ice.pres, labeller=labeller(ice.pres = ice.labs), scales = "free")
   
 
+ggplot((subset(lightextfull, ice.pres %in% 1)), aes(chlor.int,log(CellBioVol)))+
+  geom_point(aes(col=extcoef))+  #light availablity 
+  geom_smooth(se=T)+
+  labs(title="")+
+  scale_color_viridis_c(option="plasma")+
+  facet_wrap(~ice.pres, labeller=labeller(ice.pres = ice.labs), scales = "free")
+
+(subset(totals, Genus %in%gen.ndmi)
 
 
 ggplot((subset(totals, Genus %in%gen.ndmi)), aes(chlor.int,log(CellBioVol)))+
@@ -150,11 +162,15 @@ ggplot((subset(totals, Genus %in%gen.ndmi)), aes(sampledate,log(CellBioVol)))+
   facet_wrap(~ice.pres, labeller=labeller(ice.pres = ice.labs))
 
 ggplot((subset(totals)), aes(chlor.int,log(CellBioVol)))+
-  geom_point(aes(col=chlor.surf))+
+  geom_point(aes(col=light))+
   geom_smooth(se=T)+
   labs(title="")+
   scale_color_viridis_c(option="viridis")+
   facet_wrap(~ice.pres, labeller=labeller(ice.pres = ice.labs))
+
+
+
+(subset(totals, Genus %in%gen.ndmi)
 
 
 #totals.surf<-
