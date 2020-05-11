@@ -33,3 +33,6 @@ ice %<>% subset(lakeid == "SP")
 ice.labs <- c("Ice Off", "Ice On")
 names(ice.labs) <- c(0, 1)
 
+ggplot(lightext, aes(sampledate, extcoef))+
+  geom_point(aes= 'extcoef')+  #light availablity 
+  geom_smooth(se=T)
