@@ -47,10 +47,11 @@ ggplot(totals, aes(sampledate, chlor.int))+
 
 #in the ~seasons~
 
-ggplot(totals, aes(sampledate, chlor.int))+
+ggplot(totals, aes(chlor.int, log(CellBioVol)))+
   #geom_vline(data=ice, aes(xintercept=ice.on), linetype='dashed')+
   #geom_vline(data=ice, aes(xintercept=ice.off), linetype='dotted')+
-  geom_point()+
+  geom_point(chlor.int)+
+  scale_color_viridis_c(option="viridis")+
   geom_smooth()+
   #scale_color_brewer(palette = 'Paired')+
   facet_wrap(~ice.pres, labeller=labeller(ice.pres = ice.labs))+
@@ -79,13 +80,24 @@ gen.main.total = c("Armored Dinoflagellate","Naked Dinoflagellate","Limnothrix",
 gen.ndmi=c("Cryptomonad")
 
 ggplot((subset(totals, Genus %in%gen.ndmi)), aes(chlor.int,log(CellBioVol)))+
+  scale_color_viridis_c(option="viridis")+
   geom_point()+
   geom_smooth()+
   labs(title="Peanut")+
   #facet_wrap(~ice.pres, scales='free')
   #scale_color_brewer()+
   facet_wrap(~ice.pres, labeller=labeller(ice.pres = ice.labs))
+
+
+ggplot((subset(totals)), aes(chlor.int,log(CellBioVol)))+
+  geom_point(aes(col=light))+  #light availablity 
+  geom_smooth(se=T)+
+  labs(title="")+
+  scale_color_viridis_c(option="plasma")+
+  facet_wrap(~ice.pres, labeller=labeller(ice.pres = ice.labs), scales = "free")
   
+
+
 
 ggplot((subset(totals, Genus %in%gen.ndmi)), aes(chlor.int,log(CellBioVol)))+
   geom_point()+
@@ -103,6 +115,7 @@ ggplot(+ aes(chlor.int,log(CellBioVol)))+
 
 gg <- ggplot(totals.new, aes(x=sampledate, y=log(CellBioVol))) + 
   geom_point(aes(col=chlor.int))+ 
+  scale_color_viridis_c(option="viridis")+
   geom_smooth()+
   facet_wrap(~ice.pres, labeller=labeller(ice.pres = ice.labs))
 plot(gg)
@@ -130,16 +143,17 @@ gen.main.total = c("Armored Dinoflagellate","Naked Dinoflagellate","Limnothrix",
                    "Segmented Green", "Peanut","Other")
 gen.ndmi=c("Peanut")
 
-ggplot((subset(totals.new, Genus %in%gen.ndmi)), aes(sampledate,log(CellBioVol)))+
-  geom_point(aes(col=chlor.int), size=2)+
+ggplot((subset(totals, Genus %in%gen.ndmi)), aes(sampledate,log(CellBioVol)))+
+  geom_point(aes(col=chlor.surf), size=2)+
   geom_smooth(method=lm,se=T)+
   labs(title="Peanut Integrated Chlorophyll")+
   facet_wrap(~ice.pres, labeller=labeller(ice.pres = ice.labs))
 
-ggplot((subset(totals.new, Genus %in%gen.ndmi)), aes(sampledate,log(CellBioVol)))+
-  geom_point(aes(col=chlor.int), size=2)+
+ggplot((subset(totals)), aes(chlor.int,log(CellBioVol)))+
+  geom_point(aes(col=chlor.surf))+
   geom_smooth(se=T)+
-  labs(title="Peanut Integrated Chlorophyll")+
+  labs(title="")+
+  scale_color_viridis_c(option="viridis")+
   facet_wrap(~ice.pres, labeller=labeller(ice.pres = ice.labs))
 
 
