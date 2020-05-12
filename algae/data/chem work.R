@@ -164,7 +164,7 @@ totals.new <-
               )
     )
 gen.main.total = c("Armored Dinoflagellate","Naked Dinoflagellate","Limnothrix","Microcystis","Lindavia",
-                   "Cryptomonad(DONE)", "Asterionella", "Dinobryon", "Fragilaria","Cocconeis",
+                   "Cryptomonad", "Asterionella", "Dinobryon", "Fragilaria","Cocconeis",
                    "Flagellated Green", "Cf. Komvophoron / Trichormus","Cyanobacteria","Elakatothrix","Mallomonas",
                    "Segmented Green", "Peanut","Other")
 gen.ndmi=c("Peanut")
@@ -174,6 +174,19 @@ ggplot((subset(totals, Genus %in%gen.ndmi)), aes(sampledate,log(CellBioVol)))+
   geom_smooth(method=lm,se=T)+
   labs(title="Peanut Integrated Chlorophyll")+
   facet_wrap(~ice.pres, labeller=labeller(ice.pres = ice.labs))
+
+
+ggplot((subset(totals, Genus %in%gen.ndmi)), aes(chlor.int,log(CellBioVol)))+
+  geom_point(aes(col=frlight))+  #light availablity 
+  geom_smooth(method=lm, se=T)+
+  labs(title="")+
+  scale_color_viridis_c(option="plasma")+
+  labs(title="Peanut Integrated Chlorophyll")+
+  facet_wrap(~ice.pres, labeller=labeller(ice.pres = ice.labs), scales="free")
+
+scales = "free"
+method= "lm"
+
 
 ggplot((subset(totals)), aes(chlor.int,log(CellBioVol)))+
   geom_point(aes(col=light))+
