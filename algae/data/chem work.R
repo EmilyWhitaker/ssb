@@ -167,7 +167,7 @@ gen.main.total = c("Armored Dinoflagellate","Naked Dinoflagellate","Limnothrix",
                    "Cryptomonad", "Asterionella", "Dinobryon", "Fragilaria","Cocconeis",
                    "Flagellated Green", "Cf. Komvophoron / Trichormus","Cyanobacteria","Elakatothrix","Mallomonas",
                    "Segmented Green", "Peanut","Other")
-gen.ndmi=c("Peanut")
+gen.ndmi=c("Armored Dinoflagellate")
 
 ggplot((subset(totals, Genus %in%gen.ndmi)), aes(sampledate,log(CellBioVol)))+
   geom_point(aes(col=chlor.surf), size=2)+
@@ -176,13 +176,15 @@ ggplot((subset(totals, Genus %in%gen.ndmi)), aes(sampledate,log(CellBioVol)))+
   facet_wrap(~ice.pres, labeller=labeller(ice.pres = ice.labs))
 
 
-ggplot((subset(totals, Genus %in%gen.ndmi)), aes(chlor.int,log(CellBioVol)))+
+ggplot((subset(totals, Genus %in%gen.ndmi)), aes(chlor.surf,log(CellBioVol)))+
   geom_point(aes(col=frlight))+  #light availablity 
   geom_smooth(method=lm, se=T)+
   labs(title="")+
   scale_color_viridis_c(option="plasma")+
-  labs(title="Peanut Integrated Chlorophyll")+
-  facet_wrap(~ice.pres, labeller=labeller(ice.pres = ice.labs), scales="free")
+  labs(title="Armored Dinoflagellate Surface Chlorophyll")+
+  facet_wrap(~ice.pres, labeller=labeller(ice.pres = ice.labs), scales = "free")
+             
+#scales="free")
 
 scales = "free"
 method= "lm"
