@@ -11,6 +11,9 @@ library(lubridate) # dealing with dates
 
 totals = read.csv("data/clean_abiotic_genus_03262020.csv", stringsAsFactors = F)
 totals$sampledate = mdy(totals$sampledate)
+totals 
+totals$frlight[totals$frlight=="1"] <- NA #one iceon point with no light point to calc frlight against 
+
 
 lightext = read.csv("data/light_ext_v1-2.csv", stringsAsFactors = F)
 lightext$sampledate = mdy(lightext$sampledate)
@@ -93,13 +96,24 @@ ggplot((subset(totals, Genus %in%gen.ndmi)), aes(chlor.int,log(CellBioVol)))+
   facet_wrap(~ice.pres, labeller=labeller(ice.pres = ice.labs))
 
 
-ggplot((subset(totals)), aes(chlor.int,log(CellBioVol)))+
-  geom_point(aes(col=light))+  #light availablity 
+ggplot((subset(totals, ice.pres%in% 0)), aes(chlor.surf,log(CellBioVol)))+
+  geom_point(aes(col=frlight))+  #light availablity 
   geom_smooth(se=T)+
   labs(title="")+
   scale_color_viridis_c(option="plasma")+
-  facet_wrap(~ice.pres, labeller=labeller(ice.pres = ice.labs), scales = "free")
+  facet_wrap(~ice.pres, labeller=labeller(ice.pres = ice.labs))
   
+scales = "free"
+method= "lm"
+
+a =subset(totals, ice.pres%in% 1)$frlight
+a
+write.csv(a,'wintertotals.csv')
+
+b=subset(totals, ice.pres%in% 0)$frlight
+b
+write.csv(b,'summertotals.csv')
+
 
 ggplot((subset(lightextfull, ice.pres %in% 1)), aes(chlor.int,log(CellBioVol)))+
   geom_point(aes(col=extcoef))+  #light availablity 
