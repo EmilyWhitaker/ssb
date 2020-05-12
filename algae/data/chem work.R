@@ -228,6 +228,8 @@ totals$month = month(totals$sampledate)
 winter = subset(totals, month < 4)
 summer= subset(totals, month>4)
 
+winter= subset(totals, ice.pres %in% 1)
+summer= subset(totals, ice.pres %in% 0)
 
 #define seasons
 ice = read.csv('data/iceduration.csv', stringsAsFactors = F)
@@ -262,3 +264,31 @@ pairs(Microcystiswinter[,c(11:16, 18:22,50)])
 
 
 
+
+
+
+
+
+#==============
+
+#3) Does frlight correlated to ice or snow thickness on Sparkling?
+
+winter$frlight[winter$frlight=="1"] <- NA
+
+bv.1 = lm(frlight ~ totice+ avsnow + blueice+ whiteice, data=winter)
+summary(bv.1) #white ice is all NAs, av snow is highly sig
+
+bv.2 = lm(frlight ~ blueice+ avsnow, data=winter) #remove totice 
+summary(bv.2) #blueice and avsnow are both highly signifcant 
+
+bv.3 = lm(frlight ~ totice*avsnow + blueice, data=winter) #remove blueice
+summary(bv.3) #totice and avsnow are both highly signifcant 
+
+
+ggplot(winter, aes(totice, frlight))+
+#  geom_point(aes(group=frlight))+
+  geom_point(aes(col=chlor.int), size=2)+
+  scale_color_viridis_c(option="plasma")+
+  geom_smooth(method= lm,se=T)
+
+  
