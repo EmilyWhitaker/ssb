@@ -84,7 +84,7 @@ allchlor= read.csv("surfandintSPfullchloros.csv")
 allchlor$sampledate = mdy(allchlor$sampledate)
 
 
-ggplot((allchlor), aes(sampledate, chlor.int))+
+ggplot((subset(allchlor, ice.pres %in% 1)), aes(sampledate, chlor.surf))+
   #geom_vline(data=ice, aes(xintercept=ice.on), linetype='dashed')+
   #geom_vline(data=ice, aes(xintercept=ice.off), linetype='dotted')+
   geom_point()+
@@ -94,8 +94,8 @@ ggplot((allchlor), aes(sampledate, chlor.int))+
   #scale_color_brewer(palette = 'Paired')+
   facet_wrap(~ice.pres, labeller=labeller(ice.pres = ice.labs))+
   theme_classic()+
-  geom_encircle(aes(x=sampledate, y=chlor.int), 
-                data=totals, 
+  geom_encircle(aes(x=sampledate, y=chlor.surf), 
+                data=winter, 
                 color="red", 
                 size=2, 
                 expand=0.08) + 
