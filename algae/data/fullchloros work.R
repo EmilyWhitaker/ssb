@@ -83,17 +83,26 @@ ggplot(surfchloros, aes(sampledate, chlor))+
 allchlor= read.csv("surfandintSPfullchloros.csv")
 allchlor$sampledate = mdy(allchlor$sampledate)
 
+totals = read.csv("data/clean_abiotic_genus_03262020.csv", stringsAsFactors = F)
+totals$sampledate = mdy(totals$sampledate)
+totals$frlight[totals$frlight=="1"] <- NA #one iceon point with no light point to calc frlight against 
+totaloftotals= subset(totals, Genus %in% NA)
+
+
 
 ggplot((allchlor), aes(sampledate, chlor.surf))+
   #geom_vline(data=ice, aes(xintercept=ice.on), linetype='dashed')+
   #geom_vline(data=ice, aes(xintercept=ice.off), linetype='dotted')+
-  geom_point()+
+  geom_point(aes(color=totaloftotals))+
   #geom_point()+
   scale_color_viridis_c(option="viridis")+
   geom_smooth(method=lm,se=T)+
   #scale_color_brewer(palette = 'Paired')+
   facet_wrap(~ice.pres, labeller=labeller(ice.pres = ice.labs))+
-  theme_classic()+
+  theme_classic()
+  
+  
+  
   geom_encircle(aes(x=sampledate, y=chlor.surf), 
                 data=totals, 
                 color="red", 
