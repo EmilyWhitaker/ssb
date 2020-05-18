@@ -63,21 +63,67 @@ ggplot(fullchloros, aes(sampledate, chlor))+
 
 
 #######
+library(readr)
+dataset <- read_csv("NEW_surfandintSPfullchloroswith_cbv.csv", 
+                    col_types = cols(X1 = col_skip()))
+View(dataset)
+dataset$sampledate = mdy(dataset$sampledate)
+
+
 surfchloros = read.csv("data/surfacechloro.csv", stringsAsFactors = F)
 surfchloros %<>% subset(depth == 0)
 surfchloros$sampledate = ymd(surfchloros$sampledate)
 write.csv(surfchloros, "SPsurfchloros.csv")
 surfchloros
 
-ggplot(surfchloros, aes(sampledate, chlor))+
+ggplot(dataset, aes(sampledate, chlor.surf))+
   #geom_vline(data=ice, aes(xintercept=ice.on), linetype='dashed')+
   #geom_vline(data=ice, aes(xintercept=ice.off), linetype='dotted')+
-  geom_point()+
-  scale_color_viridis_c(option="viridis")+
+  geom_point(aes(color=log(CellBioVol)))+
+  #scale_color_viridis_c(option="viridis")+
   geom_smooth()+
   #scale_color_brewer(palette = 'Paired')+
   theme_classic()+
   labs(x='Year')
+
+ggplot(dataset, aes(sampledate, log(CellBioVol)))+
+  #geom_vline(data=ice, aes(xintercept=ice.on), linetype='dashed')+
+  #geom_vline(data=ice, aes(xintercept=ice.off), linetype='dotted')+
+  geom_point(aes(color=chlor.surf))+
+  #scale_color_viridis_c(option="viridis")+
+  #geom_smooth()+
+  #scale_color_brewer(palette = 'Paired')+
+  theme_classic()+
+  labs(x='Year')
+
+
+ggplot(dataset, aes(sampledate, log(CellBioVol)))+
+  #geom_vline(data=ice, aes(xintercept=ice.on), linetype='dashed')+
+  #geom_vline(data=ice, aes(xintercept=ice.off), linetype='dotted')+
+  geom_point(aes(color=chlor.int))+
+  #scale_color_viridis_c(option="viridis")+
+  #geom_smooth()+
+  #scale_color_brewer(palette = 'Paired')+
+  theme_classic()+
+  labs(x='Year')
+
+
+
+ggplot(dataset, aes(sampledate, chlor.int))+
+  #geom_vline(data=ice, aes(xintercept=ice.on), linetype='dashed')+
+  #geom_vline(data=ice, aes(xintercept=ice.off), linetype='dotted')+
+  geom_point(aes(color=log(CellBioVol)))+
+  #scale_color_viridis_c(option="viridis")+
+  #geom_smooth()+
+  #scale_color_brewer(palette = 'Paired')+
+  theme_classic()+
+  labs(x='Year')
+
+
+chlorototals.winter=subset(chlorototals, ice.pres%in% 1)$CellBioVol
+chlorototals.summer=subset(totals, ice.pres%in% 0)$CellBioVol
+
+
 
 #######
 allchlor= read.csv("surfandintSPfullchloros.csv")
@@ -87,13 +133,15 @@ totals = read.csv("data/clean_abiotic_genus_03262020.csv", stringsAsFactors = F)
 totals$sampledate = mdy(totals$sampledate)
 totals$frlight[totals$frlight=="1"] <- NA #one iceon point with no light point to calc frlight against 
 totaloftotals= subset(totals, Genus %in% NA)
+write.csv(totaloftotals, "totaloftotals.csv")
 
+chlorototals= read.csv("surfandintSPfullchloroswith_cbv.csv")
+chlorototals$sampledate = mdy(chlorototals$sampledate)
 
-
-ggplot((allchlor), aes(sampledate, chlor.surf))+
+ggplot((chlorototals), aes(sampledate, chlor.surf))+
   #geom_vline(data=ice, aes(xintercept=ice.on), linetype='dashed')+
   #geom_vline(data=ice, aes(xintercept=ice.off), linetype='dotted')+
-  geom_point(aes(color=totaloftotals))+
+  geom_point(aes(color=chlorototals$Biovolume))+
   #geom_point()+
   scale_color_viridis_c(option="viridis")+
   geom_smooth(method=lm,se=T)+
@@ -112,4 +160,3 @@ ggplot((allchlor), aes(sampledate, chlor.surf))+
 
 
 
-totaladjchloro=
