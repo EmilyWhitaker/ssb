@@ -81,7 +81,7 @@ ggplot(dataset, aes(sampledate, chlor.surf))+
   #geom_vline(data=ice, aes(xintercept=ice.off), linetype='dotted')+
   geom_point(aes(color=log(CellBioVol)))+
   #scale_color_viridis_c(option="viridis")+
-  geom_smooth()+
+  #geom_smooth()+
   #scale_color_brewer(palette = 'Paired')+
   theme_classic()+
   labs(x='Year')
