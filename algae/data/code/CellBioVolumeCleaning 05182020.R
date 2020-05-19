@@ -65,184 +65,187 @@ ggplot(winter, aes(sampledate, value, color=variable))+
 
 unique(genus$Genus)
 
-genus[genus=="unID cyanobacteria (colony)"] <- NA
-genus[genus=="?10"] <- NA
-genus[genus=="Cyclotella"] <- 'Lindavia comensis'
-genus[genus=="Cyclotella ocellata"] <- 'Lindavia comensis'
-genus[genus=="Cyclotella distinguenda"] <- 'Lindavia comensis'
-genus[genus=="?11"] <- NA
-genus[genus=="Microplastic - blue filament"] <- NA
-genus[genus=="Microcyctis"] <- 'Microcystis'
-genus[genus=="Microcystis (small)"] <- 'Microcystis'
-genus[genus=="Microcystis (large)"] <- 'Microcystis'
-genus[genus=="Thin Rod"] <- NA
-genus[genus=="Lindavia comensis"] <- 'Lindavia'
-genus[genus=="Lindavia affinis"] <- 'Lindavia'
-genus[genus=="Lindavia "] <- 'Lindavia'
-genus[genus=="Lindavia (Lindavia affinis)"] <- 'Lindavia'
-genus[genus=="Lindavia cf. bodanica"] <- 'Lindavia'
+class(genus$Genus)
+
+genus$Genus[genus$Genus=="unID cyanobacteria (colony)"] <- NA
+genus$Genus[genus$Genus=="?10"] <- NA
+genus$Genus[genus$Genus=="Cyclotella"] <- 'Lindavia comensis'
+genus$Genus[genus$Genus=="Cyclotella ocellata"] <- 'Lindavia comensis'
+genus$Genus[genus$Genus=="Cyclotella distinguenda"] <- 'Lindavia comensis'
+genus$Genus[genus$Genus=="?11"] <- NA
+genus$Genus[genus$Genus=="Microplastic - blue filament"] <- NA
+genus$Genus[genus$Genus=="Microcyctis"] <- 'Microcystis'
+genus$Genus[genus$Genus=="Microcystis (small)"] <- 'Microcystis'
+genus$Genus[genus$Genus=="Microcystis (large)"] <- 'Microcystis'
+genus$Genus[genus$Genus=="Thin Rod"] <- NA
+genus$Genus[genus$Genus=="Lindavia comensis"] <- 'Lindavia'
+genus$Genus[genus$Genus=="Lindavia affinis"] <- 'Lindavia'
+genus$Genus[genus$Genus=="Lindavia "] <- 'Lindavia'
+genus$Genus[genus$Genus=="Lindavia (Lindavia affinis)"] <- 'Lindavia'
+genus$Genus[genus$Genus=="Lindavia cf. bodanica"] <- 'Lindavia'
 #genus[Genus=="Lindavia"]== genus[BioVolume== '44.42277385']
-genus[genus=="Cf. Cryptomonad (NEW CATEGORY)"] <- 'Cf. Cryptomonad'
-genus[genus=="Segmented green"] <- 'Segmented Green'
-genus[genus=="Mallomonas c"] <- 'Mallomonas'
-genus[genus=="Mallomonas (colony)"] <- 'Mallomonas'
-genus[genus=="Mallomonas Colony"] <- 'Mallomonas'
-genus[genus=="Lindavia comensis (C. Comensis))"] <- 'Lindavia'
-genus[genus=="Flagellated green"] <- 'Flagellated Green'
-genus[genus=="Cyanobacterium diachloros"] <- 'Cyanobacteria'
-genus[genus=="Cyanobacteria diachloros"] <- 'Cyanobacteria'
-genus[genus=="Cyanobacteria diachlorus"] <- 'Cyanobacteria'
-genus[genus=="unID colonial Cyanobacteria"] <- 'Cyanobacteria'
-genus[genus=="unID Cyanobacteria"] <- 'Cyanobacteria'
-genus[genus=="unID cyanobacteria"] <- 'Cyanobacteria'
-genus[genus=="Thin rod"] <- NA
-genus[genus=="Lindavia comensis (C. Comensis)"] <- 'Lindavia'
-genus[genus=="Aulacoseira cf. subarctica"] <- 'Aulacoseira'
-genus[genus=="Aulacoseira cf. ambigua"] <- 'Aulacoseira'
-genus[genus=="Aulacoseira cf. islandica"] <- 'Aulacoseira'
-genus[genus=="Chroococcus cf. kidneys"] <- 'Chroococcus'
-genus[genus=="Chroococcus "] <- 'Chroococcus'
-genus[genus=="Cosmarium (Croococcus cf. kidneys)"] <- 'Chroococcus'
-genus[genus=="Croococcus cf. kidneys"] <- 'Chroococcus'
-genus[genus=="Small chroococcus"] <- 'Small Chroococcus'
-genus[genus=="Dinobryon internal organelles ONLY"] <- NA
-genus[genus=="Cf. Fragilariforma constricta"] <- NA
-genus[genus=="?17"] <- 'Chroococcus cf. kidneys'
-genus[genus=="Fragilaria crototensis"] <- 'Fragilaria'
-genus[genus=="Fragilaria "] <- 'Fragilaria'
-genus[genus=="Fragilaria intermedia"] <- 'Fragilaria'
-genus[genus=="Fragilaria tenera"] <- 'Fragilaria'
-genus[genus=="Fragilaria crotonensis"] <- 'Fragilaria'
-genus[genus=="Planktothrix cells"] <- 'Planktothrix'
-genus[genus=="Planktothrix strand"] <- NA
-genus[genus=="cf. Planktolyngabia"] <- 'Planktolyngabia'
-genus[genus=="NA"] <- NA
-genus[genus=="Mallomonas colony"] <- 'Mallomonas'
-genus[genus=="Discostella "] <- 'Discostella' #one bv is zero need to change to 350.7702735
-genus[genus=="Discotella"] <- 'Discostella'
-genus[genus=="Small Cocconeis"] <- 'Cocconeis'
-genus[genus=="Small cocconeis"] <- 'Cocconeis'
-genus[genus=="unID Cocconeis"] <- 'Cocconeis'
-genus[genus=="Small cocconies"] <- 'Cocconeis'
-genus[genus=="Hydrococcus"] <- NA
-genus[genus=="Hydrococus"] <- NA
-genus[genus=="Actinastrum falcatus"] <- 'Ankistrodesmus falcatus' #ID error
-genus[genus=="Cf. Actinastrum falcatus"] <- 'Ankistrodesmus falcatus' #ID error
-genus[genus=="Ankistrodesmus falcatus"] <- NA #no biovolume info available 
-genus[genus=="cryptomonad"] <- 'Cryptomonad'
-genus[genus=="Cf. Cryptomonad"] <- 'Cryptomonad'
-genus[genus=="Large Cryptomonad-esque cell husks"] <- 'Cryptomonad'
-genus[genus=="Cryptomonas"] <- 'Cryptomonad'
-genus[genus=="large Cryptomonad"] <- 'Cryptomonad'
-genus[genus=="Dinobryon small"] <- 'Dinobryon'
-genus[genus=="Cf. Cyanobium"] <- NA
-genus[genus=="Actinastrum hantzchii"] <- NA
-genus[genus=="Chamaecalyx"] <- NA
-genus[genus=="Ankistrodesmus falcatus"] <- NA
-genus[genus=="Actinastrum hantzchii"] <- NA
-genus[genus=="Actinastrum hantzchii (colony)"] <- NA
-genus[genus=="?10"] <- NA
-genus[genus=="Hydrococcus"] <- NA
-genus[genus=="Prestauroneis protracta"] <- NA
-genus[genus=="Ulnaria cf. acus"] <- NA
-genus[genus=="Closteriopsis longissima"] <- NA
-genus[genus=="Karayevia"] <- NA
-genus[genus=="Cymbella"] <- NA
-genus[genus=="Eunota"] <- NA
-genus[genus=="Staurastrum"] <- NA
-genus[genus=="Chrysosphaerella"] <- NA
-genus[genus=="Uroslenia"] <- NA
-genus[genus=="Cf. Actinocyclus"] <- NA
-genus[genus=="Cf. Fragilariforma constricta"] <- NA
-genus[genus=="Cf. Chlorallantus oblongus"] <- NA
-genus[genus=="Cf. Tetraedron victoriae"] <- NA
-genus[genus=="Cf. Chlorallantus oblongus"] <- NA
-genus[genus=="Eunotia"] <- NA
-genus[genus=="Cf. Eutrepita globulifera"] <- NA
-genus[genus=="Cf. Rossithidium linearis"] <- NA
-genus[genus=="Ceratium"] <- NA
-genus[genus=="Cf. Chlorallantis oblongus"] <- NA
-genus[genus=="Cf. Anabaenopsis elenkinii (colony)"] <- NA
-genus[genus=="Actinastrum falcatus"] <- NA
-genus[genus=="unID chrysophyte"] <- NA
-genus[genus=="Aphanothece bacilloidea"] <- NA
-genus[genus=="Cyanobium"] <- NA
-genus[genus=="Statospore"] <- NA
-genus[genus=="unID pennate diatom with stauros"] <- NA
-genus[genus=="Perdinium"] <- NA
-genus[genus=="unID pennate diatom"] <- NA
-genus[genus=="unID bacilliariales diatom"] <- NA
+genus$Genus[genus$Genus=="Cf. Cryptomonad (NEW CATEGORY)"] <- 'Cf. Cryptomonad'
+genus$Genus[genus$Genus=="Segmented green"] <- 'Segmented Green'
+genus$Genus[genus$Genus=="Mallomonas c"] <- 'Mallomonas'
+genus$Genus[genus$Genus=="Mallomonas (colony)"] <- 'Mallomonas'
+genus$Genus[genus$Genus=="Mallomonas Colony"] <- 'Mallomonas'
+genus$Genus[genus$Genus=="Lindavia comensis (C. Comensis))"] <- 'Lindavia'
+genus$Genus[genus$Genus=="Flagellated green"] <- 'Flagellated Green'
+genus$Genus[genus$Genus=="Cyanobacterium diachloros"] <- 'Cyanobacteria'
+genus$Genus[genus$Genus=="Cyanobacteria diachloros"] <- 'Cyanobacteria'
+genus$Genus[genus$Genus=="Cyanobacteria diachlorus"] <- 'Cyanobacteria'
+genus$Genus[genus$Genus=="unID colonial Cyanobacteria"] <- 'Cyanobacteria'
+genus$Genus[genus$Genus=="unID Cyanobacteria"] <- 'Cyanobacteria'
+genus$Genus[genus$Genus=="unID cyanobacteria"] <- 'Cyanobacteria'
+genus$Genus[genus$Genus=="Thin rod"] <- NA
+genus$Genus[genus$Genus=="Lindavia comensis (C. Comensis)"] <- 'Lindavia'
+genus$Genus[genus$Genus=="Aulacoseira cf. subarctica"] <- 'Aulacoseira'
+genus$Genus[genus$Genus=="Aulacoseira cf. ambigua"] <- 'Aulacoseira'
+genus$Genus[genus$Genus=="Aulacoseira cf. islandica"] <- 'Aulacoseira'
+genus$Genus[genus$Genus=="Chroococcus cf. kidneys"] <- 'Chroococcus'
+genus$Genus[genus$Genus=="Chroococcus "] <- 'Chroococcus'
+genus$Genus[genus$Genus=="Cosmarium (Croococcus cf. kidneys)"] <- 'Chroococcus'
+genus$Genus[genus$Genus=="Croococcus cf. kidneys"] <- 'Chroococcus'
+genus$Genus[genus$Genus=="Small chroococcus"] <- 'Small Chroococcus'
+genus$Genus[genus$Genus=="Dinobryon internal organelles ONLY"] <- NA
+genus$Genus[genus$Genus=="Cf. Fragilariforma constricta"] <- NA
+genus$Genus[genus$Genus=="?17"] <- 'Chroococcus cf. kidneys'
+genus$Genus[genus$Genus=="Fragilaria crototensis"] <- 'Fragilaria'
+genus$Genus[genus$Genus=="Fragilaria "] <- 'Fragilaria'
+genus$Genus[genus$Genus=="Fragilaria intermedia"] <- 'Fragilaria'
+genus$Genus[genus$Genus=="Fragilaria tenera"] <- 'Fragilaria'
+genus$Genus[genus$Genus=="Fragilaria crotonensis"] <- 'Fragilaria'
+genus$Genus[genus$Genus=="Planktothrix cells"] <- 'Planktothrix'
+genus$Genus[genus$Genus=="Planktothrix strand"] <- NA
+genus$Genus[genus$Genus=="cf. Planktolyngabia"] <- 'Planktolyngabia'
+genus$Genus[genus$Genus=="NA"] <- NA
+genus$Genus[genus$Genus=="Mallomonas colony"] <- 'Mallomonas'
+genus$Genus[genus$Genus=="Discostella "] <- 'Discostella' #one bv is zero need to change to 350.7702735
+genus$Genus[genus$Genus=="Discotella"] <- 'Discostella'
+genus$Genus[genus$Genus=="Small Cocconeis"] <- 'Cocconeis'
+genus$Genus[genus$Genus=="Small cocconeis"] <- 'Cocconeis'
+genus$Genus[genus$Genus=="unID Cocconeis"] <- 'Cocconeis'
+genus$Genus[genus$Genus=="Small cocconies"] <- 'Cocconeis'
+genus$Genus[genus$Genus=="Hydrococcus"] <- NA
+genus$Genus[genus$Genus=="Hydrococus"] <- NA
+genus$Genus[genus$Genus=="Actinastrum falcatus"] <- 'Ankistrodesmus falcatus' #ID error
+genus$Genus[genus$Genus=="Cf. Actinastrum falcatus"] <- 'Ankistrodesmus falcatus' #ID error
+genus$Genus[genus$Genus=="Ankistrodesmus falcatus"] <- NA #no biovolume info available 
+genus$Genus[genus$Genus=="cryptomonad"] <- 'Cryptomonad'
+genus$Genus[genus$Genus=="Cf. Cryptomonad"] <- 'Cryptomonad'
+genus$Genus[genus$Genus=="Large Cryptomonad-esque cell husks"] <- 'Cryptomonad'
+genus$Genus[genus$Genus=="Cryptomonas"] <- 'Cryptomonad'
+genus$Genus[genus$Genus=="large Cryptomonad"] <- 'Cryptomonad'
+genus$Genus[genus$Genus=="Dinobryon small"] <- 'Dinobryon'
+genus$Genus[genus$Genus=="Cf. Cyanobium"] <- NA
+genus$Genus[genus$Genus=="Actinastrum hantzchii"] <- NA
+genus$Genus[genus$Genus=="Chamaecalyx"] <- NA
+genus$Genus[genus$Genus=="Ankistrodesmus falcatus"] <- NA
+genus$Genus[genus$Genus=="Actinastrum hantzchii"] <- NA
+genus$Genus[genus$Genus=="Actinastrum hantzchii (colony)"] <- NA
+genus$Genus[genus$Genus=="?10"] <- NA
+genus$Genus[genus$Genus=="Hydrococcus"] <- NA
+genus$Genus[genus$Genus=="Prestauroneis protracta"] <- NA
+genus$Genus[genus$Genus=="Ulnaria cf. acus"] <- NA
+genus$Genus[genus$Genus=="Closteriopsis longissima"] <- NA
+genus$Genus[genus$Genus=="Karayevia"] <- NA
+genus$Genus[genus$Genus=="Cymbella"] <- NA
+genus$Genus[genus$Genus=="Eunota"] <- NA
+genus$Genus[genus$Genus=="Staurastrum"] <- NA
+genus$Genus[genus$Genus=="Chrysosphaerella"] <- NA
+genus$Genus[genus$Genus=="Uroslenia"] <- NA
+genus$Genus[genus$Genus=="Cf. Actinocyclus"] <- NA
+genus$Genus[genus$Genus=="Cf. Fragilariforma constricta"] <- NA
+genus$Genus[genus$Genus=="Cf. Chlorallantus oblongus"] <- NA
+genus$Genus[genus$Genus=="Cf. Tetraedron victoriae"] <- NA
+genus$Genus[genus$Genus=="Cf. Chlorallantus oblongus"] <- NA
+genus$Genus[genus$Genus=="Eunotia"] <- NA
+genus$Genus[genus$Genus=="Cf. Eutrepita globulifera"] <- NA
+genus$Genus[genus$Genus=="Cf. Rossithidium linearis"] <- NA
+genus$Genus[genus$Genus=="Ceratium"] <- NA
+genus$Genus[genus$Genus=="Cf. Chlorallantis oblongus"] <- NA
+genus$Genus[genus$Genus=="Cf. Anabaenopsis elenkinii (colony)"] <- NA
+genus$Genus[genus$Genus=="Actinastrum falcatus"] <- NA
+genus$Genus[genus$Genus=="unID chrysophyte"] <- NA
+genus$Genus[genus$Genus=="Aphanothece bacilloidea"] <- NA
+genus$Genus[genus$Genus=="Cyanobium"] <- NA
+genus$Genus[genus$Genus=="Statospore"] <- NA
+genus$Genus[genus$Genus=="unID pennate diatom with stauros"] <- NA
+genus$Genus[genus$Genus=="Perdinium"] <- NA
+genus$Genus[genus$Genus=="unID pennate diatom"] <- NA
+genus$Genus[genus$Genus=="unID bacilliariales diatom"] <- NA
 #genus[genus=="Cosmarium"] <- NA
-genus[genus=="Actinastrum falcatus"] <- NA
-genus[genus=="Cf. Ulnaria"] <- NA
-genus[genus=="unID cilliate"] <- NA
-genus[genus=="Fragilaria"] <- 'Fragilaria'
-genus[genus=="Small green filament"] <- NA
-genus[genus=="unID Ciliate"] <- NA
-genus[genus=="Cf. Cymbella"] <- NA
-genus[genus=="Planktothrix strand"] <- NA
-genus[genus=="Cf. Aphanocapsa inserta colony"] <- NA
-genus[genus=="Cf. Actinastrum falcatus"] <- NA
-genus[genus=="Nitzschioid diatom"] <- 'Nitzschia'
-genus[genus=="unID Naviculoid diatom"] <- NA
-genus[genus=="Cf. Chlorallantus oblongus"] <- NA
-genus[genus=="Pinnularia"] <- NA
-genus[genus=="Cf. Raphidocelis subcapitata"] <- NA
-genus[genus=="Cf. Decussata"] <- NA
-genus[genus=="Fragilaria tenera"] <- NA
-genus[genus=="Photosynthetic Euglenoid"] <- NA
-genus[genus=="unID Ciliate"] <- NA
-genus[genus=="Cf. Karayevia"] <- NA
-genus[genus=="Cf. Staurosirella leptostauron var dubia"] <- NA
-genus[genus=="Cf. Golenkinia"] <- NA
-genus[genus=="Adlafia"] <- NA
-genus[genus=="Cf. Golenkinia"] <- NA
-genus[genus=="Fragillaria"] <- 'Fragilaria'
-genus[genus=="Cyclostephanos invisitatus"] <- 'Cyclostephanos'
-genus[genus=="Large Cryptomonad"] <- 'Cryptomonad'
-genus[genus=="Large cryptomonad"] <- 'Cryptomonad'
-genus[genus=="Cf. Sellaphora pupula"] <- 'Sellaphora'
-genus[genus=="Cf. Encyonema"] <- 'Encyonema'
-genus[genus=="Cf. Sellaphora (small)"] <- 'Sellaphora' #small are 110 bv not small are 120
-genus[genus=="Cf. Elakatothrix"] <- 'Elakatothrix'
-genus[genus=="Cf. Diatoma mesodon"] <- 'Diatoma mesodon'
-genus[genus=="Cf. Planothidium"] <- 'Planothidium'
-genus[genus=="Asterionella formosa"] <- 'Asterionella'
-genus[genus=="Cf. Merispomedia"] <- 'Merismopedia'
-genus[genus=="Cf. Hippodonta"] <- 'Hippodonta'
-genus[genus=="Hippodonta capitata"] <- 'Hippodonta'
-genus[genus=="Cyclotella meneghiniana"] <- 'Cyclotella'
-genus[genus=="Cyclotella comensis"] <- 'Cyclotella'
-genus[genus=="unID Cyclotella"] <- 'Cyclotella'
-genus[genus=="Cf. Placoneis"] <- 'Placoneis'
-genus[genus=="Cf. Asterocapsa"] <- 'Asterocapsa'
-genus[genus=="Photosynthetic Euglena"] <- 'Euglena'
-genus[genus=="Stephanodiscus cf. alpinus"] <- 'Stephanodiscus'
-genus[genus=="Stephanodiscus hantzschii"] <- 'Stephanodiscus'
-genus[genus=="Stephanodiscus niagarae"] <- 'Stephanodiscus'
-genus[genus=="Stephanodiscus niagare"] <- 'Stephanodiscus'
-genus[genus=="Stephanodiscus small"] <- 'Stephanodiscus'
-genus[genus=="Cf. Pseudosaurosira"] <- 'Pseudostaurosira'
-genus[genus=="Cf. Achnanthidium"] <- 'Achnanthidium'
-genus[genus=="Staurosira construens"] <- 'Staurosira'
-genus[genus=="Cf. Staurosira"] <- 'Staurosira'
-genus[genus=="Gomphonema"] <- 'Gomphoneis'
-genus[genus=="Synura colony"] <- 'Synura'
-genus[genus=="Discostella stelligera"] <- 'Discostella'
-genus[genus=="Cf. Anabaena"] <- 'Anabaena'
-genus[genus=="Anabaena eucompacta"] <- 'Anabaena'
-genus[genus=="Filamentous Green"] <- NA
-genus[genus=="Cf. Aphanothece bacilloidea"] <- 'Aphanothece bacilloidea' #appears once
-genus[genus=="Eunota"] <- NA 
-genus[genus=="Cymbella"] <- NA
-genus[genus=="Karayevia"] <- NA
-genus[genus=="Coleosphaerum"] <- NA
-genus[genus=="Hydrococcus"] <- NA
-genus[genus=="Cf. Craspedostauros"] <- NA
+genus$Genus[genus$Genus=="Actinastrum falcatus"] <- NA
+genus$Genus[genus$Genus=="Cf. Ulnaria"] <- NA
+genus$Genus[genus$Genus=="unID cilliate"] <- NA
+genus$Genus[genus$Genus=="Fragilaria"] <- 'Fragilaria'
+genus$Genus[genus$Genus=="Small green filament"] <- NA
+genus$Genus[genus$Genus=="unID Ciliate"] <- NA
+genus$Genus[genus$Genus=="Cf. Cymbella"] <- NA
+genus$Genus[genus$Genus=="Planktothrix strand"] <- NA
+genus$Genus[genus$Genus=="Cf. Aphanocapsa inserta colony"] <- NA
+genus$Genus[genus$Genus=="Cf. Actinastrum falcatus"] <- NA
+genus$Genus[genus$Genus=="Nitzschioid diatom"] <- 'Nitzschia'
+genus$Genus[genus$Genus=="unID Naviculoid diatom"] <- NA
+genus$Genus[genus$Genus=="Cf. Chlorallantus oblongus"] <- NA
+genus$Genus[genus$Genus=="Pinnularia"] <- NA
+genus$Genus[genus$Genus=="Cf. Raphidocelis subcapitata"] <- NA
+genus$Genus[genus$Genus=="Cf. Decussata"] <- NA
+genus$Genus[genus$Genus=="Fragilaria tenera"] <- NA
+genus$Genus[genus$Genus=="Photosynthetic Euglenoid"] <- NA
+genus$Genus[genus$Genus=="unID Ciliate"] <- NA
+genus$Genus[genus$Genus=="Cf. Karayevia"] <- NA
+genus$Genus[genus$Genus=="Cf. Staurosirella leptostauron var dubia"] <- NA
+genus$Genus[genus$Genus=="Cf. Golenkinia"] <- NA
+genus$Genus[genus$Genus=="Adlafia"] <- NA
+genus$Genus[genus$Genus=="Cf. Golenkinia"] <- NA
+genus$Genus[genus$Genus=="Fragillaria"] <- 'Fragilaria'
+genus$Genus[genus$Genus=="Cyclostephanos invisitatus"] <- 'Cyclostephanos'
+genus$Genus[genus$Genus=="Large Cryptomonad"] <- 'Cryptomonad'
+genus$Genus[genus$Genus=="Large cryptomonad"] <- 'Cryptomonad'
+genus$Genus[genus$Genus=="Cf. Sellaphora pupula"] <- 'Sellaphora'
+genus$Genus[genus$Genus=="Cf. Encyonema"] <- 'Encyonema'
+genus$Genus[genus$Genus=="Cf. Sellaphora (small)"] <- 'Sellaphora' #small are 110 bv not small are 120
+genus$Genus[genus$Genus=="Cf. Elakatothrix"] <- 'Elakatothrix'
+genus$Genus[genus$Genus=="Cf. Diatoma mesodon"] <- 'Diatoma mesodon'
+genus$Genus[genus$Genus=="Cf. Planothidium"] <- 'Planothidium'
+genus$Genus[genus$Genus=="Asterionella formosa"] <- 'Asterionella'
+genus$Genus[genus$Genus=="Cf. Merispomedia"] <- 'Merismopedia'
+genus$Genus[genus$Genus=="Cf. Hippodonta"] <- 'Hippodonta'
+genus$Genus[genus$Genus=="Hippodonta capitata"] <- 'Hippodonta'
+genus$Genus[genus$Genus=="Cyclotella meneghiniana"] <- 'Cyclotella'
+genus$Genus[genus$Genus=="Cyclotella comensis"] <- 'Cyclotella'
+genus$Genus[genus$Genus=="unID Cyclotella"] <- 'Cyclotella'
+genus$Genus[genus$Genus=="Cf. Placoneis"] <- 'Placoneis'
+genus$Genus[genus$Genus=="Cf. Asterocapsa"] <- 'Asterocapsa'
+genus$Genus[genus$Genus=="Photosynthetic Euglena"] <- 'Euglena'
+genus$Genus[genus$Genus=="Stephanodiscus cf. alpinus"] <- 'Stephanodiscus'
+genus$Genus[genus$Genus=="Stephanodiscus hantzschii"] <- 'Stephanodiscus'
+genus$Genus[genus$Genus=="Stephanodiscus niagarae"] <- 'Stephanodiscus'
+genus$Genus[genus$Genus=="Stephanodiscus niagare"] <- 'Stephanodiscus'
+genus$Genus[genus$Genus=="Stephanodiscus small"] <- 'Stephanodiscus'
+genus$Genus[genus$Genus=="Cf. Pseudosaurosira"] <- 'Pseudostaurosira'
+genus$Genus[genus$Genus=="Cf. Achnanthidium"] <- 'Achnanthidium'
+genus$Genus[genus$Genus=="Staurosira construens"] <- 'Staurosira'
+genus$Genus[genus$Genus=="Cf. Staurosira"] <- 'Staurosira'
+genus$Genus[genus$Genus=="Gomphonema"] <- 'Gomphoneis'
+genus$Genus[genus$Genus=="Synura colony"] <- 'Synura'
+genus$Genus[genus$Genus=="Discostella stelligera"] <- 'Discostella'
+genus$Genus[genus$Genus=="Cf. Anabaena"] <- 'Anabaena'
+genus$Genus[genus$Genus=="Anabaena eucompacta"] <- 'Anabaena'
+genus$Genus[genus$Genus=="Filamentous Green"] <- NA
+genus$Genus[genus$Genus=="Cf. Aphanothece bacilloidea"] <- 'Aphanothece bacilloidea' #appears once
+genus$Genus[genus$Genus=="Eunota"] <- NA 
+genus$Genus[genus$Genus=="Cymbella"] <- NA
+genus$Genus[genus$Genus=="Karayevia"] <- NA
+genus$Genus[genus$Genus=="Coleosphaerum"] <- NA
+genus$Genus[genus$Genus=="Hydrococcus"] <- NA
+genus$Genus[genus$Genus=="Cf. Craspedostauros"] <- NA
 
 #Cf. Tetraedron victoriae needs biovolume of 47.2472
 #one Lindavia needs a bv of 44.42277385
 #one peanut needs a bv 84.9851
+
 
 #### filling winter col in with zeros
 genus$avsnow[is.na(genus$avsnow)] = 0
