@@ -109,6 +109,8 @@ totalbv = read.csv("../TotalBVs.csv", stringsAsFactors = F)
 totalbv$sampledate = ymd(totalbv$sampledate)
 totalbv %<>% select(sampledate, Genus, CellBioVol)
 
+join_ice_bv <- fuzzy_left_join(join_ice, totalbv, by= "sampledate", 
+                                                        match_fun = list(`<=`, `>=`))
 
 
 
