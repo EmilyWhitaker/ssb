@@ -4,68 +4,78 @@ rm(list=ls()); cat("\014")
 # Load required packages
 library(FSA); library(dplyr);library(magrittr);library(tidyr) # data management
 library(mgcv);library(nlme); library(lme4) # modeling
-library(viridisLite); library(gridExtra); library(ggplot2) # data viz 
+library(viridisLite); library(gridExtra); library(ggplot2) # data viz
 library(lubridate) # dealing with dates
-library(ggpubr)
+library(ggpubr); library(fuzzyjoin)
 
 
-# deal with algae dataset
-algae = read.csv('data/biovolumereal.csv',stringsAsFactors = F)
+######====
+#Hilary's example
+chlorophyll = data.frame(chloroDate = c(as.Date('2000-01-30'), as.Date('2003-01-30'),
+                                        as.Date('2004-01-30'), as.Date('2006-01-30')),
+                         num = c(23,12,16,18))
+# Create columns of date range. In this case, date + 1, and date - 1
+phytos = data.frame(phytoDate = c(as.Date('2000-01-30'), as.Date('2003-01-29'), as.Date('2006-01-30')),
+                    num2 = c(20:22)) %>%
+  mutate(datePlus1 = phytoDate + 1) %>% mutate(dateMinus1 = phytoDate - 1)
+# Use a fuzzy join to compare the two columns to the chlorophyll date
+fuzzy_left_join(chlorophyll, phytos, by = c("chloroDate" = "datePlus1", "chloroDate" = "dateMinus1"),
+                match_fun = list(`<=`, `>=`))
 
-algae %<>% select(sampledate, Genus, CellBioVol)
+#######
 
-algae$sampledate = mdy(algae$sampledate)
-algae$daynum = yday(algae$sampledate)
-algae$year = year(algae$sampledate)
+chl = read.csv('data/chloro_all.csv',stringsAsFactors = F)
+chl %<>% subset(lakeid == "SP" & depth == 0) %>%
+  select(year4, daynum, sampledate, chlor)
+chl$sampledate =  ymd(chl$sampledate)
 
-#data = full_join(abiotic, algae, by=c("year","daynum","sampledate"))
-#data %<>% subset(year > 1996)
-#write.csv(data, 'data/clean_algae_abiotic_03032020.csv',row.names = F)
+#Inegrated Chems
+intchems = read.csv("data/SPFullChem.csv", stringsAsFactors = F)
+intchems$sampledate = mdy(intchems$sampledate)
+intchems %<>% subset(lakeid == "SP")
+intchems$frlight[intchems$frlight=="1"] <- NA #one iceon point with no light point to calc frlight against
+intchems
 
-#data = read.csv('data/clean_algae_abiotic_03032020.csv',stringsAsFactors = F)
+intchems2 = intchems %>% select(intchemsDate = sampledate, wtemp:mn)
 
-# pull out total biovolumes
-totals = subset(algae, Genus == "TotalBiovolume")
+chl2 = chl %>% select(chlDate = sampledate,chlor) %>%
+  mutate(datePlus1 = chlDate + 1) %>% mutate(dateMinus1 = chlDate - 1)
 
-# pull out genus-specific biovolumes
-# skip ahead to clean file
-genus = subset(algae, Genus != "TotalBiovolume")
+join <- fuzzy_left_join(intchems2, chl2, by = c("intchemsDate" = "datePlus1", "intchemsDate" = "dateMinus1"),
+                match_fun = list(`<=`, `>=`))
 
-#========
-# look at total biovolume over time
+join %<>% rename(sampledate = intchemsDate)
 
-totals %<>% select(-Genus)
-totals$log.chlor = log(totals$chlor)
-totals$log.bv = log(totals$CellBioVol)
-totals.long = pivot_longer(totals, cols=c("chlor","log.chlor","avsnow","totice","whiteice","blueice","perwhiteice","perblueice",
-                                          "light","CellBioVol","log.bv"), names_to="variable", values_to = "value")
+ice = read.csv('data/snowicedepth.csv',stringsAsFactors = F)
+ice %<>% subset(lakeid == "SP") %>%
+  select(year4, daynum, sampledate, avsnow, totice, whiteice, blueice)
+ice$sampledate = ymd(ice$sampledate)
 
-ggplot(totals.long, aes(year, value, color=variable))+
-  geom_point()+
-  geom_smooth(aes(group=variable))+
-  #geom_line(aes(group=variable))+
-  facet_wrap(~variable, scales='free')
+join_ice <- left_join(join, ice, by= c('sampledate'))
 
-# look at winter total biovolume
-totals.long$month = month(totals.long$sampledate)
+totalbv = read.csv("data/TotalBVs.csv", stringsAsFactors = F)
+totalbv= read.csv("../TotalBVs.csv")
+totalbv$sampledate = ymd(totalbv$sampledate)
+totalbv %<>% select(sampledate, Genus, CellBioVol) %>%
+  mutate(bv.datePlus1 = sampledate + 1) %>% mutate(bv.dateMinus1 = sampledate - 1)
 
-winter = subset(totals.long, month < 4)
+join_surfchlor <-fuzzy_left_join(join_ice, totalbv, by = c("sampledate" = "bv.datePlus1", "sampledate" = "bv.dateMinus1"),
+                       match_fun = list(`<=`, `>=`))
 
-#only pull out winter sampling
-ggplot(winter, aes(sampledate, value, color=variable))+
-  geom_point()+
-  geom_smooth(aes(group=variable))+
-  #geom_line(aes(group=variable))+
-  facet_wrap(~variable, scales='free')
+join_surfchlor %<>% rename(CBV.date = sampledate.y)
 
-#==============
-# skip ahead
-# look at genus and correct spelling mistakes, etc.
-#SpellCheck
+ahhhhhhhh = full_join(join_surfchlor, Genera, by=c('CBV.date'))
+abiotic %<>% rename(year = year4)
 
-unique(genus$Genus)
+#join genera to this~
 
-genus[genus=="unID cyanobacteria (colony)"] <- NA
+Genera= read.csv("data/biovolumereal.csv", stringsAsFactors = F)
+Genera$sampledate = mdy(Genera$sampledate)
+Genera %<>% select(sampledate, Genus, CellBioVol, PerBioVol)
+Genera %<>% rename(CBV.date = sampledate)
+
+
+Genera$Genus[Genus=="unID cyanobacteria (colony)"] <- NA
 genus[genus=="?10"] <- NA
 genus[genus=="Cyclotella"] <- 'Lindavia comensis'
 genus[genus=="Cyclotella ocellata"] <- 'Lindavia comensis'
@@ -240,32 +250,5 @@ genus[genus=="Coleosphaerum"] <- NA
 genus[genus=="Hydrococcus"] <- NA
 genus[genus=="Cf. Craspedostauros"] <- NA
 
-#Cf. Tetraedron victoriae needs biovolume of 47.2472
-#one Lindavia needs a bv of 44.42277385
-#one peanut needs a bv 84.9851
 
-#### filling winter col in with zeros
-genus$avsnow[is.na(genus$avsnow)] = 0
-genus$totice[is.na(genus$totice)] = 0
-genus$whiteice[is.na(genus$whiteice)] = 0
-genus$blueice[is.na(genus$blueice)] = 0
-genus$perblueice[is.na(genus$perblueice)] = 0
-genus$perwhiteice[is.na(genus$perwhiteice)] = 0
 
-# add true 0s for all bvs for all genus - pivot-wide then zero, then pivot back to long
-genus$sampledate = ymd(genus$sampledate)
-
-genus.wide = genus
-
-genus.wide %<>%
-  mutate(row = row_number()) %>%
-  pivot_wider(names_from = Genus, values_from = CellBioVol) %>%
-  select(-row)
-
-genus.long = pivot_longer(genus.wide, cols=12:70, names_to="Genus", values_to = "CellBioVol")
-genus.long$CellBioVol[is.na(genus.long$CellBioVol)] = 0
-
-ggplot(subset(genus.long, sampledate=='1997-01-14'), aes(Genus, CellBioVol))+
-  geom_point()
-
-write.csv(genus.long, 'data/genus_clean_03032020.csv', row.names = F)
