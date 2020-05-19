@@ -67,7 +67,11 @@ join %<>% rename(sampledate = intchemsDate)
 
 join_ice <- left_join(join, ice, by= c('sampledate'))
 
-#need light and bv
+#need light and bv, we have fr.light 
+
+
+
+join_phytos
 
 
 
