@@ -31,33 +31,6 @@ totals = subset(algae, Genus == "TotalBiovolume")
 # skip ahead to clean file
 genus = subset(algae, Genus != "TotalBiovolume")
 
-#========
-# look at total biovolume over time
-
-totals %<>% select(-Genus)
-totals$log.chlor = log(totals$chlor)
-totals$log.bv = log(totals$CellBioVol)
-totals.long = pivot_longer(totals, cols=c("chlor","log.chlor","avsnow","totice","whiteice","blueice","perwhiteice","perblueice",
-                                          "light","CellBioVol","log.bv"), names_to="variable", values_to = "value")
-
-ggplot(totals.long, aes(year, value, color=variable))+
-  geom_point()+
-  geom_smooth(aes(group=variable))+
-  #geom_line(aes(group=variable))+
-  facet_wrap(~variable, scales='free')
-
-# look at winter total biovolume
-totals.long$month = month(totals.long$sampledate)
-
-winter = subset(totals.long, month < 4)
-
-#only pull out winter sampling
-ggplot(winter, aes(sampledate, value, color=variable))+
-  geom_point()+
-  geom_smooth(aes(group=variable))+
-  #geom_line(aes(group=variable))+
-  facet_wrap(~variable, scales='free')
-
 #==============
 # skip ahead
 # look at genus and correct spelling mistakes, etc.
