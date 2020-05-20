@@ -259,13 +259,15 @@ genus.wide %<>%
   pivot_wider(names_from = Genus, values_from = CellBioVol) %>%
   select(-row)
 
-genus.long = pivot_longer(genus.wide, cols=12:70, names_to="Genus", values_to = "CellBioVol")
+genus.long = pivot_longer(genus.wide, cols=4:63, names_to="Genus", values_to = "CellBioVol")
 genus.long$CellBioVol[is.na(genus.long$CellBioVol)] = 0
 
-ggplot(subset(genus.long, sampledate=='1997-01-14'), aes(Genus, CellBioVol))+
-  geom_point()
 
-write.csv(genus.long, 'data/genus_clean_03032020.csv', row.names = F)
+
+alllofthedates = genus.long
+
+write.csv(alllofthedates, 'data/verylongbutcleanedCellBioVol05182020', row.names = F)
+
 
 
 
