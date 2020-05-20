@@ -242,9 +242,14 @@ genus$Genus[genus$Genus=="Coleosphaerum"] <- NA
 genus$Genus[genus$Genus=="Hydrococcus"] <- NA
 genus$Genus[genus$Genus=="Cf. Craspedostauros"] <- NA
 
+
+genus2 = genus 
+
 #Cf. Tetraedron victoriae needs biovolume of 47.2472
 #one Lindavia needs a bv of 44.42277385
 #one peanut needs a bv 84.9851
+
+write.csv(genus2, 'data/cleanedCellBioVol05182020')
 
 # add true 0s for all bvs for all genus - pivot-wide then zero, then pivot back to long
 genus.wide = genus
