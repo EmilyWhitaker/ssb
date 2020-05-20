@@ -25,12 +25,12 @@ algae$year = year(algae$sampledate)
 #data = read.csv('data/clean_algae_abiotic_03032020.csv',stringsAsFactors = F)
 
 # pull out total biovolumes
-totals = subset(algae, Genus == "TotalBiovolume")
+totalsonly = subset(algae, Genus == "TotalBiovolume")
 
 # pull out genus-specific biovolumes
 # skip ahead to clean file
-genus = subset(algae, Genus != "TotalBiovolume")
-
+#genus = subset(algae, Genus != "TotalBiovolume")
+genus=algae
 #==============
 # skip ahead
 # look at genus and correct spelling mistakes, etc.
@@ -222,7 +222,25 @@ genus2 = genus
 #one Lindavia needs a bv of 44.42277385
 #one peanut needs a bv 84.9851
 
-write.csv(genus2, 'data/cleanedCellBioVol05182020')
+write.csv(genus2, 'data/cleanedCellBioVol05202020.csv',row.names = F)
+write.csv(totalsonly, 'data/TotalCBVonly.csv', row.names = F)
+######
+#hil's info
+genus %>% 
+  group_by(sampledate, Genus) %>% 
+  mutate(dupe = n() > 1) %>% 
+  filter(dupe == TRUE)
+genus.wide = genus %>% 
+  group_by(sampledate, Genus) %>% #deal with duplications
+  summarise(CellBioVol = sum(CellBioVol, na.rm = T)) %>% 
+  pivot_wider(names_from = Genus, values_from = CellBioVol, values_fill = list(CellBioVol = 0)) #fill NAs with zeros
+genus.long = pivot_longer(genus.wide, cols = 2:61, names_to="Genus", values_to = "CellBioVol")
+
+write.csv(genus.long, 'data/CleanBiovolumes05202020', row.names = F)
+
+#######
+
+
 
 # add true 0s for all bvs for all genus - pivot-wide then zero, then pivot back to long
 genus.wide = genus
@@ -235,16 +253,8 @@ genus.wide %<>%
 genus.long = pivot_longer(genus.wide, cols=4:63, names_to="Genus", values_to = "CellBioVol")
 genus.long$CellBioVol[is.na(genus.long$CellBioVol)] = 0
 
-
-
-alllofthedates = genus.long
-
-write.csv(alllofthedates, 'data/verylongbutcleanedCellBioVol05182020', row.names = F)
-
-
-
-
-
+# You have a bunch of duplicates, so you have to deal with these first. I think this is why you put " mutate(row = row_number())" in your pivot_wider function, but that doesn't make sense. You don't want to group by individual row, you want to group by sampledate
+# Find duplicates
 
 
 
