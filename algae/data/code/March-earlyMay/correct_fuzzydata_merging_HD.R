@@ -64,6 +64,9 @@ join_surfchlor <-fuzzy_left_join(join_ice, totalbv, by = c("sampledate" = "bv.da
 
 join_surfchlor %<>% rename(sampledate= sampledate.y)
 
+write.csv(join_surfchlor, 'data/datasetcleannogenera.csv', row.names = F)
+
+
 class(join_surfchlor$sampledate)
 
 Genera = read.csv("data/CleanBiovolumes05202020", stringsAsFactors = F)
@@ -89,10 +92,23 @@ fulldatasetclean05202020_2$avsnow[is.na(fulldatasetclean05202020_2$avsnow)]=0
 fulldatasetclean05202020_2$totice[is.na(fulldatasetclean05202020_2$totice)]=0
 fulldatasetclean05202020_2$blueice[is.na(fulldatasetclean05202020_2$blueice)]=0
 fulldatasetclean05202020_2$whiteice[is.na(fulldatasetclean05202020_2$whiteice)]=0
+fulldatasetclean05202020_2$year = year(fulldatasetclean05202020_2$sampledate)
 
-ice.pres
+# load dataset of iceon and off dates
+ice = read.csv('data/iceduration.csv', stringsAsFactors = F)
+ice %<>% rename(ice.on = datefirstice,
+                ice.off = datelastice)
 
-write.csv(fulldatasetclean05202020_2, 'data/FINALfulldatasetclean05202020.csv', row.names = F)
+ice$ice.on = mdy(ice$ice.on)
+ice$ice.off = mdy(ice$ice.off)
+ice %<>% subset(lakeid == "SP") %>%
+  select(year,ice.off, ice.on, iceduration)
+
+fulldatasetclean05202020_3 = full_join(fulldatasetclean05202020_2, ice, by=c('year'))
+
+
+
+write.csv(fulldatasetclean05202020_3, 'data/FINALfulldatasetclean05202020.csv', row.names = F)
 
 
 
