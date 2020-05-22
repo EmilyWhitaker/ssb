@@ -60,9 +60,10 @@ clean.ice$blueice[is.na(clean.ice$blueice)] = 0
 
 
 winter.clean= clean.ice%<>% subset(clean.ice$totice>0)
-
+write.csv(winter.clean, 'data/nogeneraWinter.csv', row.names = F)
 summer.clean= clean.ice%<>% subset(clean.ice$totice==0)
-  
+write.csv(summer.clean, 'data/nogeneraSummer.csv', row.names = F)
+
 
 #only pull out winter sampling
 winter.data.total.long = pivot_longer(winter.clean, cols=c("wtemp","o2", "avsnow","totice","whiteice","blueice", "chlor.int",
