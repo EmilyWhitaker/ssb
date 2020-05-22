@@ -34,16 +34,33 @@ clean$sampledate = ymd(clean$sampledate)
 data.total.long = pivot_longer(clean, cols=c("wtemp","o2", "avsnow","totice","whiteice","blueice", "chlor.int",
                                           "frlight","chlor.surf"), names_to="variable", values_to = "value")
 
-ggplot(data.total.long, aes(year, value, color=variable))+
+ggplot(data.total.long, aes(sampledate, value, color=variable))+
   geom_point()+
   geom_smooth(aes(group=variable))+
   #geom_line(aes(group=variable))+
   facet_wrap(~variable, scales='free')
 
 # look at winter total biovolume
-totals.long$month = month(totals.long$sampledate)
+ice = read.csv('data/iceduration.csv', stringsAsFactors = F)
+ice %<>% rename(ice.on = datefirstice,
+                ice.off = datelastice)
 
-winter = subset(totals.long, month < 4)
+ice$ice.on = mdy(ice$ice.on)
+ice$ice.off = mdy(ice$ice.off)
+ice %<>% subset(lakeid == "SP") %>%
+  select(year,ice.off, ice.on, iceduration)
+
+clean$year= year(clean$sampledate)
+
+clean.ice = full_join(clean, ice, by=c('year'))
+
+winter.clean= clean%<>% subset(clean.ice$totice>0)
+
+summer.clean= clean%<>% subset(clean.ice$totice>1)
+  
+
+
+
 
 #only pull out winter sampling
 ggplot(winter, aes(sampledate, value, color=variable))+
@@ -51,6 +68,7 @@ ggplot(winter, aes(sampledate, value, color=variable))+
   geom_smooth(aes(group=variable))+
   #geom_line(aes(group=variable))+
   facet_wrap(~variable, scales='free')
+
 
 
 
