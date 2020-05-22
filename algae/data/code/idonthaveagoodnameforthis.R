@@ -53,17 +53,22 @@ ice %<>% subset(lakeid == "SP") %>%
 clean$year= year(clean$sampledate)
 
 clean.ice = full_join(clean, ice, by=c('year'))
+clean.ice$avsnow[is.na(clean.ice$avsnow)] = 0
+clean.ice$totice[is.na(clean.ice$totice)] = 0
+clean.ice$whiteice[is.na(clean.ice$whiteice)] = 0
+clean.ice$blueice[is.na(clean.ice$blueice)] = 0
 
-winter.clean= clean%<>% subset(clean.ice$totice>0)
 
-summer.clean= clean%<>% subset(clean.ice$totice>1)
+winter.clean= clean.ice%<>% subset(clean.ice$totice>0)
+
+summer.clean= clean.ice%<>% subset(clean.ice$totice==0)
   
 
-
-
-
 #only pull out winter sampling
-ggplot(winter, aes(sampledate, value, color=variable))+
+winter.data.total.long = pivot_longer(winter.clean, cols=c("wtemp","o2", "avsnow","totice","whiteice","blueice", "chlor.int",
+                                             "frlight","chlor.surf"), names_to="variable", values_to = "value")
+
+ggplot(winter.data.total.long, aes(sampledate, value, color=variable))+
   geom_point()+
   geom_smooth(aes(group=variable))+
   #geom_line(aes(group=variable))+
@@ -71,7 +76,15 @@ ggplot(winter, aes(sampledate, value, color=variable))+
 
 
 
+#pull out summer data
+summer.data.total.long = pivot_longer(summer.clean, cols=c("wtemp","o2","avsnow","totice","whiteice","blueice", "chlor.int",
+                                                           "frlight","chlor.surf"), names_to="variable", values_to = "value")
 
+ggplot(summer.data.total.long, aes(sampledate, value, color=variable))+
+  geom_point()+
+  geom_smooth(aes(group=variable))+
+  #geom_line(aes(group=variable))+
+  facet_wrap(~variable, scales='free')
 
 
 
