@@ -88,6 +88,11 @@ ggplot(summer.data.total.long, aes(sampledate, value, color=variable))+
   facet_wrap(~variable, scales='free')
 
 
+#light graphs
+
+
+
+
 
 
 # pull out total biovolumes
