@@ -90,9 +90,20 @@ ggplot(summer.data.total.long, aes(sampledate, value, color=variable))+
 
 #light graphs
 
+ggplot(winter.clean, aes(frlight, totice))+
+  geom_point(aes(group=frlight))+
+  geom_point(size=2)+
+  #scale_color_viridis_c(option="plasma")+
+  geom_smooth(se=T)
+
+ggplot(winter.clean, aes(frlight, blueice))+
+  #  geom_point(aes(group=frlight))+
+  geom_point(size=2)+
+  #scale_color_viridis_c(option="plasma")+
+  geom_smooth(se=T)
 
 
-
+geom_point(aes(col=chlor.int), size=2)+
 
 
 # pull out total biovolumes
