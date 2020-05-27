@@ -15,12 +15,17 @@ library(ggpubr); library(fuzzyjoin)
 lightfunction = read.csv('data/chemphys.csv', stringsAsFactors = F)
 lightfunction$sampledate = ymd(lightfunction$sampledate)
 lightfunction %<>%  subset(lightfunction$depth==0)
-lightfunction$frlight[lightfunction$frlight=="1"] <- NA
+lightfunction$frlight[lightfunction$frlight>="1"] <- NA
+
+max(lightfunction$frlight)
+
+max(lightfunction$frlight, na.rm=TRUE)
 
 ggplot(lightfunction, aes(sampledate, frlight))+
   geom_point()+
   geom_smooth()
-  
+
+
 
 ggplot(winter.data.total.long, aes(sampledate, value, color=variable))+
   geom_point()+
