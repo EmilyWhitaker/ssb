@@ -102,8 +102,21 @@ ggplot(winter.clean, aes(frlight, blueice))+
   #scale_color_viridis_c(option="plasma")+
   geom_smooth(se=T)
 
+ggplot(winter.clean,                # plot data from data set plodata  
+       aes(x= blueice,             # define x-axis
+           y= frlight)) +  # define y-axis
+  geom_point()  
 
-geom_point(aes(col=chlor.int), size=2)+
+ggplot(winter.clean,                # plot data from data set plodata  
+       aes(x= whiteice,             # define x-axis
+           y= frlight)) +  # define y-axis
+  geom_point()  
+
+
+ggplot(winter.clean,                # plot data from data set plodata  
+       aes(x= avsnow,             # define x-axis
+           y= frlight)) +  # define y-axis
+  geom_point()  
 
 
 # pull out total biovolumes
