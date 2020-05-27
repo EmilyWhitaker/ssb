@@ -25,6 +25,34 @@ ggplot(lightfunction, aes(sampledate, frlight))+
   geom_point()+
   geom_smooth()
 
+#break up frlight with winter only times?
+
+
+snowice = read.csv('data/snowicedepth.csv', stringsAsFactors = F)
+snowice%<>%subset(lakeid == "SP") %>%
+  select(lakeid, year4, sampledate, avsnow, totice, whiteice, blueice)
+snowice$sampledate = ymd(snowice$sampledate)
+
+frsnow= right_join(lightfunction,snowice, by='sampledate', 'lakeid')
+
+ggplot(frsnow, aes(frlight, avsnow))+
+  geom_point()+
+  geom_smooth()
+
+ggplot(frsnow, aes(frlight, totice))+
+  geom_point()+
+  geom_smooth()
+
+
+ggplot(frsnow, aes(frlight, whiteice))+
+  geom_point()+
+  geom_smooth()
+
+ggplot(frsnow, aes(frlight, blueice))+
+  geom_point()
+
+ggplot(frsnow, aes(blueice, frlight))+
+  geom_point()
 
 
 ggplot(winter.data.total.long, aes(sampledate, value, color=variable))+
