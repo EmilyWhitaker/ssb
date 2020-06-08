@@ -17,12 +17,30 @@ data$sampledate = ymd(data$sampledate)
 
 data.long = pivot_longer(data, cols=c("totice","whiteice","blueice"), names_to="variable", values_to = "value")
 
+data.long2 = pivot_longer(data, cols=c("whiteice","blueice"), names_to="variable", values_to = "value")
+
+
+
 ggplot(data.long, aes(sampledate, value,color=variable))+
   ylab('cm')+
   geom_point()+
   geom_smooth(aes(group=variable))+
-  geom_line(aes(group=variable))+
+  geom_bar(aes(group=variable))+
   geom_smooth(aes(group=variable))
+
+ggplot(data.long2, aes(fill=variable, y=value, x=sampledate))+
+  geom_bar(position = "stack", stat= "identity")
+
+
+
+
+ggplot(data, aes(sampledate, value,color=variable))+
+  ylab('cm')+
+  geom_point()+
+  geom_smooth(aes(group=variable))+
+  geom_bar(aes(group=variable))+
+  geom_smooth(aes(group=variable))
+
 
 
 ggplot(data, aes(sampledate, avsnow))+
