@@ -46,7 +46,10 @@ ggplot(data, aes(sampledate, value,color=variable))+
   geom_smooth(aes(group=variable))
 
 ggplot(data, aes(y=avsnow, x=sampledate))+
-  geom_bar(stat= "identity", width= 50)
+  xlab("Sample Date")+
+  ylab("Average Snow (cm)")+
+  theme_classic()+
+  geom_bar(stat= "identity", width= 70, fill= "grey")
 
 ggplot(data, aes(sampledate, avsnow))+
   ylab('average snow fall (cm)')+
