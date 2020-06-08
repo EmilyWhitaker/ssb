@@ -29,7 +29,11 @@ ggplot(data.long, aes(sampledate, value,color=variable))+
   geom_smooth(aes(group=variable))
 
 ggplot(data.long2, aes(fill=variable, y=value, x=sampledate))+
-  geom_bar(position = "stack", stat= "identity")
+  xlab("Sample Date")+
+  ylab("Ice Thickness (cm)")+
+  labs(fill='Ice Composition')+
+  theme_classic()+
+  geom_bar(position = "stack", stat= "identity", width = 45)
 
 
 
@@ -41,7 +45,8 @@ ggplot(data, aes(sampledate, value,color=variable))+
   geom_bar(aes(group=variable))+
   geom_smooth(aes(group=variable))
 
-
+ggplot(data, aes(y=avsnow, x=sampledate))+
+  geom_bar(stat= "identity", width= 50)
 
 ggplot(data, aes(sampledate, avsnow))+
   ylab('average snow fall (cm)')+
