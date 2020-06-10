@@ -15,6 +15,7 @@ library(ggpubr); library(fuzzyjoin)
 data = read.csv('data/Trout data/snowiceTB.csv', stringsAsFactors = F)
 data$sampledate = ymd(data$sampledate)
 
+
 data.long = pivot_longer(data, cols=c("totice","whiteice","blueice"), names_to="variable", values_to = "value")
 
 data.long2 = pivot_longer(data, cols=c("whiteice","blueice"), names_to="variable", values_to = "value")
@@ -32,8 +33,10 @@ ggplot(data.long2, aes(fill=variable, y=value, x=sampledate))+
   xlab("Sample Date")+
   ylab("Ice Thickness (cm)")+
   labs(fill='Ice Composition')+
+  theme_update(text = element_text(size=15))+
   theme_classic()+
-  geom_bar(position = "stack", stat= "identity", width = 45)
+#  theme(axis.text.x=element_text(size=rel(1.5)))+
+  geom_bar(position = "stack", stat= "identity", width = 80)
 
 
 
