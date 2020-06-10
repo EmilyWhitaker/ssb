@@ -14,11 +14,11 @@ library(ggpubr); library(fuzzyjoin)
 
 data = read.csv('data/Trout data/snowiceTB.csv', stringsAsFactors = F)
 data$sampledate = ymd(data$sampledate)
+data %<>% rename('white ice' = whiteice)
+data %<>% rename('blue ice' = blueice)
+data.long = pivot_longer(data, cols=c("totice","white ice","blue ice"), names_to="variable", values_to = "value")
 
-
-data.long = pivot_longer(data, cols=c("totice","whiteice","blueice"), names_to="variable", values_to = "value")
-
-data.long2 = pivot_longer(data, cols=c("whiteice","blueice"), names_to="variable", values_to = "value")
+data.long2 = pivot_longer(data, cols=c("white ice","blue ice"), names_to="variable", values_to = "value")
 
 
 
@@ -33,7 +33,7 @@ ggplot(data.long2, aes(fill=variable, y=value, x=sampledate))+
   xlab("Sample Date")+
   ylab("Ice Thickness (cm)")+
   labs(fill='Ice Composition')+
-  theme_update(text = element_text(size=15))+
+  theme_update(text = element_text(size=25))+
   theme_classic()+
 #  theme(axis.text.x=element_text(size=rel(1.5)))+
   geom_bar(position = "stack", stat= "identity", width = 80)
@@ -51,6 +51,7 @@ ggplot(data, aes(sampledate, value,color=variable))+
 ggplot(data, aes(y=avsnow, x=sampledate))+
   xlab("Sample Date")+
   ylab("Average Snow (cm)")+
+  theme_update(text = element_text(size=600))+
   theme_classic()+
   geom_bar(stat= "identity", width= 70, fill= "grey")
 
