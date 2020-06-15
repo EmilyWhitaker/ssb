@@ -14,9 +14,8 @@ library(ggpubr); library(fuzzyjoin)
 data = read.csv('data/phytoplankton_north.csv', stringsAsFactors = F)
 data %<>% select(lakeid, year4, sampledate, division, taxa_name,relative_total_biovolume, genus, cells_per_nu,
                  nu_per_ml,	cells_per_ml,	biovolume_conc,	biomass_conc)
-
-
 data$sampledate = ymd(data$sampledate)
+
 data %<>% rename('white ice' = whiteice)
 data %<>% rename('blue ice' = blueice)
 clean %<>% rename(sampledate.genus = sampledate)
@@ -29,9 +28,12 @@ clean$sampledate = ymd(clean$sampledate)
 
 #seperate into TB
 
+TB_data = subset(data, lakeid == "TB")
+
+
 #SP data
 
-
+SP_data <- subset(data, lakeid== "SP")
 
 
 
