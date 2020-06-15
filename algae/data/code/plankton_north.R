@@ -74,6 +74,8 @@ TB_data_full %<>% select(year4, sampledate, division, taxa_name,relative_total_b
                  nu_per_ml,	cells_per_ml,	biovolume_conc,	biomass_conc)
 TB_data_full$sampledate = mdy(TB_data_full$sampledate)
 
+class(TB_data_full$sampledate)
+
 TB_data_full_total = subset(TB_data_full, division == "Total")
 
 
@@ -84,24 +86,47 @@ ggplot(TB_data_full, aes(x=sampledate,y=division,fill=med.bv))+
 
 
 #value by year 
-ggplot(totals, aes(sampledate, chlor.int))+
-  geom_vline(data=ice, aes(xintercept=ice.on), linetype='dashed')+
-  geom_vline(data=ice, aes(xintercept=ice.off), linetype='dotted')+
+ggplot(TB_data_full, aes(sampledate, log(biovolume_conc)))+
+  #geom_vline(data=ice, aes(xintercept=ice.on), linetype='dashed')+
+  #geom_vline(data=ice, aes(xintercept=ice.off), linetype='dotted')+
   geom_point()+
   geom_smooth()+
   theme_classic()
 
 #in the ~seasons~
 
-ggplot(totals, aes(chlor.int, log(CellBioVol)))+
+ggplot(TB_data_full_total, aes(sampledate, log(biovolume_conc)))+
   #geom_vline(data=ice, aes(xintercept=ice.on), linetype='dashed')+
   #geom_vline(data=ice, aes(xintercept=ice.off), linetype='dotted')+
-  geom_point(chlor.int)+
+  geom_point()+
   scale_color_viridis_c(option="viridis")+
   geom_smooth()+
   #scale_color_brewer(palette = 'Paired')+
-  facet_wrap(~ice.pres, labeller=labeller(ice.pres = ice.labs))+
+  #facet_wrap(~ice.pres, labeller=labeller(ice.pres = ice.labs))+
   theme_classic()+
+  labs(title="Trout Bog Totals")+
+  labs(x='Year')
+
+
+gg <- ggplot(subset(totals.new, Genus %in%gen.ndmi, aes(x=sampledate, y=log(CellBioVol)))) + 
+  geom_point(aes(col=chlor.int))+ 
+  geom_smooth()+
+  facet_wrap(~ice.pres, labeller=labeller(ice.pres = ice.labs))
+plot(gg)
+
+#######
+#Sparkling Lake info
+
+ggplot(TB_data_full_total, aes(sampledate, log(biovolume_conc)))+
+  #geom_vline(data=ice, aes(xintercept=ice.on), linetype='dashed')+
+  #geom_vline(data=ice, aes(xintercept=ice.off), linetype='dotted')+
+  geom_point()+
+  scale_color_viridis_c(option="viridis")+
+  geom_smooth()+
+  #scale_color_brewer(palette = 'Paired')+
+  #facet_wrap(~ice.pres, labeller=labeller(ice.pres = ice.labs))+
+  theme_classic()+
+  labs(title="Trout Bog Totals")+
   labs(x='Year')
 
 # skip ahead to clean file
