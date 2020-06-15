@@ -53,7 +53,7 @@ ggplot(data, aes(y=avsnow, x=sampledate))+
   ylab("Average Snow (cm)")+
   theme_update(text = element_text(size=600))+
   theme_classic()+
-  geom_bar(stat= "identity", width= 70, fill= "grey")
+  geom_bar(stat= "identity", width= 100, fill= "grey")
 
 ggplot(data, aes(sampledate, avsnow))+
   ylab('average snow fall (cm)')+
