@@ -35,15 +35,11 @@ genus.ann %<>% group_by(year4, taxa_name) %>%
 
 genus.ann$med.bv[is.na(genus.ann$med.bv)] <- 0
 
-ggplot(subset(genus,year<2000), aes(as.factor(year4), log(biovolume_conc), fill=taxa_name))+
-  geom_boxplot(aes(group=taxa_name))+
-  geom_line(data=subset(genus.ann, year<2000), aes(as.factor(year4), med.bv, color=taxa_name, group=taxa_name))
-
 tile=genus.ann
-tile = arrange(tile,Genus)
-tile$Genus = factor(tile$Genus, levels = rev(unique(tile$Genus)), ordered=TRUE)
+tile = arrange(tile,taxa_name)
+tile$Genus = factor(tile$taxa_name, levels = rev(unique(tile$taxa_name)), ordered=TRUE)
 
-ggplot(tile, aes(x=year,y=Genus,fill=med.bv))+
+ggplot(tile, aes(x=year4,y=taxa_name,fill=med.bv))+
   geom_tile(size=0.1,na.rm=T)+
   scale_fill_viridis_c(direction=-1)+
   theme_classic()
@@ -51,6 +47,27 @@ ggplot(tile, aes(x=year,y=Genus,fill=med.bv))+
 #SP data
 
 SP_data <- subset(data, lakeid== "SP")
+
+
+ggplot(SP_data, aes(as.factor(year4), log(biovolume_conc), fill=taxa_name))+
+  geom_boxplot()
+
+genus.ann.sp = SP_data
+genus.ann.sp %<>% group_by(year4, taxa_name) %>%
+  summarize(med.bv = median(log(biovolume_conc), na.rm=T))
+
+genus.ann.sp$med.bv[is.na(genus.ann.sp$med.bv)] <- 0
+
+tile2=genus.ann.sp
+tile2 = arrange(tile,taxa_name)
+tile2$Genus = factor(tile$taxa_name, levels = rev(unique(tile$taxa_name)), ordered=TRUE)
+
+ggplot(tile2, aes(x=year4,y=taxa_name,fill=med.bv))+
+  geom_tile(size=0.1,na.rm=T)+
+  scale_fill_viridis_c(direction=-1)+
+  theme_classic()
+
+
 write.csv(SP_data, 'data/SP_data_phytos.csv', row.names = F)
 
 
