@@ -74,8 +74,35 @@ TB_data_full %<>% select(year4, sampledate, division, taxa_name,relative_total_b
                  nu_per_ml,	cells_per_ml,	biovolume_conc,	biomass_conc)
 TB_data_full$sampledate = mdy(TB_data_full$sampledate)
 
+TB_data_full_total = subset(TB_data_full, division == "Total")
 
 
+ggplot(TB_data_full, aes(x=sampledate,y=division,fill=med.bv))+
+  geom_tile(size=0.1,na.rm=T)+
+  scale_fill_viridis_c(direction=-1)+
+  theme_classic()
+
+
+#value by year 
+ggplot(totals, aes(sampledate, chlor.int))+
+  geom_vline(data=ice, aes(xintercept=ice.on), linetype='dashed')+
+  geom_vline(data=ice, aes(xintercept=ice.off), linetype='dotted')+
+  geom_point()+
+  geom_smooth()+
+  theme_classic()
+
+#in the ~seasons~
+
+ggplot(totals, aes(chlor.int, log(CellBioVol)))+
+  #geom_vline(data=ice, aes(xintercept=ice.on), linetype='dashed')+
+  #geom_vline(data=ice, aes(xintercept=ice.off), linetype='dotted')+
+  geom_point(chlor.int)+
+  scale_color_viridis_c(option="viridis")+
+  geom_smooth()+
+  #scale_color_brewer(palette = 'Paired')+
+  facet_wrap(~ice.pres, labeller=labeller(ice.pres = ice.labs))+
+  theme_classic()+
+  labs(x='Year')
 
 # skip ahead to clean file
 genus = subset(data, Genus != "TotalBiovolume")
