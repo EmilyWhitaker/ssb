@@ -116,6 +116,10 @@ plot(gg)
 
 #######
 #Sparkling Lake info
+TB_data_full = read.csv('data/TB_data_phytos_totals.csv', stringsAsFactors = F)
+TB_data_full %<>% select(year4, sampledate, division, taxa_name,relative_total_biovolume, genus, cells_per_nu,
+                         nu_per_ml,	cells_per_ml,	biovolume_conc,	biomass_conc)
+TB_data_full$sampledate = mdy(TB_data_full$sampledate)
 
 ggplot(TB_data_full_total, aes(sampledate, log(biovolume_conc)))+
   #geom_vline(data=ice, aes(xintercept=ice.on), linetype='dashed')+
