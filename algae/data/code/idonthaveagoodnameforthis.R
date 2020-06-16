@@ -131,6 +131,10 @@ genus = subset(data, Genus != "TotalBiovolume")
 
 ######
 #Sliding windows
+install.packages("evobiR")
+
+library(devtools)
+install_github("coleoguy/evobir", build_vignettes = TRUE)
 
 install.packages("evobiR", repo = 'https://mac.R-project.org')
 

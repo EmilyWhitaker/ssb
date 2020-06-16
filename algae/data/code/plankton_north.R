@@ -107,8 +107,22 @@ ggplot(TB_data_full, aes(x=sampledate,y=division,fill=med.bv))+
   scale_fill_viridis_c(direction=-1)+
   theme_classic()
 
+#################
+#Answer Hil's questions
+
+#merge datasets with the LTER datasets
+TB_data_full_total
 
 
+
+
+SP_data_season_total
+
+
+
+
+
+########
 SP_data_season = read.csv('data/SP_data_phytos_totals_season.csv', stringsAsFactors = F)
 SP_data_season %<>% select(lakeid, year4, sampledate, division, taxa_name,relative_total_biovolume, genus, cells_per_nu,
                            nu_per_ml,	cells_per_ml,	biovolume_conc,	biomass_conc, Season)
@@ -189,7 +203,28 @@ write.csv(spgenus, 'data/spgenus.csv', row.names = F)
 
 #######
 
-unique(TB_data_season$taxa_name)
+chl = read.csv('data/chloro_all.csv',stringsAsFactors = F)
+chl %<>% subset(lakeid == "SP" & depth == 0) %>%
+  select(year4, daynum, sampledate, chlor)
+chl$sampledate =  ymd(chl$sampledate)
+
+#Inegrated Chems
+intchems = read.csv("data/SPFullChem.csv", stringsAsFactors = F)
+intchems$sampledate = mdy(intchems$sampledate)
+intchems %<>% subset(lakeid == "SP")
+intchems$frlight[intchems$frlight=="1"] <- NA #one iceon point with no light point to calc frlight against
+intchems
+
+intchems2 = intchems %>% select(intchemsDate = sampledate, wtemp:mn)
+
+chl2 = chl %>% select(chlDate = sampledate,chlor) %>%
+  mutate(datePlus1 = chlDate + 1) %>% mutate(dateMinus1 = chlDate - 1)
+
+join <- fuzzy_left_join(intchems2, chl2, by = c("intchemsDate" = "datePlus1", "intchemsDate" = "dateMinus1"),
+                        match_fun = list(`<=`, `>=`))
+
+join %<>% rename(sampledate = intchemsDate)
+
 
 
 
