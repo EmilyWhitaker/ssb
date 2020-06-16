@@ -7,7 +7,7 @@ library(mgcv);library(nlme); library(lme4) # modeling
 library(viridisLite); library(gridExtra); library(ggplot2) # data viz
 library(lubridate) # dealing with dates
 library(ggpubr); library(fuzzyjoin); library(zoo)
-
+library(evobiR)
 #####=======
 
 data = read.csv('data/FINALfulldatasetclean05202020.csv', stringsAsFactors = F)
@@ -132,14 +132,17 @@ genus = subset(data, Genus != "TotalBiovolume")
 ######
 #Sliding windows
 
+install.packages("evobiR", repo = 'https://mac.R-project.org')
+
 sw1= subset(data, Genus == "TotalBiovolume")
 sw1 %<>% select(sampledate,CellBioVol, chlor.int)
 
 rollapply()
 
 
-rollapply(B, 2*k-1, function(x) max(rollapply(x, k, mean, na.rm = TRUE)), partial = TRUE)
+rollapply(sw1, 2*3-1, function(mean) max(rollapply(mean, 3, mean, na.rm = TRUE)), partial = TRUE)
 
+SlidingWindow(mean(sw1), sw1, sampledate(2))
 
 
 #slide_period()
