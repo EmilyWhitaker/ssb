@@ -67,11 +67,6 @@ ggplot(tile, aes(x=year4,y=taxa_name,fill=med.bv))+
   theme_classic()
 
 
-
-
-
-
-
 #SP data
 
 SP_data <- subset(data, lakeid== "SP")
@@ -81,16 +76,16 @@ ggplot(SP_data, aes(as.factor(year4), log(biovolume_conc), fill=taxa_name))+
   geom_boxplot()
 
 genus.ann = SP_data
-genus.ann %<>% group_by(year4, taxa_name) %>%
+genus.ann %<>% group_by(year4, genus) %>%
   summarize(med.bv = median(log(biovolume_conc), na.rm=T))
 
 genus.ann$med.bv[is.na(genus.ann$med.bv)] <- 0
 
 tile=genus.ann
-tile = arrange(tile,taxa_name)
-tile$SP_data = factor(tile$taxa_name, levels = rev(unique(tile$taxa_name)), ordered=TRUE)
+tile = arrange(tile,genus)
+tile$SP_data = factor(tile$genus, levels = rev(unique(tile$genus)), ordered=TRUE)
 
-ggplot(tile, aes(x=year4,y=taxa_name,fill=med.bv))+
+ggplot(tile, aes(x=year4,y=genus,fill=med.bv))+
   geom_tile(size=0.1,na.rm=T)+
   scale_fill_viridis_c(direction=-1)+
   theme_classic()
@@ -141,8 +136,6 @@ ggplot(TB_data_full, aes(sampledate, log(biovolume_conc)))+
   geom_smooth()+
   theme_classic()
 
-#in the ~seasons~
-
 ggplot(TB_data_full_total, aes(sampledate, log(biovolume_conc)))+
   #geom_vline(data=ice, aes(xintercept=ice.on), linetype='dashed')+
   #geom_vline(data=ice, aes(xintercept=ice.off), linetype='dotted')+
@@ -184,9 +177,17 @@ ggplot(SP_data_full_total, aes(sampledate, log(biovolume_conc)))+
   labs(title="Sparkling Lake Totals")+
   labs(x='Year')
 
-#seasons 
 
+#####
+#Pair this DOWN
 
+SP_data_season
+
+unique(SP_data_season$genus)
+
+SP_data_season
+
+unique(TB_data_season$taxa_name)
 
 
 
