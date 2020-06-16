@@ -116,12 +116,15 @@ plot(gg)
 
 #######
 #Sparkling Lake info
-TB_data_full = read.csv('data/TB_data_phytos_totals.csv', stringsAsFactors = F)
-TB_data_full %<>% select(year4, sampledate, division, taxa_name,relative_total_biovolume, genus, cells_per_nu,
+SP_data_full = read.csv('data/SP_data_phytos_totals.csv', stringsAsFactors = F)
+SP_data_full %<>% select(year4, sampledate, division, taxa_name,relative_total_biovolume, genus, cells_per_nu,
                          nu_per_ml,	cells_per_ml,	biovolume_conc,	biomass_conc)
-TB_data_full$sampledate = mdy(TB_data_full$sampledate)
+SP_data_full$sampledate = mdy(SP_data_full$sampledate)
 
-ggplot(TB_data_full_total, aes(sampledate, log(biovolume_conc)))+
+SP_data_full_total = subset(SP_data_full, division == "Total")
+
+
+ggplot(SP_data_full_total, aes(sampledate, log(biovolume_conc)))+
   #geom_vline(data=ice, aes(xintercept=ice.on), linetype='dashed')+
   #geom_vline(data=ice, aes(xintercept=ice.off), linetype='dotted')+
   geom_point()+
@@ -130,11 +133,12 @@ ggplot(TB_data_full_total, aes(sampledate, log(biovolume_conc)))+
   #scale_color_brewer(palette = 'Paired')+
   #facet_wrap(~ice.pres, labeller=labeller(ice.pres = ice.labs))+
   theme_classic()+
-  labs(title="Trout Bog Totals")+
+  labs(title="Sparkling Lake Totals")+
   labs(x='Year')
 
-# skip ahead to clean file
-genus = subset(data, Genus != "TotalBiovolume")
+#seasons 
+
+
 
 
 
