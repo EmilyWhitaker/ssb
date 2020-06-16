@@ -133,10 +133,6 @@ ggplot((SP_data_season_total), aes(sampledate, biovolume_conc))+
   theme_classic()
 
 
-
-
-
-
 #value by year 
 ggplot(TB_data_full, aes(sampledate, log(biovolume_conc)))+
   #geom_vline(data=ice, aes(xintercept=ice.on), linetype='dashed')+
