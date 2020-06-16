@@ -34,8 +34,19 @@ TB_data_season = read.csv('data/TB_data_phytos_totals_season.csv', stringsAsFact
 TB_data_season %<>% select(lakeid, year4, sampledate, division, taxa_name,relative_total_biovolume, genus, cells_per_nu,
                  nu_per_ml,	cells_per_ml,	biovolume_conc,	biomass_conc, Season)
 TB_data_season$sampledate = mdy(TB_data_season$sampledate)
+TB_data_season_total = subset(TB_data_season, division == "Total")
 
-
+ggplot((TB_data_season_total), aes(sampledate, biovolume_conc))+
+  #geom_vline(data=ice, aes(xintercept=ice.on), linetype='dashed')+
+  #geom_vline(data=ice, aes(xintercept=ice.off), linetype='dotted')+
+  geom_point()+
+  #geom_point()+
+  scale_color_viridis_c(option="viridis")+
+  geom_smooth(method=lm,se=T)+
+  #scale_color_brewer(palette = 'Paired')+
+  facet_wrap(~Season)+
+  labs(title="Trout Bog Seasonal Trends", x= "Year", y= "Biovolume")+
+  theme_classic()
 
 ggplot(TB_data, aes(as.factor(year4), log(biovolume_conc), fill=taxa_name))+
   geom_boxplot()
@@ -100,6 +111,30 @@ ggplot(TB_data_full, aes(x=sampledate,y=division,fill=med.bv))+
   geom_tile(size=0.1,na.rm=T)+
   scale_fill_viridis_c(direction=-1)+
   theme_classic()
+
+
+
+SP_data_season = read.csv('data/SP_data_phytos_totals_season.csv', stringsAsFactors = F)
+SP_data_season %<>% select(lakeid, year4, sampledate, division, taxa_name,relative_total_biovolume, genus, cells_per_nu,
+                           nu_per_ml,	cells_per_ml,	biovolume_conc,	biomass_conc, Season)
+SP_data_season$sampledate = mdy(SP_data_season$sampledate)
+SP_data_season_total = subset(SP_data_season, division == "Total")
+
+ggplot((SP_data_season_total), aes(sampledate, biovolume_conc))+
+  #geom_vline(data=ice, aes(xintercept=ice.on), linetype='dashed')+
+  #geom_vline(data=ice, aes(xintercept=ice.off), linetype='dotted')+
+  geom_point()+
+  #geom_point()+
+  scale_color_viridis_c(option="viridis")+
+  geom_smooth(method=lm,se=T)+
+  #scale_color_brewer(palette = 'Paired')+
+  facet_wrap(~Season)+
+  labs(title="Sparkling Lake Seasonal Trends", x= "Year", y= "Biovolume")+
+  theme_classic()
+
+
+
+
 
 
 #value by year 
