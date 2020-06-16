@@ -6,7 +6,7 @@ library(FSA); library(dplyr);library(magrittr);library(tidyr) # data management
 library(mgcv);library(nlme); library(lme4) # modeling
 library(viridisLite); library(gridExtra); library(ggplot2) # data viz
 library(lubridate) # dealing with dates
-library(ggpubr); library(fuzzyjoin)
+library(ggpubr); library(fuzzyjoin); library(zoo)
 
 #####=======
 
@@ -134,8 +134,14 @@ genus = subset(data, Genus != "TotalBiovolume")
 
 sw1= subset(data, Genus == "TotalBiovolume")
 sw1 %<>% select(sampledate,CellBioVol, chlor.int)
-data
-time- sample date, 
+
+rollapply()
+
+
+rollapply(B, 2*k-1, function(x) max(rollapply(x, k, mean, na.rm = TRUE)), partial = TRUE)
+
+
+
 #slide_period()
 #slide_index()
 
