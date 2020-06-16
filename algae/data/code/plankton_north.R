@@ -19,12 +19,23 @@ data$sampledate = ymd(data$sampledate)
 
 #seperate into TB
 
+data = read.csv('data/phytoplankton_north.csv', stringsAsFactors = F)
+data %<>% select(lakeid, year4, sampledate, division, taxa_name,relative_total_biovolume, genus, cells_per_nu,
+                 nu_per_ml,	cells_per_ml,	biovolume_conc,	biomass_conc)
+data$sampledate = ymd(data$sampledate)
 TB_data = subset(data, lakeid == "TB")
 write.csv(TB_data, 'data/TB_data_phytos.csv', row.names = F)
 
 ggplot(TB_data, sampledate)
 
 # summarize species trends
+
+TB_data_season = read.csv('data/TB_data_phytos_totals_season.csv', stringsAsFactors = F)
+TB_data_season %<>% select(lakeid, year4, sampledate, division, taxa_name,relative_total_biovolume, genus, cells_per_nu,
+                 nu_per_ml,	cells_per_ml,	biovolume_conc,	biomass_conc, Season)
+TB_data_season$sampledate = mdy(TB_data_season$sampledate)
+
+
 
 ggplot(TB_data, aes(as.factor(year4), log(biovolume_conc), fill=taxa_name))+
   geom_boxplot()
@@ -43,6 +54,12 @@ ggplot(tile, aes(x=year4,y=taxa_name,fill=med.bv))+
   geom_tile(size=0.1,na.rm=T)+
   scale_fill_viridis_c(direction=-1)+
   theme_classic()
+
+
+
+
+
+
 
 #SP data
 
