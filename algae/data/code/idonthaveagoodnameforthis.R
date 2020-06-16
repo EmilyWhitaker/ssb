@@ -13,7 +13,6 @@ library(ggpubr); library(fuzzyjoin)
 data = read.csv('data/FINALfulldatasetclean05202020.csv', stringsAsFactors = F)
 data$sampledate = ymd(data$sampledate)
 
-
 #full dataset
 
 #no.gerna.total = data %>% select(data = sampledate:blueice,year:iceduration)
@@ -132,6 +131,9 @@ genus = subset(data, Genus != "TotalBiovolume")
 
 ######
 #Sliding windows
+
+sw1= subset(data, Genus == "TotalBiovolume")
+sw1 %<>% select(sampledate,CellBioVol, chlor.int)
 data
 time- sample date, 
 #slide_period()
