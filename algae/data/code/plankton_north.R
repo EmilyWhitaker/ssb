@@ -224,7 +224,31 @@ join <- fuzzy_left_join(intchems2, chl2, by = c("intchemsDate" = "datePlus1", "i
                         match_fun = list(`<=`, `>=`))
 
 join %<>% rename(sampledate = intchemsDate)
+ice = read.csv('data/snowicedepth.csv',stringsAsFactors = F)
+ice %<>% subset(lakeid == "SP") %>%
+  select(year4, daynum, sampledate, avsnow, totice, whiteice, blueice)
+ice$sampledate = ymd(ice$sampledate)
 
+join_ice <- left_join(join, ice, by= c('sampledate'))
+
+totalbv = read.csv("data/TotalBVs.csv", stringsAsFactors = F)
+totalbv= read.csv("../TotalBVs.csv")
+totalbv$sampledate = ymd(totalbv$sampledate)
+totalbv %<>% select(sampledate, Genus, CellBioVol) %>%
+  mutate(bv.datePlus1 = sampledate + 1) %>% mutate(bv.dateMinus1 = sampledate - 1)
+
+join_surfchlor <-fuzzy_left_join(join_ice, totalbv, by = c("sampledate" = "bv.datePlus1", "sampledate" = "bv.dateMinus1"),
+                                 match_fun = list(`<=`, `>=`))
+
+join_surfchlor %<>% rename(sampledate= sampledate.y)
+
+class(join_surfchlor$sampledate)
+
+Genera = read.csv("data/CleanBiovolumes05202020", stringsAsFactors = F)
+Genera$sampledate = ymd(Genera$sampledate)
+
+fulldatasetclean05202020 = full_join(join_surfchlor, Genera, by=c('sampledate'))
+write.csv(fulldatasetclean05202020, 'data/fulldatasetclean05202020.csv', row.names = F)
 
 
 
