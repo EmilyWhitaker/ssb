@@ -183,9 +183,11 @@ ggplot(SP_data_full_total, aes(sampledate, log(biovolume_conc)))+
 
 SP_data_season
 
-unique(SP_data_season$genus)
+spgenus=unique(SP_data_season$genus)
+write.csv(spgenus, 'data/spgenus.csv', row.names = F)
 
-SP_data_season
+
+#######
 
 unique(TB_data_season$taxa_name)
 
