@@ -132,8 +132,10 @@ genus = subset(data, Genus != "TotalBiovolume")
 
 ######
 #Sliding windows
-
-
+data
+time- sample date, 
+#slide_period()
+#slide_index()
 
 
 
