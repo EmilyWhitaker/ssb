@@ -130,5 +130,25 @@ totals = subset(data, Genus == "TotalBiovolume")
 genus = subset(data, Genus != "TotalBiovolume")
 
 
+######
+#Sliding windows
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
