@@ -231,18 +231,48 @@ ice$sampledate = ymd(ice$sampledate)
 
 join_ice <- left_join(join, ice, by= c('sampledate'))
 
-totalbv = read.csv("data/TotalBVs.csv", stringsAsFactors = F)
-totalbv= read.csv("../TotalBVs.csv")
-totalbv$sampledate = ymd(totalbv$sampledate)
-totalbv %<>% select(sampledate, Genus, CellBioVol) %>%
+#totalbv_TB = read.csv("data/TotalBVs.csv", stringsAsFactors = F)
+#totalbv= read.csv("../TotalBVs.csv")
+#totalbv$sampledate = ymd(totalbv$sampledate)
+TB_data_season_total %<>% select(lakeid, sampledate, division, taxa_name, genus, biovolume_conc, Season) %>%
   mutate(bv.datePlus1 = sampledate + 1) %>% mutate(bv.dateMinus1 = sampledate - 1)
 
-join_surfchlor <-fuzzy_left_join(join_ice, totalbv, by = c("sampledate" = "bv.datePlus1", "sampledate" = "bv.dateMinus1"),
+join_surfchlor <-fuzzy_left_join(join_ice, TB_data_season_total, by = c("sampledate" = "bv.datePlus1", "sampledate" = "bv.dateMinus1"),
                                  match_fun = list(`<=`, `>=`))
 
 join_surfchlor %<>% rename(sampledate= sampledate.y)
 
+write.csv(join_surfchlor, 'data/joinedTBseasonFull.csv', row.names = F)
+
 class(join_surfchlor$sampledate)
+
+#Cleaning col names
+joinedTBseasonFull = read.csv('data/joinedTBseasonFull.csv', stringsAsFactors = F)
+
+joinedTBseasonFull %<>% rename(chlor.int = intchlor)
+joinedTBseasonFull %<>% rename(chlor.surf = chlor.y)
+
+fulldatasetclean05202020_2= fulldatasetclean05202020 %>% select(sampledate.x:chlor.surf, year4,
+                                                                avsnow:blueice,Genus.y:CellBioVol.y)
+
+fulldatasetclean05202020_2%<>% rename(Genus = Genus.y)
+fulldatasetclean05202020_2%<>% rename(CellBioVol = CellBioVol.y)
+fulldatasetclean05202020_2%<>% rename(sampledate = sampledate.x)
+
+fulldatasetclean05202020_2$avsnow[is.na(fulldatasetclean05202020_2$avsnow)]=0
+fulldatasetclean05202020_2$totice[is.na(fulldatasetclean05202020_2$totice)]=0
+fulldatasetclean05202020_2$blueice[is.na(fulldatasetclean05202020_2$blueice)]=0
+fulldatasetclean05202020_2$whiteice[is.na(fulldatasetclean05202020_2$whiteice)]=0
+
+ice.pres
+
+write.csv(fulldatasetclean05202020_2, 'data/FINALfulldatasetclean05202020.csv', row.names = F)
+
+
+
+
+
+
 
 Genera = read.csv("data/CleanBiovolumes05202020", stringsAsFactors = F)
 Genera$sampledate = ymd(Genera$sampledate)
