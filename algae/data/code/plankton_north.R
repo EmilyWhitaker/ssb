@@ -334,4 +334,42 @@ ggplot(SPdataset.dates.clean.nottotals, aes(sampledate, log(biovolume), color=di
 
 SPdataset.dates.clean.iceon= subset(SPdataset.dates.clean, Season == 0)
 
+summer.data.total.long = pivot_longer(SPdataset.dates.clean.iceon, cols=c("wtemp","o2","avsnow","totice","whiteice","blueice", "chlor.int",
+                                                           "frlight","chlor.surf"), names_to="variable", values_to = "value")
+
+ggplot(summer.data.total.long, aes(sampledate, value, color=variable))+
+  geom_point()+
+  geom_smooth(aes(group=variable))+
+  #geom_line(aes(group=variable))+
+  facet_wrap(~variable, scales='free')
+
+
+#divisions 
+
+unique(SPdataset.dates.clean.iceon$division)
+
+gen.main.total = c("Armored Dinoflagellate","Naked Dinoflagellate","Limnothrix","Microcystis","Lindavia",
+                   "Cryptomonad", "Asterionella", "Dinobryon", "Fragilaria","Cocconeis",
+                   "Flagellated Green", "Cf. Komvophoron / Trichormus","Cyanobacteria","Elakatothrix","Mallomonas",
+                   "Segmented Green", "Peanut","Other")
+gen.ndmi=c("Asterionella")
+
+ggplot((subset(totals, Genus %in%gen.ndmi)), aes(sampledate,log(CellBioVol)))+
+  geom_point(aes(col=chlor.surf), size=2)+
+  geom_smooth(method=lm,se=T)+
+  labs(title="Peanut Integrated Chlorophyll")+
+  facet_wrap(~ice.pres, labeller=labeller(ice.pres = ice.labs))
+#ntl=c("Bacillariophyta", "Chlorophyta", "Cryptophyta", "Cyanophyta", "Haptophyta", "Pyrrhophyta", "Total","empty", "Chrysophyta", "Euglenophyta", "Miscellaneous")
+
+
+gen.ndmi=c("Chlorophyta")
+
+ggplot((subset(SPdataset.dates.clean.iceon, division %in%gen.ndmi)), aes(avsnow, log(biovolume)))+
+  geom_point(aes(col=avsnow), size=2)+
+  #geom_smooth()+
+  #geom_line()+  
+  labs(title="Chlorophyta Surface Chlorophyll")+
+  theme_classic()
+
+
 
