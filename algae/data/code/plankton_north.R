@@ -328,8 +328,10 @@ ggplot(SPdataset.dates.clean.nottotals, aes(sampledate, log(biovolume), color=di
   geom_point()+
   #geom_smooth(aes(group=division))+
   geom_line(aes(group=division))+
-  #facet_wrap('Season')+
+  facet_wrap('Season')+
   theme_classic()
 
+
+SPdataset.dates.clean.iceon= subset(SPdataset.dates.clean, Season == 0)
 
 
