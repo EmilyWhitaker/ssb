@@ -302,5 +302,27 @@ SPdataset$sampledate = mdy(SPdataset$sampledate)
 
 write.csv(SPdataset, 'data/cleanSPdataset.csv', row.names = F)
 
+#line graph of divisions and total with biovolume over time 
+
+#SPdataset.long = pivot_longer(SPdataset, cols=c("division",	"taxa_name","genus",	"biovolume"), names_to="variable", values_to = "value")
+
+ggplot(data.total.long, aes(sampledate, value, color=variable))+
+  geom_point()+
+  geom_smooth(aes(group=variable))+
+  #geom_line(aes(group=variable))+
+  facet_wrap(~variable, scales='free')
+
+
+#cutting dates
+
+SPdataset.dates= subset(SPdataset$sampledate>2009)
+
+
+ggplot(SPdataset, aes(sampledate,biovolume, color=division))+
+  geom_point()+
+  geom_smooth(aes(group=division))+
+  geom_line(aes(group=division))+
+  xlim(2010-01-12)
+
 
 
