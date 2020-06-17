@@ -107,18 +107,6 @@ ggplot(TB_data_full, aes(x=sampledate,y=division,fill=med.bv))+
   scale_fill_viridis_c(direction=-1)+
   theme_classic()
 
-#################
-#Answer Hil's questions
-
-#merge datasets with the LTER datasets
-TB_data_full_total
-
-
-
-
-SP_data_season_total
-
-
 
 
 
@@ -268,16 +256,14 @@ fulldatasetclean05202020_2$totice[is.na(fulldatasetclean05202020_2$totice)]=0
 fulldatasetclean05202020_2$blueice[is.na(fulldatasetclean05202020_2$blueice)]=0
 fulldatasetclean05202020_2$whiteice[is.na(fulldatasetclean05202020_2$whiteice)]=0
 
-
-
-
 Genera = read.csv("data/CleanBiovolumes05202020", stringsAsFactors = F)
 Genera$sampledate = ymd(Genera$sampledate)
 
 fulldatasetclean05202020 = full_join(join_surfchlor, Genera, by=c('sampledate'))
 write.csv(fulldatasetclean05202020, 'data/fulldatasetclean05202020.csv', row.names = F)
 
-#### combine SP data 
+#####
+#combine SP data 
 
 
 SP_data_season %<>% select(lakeid, sampledate, division, taxa_name, genus, biovolume_conc, Season) %>%
@@ -292,3 +278,29 @@ join_surfchlor_SP %<>% rename(sampledate= sampledate.y)
 write.csv(join_surfchlor_SP, 'data/joinedSPseasonFull.csv', row.names = F)
 
 class(join_surfchlor_SP$sampledate)
+
+write.csv(SP_data_season_total, 'data/SP_data_season_total.csv', row.names = F)
+
+#############
+#looking at SP full seasonal dataset 
+
+SPdataset = read.csv('data/joinedSPseasonFull_06172020.csv', stringsAsFactors = F)
+
+SPdataset %<>% rename(chlor.int = chlor.x)
+SPdataset %<>% rename(chlor.surf = chlor.y)
+SPdataset$avsnow[is.na(SPdataset$avsnow)]=0
+SPdataset$totice[is.na(SPdataset$totice)]=0
+SPdataset$blueice[is.na(SPdataset$blueice)]=0
+SPdataset$whiteice[is.na(SPdataset$whiteice)]=0
+SPdataset= SPdataset %>% select(sampledate.x,	wtemp,	o2,	o2sat,	cond,	frlight,	chlor.int,	phaeo,	ph,	phair,	alk,	dic,	tic,	
+                                doc,	toc,	no3no2,	no2, nh4,	totnf,	totnuf,	totpf,	totpuf,	drsif,	brsif,	brsiuf,	tpm,	cl,
+                                so4,	ca,	mg,	na,	k,	fe,	mn,	chlor.surf,	avsnow,	totice,	whiteice,	
+                                blueice,	division,	taxa_name,	genus,	biovolume_conc,	Season)		
+SPdataset %<>% rename(sampledate = sampledate.x)
+SPdataset %<>% rename(biovolume = biovolume_conc)                                
+SPdataset$sampledate = mdy(SPdataset$sampledate)
+
+write.csv(SPdataset, 'data/cleanSPdataset.csv', row.names = F)
+
+
+
