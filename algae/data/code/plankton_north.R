@@ -319,11 +319,17 @@ SPdataset.dates$sampledate = mdy(SPdataset.dates$sampledate)
 
 SPdataset.dates.nottotals= subset(SPdataset.dates, division != "Total")
 
+SPdataset.dates.clean = read.csv('data/cleanSPdataset_limiteddates_limiteddiv.csv', stringsAsFactors = F)
+SPdataset.dates.clean$sampledate = mdy(SPdataset.dates.clean$sampledate)
 
-ggplot(SPdataset.dates.nottotals, aes(sampledate, log(biovolume), color=division))+
+SPdataset.dates.clean.nottotals= subset(SPdataset.dates.clean, division != "Total")
+
+ggplot(SPdataset.dates.clean.nottotals, aes(sampledate, log(biovolume), color=division))+
   geom_point()+
   #geom_smooth(aes(group=division))+
-  geom_line(aes(group=division))
+  geom_line(aes(group=division))+
+  #facet_wrap('Season')+
+  theme_classic()
 
 
 
