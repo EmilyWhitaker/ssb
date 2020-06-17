@@ -242,6 +242,13 @@ join_surfchlor <-fuzzy_left_join(join_ice, TB_data_season_total, by = c("sampled
 
 join_surfchlor %<>% rename(sampledate= sampledate.y)
 
+#only totals are currently in 
+
+
+
+
+
+
 write.csv(join_surfchlor, 'data/joinedTBseasonFull.csv', row.names = F)
 
 class(join_surfchlor$sampledate)
