@@ -234,19 +234,13 @@ join_ice <- left_join(join, ice, by= c('sampledate'))
 #totalbv_TB = read.csv("data/TotalBVs.csv", stringsAsFactors = F)
 #totalbv= read.csv("../TotalBVs.csv")
 #totalbv$sampledate = ymd(totalbv$sampledate)
-TB_data_season_total %<>% select(lakeid, sampledate, division, taxa_name, genus, biovolume_conc, Season) %>%
+TB_data_season %<>% select(lakeid, sampledate, division, taxa_name, genus, biovolume_conc, Season) %>%
   mutate(bv.datePlus1 = sampledate + 1) %>% mutate(bv.dateMinus1 = sampledate - 1)
 
-join_surfchlor <-fuzzy_left_join(join_ice, TB_data_season_total, by = c("sampledate" = "bv.datePlus1", "sampledate" = "bv.dateMinus1"),
+join_surfchlor <-fuzzy_left_join(join_ice, TB_data_season, by = c("sampledate" = "bv.datePlus1", "sampledate" = "bv.dateMinus1"),
                                  match_fun = list(`<=`, `>=`))
 
 join_surfchlor %<>% rename(sampledate= sampledate.y)
-
-#only totals are currently in 
-
-
-
-
 
 
 write.csv(join_surfchlor, 'data/joinedTBseasonFull.csv', row.names = F)
