@@ -314,15 +314,16 @@ ggplot(data.total.long, aes(sampledate, value, color=variable))+
 
 
 #cutting dates
+SPdataset.dates = read.csv('data/cleanSPdataset_limiteddates.csv', stringsAsFactors = F)
+SPdataset.dates$sampledate = mdy(SPdataset.dates$sampledate)
 
-SPdataset.dates= subset(SPdataset$sampledate>2009)
+SPdataset.dates.nottotals= subset(SPdataset.dates, division != "Total")
 
 
-ggplot(SPdataset, aes(sampledate,biovolume, color=division))+
+ggplot(SPdataset.dates.nottotals, aes(sampledate, log(biovolume), color=division))+
   geom_point()+
-  geom_smooth(aes(group=division))+
-  geom_line(aes(group=division))+
-  xlim(2010-01-12)
+  #geom_smooth(aes(group=division))+
+  geom_line(aes(group=division))
 
 
 
