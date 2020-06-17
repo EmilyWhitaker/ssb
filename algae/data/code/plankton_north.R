@@ -231,6 +231,9 @@ ice$sampledate = ymd(ice$sampledate)
 
 join_ice <- left_join(join, ice, by= c('sampledate'))
 
+write.csv(join_ice, 'data/joinedbioticandaboitic.csv', row.names = F)
+
+
 #totalbv_TB = read.csv("data/TotalBVs.csv", stringsAsFactors = F)
 #totalbv= read.csv("../TotalBVs.csv")
 #totalbv$sampledate = ymd(totalbv$sampledate)
@@ -265,13 +268,6 @@ fulldatasetclean05202020_2$totice[is.na(fulldatasetclean05202020_2$totice)]=0
 fulldatasetclean05202020_2$blueice[is.na(fulldatasetclean05202020_2$blueice)]=0
 fulldatasetclean05202020_2$whiteice[is.na(fulldatasetclean05202020_2$whiteice)]=0
 
-ice.pres
-
-write.csv(fulldatasetclean05202020_2, 'data/FINALfulldatasetclean05202020.csv', row.names = F)
-
-
-
-
 
 
 
@@ -281,5 +277,18 @@ Genera$sampledate = ymd(Genera$sampledate)
 fulldatasetclean05202020 = full_join(join_surfchlor, Genera, by=c('sampledate'))
 write.csv(fulldatasetclean05202020, 'data/fulldatasetclean05202020.csv', row.names = F)
 
+#### combine SP data 
 
 
+SP_data_season %<>% select(lakeid, sampledate, division, taxa_name, genus, biovolume_conc, Season) %>%
+  mutate(bv.datePlus1 = sampledate + 1) %>% mutate(bv.dateMinus1 = sampledate - 1)
+
+join_surfchlor_SP <-fuzzy_left_join(join_ice, SP_data_season, by = c("sampledate" = "bv.datePlus1", "sampledate" = "bv.dateMinus1"),
+                                 match_fun = list(`<=`, `>=`))
+
+join_surfchlor_SP %<>% rename(sampledate= sampledate.y)
+
+
+write.csv(join_surfchlor_SP, 'data/joinedSPseasonFull.csv', row.names = F)
+
+class(join_surfchlor_SP$sampledate)
