@@ -151,6 +151,10 @@ ggplot(TB_data_full_total, aes(sampledate, log(biovolume_conc)))+
   labs(x='Year')
 
 
+write.csv(TB_data_full_total,'data/TB_data_full_total.csv', row.names = F)
+
+
+
 gg <- ggplot(subset(totals.new, Genus %in%gen.ndmi, aes(x=sampledate, y=log(CellBioVol)))) + 
   geom_point(aes(col=chlor.int))+ 
   geom_smooth()+
@@ -331,6 +335,27 @@ ggplot(SPdataset.dates.clean.nottotals, aes(sampledate, log(biovolume), color=di
   facet_wrap('Season')+
   theme_classic()
 
+ggplot(SPdataset.dates.clean.nottotals, aes(sampledate, log(biovolume), color=division))+
+  geom_bar(position="dodge", stat="division")+
+  #geom_smooth(aes(group=division))+
+  facet_wrap('Season')+
+  theme_classic()
+
+specie <- c(rep("sorgho" , 3) , rep("poacee" , 3) , rep("banana" , 3) , rep("triticum" , 3) )
+condition <- rep(c("normal" , "stress" , "Nitrogen") , 4)
+value <- abs(rnorm(12 , 0 , 15))
+data <- data.frame(specie,condition,value)
+
+# Stacked
+TBdataset.dates.nottotals= subset(TB_data_season, division != "Total")
+
+
+ggplot(TBdataset.dates.nottotals, aes(fill=division, y=log(biovolume_conc), x=sampledate)) + 
+  geom_bar(position="stack", stat="identity")
+  
+
+
+
 
 SPdataset.dates.clean.iceon= subset(SPdataset.dates.clean, Season == 0)
 
@@ -359,17 +384,20 @@ ggplot((subset(totals, Genus %in%gen.ndmi)), aes(sampledate,log(CellBioVol)))+
   geom_smooth(method=lm,se=T)+
   labs(title="Peanut Integrated Chlorophyll")+
   facet_wrap(~ice.pres, labeller=labeller(ice.pres = ice.labs))
-#ntl=c("Bacillariophyta", "Chlorophyta", "Cryptophyta", "Cyanophyta", "Haptophyta", "Pyrrhophyta", "Total","empty", "Chrysophyta", "Euglenophyta", "Miscellaneous")
+#ntl=c("Bacillariophyta", "Chlorophyta", "Cryptophyta", "Cyanophyta", "Haptophyta", "Pyrrhophyta", "Total",
+#"empty", "Chrysophyta", "Euglenophyta", "Miscellaneous")
 
 
-gen.ndmi=c("Chlorophyta")
+gen.ndmi=c("Cyanophyta")
 
-ggplot((subset(SPdataset.dates.clean.iceon, division %in%gen.ndmi)), aes(avsnow, log(biovolume)))+
-  geom_point(aes(col=avsnow), size=2)+
-  #geom_smooth()+
+ggplot((subset(SPdataset.dates.clean.iceon, division %in%gen.ndmi)), aes(whiteice, log(biovolume)))+
+  geom_point(aes(col=blueice), size=2)+
+ # geom_smooth()+
   #geom_line()+  
-  labs(title="Chlorophyta Surface Chlorophyll")+
-  theme_classic()
+  labs(title="Cyanophyta")+
+  theme_classic()+
+  labs(x='White Ice (cm)', y= 'Log Biovolume')
 
 
+aes(col=frlight), size=2
 
