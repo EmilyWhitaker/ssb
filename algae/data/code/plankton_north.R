@@ -396,16 +396,29 @@ ggplot((subset(totals, Genus %in%gen.ndmi)), aes(sampledate,log(CellBioVol)))+
 SPdataset.dates.clean.iceon$year= year(SPdataset.dates.clean.iceon$sampledate)
 #ngt$year= year(ngt$sampledate)
 
-gen.ndmi=c("Bacillariophyta")
+gen.ndmi=c("Chlorophyta")
 
-ggplot((subset(SPdataset.dates.clean.iceon, division %in%gen.ndmi)), aes(whiteice, log(biovolume)))+
-  geom_point(aes(col=year), size=2)+
+ggplot((subset(SPdataset.dates.clean.iceon)), aes(whiteice, log(biovolume)))+
+  geom_point(aes(col=division), size=2)+
  # geom_smooth()+
   #geom_line()+  
-  labs(title="Bacillariophyta")+
+  labs(title="")+
   theme_classic()+
   labs(x='White Ice (cm)', y= 'Log Biovolume')
 
+
+ggplot(SPdataset.dates.clean.nottotals, aes(fill=division, y=biovolume, x=whiteice)) + 
+  geom_bar(position="stack", stat="identity")+
+  theme_classic()+
+  labs(title="Sparkling Lake Biovolume in Relation to White Ice")+
+  labs(x='White ice', y= 'Biovolume')
+
+ggplot(SPdataset.dates.clean.nottotals, aes(fill=division, y=biovolume, x=whiteice)) + 
+  geom_bar(position="stack", stat="identity")+
+  theme_classic()+
+  labs(title="Sparkling Lake Biovolume in Relation to White Ice")+
+  labs(x='White ice', y= 'Biovolume')+
+  facet_wrap("Season")
 
 aes(col=frlight), size=2
 
