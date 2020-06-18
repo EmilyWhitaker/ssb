@@ -394,6 +394,7 @@ ggplot((subset(totals, Genus %in%gen.ndmi)), aes(sampledate,log(CellBioVol)))+
 #"Pyrrhophyta", "Total", "empty", "Chrysophyta", "Euglenophyta", "Miscellaneous")
 
 SPdataset.dates.clean.iceon$year= year(SPdataset.dates.clean.iceon$sampledate)
+SPdataset.dates.clean.iceon.nototals= subset(SPdataset.dates.clean.iceon, division != "Total")
 #ngt$year= year(ngt$sampledate)
 
 gen.ndmi=c("Chlorophyta")
@@ -413,11 +414,26 @@ ggplot(SPdataset.dates.clean.nottotals, aes(fill=division, y=biovolume, x=whitei
   labs(title="Sparkling Lake Biovolume in Relation to White Ice")+
   labs(x='White ice', y= 'Biovolume')
 
-ggplot(SPdataset.dates.clean.nottotals, aes(fill=division, y=biovolume, x=whiteice)) + 
+ggplot(SPdataset.dates.clean.iceon.nototals, aes(fill=division, y=biovolume, x=totice)) + 
   geom_bar(position="stack", stat="identity")+
   theme_classic()+
-  labs(title="Sparkling Lake Biovolume in Relation to White Ice")+
-  labs(x='White ice', y= 'Biovolume')+
+  labs(title="Sparkling Lake Biovolume in Relation to Total Ice")+
+  labs(x='Total Ice', y= 'Biovolume')
+
+
+ggplot(SPdataset.dates.clean.iceon.nototals, aes(fill=division, y=biovolume, x=wtemp)) + 
+  geom_bar(position="stack", stat="identity")+
+  theme_classic()+
+  labs(title="Sparkling Lake Biovolume in Relation to Water Temperature Ice On")+
+  labs(x='Water Temperature', y= 'Biovolume')
+ # facet_wrap("Season", scales = "free")
+
+install.packages("devtools")
+devtools::install_github("joelleforestier/PridePalettes")
+library(PridePalettes)
+
+
++
   facet_wrap("Season")
 
 aes(col=frlight), size=2
