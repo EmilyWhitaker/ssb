@@ -335,11 +335,13 @@ ggplot(SPdataset.dates.clean.nottotals, aes(sampledate, log(biovolume), color=di
   facet_wrap('Season')+
   theme_classic()
 
-ggplot(SPdataset.dates.clean.nottotals, aes(sampledate, log(biovolume), color=division))+
+ggplot(SPdataset.dates.clean.nottotals, aes(sampledate, biovolume, color=division))+
   geom_bar(position="dodge", stat="division")+
   #geom_smooth(aes(group=division))+
   facet_wrap('Season')+
-  theme_classic()
+  theme_classic()+
+  labs(title="Sparkling Lake Biovolume")+
+  labs(x='Year', y= 'Biovolume')+
 
 specie <- c(rep("sorgho" , 3) , rep("poacee" , 3) , rep("banana" , 3) , rep("triticum" , 3) )
 condition <- rep(c("normal" , "stress" , "Nitrogen") , 4)
@@ -350,8 +352,12 @@ data <- data.frame(specie,condition,value)
 TBdataset.dates.nottotals= subset(TB_data_season, division != "Total")
 
 
-ggplot(TBdataset.dates.nottotals, aes(fill=division, y=log(biovolume_conc), x=sampledate)) + 
-  geom_bar(position="stack", stat="identity")
+ggplot(SPdataset.dates.clean.nottotals, aes(fill=division, y=biovolume, x=sampledate)) + 
+  geom_bar(position="stack", stat="identity")+
+  theme_classic()+
+  labs(title="Sparkling Lake Biovolume")+
+  labs(x='Year', y= 'Biovolume')
+  
   
 
 
