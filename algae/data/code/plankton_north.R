@@ -352,10 +352,10 @@ data <- data.frame(specie,condition,value)
 TBdataset.dates.nottotals= subset(TB_data_season, division != "Total")
 
 
-ggplot(SPdataset.dates.clean.nottotals, aes(fill=division, y=biovolume, x=sampledate)) + 
+ggplot(TBdataset.dates.nottotals, aes(fill=division, y=biovolume_conc, x=sampledate)) + 
   geom_bar(position="stack", stat="identity")+
   theme_classic()+
-  labs(title="Sparkling Lake Biovolume")+
+  labs(title="Trout Bog Biovolume")+
   labs(x='Year', y= 'Biovolume')
   
   
