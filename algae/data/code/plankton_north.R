@@ -390,17 +390,19 @@ ggplot((subset(totals, Genus %in%gen.ndmi)), aes(sampledate,log(CellBioVol)))+
   geom_smooth(method=lm,se=T)+
   labs(title="Peanut Integrated Chlorophyll")+
   facet_wrap(~ice.pres, labeller=labeller(ice.pres = ice.labs))
-#ntl=c("Bacillariophyta", "Chlorophyta", "Cryptophyta", "Cyanophyta", "Haptophyta", "Pyrrhophyta", "Total",
-#"empty", "Chrysophyta", "Euglenophyta", "Miscellaneous")
+#ntl=c("Bacillariophyta", "Chlorophyta", "Cryptophyta", "Cyanophyta", "Haptophyta",
+#"Pyrrhophyta", "Total", "empty", "Chrysophyta", "Euglenophyta", "Miscellaneous")
 
+SPdataset.dates.clean.iceon$year= year(SPdataset.dates.clean.iceon$sampledate)
+#ngt$year= year(ngt$sampledate)
 
-gen.ndmi=c("Cyanophyta")
+gen.ndmi=c("Bacillariophyta")
 
 ggplot((subset(SPdataset.dates.clean.iceon, division %in%gen.ndmi)), aes(whiteice, log(biovolume)))+
-  geom_point(aes(col=blueice), size=2)+
+  geom_point(aes(col=year), size=2)+
  # geom_smooth()+
   #geom_line()+  
-  labs(title="Cyanophyta")+
+  labs(title="Bacillariophyta")+
   theme_classic()+
   labs(x='White Ice (cm)', y= 'Log Biovolume')
 
