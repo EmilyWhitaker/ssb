@@ -421,12 +421,12 @@ ggplot(SPdataset.dates.clean.iceon.nototals, aes(fill=division, y=biovolume, x=t
   labs(x='Total Ice', y= 'Biovolume')
 
 
-ggplot(SPdataset.dates.clean.iceon.nototals, aes(fill=division, y=biovolume, x=wtemp)) + 
+ggplot(SPdataset.dates.clean.nottotals, aes(fill=division, y=biovolume, x=wtemp)) + 
   geom_bar(position="stack", stat="identity")+
   theme_classic()+
-  labs(title="Sparkling Lake Biovolume in Relation to Water Temperature Ice On")+
-  labs(x='Water Temperature', y= 'Biovolume')
- # facet_wrap("Season", scales = "free")
+  labs(title="Sparkling Lake Biovolume in Relation to Water Temperature")+
+  labs(x='Water Temperature', y= 'Biovolume')+
+  facet_wrap("Season", scales = "free")
 
 install.packages("devtools")
 devtools::install_github("joelleforestier/PridePalettes")
