@@ -408,6 +408,9 @@ ggplot((subset(SPdataset.dates.clean.iceon)), aes(whiteice, log(biovolume)))+
   labs(x='White Ice (cm)', y= 'Log Biovolume')
 
 
+
+
+
 ggplot(SPdataset.dates.clean.nottotals, aes(fill=division, y=biovolume, x=whiteice)) + 
   geom_bar(position="stack", stat="identity")+
   theme_classic()+
@@ -420,13 +423,37 @@ ggplot(SPdataset.dates.clean.iceon.nototals, aes(fill=division, y=biovolume, x=t
   labs(title="Sparkling Lake Biovolume in Relation to Total Ice")+
   labs(x='Total Ice', y= 'Biovolume')
 
+SPdataset.dates.clean.iceon= subset(SPdataset.dates.clean, Season == 0)
+SPdataset.dates.clean.iceoff= subset(SPdataset.dates.nottotals, Season == 1)
 
-ggplot(SPdataset.dates.clean.nottotals, aes(fill=division, y=biovolume, x=wtemp)) + 
+#our two seasons: SPdataset.dates.clean.iceon.nototals, SPdataset.dates.clean.iceoff
+# vars: wtemp,	o2,	o2sat,	cond,	frlight,	chlor.int,	phaeo,	ph,	phair,	alk,	dic,	tic,	
+#doc,	toc,	no3no2,	no2, nh4,	totnf,	totnuf,	totpf,	totpuf,	drsif,	brsif,	brsiuf,	tpm,	cl,
+#so4,	ca,	mg,	na,	k,	fe,	mn,	chlor.surf,	avsnow,	totice,	whiteice,	
+#blueice
+
+ggplot(SPdataset.dates.clean.iceon.nototals, aes(fill=division, y=biovolume, x=totnf)) + 
   geom_bar(position="stack", stat="identity")+
   theme_classic()+
-  labs(title="Sparkling Lake Biovolume in Relation to Water Temperature")+
-  labs(x='Water Temperature', y= 'Biovolume')+
-  facet_wrap("Season", scales = "free")
+  labs(title="Sparkling Lake Biovolume in Relation to Total Filtered Nitrogen Ice On")+
+  labs(x='Total Filtered Nitrogen', y= 'Biovolume')
+ # facet_wrap("Season", scales = "free")
+#need to redo cond/frlight/dic/doc/no3no2  -- scales ,, define phaeo (phaeopigment)/phair,
+#Nitrite -N/A
+
+ggplot(SPdataset.dates.clean.iceoff, aes(fill=division, y=biovolume, x=wtemp)) + 
+  geom_bar(position="stack", stat="identity")+
+  theme_classic()+
+  labs(title="Sparkling Lake Biovolume in Relation to Water Temperature Ice Off")+
+  labs(x='Water Temperature', y= 'Biovolume')
+# facet_wrap("Season", scales = "free")
+
+
+
+
+
+
+############
 
 install.packages("devtools")
 devtools::install_github("joelleforestier/PridePalettes")
