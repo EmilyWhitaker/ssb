@@ -443,21 +443,22 @@ ggplot(SPdataset.dates.clean.iceon.nototals, aes(fill=division, y=biovolume, x=c
 #define phaeo (phaeopigment)/phair,
 #Nitrite/brsiuf -N/A
 
-ggplot(SPdataset.dates.clean.iceoff, aes(fill=division, y=biovolume, x=nh4)) + 
+ggplot(SPdataset.dates.clean.iceoff, aes(fill=division, y=biovolume, x=so4)) + 
   geom_bar(position="stack", stat="identity")+
   theme_classic()+
-  labs(title="Sparkling Lake Biovolume in Relation to phair Ice Off")+
-  labs(x='phair', y= 'Biovolume')#
+  labs(title="Sparkling Lake Biovolume in Relation to Chlorine Ice Off")+
+  labs(x='Chlorine', y= 'Biovolume')#
 #  facet_wrap(scales = "free")
 
-#need to redo wtemp,o2,	o2sat,	chlor.int,	phaeo,	alk,	dic,	tic,	
-#doc,	toc,	no3no2,	no2, nh4,	totnf,	totnuf,	totpf,	totpuf,	drsif,	brsif,	brsiuf,	tpm,	cl,
+#need to redo: wtemp,o2,	o2sat,	chlor.int,	phaeo,	alk,	dic,	tic,	
+#doc,	toc,	no3no2,	no2, nh4,	totnf,	totnuf,	totpf,	totpuf,	drsif,	brsif,	brsiuf,	tpm,	
 #so4,	ca,	mg,	na,	k,	fe,	mn,	chlor.surf,
 
 #phair whatdoes it stand 4
-#doc/toc/no3no2 remove values less than 0
+#doc/toc/no3no2/nh4 remove values less than 0
+#cl might want to redo
 
-#no2-NA
+#no2/brsif-NA
 ############
 
 install.packages("devtools")
