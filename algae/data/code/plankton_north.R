@@ -443,14 +443,16 @@ ggplot(SPdataset.dates.clean.iceon.nototals, aes(fill=division, y=biovolume, x=c
 #define phaeo (phaeopigment)/phair,
 #Nitrite/brsiuf -N/A
 
-ggplot(SPdataset.dates.clean.iceoff, aes(fill=division, y=biovolume, x=wtemp)) + 
+ggplot(SPdataset.dates.clean.iceoff, aes(fill=division, y=biovolume, x=cond)) + 
   geom_bar(position="stack", stat="identity")+
   theme_classic()+
-  labs(title="Sparkling Lake Biovolume in Relation to Water Temperature Ice Off")+
-  labs(x='Water Temperature', y= 'Biovolume')
-# facet_wrap("Season", scales = "free")
+  labs(title="Sparkling Lake Biovolume in Relation to Conductivity Ice Off")+
+  labs(x='Conductivity', y= 'Biovolume')#
+#  facet_wrap(scales = "free")
 
-
+#need to redo wtemp,o2,	o2sat,	cond,	frlight,	chlor.int,	phaeo,	phair,	alk,	dic,	tic,	
+#doc,	toc,	no3no2,	no2, nh4,	totnf,	totnuf,	totpf,	totpuf,	drsif,	brsif,	brsiuf,	tpm,	cl,
+#so4,	ca,	mg,	na,	k,	fe,	mn,	chlor.surf,
 
 
 
