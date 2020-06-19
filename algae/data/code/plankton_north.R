@@ -432,14 +432,16 @@ SPdataset.dates.clean.iceoff= subset(SPdataset.dates.nottotals, Season == 1)
 #so4,	ca,	mg,	na,	k,	fe,	mn,	chlor.surf,	avsnow,	totice,	whiteice,	
 #blueice
 
-ggplot(SPdataset.dates.clean.iceon.nototals, aes(fill=division, y=biovolume, x=drsif)) + 
+ggplot(SPdataset.dates.clean.iceon.nototals, aes(fill=division, y=biovolume, x=cl)) + 
   geom_bar(position="stack", stat="identity")+
   theme_classic()+
-  labs(title="Sparkling Lake Biovolume in Relation to Total Unfiltered Phosphorus Ice On")+
-  labs(x='Total Unfiltered Phosphorus', y= 'Biovolume')
+  labs(title="Sparkling Lake Biovolume in Relation to Chlorine Ice On")+
+  labs(x='Chlorine', y= 'Biovolume')
  # facet_wrap("Season", scales = "free")
-#need to redo cond/frlight/dic/doc/no3no2  -- scales ,, define phaeo (phaeopigment)/phair,
-#Nitrite -N/A
+#need to redo cond/frlight/dic/doc/no3no2/drsif(Filtered Dissolved Reactive Silica)/drsif(bicarbonate reactive silica filtered)
+#-- scales ,, 
+#define phaeo (phaeopigment)/phair,
+#Nitrite/brsiuf -N/A
 
 ggplot(SPdataset.dates.clean.iceoff, aes(fill=division, y=biovolume, x=wtemp)) + 
   geom_bar(position="stack", stat="identity")+
