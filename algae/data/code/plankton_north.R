@@ -443,16 +443,16 @@ ggplot(SPdataset.dates.clean.iceon.nototals, aes(fill=division, y=biovolume, x=c
 #define phaeo (phaeopigment)/phair,
 #Nitrite/brsiuf -N/A
 
-ggplot(SPdataset.dates.clean.iceoff, aes(fill=division, y=biovolume, x=so4)) + 
+ggplot(SPdataset.dates.clean.iceoff, aes(fill=division, y=biovolume, x=chlor.surf)) + 
   geom_bar(position="stack", stat="identity")+
   theme_classic()+
-  labs(title="Sparkling Lake Biovolume in Relation to Chlorine Ice Off")+
-  labs(x='Chlorine', y= 'Biovolume')#
+  labs(title="Sparkling Lake Biovolume in Relation to Surface Chlorophyll Ice Off")+
+  labs(x='Surface Chlorophyll', y= 'Biovolume')#
 #  facet_wrap(scales = "free")
 
 #need to redo: wtemp,o2,	o2sat,	chlor.int,	phaeo,	alk,	dic,	tic,	
 #doc,	toc,	no3no2,	no2, nh4,	totnf,	totnuf,	totpf,	totpuf,	drsif,	brsif,	brsiuf,	tpm,	
-#so4,	ca,	mg,	na,	k,	fe,	mn,	chlor.surf,
+#so4,	ca,	na,	fe,
 
 #phair whatdoes it stand 4
 #doc/toc/no3no2/nh4 remove values less than 0
