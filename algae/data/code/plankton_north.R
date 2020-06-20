@@ -455,10 +455,21 @@ ggplot(SPdataset.dates.clean.iceoff, aes(fill=division, y=biovolume, x=phaeo)) +
 #so4,	ca,	na,	fe,
 
 
-SPdataset.dates.clean.iceoff_nozeros= 
+SPdataset.dates.clean.iceoff_nozeros= subset(SPdataset.dates.clean.iceoff, doc>=0)
+SPdataset.dates.clean.iceoff_nozeros= subset(SPdataset.dates.clean.iceoff, toc>=0)
+SPdataset.dates.clean.iceoff_nozeros= subset(SPdataset.dates.clean.iceoff, no3no2>=0)
+SPdataset.dates.clean.iceoff_nozeros= subset(SPdataset.dates.clean.iceoff, nh4>=0)
+
+ggplot(SPdataset.dates.clean.iceoff_nozeros, aes(fill=division, y=biovolume, x=nh4)) + 
+  geom_bar(position="stack", stat="identity")+
+  theme_classic()+
+  labs(title="Sparkling Lake Biovolume in Relation to o2sat Ice Off")+
+  labs(x='o2sat', y= 'Biovolume')#
+
+
 
 #phair whatdoes it stand 4
-#doc/toc/no3no2/nh4 remove values less than 0
+#doc/toc/no3no2/nh4 remove values less than 0-- redo doc
 #cl might want to redo
 
 #no2/brsif-NA
