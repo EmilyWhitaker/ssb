@@ -479,6 +479,16 @@ ggplot(SPdataset.dates.clean.iceoff_nozeros, aes(fill=division, y=biovolume, x=n
   labs(x='o2sat', y= 'Biovolume')#
 
 
+ggplot(SPdataset.dates.clean.iceoff_nozeros, aes(chlor.int, biovolume))+
+  geom_point(aes(col=division), size=2)+
+  # geom_smooth()+
+  #geom_line()+  
+  labs(title="")+
+  theme_classic()+
+  labs(x='Integrated Chlorophyll', y= 'Biovolume')+
+  labs(title="Sparkling Lake Biovolume in Relation to Integrated Chlorophyll Ice Off")
+
+
 
 #phair whatdoes it stand 4
 #doc/toc/no3no2/nh4 remove values less than 0-- redo doc
