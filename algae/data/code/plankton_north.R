@@ -432,13 +432,15 @@ SPdataset.dates.clean.iceoff= subset(SPdataset.dates.nottotals, Season == 1)
 #so4,	ca,	mg,	na,	k,	fe,	mn,	chlor.surf,	avsnow,	totice,	whiteice,	
 #blueice
 
-ggplot(SPdataset.dates.clean.iceon.nototals, aes(drsif, biovolume))+
-  geom_point(aes(fill=division), size=2)+
+ggplot(SPdataset.dates.clean.iceon.nototals, aes(drsif, log(biovolume)))+
+  geom_point(aes(col=division), size=2)+
   # geom_smooth()+
   #geom_line()+  
   labs(title="")+
   theme_classic()+
-  labs(x='White Ice (cm)', y= 'Log Biovolume')
+  labs(x='Filtered Dissolved Reactive Silica', y= 'Log Biovolume')+
+  labs(title="Sparkling Lake Biovolume in Relation to cond Ice On")
+  
 
 ggplot(SPdataset.dates.clean.iceon.nototals, aes(fill=division, y=biovolume, x=drsif)) + 
   geom_bar(position="stack", stat="identity")+
