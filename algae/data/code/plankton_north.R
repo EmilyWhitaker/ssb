@@ -529,6 +529,9 @@ Chloro2
 
 Chloro3 = read.csv('data/SPChloro2010.Clean.withbv.nonas.csv', stringsAsFactors = F)
 Chloro3$sampledate = mdy(Chloro3$sampledate)
+Chloro3$month=month(Chloro3$sampledate)
+
+
 Chloro3
 
 
@@ -560,48 +563,57 @@ Chloro3_18m <- subset(Chloro3, depth ==18)
 
 Chloro2_0m
 
+ggplot(Chloro3_0m, aes(chlor, biovolume_conc, colour = month)) +
+  geom_point() +
+  geom_smooth(se = FALSE, method = lm)+
+  facet_wrap("Season", scales = 'free')
 
-ggplot(Chloro3_5m, aes(chlor, biovolume_conc))+
-  geom_point(aes(col=season), size=2)+
+
+
+a<-ggplot(Chloro3_5m, aes(chlor, biovolume_conc))+
+  geom_point(aes(col=month), size=2)+
   geom_smooth(method = 'lm')+
   #geom_line()+  
   labs(title="")+
   theme_classic()+
   labs(x='chlor', y= 'biovolume_conc')+
-  facet_wrap("Season")
+  facet_wrap("month", scales = 'free')
+a+ scale_color_gradientn(colours = rainbow(10))
 
-ggplot(Chloro3_0m, aes(chlor, biovolume_conc))+
-  geom_point(aes(col=Season), size=2)+
+
+b<- ggplot(Chloro3_18m, aes(chlor, biovolume_conc))+
+  geom_point(aes(col=month), size=2)+
   geom_smooth(method = 'lm')+
   #geom_line()+  
   labs(title="")+
   theme_classic()+
   labs(x='chlor', y= 'biovolume_conc')+
-  facet_wrap('Season')+
-  labs(title="0 meters")
+  labs(x='Chlorophyll at Depth', y= 'Biovolume')+
+  facet_wrap('month', scales = 'free')+
+  labs(title="18 meters")
+b+ scale_color_gradientn(colours = rainbow(10))
 
-ggplot(Chloro3_3m, aes(chlor, biovolume_conc))+
-  geom_point(aes(col=Season), size=2)+
-  geom_smooth(method = 'lm')+
+c <- ggplot(Chloro3_3m, aes(chlor, biovolume_conc))+
+  geom_point(aes(col=month), size=2)+
+  geom_smooth(method = 'lm',s)+
   #geom_line()+  
   labs(title="")+
   theme_classic()+
   labs(x='chlor', y= 'biovolume_conc')+
-  facet_wrap('Season')+
+  facet_wrap('month', scales = 'free')+
   labs(title="3 meters")
+c+ scale_color_gradientn(colours = rainbow(10))
 
-ggplot(Chloro3_0m, aes(chlor, biovolume_conc))+
-  geom_point(aes(col=Season), size=2)+
+d <- ggplot(Chloro3_0m, aes(chlor, biovolume_conc))+
+  geom_point(aes(col=month), size=2)+
   geom_smooth(method = 'lm')+
   #geom_line()+  
   labs(title="")+
   theme_classic()+
   labs(x='chlor', y= 'biovolume_conc')+
-  facet_wrap('Season', scales = 'free')+
+  facet_wrap('month', scales = 'free')+
   labs(title="0 meters")
-
-
-
+d+ scale_color_gradientn(colours = rainbow(10))
 
 
 
