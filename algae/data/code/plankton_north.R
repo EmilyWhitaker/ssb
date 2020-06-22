@@ -455,18 +455,18 @@ ggplot(SPdataset.dates.clean.iceon.nototals, aes(fill=division, y=biovolume, x=d
 #define phaeo (phaeopigment)/phair,
 #Nitrite/brsiuf -N/A
 
-ggplot(SPdataset.dates.clean.iceoff, aes(fill=division, y=biovolume, x=phaeo)) + 
-  geom_bar(position="stack", stat="identity")+
+ggplot(SPdataset.dates.clean.iceoff, aes(fill=division, y=biovolume, x=chlor.int)) + 
+  geom_bar(position="stack", stat="identity", width = .05)+
   theme_classic()+
-  labs(title="Sparkling Lake Biovolume in Relation to o2sat Ice Off")+
-  labs(x='o2sat', y= 'Biovolume')#
+  labs(title="Sparkling Lake Biovolume in Relation to Integrated Chlorophyll Ice Off")+
+  labs(x='Integrated Chlorophyll', y= 'Biovolume')#
 #  facet_wrap(scales = "free")
 
 #need to redo: wtemp,o2,	o2sat,	chlor.int,	phaeo,	alk,	dic,	tic,	
-#doc,	toc,	no3no2,	no2, nh4,	totnf,	totnuf,	totpf,	totpuf,	drsif,	brsif,	brsiuf,	
+#doc,	toc,	no3no2,	no2, nh4,	totnf,	totnuf,	totpf,	totpuf,	drsif,	
 #so4,	ca,	na,	fe,
 
-
+#brsif/brsiuf-- nA
 SPdataset.dates.clean.iceoff_nozeros= subset(SPdataset.dates.clean.iceoff, doc>=0)
 SPdataset.dates.clean.iceoff_nozeros= subset(SPdataset.dates.clean.iceoff, toc>=0)
 SPdataset.dates.clean.iceoff_nozeros= subset(SPdataset.dates.clean.iceoff, no3no2>=0)
