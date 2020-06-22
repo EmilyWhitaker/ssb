@@ -456,7 +456,7 @@ ggplot(SPdataset.dates.clean.iceon.nototals, aes(fill=division, y=biovolume, x=d
 #Nitrite/brsiuf -N/A
 
 ggplot(SPdataset.dates.clean.iceoff, aes(fill=division, y=biovolume, x=chlor.int)) + 
-  geom_bar(position="stack", stat="identity", width = .05)+
+  geom_bar(position="stack", stat="identity")+
   theme_classic()+
   labs(title="Sparkling Lake Biovolume in Relation to Integrated Chlorophyll Ice Off")+
   labs(x='Integrated Chlorophyll', y= 'Biovolume')#
@@ -506,4 +506,213 @@ library(PridePalettes)
   facet_wrap("Season")
 
 aes(col=frlight), size=2
+
+
+#########################
+#Can you explore the relationship between biovolume and chlorophyll more? Like BV vs Chl at different depths.
+#Yes, try
+#integrated BV vs Chl at 1m,
+#integrated BV vs Chl at 4m, etc…
+#If you look at the chlorophyll data, you’ll see where the peaks are and how that changes seasonally. 
+#There might be stronger correlations at certain depths.
+
+Chloro1 = read.csv('data/SPChloro2010-2015.csv', stringsAsFactors = F)
+Chloro1 %<>% select(year4, sampledate, depth, chlor)
+Chloro1$sampledate = ymd(Chloro1$sampledate)
+write.csv(Chloro1, 'data/SPChloro2010.Clean.csv', row.names = F)
+
+
+Chloro2 = read.csv('data/SPChloro2010.Clean.withbv.csv', stringsAsFactors = F)
+Chloro2$sampledate = mdy(Chloro2$sampledate)
+Chloro2
+
+
+Chloro3 = read.csv('data/SPChloro2010.Clean.withbv.nonas.csv', stringsAsFactors = F)
+Chloro3$sampledate = mdy(Chloro3$sampledate)
+Chloro3
+
+
+ggplot(Chloro2, aes(sampledate, chlor))+
+  geom_point(aes(col=depth), size=2)+
+  # geom_smooth()+
+  #geom_line()+  
+  labs(title="")+
+  theme_classic()+
+  labs(x='Sample Date', y= 'Chloro')
+
+ggplot(Chloro2, aes(chlor, biovolume_conc))+
+  geom_point(aes(col=depth), size=2)+
+  # geom_smooth()+
+  #geom_line()+  
+  labs(title="")+
+  theme_classic()+
+  labs(x='chlor', y= 'biovolume_conc')
+
+
+Chloro3_0m <- subset(Chloro3, depth ==0)
+Chloro3_3m <- subset(Chloro3, depth ==3)
+Chloro3_5m <- subset(Chloro3, depth ==5)
+Chloro3_8m <- subset(Chloro3, depth ==8)
+Chloro3_10m <- subset(Chloro3, depth ==10)
+Chloro3_12m <- subset(Chloro3, depth ==12)
+Chloro3_15m <- subset(Chloro3, depth ==15)
+Chloro3_18m <- subset(Chloro3, depth ==18)
+
+Chloro2_0m
+
+
+ggplot(Chloro3_5m, aes(chlor, biovolume_conc))+
+  geom_point(aes(col=season), size=2)+
+  geom_smooth(method = 'lm')+
+  #geom_line()+  
+  labs(title="")+
+  theme_classic()+
+  labs(x='chlor', y= 'biovolume_conc')+
+  facet_wrap("Season")
+
+ggplot(Chloro3_0m, aes(chlor, biovolume_conc))+
+  geom_point(aes(col=Season), size=2)+
+  geom_smooth(method = 'lm')+
+  #geom_line()+  
+  labs(title="")+
+  theme_classic()+
+  labs(x='chlor', y= 'biovolume_conc')+
+  facet_wrap('Season')+
+  labs(title="0 meters")
+
+ggplot(Chloro3_3m, aes(chlor, biovolume_conc))+
+  geom_point(aes(col=Season), size=2)+
+  geom_smooth(method = 'lm')+
+  #geom_line()+  
+  labs(title="")+
+  theme_classic()+
+  labs(x='chlor', y= 'biovolume_conc')+
+  facet_wrap('Season')+
+  labs(title="3 meters")
+
+ggplot(Chloro3_0m, aes(chlor, biovolume_conc))+
+  geom_point(aes(col=Season), size=2)+
+  geom_smooth(method = 'lm')+
+  #geom_line()+  
+  labs(title="")+
+  theme_classic()+
+  labs(x='chlor', y= 'biovolume_conc')+
+  facet_wrap('Season', scales = 'free')+
+  labs(title="0 meters")
+
+
+
+
+
+
+ggplot(Chloro2_3m, aes(chlor, biovolume_conc))+
+  geom_point(aes(col=depth), size=2)+
+  # geom_smooth()+
+  #geom_line()+  
+  labs(title="")+
+  theme_classic()+
+  labs(x='chlor', y= 'biovolume_conc')
+
+ggplot(Chloro3_5m, aes(chlor, biovolume_conc))+
+  geom_point(aes(col=season), size=2)+
+  geom_smooth(method = 'lm')+
+  #geom_line()+  
+  labs(title="")+
+  theme_classic()+
+  labs(x='chlor', y= 'biovolume_conc')+
+  facet_wrap("Season")
+
+h<-ggplot(Chloro2_8m, aes(chlor, biovolume_conc))+
+  geom_point(aes(col=depth), size=2)+
+  # geom_smooth()+
+  #geom_line()+  
+  labs(title="")+
+  theme_classic()+
+  labs(x='chlor', y= 'biovolume_conc')
+h+ stat_cor(method = "pearson", label.x = 3, label.y = 30)
+
+ggscatter(Chloro2_8m, x = "chlor", y = "biovolume_conc", palette = "jco",
+                add = "reg.line", conf.int = TRUE)
+
+
+
+ggplot(Chloro2_10m, aes(chlor, biovolume_conc))+
+  geom_point(aes(col=depth), size=2)+
+  # geom_smooth()+
+  #geom_line()+  
+  labs(title="")+
+  theme_classic()+
+  labs(x='chlor', y= 'biovolume_conc')
+
+ggplot(Chloro2_12m, aes(chlor, biovolume_conc))+
+  geom_point(aes(col=depth), size=2)+
+  # geom_smooth()+
+  #geom_line()+  
+  labs(title="")+
+  theme_classic()+
+  labs(x='chlor', y= 'biovolume_conc')
+
+ggplot(Chloro2_15m, aes(chlor, biovolume_conc))+
+  geom_point(aes(col=Season), size=2)+
+  # geom_smooth()+
+  #geom_line()+  
+  labs(title="")+
+  theme_classic()+
+  labs(x='chlor', y= 'biovolume_conc')
+
+ggplot(Chloro2_18m, aes(chlor, biovolume_conc))+
+  geom_point(aes(col=Season), size=2)+
+  # geom_smooth()+
+  #geom_line()+  
+  labs(title="")+
+  theme_classic()+
+  labs(x='chlor', y= 'biovolume_conc')
+
+
+install.packages("ggcorrplot")
+library(ggcorrplot)
+
+# Compute a correlation matrix
+#data(mtcars)
+#corr <- round(cor(mtcars), 1)
+#head(corr[, 1:6])
+
+# Compute a matrix of correlation p-values
+#p.mat <- cor_pmat(mtcars)
+#head(p.mat[, 1:4])
+
+# Visualize the correlation matrix
+#ggcorrplot(corr)
+
+Chloro3_short <- Chloro3[c(4,5,10,12)]
+head(Chloro3_short)
+cor(Chloro3_short)
+corrplot(Chloro3_short)
+ggcorrplot(Chloro3_short)
+ggcorrplot(Chloro0_short, method = "circle")
+
+
+
+Chloro0_short <- Chloro3_0m[c(4,5,10,12)]
+corrdepth0 <- round(cor(Chloro3_0m),[c(4,5,10,12)])
+corrdepth3 <- round(cor(Chloro2_3m), 1)
+corrdepth5 <- round(cor(Chloro2_5m), 1)
+corrdepth8 <- round(cor(Chloro2_8m), 1)
+corrdepth10 <- round(cor(Chloro2_10m), 1)
+corrdepth12 <- round(cor(Chloro2_12m), 1)
+corrdepth15 <- round(cor(Chloro2_15m), 1)
+corrdepth18 <- round(cor(Chloro2_18m), 1)
+
+Chloro2_0m <- subset(Chloro2, depth ==0)
+Chloro2_3m <- subset(Chloro2, depth ==3)
+Chloro2_5m <- subset(Chloro2, depth ==5)
+Chloro2_8m <- subset(Chloro2, depth ==8)
+Chloro2_10m <- subset(Chloro2, depth ==10)
+Chloro2_12m <- subset(Chloro2, depth ==12)
+Chloro2_15m <- subset(Chloro2, depth ==15)
+Chloro2_18m
+
+res2 <-cor.test(Chloro3_short$depth, Chloro3_short$chlor, Chloro3_short$biovolume_conc, method = "spearman")
+res2
+
 
