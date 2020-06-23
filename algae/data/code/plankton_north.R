@@ -446,7 +446,8 @@ ggplot(SPdataset.dates.clean.iceon.nototals, aes(fill=division, y=biovolume, x=d
   geom_bar(position="stack", stat="identity")+
   theme_classic()+
   labs(title="Sparkling Lake Biovolume in Relation to Dissolved Organic Carbon Ice On")+
-  labs(x='Dissolved Organic Carbon', y= 'Biovolume')
+  labs(x='Dissolved Organic Carbon', y= 'Biovolume')+
+  facet_wrap('division', scales = "free")
  
 
 # facet_wrap("Season", scales = "free")
