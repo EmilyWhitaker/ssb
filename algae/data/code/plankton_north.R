@@ -746,22 +746,22 @@ ChloroCheck.may <- subset(ChloroCheck, month ==5)
 ChloroCheck.june <- subset(ChloroCheck, month ==6)
 ChloroCheck.july<- subset(ChloroCheck, month ==7)
 ChloroCheck.august <- subset(ChloroCheck, month ==8)
-ChloroCheck. <- subset(ChloroCheck, month ==9)
-ChloroCheck.jan <- subset(ChloroCheck, month ==10)
-ChloroCheck.jan <- subset(ChloroCheck, month ==11)
-ChloroCheck.jan <- subset(ChloroCheck, month ==12)
+ChloroCheck.sept <- subset(ChloroCheck, month ==9)
+ChloroCheck.oct<- subset(ChloroCheck, month ==10)
+ChloroCheck.nov <- subset(ChloroCheck, month ==11)
+ChloroCheck.dec <- subset(ChloroCheck, month ==12)
 
 
 max(ChloroCheck.jan$chlor) #15.3 
 
 ChloroCheck
-d <- ggplot(ChloroCheck.jan, aes(chlor, depth))+
+d <- ggplot(ChloroCheck.dec, aes(chlor, depth))+
   geom_point(aes(col=depth), size=2)+
   #geom_smooth(method = 'lm')+
   #geom_line()+  
   theme_classic()+
   labs(x='chlor', y= 'depth')+
-  facet_wrap('month', scales = 'free')+
-  labs(title="January")+
-  ylim(0,10) 
+  labs(title="December")+
+  ylim(0,10)+
+  xlim(0,10)
 d+ scale_color_gradientn(colours = rainbow(10))
