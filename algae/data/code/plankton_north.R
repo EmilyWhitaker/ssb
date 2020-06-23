@@ -472,7 +472,9 @@ SPdataset.dates.clean.iceoff_nozeros= subset(SPdataset.dates.clean.iceoff, doc>=
 SPdataset.dates.clean.iceoff_nozeros= subset(SPdataset.dates.clean.iceoff, toc>=0)
 SPdataset.dates.clean.iceoff_nozeros= subset(SPdataset.dates.clean.iceoff, no3no2>=0)
 SPdataset.dates.clean.iceoff_nozeros= subset(SPdataset.dates.clean.iceoff, nh4>=0)
-
+SPdataset.dates.clean.iceoff_nozeros= subset(SPdataset.dates.clean.iceoff_nozeros, toc>=0)
+  
+  
 ggplot(SPdataset.dates.clean.iceoff_nozeros, aes(fill=division, y=biovolume, x=nh4)) + 
   geom_bar(stat="identity", width = .5)+
   theme_classic()+
@@ -481,19 +483,21 @@ ggplot(SPdataset.dates.clean.iceoff_nozeros, aes(fill=division, y=biovolume, x=n
   facet_wrap('division', scales = 'free')
 
 
-ggplot(SPdataset.dates.clean.iceoff_nozeros, aes(tic, biovolume))+
+ggplot(SPdataset.dates.clean.iceoff_nozeros, aes(ca, biovolume))+
   geom_point(aes(col=division), size=2)+
   # geom_smooth()+
   #geom_line()+  
   labs(title="")+
   theme_classic()+
   facet_wrap('division', scales = 'free')+
-  labs(x='Total Inorganic Carbon', y= 'Biovolume')+
-  labs(title="Sparkling Lake Biovolume in Relation to Total Inorganic Carbon Ice Off")
+  labs(x='ca', y= 'Biovolume')+
+  labs(title="Sparkling Lake Biovolume in Relation to Ca Ice Off")
 
-#need to redo: ,	phaeo,	alk,	dic,	tic,	
-#doc,	toc,	no3no2,	no2, nh4,	totnf,	totnuf,	totpf,	totpuf,	drsif,	
-#so4,	ca,	na,	fe,
+#need to redo: ,	phaeo,		
+#	, nh4,	totnf,	totnuf,	totpf,	totpuf,	drsif,	
+#so4,	ca,	na,	
+
+fe,
 
 #phair whatdoes it stand 4
 #doc/toc/no3no2/nh4 remove values less than 0-- redo doc
