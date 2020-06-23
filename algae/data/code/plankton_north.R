@@ -762,6 +762,8 @@ d <- ggplot(ChloroCheck.dec, aes(chlor, depth))+
   theme_classic()+
   labs(x='chlor', y= 'depth')+
   labs(title="December")+
-  ylim(0,10)+
+  ylim(10,0)+
   xlim(0,10)
+
 d+ scale_color_gradientn(colours = rainbow(10))
+
