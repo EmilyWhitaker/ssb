@@ -749,21 +749,19 @@ ChloroCheck.august <- subset(ChloroCheck, month ==8)
 ChloroCheck.sept <- subset(ChloroCheck, month ==9)
 ChloroCheck.oct<- subset(ChloroCheck, month ==10)
 ChloroCheck.nov <- subset(ChloroCheck, month ==11)
-ChloroCheck.dec <- subset(ChloroCheck, month ==12)
 
 
 max(ChloroCheck.jan$chlor) #15.3 
 
 ChloroCheck
-d <- ggplot(ChloroCheck.dec, aes(chlor, depth))+
+d <- ggplot(ChloroCheck.nov, aes(chlor, depth))+
   geom_point(aes(col=depth), size=2)+
   #geom_smooth(method = 'lm')+
   #geom_line()+  
   theme_classic()+
   labs(x='chlor', y= 'depth')+
-  labs(title="December")+
-  ylim(10,0)+
-  xlim(0,10)
-
+  labs(title="November")+
+  ylim(20,0)+
+  xlim(0,NA)
 d+ scale_color_gradientn(colours = rainbow(10))
 
