@@ -481,17 +481,17 @@ ggplot(SPdataset.dates.clean.iceoff_nozeros, aes(fill=division, y=biovolume, x=n
   facet_wrap('division', scales = 'free')
 
 
-ggplot(SPdataset.dates.clean.iceoff_nozeros, aes(wtemp, biovolume))+
+ggplot(SPdataset.dates.clean.iceoff_nozeros, aes(tic, biovolume))+
   geom_point(aes(col=division), size=2)+
   # geom_smooth()+
   #geom_line()+  
   labs(title="")+
   theme_classic()+
   facet_wrap('division', scales = 'free')+
-  labs(x='Water Temperature', y= 'Biovolume')+
-  labs(title="Sparkling Lake Biovolume in Relation to Water Temperature Ice Off")
+  labs(x='Total Inorganic Carbon', y= 'Biovolume')+
+  labs(title="Sparkling Lake Biovolume in Relation to Total Inorganic Carbon Ice Off")
 
-#need to redo: wtemp,o2,	o2sat,	phaeo,	alk,	dic,	tic,	
+#need to redo: ,	phaeo,	alk,	dic,	tic,	
 #doc,	toc,	no3no2,	no2, nh4,	totnf,	totnuf,	totpf,	totpuf,	drsif,	
 #so4,	ca,	na,	fe,
 
