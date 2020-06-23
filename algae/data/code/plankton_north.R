@@ -728,4 +728,40 @@ Chloro2_18m
 res2 <-cor.test(Chloro3_short$depth, Chloro3_short$chlor, Chloro3_short$biovolume_conc, method = "spearman")
 res2
 
+######
+#Does that line up with what we know about the depth of chlorophyll maxima in Sparkling?
 
+ChloroCheck = read.csv('data/SPChloro2010.Clean.withbv.csv', stringsAsFactors = F)
+
+ChloroCheck$sampledate = mdy(ChloroCheck$sampledate)
+ChloroCheck$month=month(ChloroCheck$sampledate)
+ChloroCheck= ChloroCheck %>% select(year,	sampledate,	depth,	chlor, biovolume_conc, Season, month)		
+
+ChloroCheck.0m <- subset(ChloroCheck, depth ==0)
+ChloroCheck.jan <- subset(ChloroCheck, month ==1)
+ChloroCheck.feb <- subset(ChloroCheck, month ==2)
+ChloroCheck.march <- subset(ChloroCheck, month ==3)
+ChloroCheck.april <- subset(ChloroCheck, month ==4)
+ChloroCheck.may <- subset(ChloroCheck, month ==5)
+ChloroCheck.june <- subset(ChloroCheck, month ==6)
+ChloroCheck.july<- subset(ChloroCheck, month ==7)
+ChloroCheck.august <- subset(ChloroCheck, month ==8)
+ChloroCheck. <- subset(ChloroCheck, month ==9)
+ChloroCheck.jan <- subset(ChloroCheck, month ==10)
+ChloroCheck.jan <- subset(ChloroCheck, month ==11)
+ChloroCheck.jan <- subset(ChloroCheck, month ==12)
+
+
+max(ChloroCheck.jan$chlor) #15.3 
+
+ChloroCheck
+d <- ggplot(ChloroCheck.jan, aes(chlor, depth))+
+  geom_point(aes(col=depth), size=2)+
+  #geom_smooth(method = 'lm')+
+  #geom_line()+  
+  theme_classic()+
+  labs(x='chlor', y= 'depth')+
+  facet_wrap('month', scales = 'free')+
+  labs(title="January")+
+  ylim(0,10) 
+d+ scale_color_gradientn(colours = rainbow(10))
