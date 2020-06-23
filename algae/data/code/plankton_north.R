@@ -474,22 +474,26 @@ SPdataset.dates.clean.iceoff_nozeros= subset(SPdataset.dates.clean.iceoff, no3no
 SPdataset.dates.clean.iceoff_nozeros= subset(SPdataset.dates.clean.iceoff, nh4>=0)
 
 ggplot(SPdataset.dates.clean.iceoff_nozeros, aes(fill=division, y=biovolume, x=nh4)) + 
-  geom_bar(position="stack", stat="identity", width = .5)+
+  geom_bar(stat="identity", width = .5)+
   theme_classic()+
   labs(title="Sparkling Lake Biovolume in Relation to o2sat Ice Off")+
-  labs(x='o2sat', y= 'Biovolume')#
+  labs(x='o2sat', y= 'Biovolume')+
+  facet_wrap('division', scales = 'free')
 
 
-ggplot(SPdataset.dates.clean.iceoff_nozeros, aes(chlor.int, biovolume))+
+ggplot(SPdataset.dates.clean.iceoff_nozeros, aes(wtemp, biovolume))+
   geom_point(aes(col=division), size=2)+
   # geom_smooth()+
   #geom_line()+  
   labs(title="")+
   theme_classic()+
-  labs(x='Integrated Chlorophyll', y= 'Biovolume')+
-  labs(title="Sparkling Lake Biovolume in Relation to Integrated Chlorophyll Ice Off")
+  facet_wrap('division', scales = 'free')+
+  labs(x='Water Temperature', y= 'Biovolume')+
+  labs(title="Sparkling Lake Biovolume in Relation to Water Temperature Ice Off")
 
-
+#need to redo: wtemp,o2,	o2sat,	phaeo,	alk,	dic,	tic,	
+#doc,	toc,	no3no2,	no2, nh4,	totnf,	totnuf,	totpf,	totpuf,	drsif,	
+#so4,	ca,	na,	fe,
 
 #phair whatdoes it stand 4
 #doc/toc/no3no2/nh4 remove values less than 0-- redo doc
