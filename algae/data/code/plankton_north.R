@@ -762,14 +762,34 @@ ChloroCheck.nov <- subset(ChloroCheck, month ==11)
 max(ChloroCheck.jan$chlor) #15.3 
 
 ChloroCheck
-d <- ggplot(ChloroCheck.nov, aes(chlor, depth))+
+d <- ggplot(ChloroCheck, aes(chlor, depth))+
   geom_point(aes(col=depth), size=2)+
   #geom_smooth(method = 'lm')+
   #geom_line()+  
   theme_classic()+
   labs(x='chlor', y= 'depth')+
-  labs(title="November")+
+  labs(title="")+
+  ylim(20,0)+
+  xlim(0,NA)+
+  facet_wrap(~ month + depth, scales = 'free')
+d+ scale_color_gradientn(colours = rainbow(10))
+
+
+e <- ggplot(ChloroCheck, aes(chlor, depth))+
+  geom_point(aes(col=depth))+
+  #geom_smooth(method = 'lm')+
+  #geom_line()+  
+  theme_classic()+
+  labs(x='chlor', y= 'depth')
   ylim(20,0)+
   xlim(0,NA)
-d+ scale_color_gradientn(colours = rainbow(10))
+e+ scale_color_gradientn(colours = rainbow(10))+ facet_grid(ChloroCheck$depth~ ChloroCheck$month)
+e+ scale_color_gradientn(colours = rainbow(10))
+
+facet_grid(supp ~ dose)
+
+
+
+
+
 
