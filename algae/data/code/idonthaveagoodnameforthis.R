@@ -191,9 +191,19 @@ e+ scale_color_gradientn(colours = rainbow(10))+ facet_grid(SPChloroBVSeasons$de
 
 
 
+SPChloroBVSeasons2 = read.csv('data/SPChloroalldateswithbvclean.onlybv.csv', stringsAsFactors = F)
+SPChloroBVSeasons2$sampledate = mdy(SPChloroBVSeasons2$sampledate)
+SPChloroBVSeasons2$month=month(SPChloroBVSeasons2$sampledate)
 
 
-
+e <- ggplot(SPChloroBVSeasons2, aes(chlor, CellBioVol))+
+  geom_point(aes(col=depth))+
+  #geom_smooth(method = 'lm')+
+  #geom_line()+  
+  theme_classic()+
+  labs(x='Chlorophyll', y= 'Biovolume')+
+  xlim(1,11)
+e+ scale_color_gradientn(colours = rainbow(10))+ facet_grid(SPChloroBVSeasons2$depth~ SPChloroBVSeasons2$month, scales = 'free')
 
 
 
