@@ -159,6 +159,16 @@ SPChloroBVSeasons = read.csv('data/SPChloroalldateswithbv.csv', stringsAsFactors
 SPChloroBVSeasons$sampledate = mdy(SPChloroBVSeasons$sampledate)
 SPChloroBVSeasons$month=month(SPChloroBVSeasons$sampledate)
 
+d <- ggplot(SPChloroBVSeasons, aes(chlor, biovolume_conc))+
+  geom_point(aes(col=month), size=2)+
+  geom_smooth(method = 'lm')+
+  #geom_line()+  
+  labs(title="")+
+  theme_classic()+
+  labs(x='chlor', y= 'biovolume_conc')+
+  facet_wrap('month', scales = 'free')+
+  labs(title="0 meters")
+d+ scale_color_gradientn(colours = rainbow(10))
 
 
 
