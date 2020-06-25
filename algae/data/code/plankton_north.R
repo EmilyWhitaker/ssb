@@ -775,15 +775,14 @@ d <- ggplot(ChloroCheck, aes(chlor, depth))+
 d+ scale_color_gradientn(colours = rainbow(10))
 
 
-e <- ggplot(ChloroCheck, aes(chlor, depth))+
+e <- ggplot(ChloroCheck, aes(chlor, biovolume_conc))+
   geom_point(aes(col=depth))+
   #geom_smooth(method = 'lm')+
   #geom_line()+  
   theme_classic()+
-  labs(x='chlor', y= 'depth')
-  ylim(20,0)+
+  labs(x='chlor', y= 'biovolume')+
   xlim(0,NA)
-e+ scale_color_gradientn(colours = rainbow(10))+ facet_grid(ChloroCheck$depth~ ChloroCheck$month)
+e+ scale_color_gradientn(colours = rainbow(10))+ facet_grid(ChloroCheck$depth~ ChloroCheck$month, scales = 'free')
 e+ scale_color_gradientn(colours = rainbow(10))
 
 facet_grid(supp ~ dose)

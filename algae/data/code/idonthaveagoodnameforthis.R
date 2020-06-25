@@ -28,6 +28,7 @@ clean %<>% rename(sampledate = sampledate.x)
 clean %<>% rename(chlor.int = chlor.x)
 clean %<>% rename(chlor.surf = chlor.y)
 clean$sampledate = ymd(clean$sampledate)
+clean$month=month(clean$sampledate)
 
 
 data.total.long = pivot_longer(clean, cols=c("wtemp","o2", "avsnow","totice","whiteice","blueice", "chlor.int",
