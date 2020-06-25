@@ -159,15 +159,18 @@ SPChloroBVSeasons = read.csv('data/SPChloroalldateswithbv.csv', stringsAsFactors
 SPChloroBVSeasons$sampledate = mdy(SPChloroBVSeasons$sampledate)
 SPChloroBVSeasons$month=month(SPChloroBVSeasons$sampledate)
 
+
+Remove NAs from month, season, chloro
+
 d <- ggplot(SPChloroBVSeasons, aes(chlor, depth))+
-  geom_point(aes(col=depth), size=2)+
+  geom_point(aes(col=month), size=2)+
   #geom_smooth(method = 'lm')+
   #geom_line()+  
   labs(title="")+
   theme_classic()+
-  labs(x='chlor', y= 'biovolume_conc')+
-  facet_wrap('month', scales = 'free')+
-  labs(title="0 meters")+
+  labs(x='chlor', y= 'depth')+
+  facet_wrap('Season', scales = 'free')+
+  labs(title="")+
   xlim(0, NA)+
   ylim(18,0)
 d+ scale_color_gradientn(colours = rainbow(10))
