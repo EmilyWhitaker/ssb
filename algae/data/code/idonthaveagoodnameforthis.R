@@ -155,10 +155,9 @@ SlidingWindow(mean(sw1), sw1, sampledate(2))
 
 ###############
 
-
-
-
-
+SPChloroBVSeasons = read.csv('data/SPChloroalldateswithbv.csv', stringsAsFactors = F)
+SPChloroBVSeasons$sampledate = mdy(SPChloroBVSeasons$sampledate)
+SPChloroBVSeasons$month=month(SPChloroBVSeasons$sampledate)
 
 
 
