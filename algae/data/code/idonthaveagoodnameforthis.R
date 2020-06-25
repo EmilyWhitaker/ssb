@@ -155,25 +155,39 @@ SlidingWindow(mean(sw1), sw1, sampledate(2))
 
 ###############
 
-SPChloroBVSeasons = read.csv('data/SPChloroalldateswithbv.csv', stringsAsFactors = F)
+SPChloroBVSeasons = read.csv('data/SPChloroalldateswithbvclean.csv', stringsAsFactors = F)
 SPChloroBVSeasons$sampledate = mdy(SPChloroBVSeasons$sampledate)
 SPChloroBVSeasons$month=month(SPChloroBVSeasons$sampledate)
+
 
 
 Remove NAs from month, season, chloro
 
 d <- ggplot(SPChloroBVSeasons, aes(chlor, depth))+
-  geom_point(aes(col=month), size=2)+
+  geom_point(aes(col=Season), size=2)+
   #geom_smooth(method = 'lm')+
   #geom_line()+  
   labs(title="")+
   theme_classic()+
-  labs(x='chlor', y= 'depth')+
-  facet_wrap('Season', scales = 'free')+
-  labs(title="")+
+  labs(x='Chlorophyll', y= 'Depth')+
+  facet_wrap('month', scales = 'free')+
+  labs(title="Sparkling Lake 1981-2009 Chlorophyll and Depth Relationship ")+
   xlim(0, NA)+
   ylim(18,0)
-d+ scale_color_gradientn(colours = rainbow(10))
+d
+
+
+e <- ggplot(SPChloroBVSeasons, aes(chlor, CellBioVol))+
+  geom_point(aes(col=depth))+
+  #geom_smooth(method = 'lm')+
+  #geom_line()+  
+  theme_classic()+
+  labs(x='Chlorophyll', y= 'Biovolume')+
+  xlim(1,11)
+e+ scale_color_gradientn(colours = rainbow(10))+ facet_grid(SPChloroBVSeasons$depth~ SPChloroBVSeasons$month, scales = 'free')
+
+
++ scale_color_gradientn(colours = rainbow(10))
 
 
 
