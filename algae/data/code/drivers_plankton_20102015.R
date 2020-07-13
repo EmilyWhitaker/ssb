@@ -23,6 +23,10 @@ SPdataset.dates$sampledate = mdy(SPdataset.dates$sampledate)
 #################
 #chloro-a
 
+SPZoops=read.csv('data/SPZoops.csv', stringsAsFactors = F)
+SPZoops$sampledate = ymd(SPZoops$sampledate)
+SPZoops
+
 write.csv(SP_data_season_total, 'data/SP_data_season_total.csv', row.names = F)
 SPdataset = read.csv('data/joinedSPseasonFull_06172020.csv', stringsAsFactors = F)
 
