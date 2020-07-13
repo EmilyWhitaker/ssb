@@ -35,6 +35,7 @@ SPdataset = read.csv('data/joinedSPseasonFull_06172020.csv', stringsAsFactors = 
 SPZoops %<>% select(sampledate, species_code, species_name, density, individuals_measured, avg_length) %>%
   mutate(bv.datePlus1 = sampledate + 1) %>% mutate(bv.dateMinus1 = sampledate - 1)
 
+
 join_surfchlor_SP <-fuzzy_left_join(SPdataset, SPZoops, by = c("sampledate" = "bv.datePlus1", "sampledate" = "bv.dateMinus1"),
                                     match_fun = list(`<=`, `>=`))
 
