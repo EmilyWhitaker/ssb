@@ -22,6 +22,13 @@ SPdataset.dates$sampledate = mdy(SPdataset.dates$sampledate)
 
 #################
 #chloro-a
+
+write.csv(SP_data_season_total, 'data/SP_data_season_total.csv', row.names = F)
+SPdataset = read.csv('data/joinedSPseasonFull_06172020.csv', stringsAsFactors = F)
+
+
+
+
 ChloroCheck = read.csv('data/SPChloro2010.Clean.withbv.csv', stringsAsFactors = F)
 
 ChloroCheck$sampledate = mdy(ChloroCheck$sampledate)
