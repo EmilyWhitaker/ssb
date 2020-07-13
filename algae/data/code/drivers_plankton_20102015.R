@@ -21,8 +21,6 @@ SPdataset.dates$sampledate = mdy(SPdataset.dates$sampledate)
 
 
 #################
-#chloro-a
-
 SPZoops=read.csv('data/SPZoops.csv', stringsAsFactors = F)
 SPZoops$sample_date = ymd(SPZoops$sample_date)
 SPZoops$year= year(SPZoops$sample_date)
@@ -32,8 +30,8 @@ write.csv(SP_data_season_total, 'data/SP_data_season_total.csv', row.names = F)
 SPdataset = read.csv('data/joinedSPseasonFull_06172020.csv', stringsAsFactors = F)
 
 
-
-
+###################
+#chloro-a
 ChloroCheck = read.csv('data/SPChloro2010.Clean.withbv.csv', stringsAsFactors = F)
 
 ChloroCheck$sampledate = mdy(ChloroCheck$sampledate)
