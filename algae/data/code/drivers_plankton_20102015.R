@@ -177,7 +177,14 @@ TRICHOTRIA <-subset(join_zoops_SP, species_code== 63700)
 
 
 SYNCHAETA_totals <-subset(SYNCHAETA, division== 'Total')
-
+SYNCHAETA_totals <-subset(SYNCHAETA, division== 'Total')
+SYNCHAETA_totals <-subset(SYNCHAETA, division== 'Total')
+SYNCHAETA_totals <-subset(SYNCHAETA, division== 'Total')
+SYNCHAETA_totals <-subset(SYNCHAETA, division== 'Total')
+SYNCHAETA_totals <-subset(SYNCHAETA, division== 'Total')
+SYNCHAETA_totals <-subset(SYNCHAETA, division== 'Total')
+SYNCHAETA_totals <-subset(SYNCHAETA, division== 'Total')
+SYNCHAETA_totals <-subset(SYNCHAETA, division== 'Total')
 
 syn<- ggplot(SYNCHAETA, aes(x=month, y=density, color=iceduration))+
   geom_point()+
