@@ -46,8 +46,9 @@ write.csv(join_zoops_SP, 'data/joinedAllVars07152020.csv', row.names = F)
 
 join_zoops_SP = read.csv('data/joinedAllVars07152020_clean.csv', stringsAsFactors = F)
 join_zoops_SP$sampledate = mdy(join_zoops_SP$sampledate)
-join_zoops_SP %<>% rename(year = year4)
+join_zoops_SP %<>% rename(year4 = year)
 join_zoops_SP$month = month(join_zoops_SP$sampledate)
+join_zoops_SP$year = year(join_zoops_SP$sampledate)
 
 ggplot(join_zoops_SP, aes(month, density))+
   geom_point(aes(col=Season), size=2)+
@@ -174,11 +175,11 @@ TRICHOCERCA_MULTICRINIS <-subset(join_zoops_SP, species_code== 63612)
 TRICHOTRIA <-subset(join_zoops_SP, species_code== 63700)
 #############
 
-ggplot(SYNCHAETA, aes(x=density, )+
+ggplot(SYNCHAETA, aes(x=month, y=density, color=iceduration))+
          geom_point()+
-         geom_smooth(aes(group=variable))+
+         #geom_smooth(aes(group=variable))+
          #geom_line(aes(group=variable))+
-         facet_wrap(~variable, scales='free')
+         facet_wrap(~year, scales='free')
 
 
 
