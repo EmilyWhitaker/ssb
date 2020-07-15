@@ -64,7 +64,17 @@ a<-ggplot(join_zoops_SP, aes(join_zoops_SP$month, join_zoops_SP$density))+
 a
 
 
-dataset1015 <-join_zoops_SP(subset, year>2009)
+dataset1015 <-subset(join_zoops_SP, year>2009)
+
+
+b<-ggplot(dataset1015, aes(dataset1015$month, dataset1015$density))+
+  geom_point(aes(col=Season), size=2)+
+  theme_classic()+
+  facet_wrap(~ month + species_code, scales = 'free')
+b
+
+
+
 
 ##########
 #frlight
