@@ -94,6 +94,17 @@ MESOCYCLOPS_EDAX <-subset(join_zoops_SP, species_code== 20601)
 TROPOCYCLOPS_PRASINUS_MEXICANUS <-subset(join_zoops_SP, species_code== 20901)
 EPISCHURA_LACUSTRIS <-subset(join_zoops_SP, species_code== 30201)
 DIAPTOMID <-subset(join_zoops_SP, species_code== 30400)
+LEPTODIAPTOMUS_MINUTUS <-subset(join_zoops_SP, species_code== 30402)
+SKISTODIAPTOMUS_OREGONENSIS <-subset(join_zoops_SP, species_code== 30801)
+CLADOCERAN <-subset(join_zoops_SP, species_code== 50000)
+ALONA <-subset(join_zoops_SP, species_code== 50300)
+BOSMINIDAE <-subset(join_zoops_SP, species_code== 50700)
+CERIODAPHNIA <-subset(join_zoops_SP, species_code== 50900)
+CHYDORUS <-subset(join_zoops_SP, species_code== 51000)
+DAPHNIA <-subset(join_zoops_SP, species_code== 51100)
+DAPHNIA_AMBIGUA <-subset(join_zoops_SP, species_code== 51101)
+DAPHNIA_DUBIA <-subset(join_zoops_SP, species_code== 51102)
+CYCLOPOID <-subset(join_zoops_SP, species_code== 51103)
 CYCLOPOID <-subset(join_zoops_SP, species_code== 20000)
 CYCLOPOID <-subset(join_zoops_SP, species_code== 20000)
 CYCLOPOID <-subset(join_zoops_SP, species_code== 20000)
@@ -104,8 +115,7 @@ CYCLOPOID <-subset(join_zoops_SP, species_code== 20000)
 CYCLOPOID <-subset(join_zoops_SP, species_code== 20000)
 CYCLOPOID <-subset(join_zoops_SP, species_code== 20000)
 
-
-
+51103	DAPHNIA MENDOTAE
 
 b<-ggplot(dataset1015, aes(dataset1015$month, dataset1015$density))+
   geom_point(aes(col=Season), size=2)+
