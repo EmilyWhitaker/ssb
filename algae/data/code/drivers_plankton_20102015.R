@@ -175,12 +175,23 @@ TRICHOCERCA_MULTICRINIS <-subset(join_zoops_SP, species_code== 63612)
 TRICHOTRIA <-subset(join_zoops_SP, species_code== 63700)
 #############
 
-ggplot(SYNCHAETA, aes(x=month, y=density, color=iceduration))+
-         geom_point()+
-         #geom_smooth(aes(group=variable))+
-         #geom_line(aes(group=variable))+
-         facet_wrap(~year, scales='free')
 
+SYNCHAETA_totals <-subset(SYNCHAETA, division== 'Total')
+
+
+syn<- ggplot(SYNCHAETA, aes(x=month, y=density, color=iceduration))+
+  geom_point()+
+  labs(title="Sparkling Lake SYNCHAETA Trends", x= "Month", y= "Density")+
+  facet_wrap(~year)
+syn
+ggsave("syn.png") #need to work out details
+
+syn.tot<- ggplot(SYNCHAETA_totals, aes(x=month, y=density, color=log(biovolume_conc)))+
+  geom_point()+
+  labs(title="Sparkling Lake SYNCHAETA Trends with Total Phytos Biovolumes", x= "Month", y= "Density")+
+  facet_wrap(~year)
+syn.tot
+ggsave("syn.tot.png")                   
 
 
 
