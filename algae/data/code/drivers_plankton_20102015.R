@@ -57,15 +57,40 @@ ggplot(join_zoops_SP, aes(month, density))+
   facet_wrap(~ month + species_code, scales = 'free')
 
 
-a<-ggplot(join_zoops_SP, aes(join_zoops_SP$month, join_zoops_SP$density))+
+a<-ggplot(join_zoops_SP, aes(month==1, density))+
   geom_point(aes(col=Season), size=2)+
   theme_classic()+
-  facet_wrap(~ month + species_code, scales = 'free')
+  facet_wrap(~species_code, scales = 'free')
 a
 
 
 dataset1015 <-subset(join_zoops_SP, year>2009)
 
+COPEPOD_NAUPLII <-subset(join_zoops_SP, species_code== 10000)
+CYCLOPOID <-subset(join_zoops_SP, species_code== 20000)
+DIACYCLOPS_THOMASI <-subset(join_zoops_SP, species_code== 20302)
+CALANOID <-subset(join_zoops_SP, species_code== 30000)
+LEPTODIAPTOMUS_MINUTUS <-subset(join_zoops_SP, species_code== 30402)
+SKISTODIAPTOMUS_OREGONENSIS <-subset(join_zoops_SP, species_code== 30801)
+DAPHNIA_MENDOTAE <-subset(join_zoops_SP, species_code== 51103)
+DAPHNIA_LONGIREMIS <-subset(join_zoops_SP, species_code== 51104)
+DAPHNIA_PULICARIA <-subset(join_zoops_SP, species_code== 51130)
+HOLOPEDIUM <-subset(join_zoops_SP, species_code== 51800)
+ASPLANCHNA <-subset(join_zoops_SP, species_code== 60300)
+CONOCHILUS_UNICORNIS <-subset(join_zoops_SP, species_code== 60902)
+FILINIA <-subset(join_zoops_SP, species_code== 61400)
+KELLICOTTIA_BOSTONIENSIS <-subset(join_zoops_SP, species_code== 61701)
+KELLICOTTIA_LONGISPINA <-subset(join_zoops_SP, species_code== 61702)
+KERATELLA_COCHLEARIS <-subset(join_zoops_SP, species_code== 61801)
+KERATELLA_HIEMALIS <-subset(join_zoops_SP, species_code== 61805)
+KERATELLA_QUADRATA <-subset(join_zoops_SP, species_code== 61806)
+LECANE <-subset(join_zoops_SP, species_code== 61900)
+LECANE_INERMIS <-subset(join_zoops_SP, species_code== 61904)
+POLYARTHRA_DOLICHOPTERA <-subset(join_zoops_SP, species_code== 63001)
+POLYARTHRA_VULGARIS <-subset(join_zoops_SP, species_code== 63005)
+ACANTHOCYCLOPS_VERNALIS <-subset(join_zoops_SP, species_code== 20101)
+CYCLOPOID <-subset(join_zoops_SP, species_code== 20000)
+CYCLOPOID <-subset(join_zoops_SP, species_code== 20000)
 
 
 
