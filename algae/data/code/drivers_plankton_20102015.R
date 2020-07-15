@@ -104,8 +104,14 @@ CHYDORUS <-subset(join_zoops_SP, species_code== 51000)
 DAPHNIA <-subset(join_zoops_SP, species_code== 51100)
 DAPHNIA_AMBIGUA <-subset(join_zoops_SP, species_code== 51101)
 DAPHNIA_DUBIA <-subset(join_zoops_SP, species_code== 51102)
-CYCLOPOID <-subset(join_zoops_SP, species_code== 51103)
-CYCLOPOID <-subset(join_zoops_SP, species_code== 20000)
+DAPHNIA_MENDOTAE <-subset(join_zoops_SP, species_code== 51103)
+DAPHNIA_LONGIREMIS <-subset(join_zoops_SP, species_code== 51104)
+DAPHNIA_PARVULA <-subset(join_zoops_SP, species_code== 51105)
+DAPHNIA_RETROCURVA <-subset(join_zoops_SP, species_code== 51107)
+DAPHNIA_DENTIFERA <-subset(join_zoops_SP, species_code== 51108)
+DAPHNIA_PULICARIA <-subset(join_zoops_SP, species_code== 51130)
+DIAPHANOSOMA <-subset(join_zoops_SP, species_code== 51200)
+DIAPHANOSOMA_BIRGEI <-subset(join_zoops_SP, species_code== 51202)
 CYCLOPOID <-subset(join_zoops_SP, species_code== 20000)
 CYCLOPOID <-subset(join_zoops_SP, species_code== 20000)
 CYCLOPOID <-subset(join_zoops_SP, species_code== 20000)
@@ -115,7 +121,34 @@ CYCLOPOID <-subset(join_zoops_SP, species_code== 20000)
 CYCLOPOID <-subset(join_zoops_SP, species_code== 20000)
 CYCLOPOID <-subset(join_zoops_SP, species_code== 20000)
 
-51103	DAPHNIA MENDOTAE
+51800	HOLOPEDIUM
+51801	HOLOPEDIUM GIBBERUM
+60100	ANURAEOPSIS
+60200	ASCOMORPHA
+60201	ASCOMORPHA ECAUDIS
+60202	ASCOMORPHA OVALIS
+60203	ASCOMORPHA SALTANS
+60300	ASPLANCHNA
+60500	CEPHALODELLA
+60600	COLLOTHECA
+60601	COLLOTHECA MUTABILIS
+60700	COLURELLA
+60800	CONOCHILOIDES
+60900	CONOCHILUS
+60901	CONOCHILUS HIPPOCREPIS
+60902	CONOCHILUS UNICORNIS
+61300	EUCHLANIS
+61400	FILINIA
+61402	FILINIA TERMINALIS
+61500	GASTROPUS
+61501	GASTROPUS HYPTOPUS
+61502	GASTROPUS STYLIFER
+61701	KELLICOTTIA BOSTONIENSIS
+61702	KELLICOTTIA LONGISPINA
+61801	KERATELLA COCHLEARIS
+61802	KERATELLA COCHLEARIS F. TECTA
+61803	KERATELLA CRASSA
+61804	KERATELLA EARLINAE
 
 b<-ggplot(dataset1015, aes(dataset1015$month, dataset1015$density))+
   geom_point(aes(col=Season), size=2)+
