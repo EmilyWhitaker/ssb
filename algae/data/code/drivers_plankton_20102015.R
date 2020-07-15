@@ -174,8 +174,19 @@ TRICHOCERCA_MULTICRINIS <-subset(join_zoops_SP, species_code== 63612)
 TRICHOTRIA <-subset(join_zoops_SP, species_code== 63700)
 #############
 
+ggplot(SYNCHAETA, aes(x=density, )+
+         geom_point()+
+         geom_smooth(aes(group=variable))+
+         #geom_line(aes(group=variable))+
+         facet_wrap(~variable, scales='free')
 
+         ggplot(winter.data.total.long, aes(sampledate, value, color=variable))+
+         geom_point()+
+         geom_smooth(aes(group=variable))+
+         #geom_line(aes(group=variable))+
+         facet_wrap(~variable, scales='free')
 
+Species name and 
 
 
 
