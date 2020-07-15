@@ -138,50 +138,39 @@ KELLICOTTIA_BOSTONIENSIS <-subset(join_zoops_SP, species_code== 61701)
 KELLICOTTIA_LONGISPINA <-subset(join_zoops_SP, species_code== 61702)
 KERATELLA_COCHLEARIS <-subset(join_zoops_SP, species_code== 61801)
 KERATELLA_COCHLEARIS_F_TECTA <-subset(join_zoops_SP, species_code== 61802)
-CYCLOPOID <-subset(join_zoops_SP, species_code== 20000)
-CYCLOPOID <-subset(join_zoops_SP, species_code== 20000)
-CYCLOPOID <-subset(join_zoops_SP, species_code== 20000)
-CYCLOPOID <-subset(join_zoops_SP, species_code== 20000)
-CYCLOPOID <-subset(join_zoops_SP, species_code== 20000)
-CYCLOPOID <-subset(join_zoops_SP, species_code== 20000)
-CYCLOPOID <-subset(join_zoops_SP, species_code== 20000)
+KERATELLA_CRASSA <-subset(join_zoops_SP, species_code== 61803)
+KERATELLA_EARLINAE <-subset(join_zoops_SP, species_code== 61804)
+KERATELLA_HIEMALIS <-subset(join_zoops_SP, species_code== 61805)
+KERATELLA_QUADRATA <-subset(join_zoops_SP, species_code== 61806)
+KERATELLA_SERRULATA <-subset(join_zoops_SP, species_code== 61807)
+KERATELLA_TAUROCEPHALA <-subset(join_zoops_SP, species_code== 61808)
+KERATELLA_TESTUDO <-subset(join_zoops_SP, species_code== 61809)
+KERATELLA_TICINENSIS <-subset(join_zoops_SP, species_code== 61810)
+LECANE <-subset(join_zoops_SP, species_code== 61900)
+LECANE_INERMIS <-subset(join_zoops_SP, species_code== 61904)
+LECANE_MIRA <-subset(join_zoops_SP, species_code== 61911)
+LECANE_TENUISETA <-subset(join_zoops_SP, species_code== 61918)
+LEPADELLA <-subset(join_zoops_SP, species_code== 62000)
+MONOSTYLA <-subset(join_zoops_SP, species_code== 62400)
+MONOSTYLA_LUNARIS <-subset(join_zoops_SP, species_code== 62406)
+MONOSTYLA_OBTUSA <-subset(join_zoops_SP, species_code== 62407)
+NOTOMMATA <-subset(join_zoops_SP, species_code== 62700)
+PLOESOMA <-subset(join_zoops_SP, species_code== 62900)
+PLOESOMA_HUDSONI <-subset(join_zoops_SP, species_code== 62901)
+PLOESOMA_LENTICULARE <-subset(join_zoops_SP, species_code== 62902)
+POLYARTHRA <-subset(join_zoops_SP, species_code== 63000)
+POLYARTHRA_DOLICHOPTERA <-subset(join_zoops_SP, species_code== 63001)
+POLYARTHRA_EURYPTERA <-subset(join_zoops_SP, species_code== 63002)
+POLYARTHRA_MAJOR <-subset(join_zoops_SP, species_code== 63003)
+POLYARTHRA_REMATA <-subset(join_zoops_SP, species_code== 63004)
+POLYARTHRA_VULGARIS <-subset(join_zoops_SP, species_code== 63005)
+SYNCHAETA <-subset(join_zoops_SP, species_code== 63400)
+TRICHOCERCA <-subset(join_zoops_SP, species_code== 63600)
+TRICHOCERCA_BIROSTRIS <-subset(join_zoops_SP, species_code== 63602)
+TRICHOCERCA_CYLINDRICA <-subset(join_zoops_SP, species_code== 63603)
+TRICHOCERCA_MULTICRINIS <-subset(join_zoops_SP, species_code== 63612)
+TRICHOTRIA <-subset(join_zoops_SP, species_code== 63700)
 
-
-
-61803	KERATELLA CRASSA
-61804	KERATELLA EARLINAE
-61805	KERATELLA HIEMALIS
-61806	KERATELLA QUADRATA
-61807	KERATELLA SERRULATA
-61808	KERATELLA TAUROCEPHALA
-61809	KERATELLA TESTUDO
-61810	KERATELLA TICINENSIS
-61900	LECANE
-61904	LECANE INERMIS
-61911	LECANE MIRA
-61918	LECANE TENUISETA
-62000	LEPADELLA
-62400	MONOSTYLA
-62406	MONOSTYLA LUNARIS
-62407	MONOSTYLA OBTUSA
-62700	NOTOMMATA
-62900	PLOESOMA
-62901	PLOESOMA HUDSONI
-62902	PLOESOMA LENTICULARE
-63000	POLYARTHRA
-63001	POLYARTHRA DOLICHOPTERA
-63002	POLYARTHRA EURYPTERA
-63003	POLYARTHRA MAJOR
-63004	POLYARTHRA REMATA
-63005	POLYARTHRA VULGARIS
-63400	SYNCHAETA
-63600	TRICHOCERCA
-63602	TRICHOCERCA BIROSTRIS
-63603	TRICHOCERCA CYLINDRICA
-63612	TRICHOCERCA MULTICRINIS
-63700	TRICHOTRIA
-69915	UNKNOWN
-88888	UNKNOWN ROTIFER
 
 b<-ggplot(dataset1015, aes(dataset1015$month, dataset1015$density))+
   geom_point(aes(col=Season), size=2)+
