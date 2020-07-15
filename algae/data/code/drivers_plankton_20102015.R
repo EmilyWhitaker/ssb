@@ -42,6 +42,8 @@ join_zoops_SP$blueice[is.na(join_zoops_SP$blueice)]=0
 join_zoops_SP$whiteice[is.na(join_zoops_SP$whiteice)]=0
 
 write.csv(join_zoops_SP, 'data/joinedAllVars07152020.csv', row.names = F)
+###################
+
 join_zoops_SP = read.csv('data/joinedAllVars07152020_clean.csv', stringsAsFactors = F)
 join_zoops_SP$sampledate = mdy(join_zoops_SP$sampledate)
 join_zoops_SP %<>% rename(year = year4)
@@ -171,6 +173,13 @@ TRICHOCERCA_CYLINDRICA <-subset(join_zoops_SP, species_code== 63603)
 TRICHOCERCA_MULTICRINIS <-subset(join_zoops_SP, species_code== 63612)
 TRICHOTRIA <-subset(join_zoops_SP, species_code== 63700)
 #############
+
+
+
+
+
+
+
 
 b<-ggplot(dataset1015, aes(dataset1015$month, dataset1015$density))+
   geom_point(aes(col=Season), size=2)+
