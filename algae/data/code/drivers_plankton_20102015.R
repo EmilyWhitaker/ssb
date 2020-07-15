@@ -207,12 +207,56 @@ syn.Bac<- ggplot(SYNCHAETA_Bacillariophyta, aes(x=month, y=density, color=log(bi
 syn.Bac
 ggsave("syn.Bac.png")   
 
-syn.Bac1<- ggplot(SYNCHAETA_Bacillariophyta, aes(x=log(biovolume_conc), y=density, color=month))+
+syn.Bac1<- ggplot(SYNCHAETA_Bacillariophyta, aes(x=biovolume_conc, y=density, color=year))+
   geom_point()+
-  labs(title="Sparkling Lake SYNCHAETA Trends with Bacillariophyta Biovolumes", x= "log(biovolume_conc)", y= "Density")+
-  facet_wrap(~year)
+  labs(title="Sparkling Lake SYNCHAETA Trends with Bacillariophyta Biovolumes", x= "biovolume_conc", y= "Density")+
+  facet_wrap(~month)
 syn.Bac1
 ggsave("syn.Bac1.png")   
+
+syn.Chlo<- ggplot(SYNCHAETA_Chlorophyta, aes(x=month, y=density, color=log(biovolume_conc)))+
+  geom_point()+
+  labs(title="Sparkling Lake SYNCHAETA Trends with Chlorophyta Biovolumes", x= "Month", y= "Density")+
+  facet_wrap(~year)
+syn.Chlo
+ggsave("syn.Chlo.png")  
+
+syn.Chry<- ggplot(SYNCHAETA_Chrysophyta, aes(x=month, y=density, color=log(biovolume_conc)))+
+  geom_point()+
+  labs(title="Sparkling Lake SYNCHAETA Trends with Chrysophyta Biovolumes", x= "Month", y= "Density")+
+  facet_wrap(~year)
+syn.Chry
+ggsave("syn.Chry.png") 
+
+syn.Cry<- ggplot(SYNCHAETA_Cryptophyta, aes(x=month, y=density, color=log(biovolume_conc)))+
+  geom_point()+
+  labs(title="Sparkling Lake SYNCHAETA Trends with Cryptophyta Biovolumes", x= "Month", y= "Density")+
+  facet_wrap(~year)
+syn.Cry
+ggsave("syn.Cry.png") 
+
+syn.Cyan<- ggplot(SYNCHAETA_Cyanophyta, aes(x=month, y=density, color=log(biovolume_conc)))+
+  geom_point()+
+  labs(title="Sparkling Lake SYNCHAETA Trends with Cyanophyta Biovolumes", x= "Month", y= "Density")+
+  facet_wrap(~year)
+syn.Cyan
+ggsave("syn.Cyan.png")
+
+syn.Hapt<- ggplot(SYNCHAETA_Haptophyta, aes(x=month, y=density, color=log(biovolume_conc)))+
+  geom_point()+
+  labs(title="Sparkling Lake SYNCHAETA Trends with Haptophyta Biovolumes", x= "Month", y= "Density")+
+  facet_wrap(~year)
+syn.Hapt
+ggsave("syn.Hapt.png")
+
+syn.Pyrr<- ggplot(SYNCHAETA_Pyrrhophyta, aes(x=month, y=density, color=log(biovolume_conc)))+
+  geom_point()+
+  labs(title="Sparkling Lake SYNCHAETA Trends with Pyrrhophyta Biovolumes", x= "Month", y= "Density")+
+  facet_wrap(~year)
+syn.Pyrr
+ggsave("syn.Pyrr.png")
+
+
 
 
 
