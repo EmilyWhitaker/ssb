@@ -177,14 +177,14 @@ TRICHOTRIA <-subset(join_zoops_SP, species_code== 63700)
 
 
 SYNCHAETA_totals <-subset(SYNCHAETA, division== 'Total')
-SYNCHAETA_totals <-subset(SYNCHAETA, division== 'Total')
-SYNCHAETA_totals <-subset(SYNCHAETA, division== 'Total')
-SYNCHAETA_totals <-subset(SYNCHAETA, division== 'Total')
-SYNCHAETA_totals <-subset(SYNCHAETA, division== 'Total')
-SYNCHAETA_totals <-subset(SYNCHAETA, division== 'Total')
-SYNCHAETA_totals <-subset(SYNCHAETA, division== 'Total')
-SYNCHAETA_totals <-subset(SYNCHAETA, division== 'Total')
-SYNCHAETA_totals <-subset(SYNCHAETA, division== 'Total')
+SYNCHAETA_Bacillariophyta <-subset(SYNCHAETA, division== 'Bacillariophyta')
+SYNCHAETA_Chlorophyta <-subset(SYNCHAETA, division== 'Chlorophyta')
+SYNCHAETA_Chrysophyta <-subset(SYNCHAETA, division== 'Chrysophyta')
+SYNCHAETA_Cryptophyta <-subset(SYNCHAETA, division== 'Cryptophyta')
+SYNCHAETA_Cyanophyta <-subset(SYNCHAETA, division== 'Cyanophyta')
+SYNCHAETA_Haptophyta <-subset(SYNCHAETA, division== 'Haptophyta')
+SYNCHAETA_Pyrrhophyta <-subset(SYNCHAETA, division== 'Pyrrhophyta')
+
 
 syn<- ggplot(SYNCHAETA, aes(x=month, y=density, color=iceduration))+
   geom_point()+
@@ -200,9 +200,19 @@ syn.tot<- ggplot(SYNCHAETA_totals, aes(x=month, y=density, color=log(biovolume_c
 syn.tot
 ggsave("syn.tot.png")                   
 
+syn.Bac<- ggplot(SYNCHAETA_Bacillariophyta, aes(x=month, y=density, color=log(biovolume_conc)))+
+  geom_point()+
+  labs(title="Sparkling Lake SYNCHAETA Trends with Bacillariophyta Biovolumes", x= "Month", y= "Density")+
+  facet_wrap(~year)
+syn.Bac
+ggsave("syn.Bac.png")   
 
-
-
+syn.Bac1<- ggplot(SYNCHAETA_Bacillariophyta, aes(x=log(biovolume_conc), y=density, color=month))+
+  geom_point()+
+  labs(title="Sparkling Lake SYNCHAETA Trends with Bacillariophyta Biovolumes", x= "log(biovolume_conc)", y= "Density")+
+  facet_wrap(~year)
+syn.Bac1
+ggsave("syn.Bac1.png")   
 
 
 
