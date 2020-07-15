@@ -42,10 +42,15 @@ join_zoops_SP$blueice[is.na(join_zoops_SP$blueice)]=0
 join_zoops_SP$whiteice[is.na(join_zoops_SP$whiteice)]=0
 
 write.csv(join_zoops_SP, 'data/joinedAllVars07152020.csv', row.names = F)
-join_zoops_SP = read.csv('data/joinedAllVars07152020.csv', stringsAsFactors = F)
+join_zoops_SP = read.csv('data/joinedAllVars07152020_clean.csv', stringsAsFactors = F)
+join_zoops_SP$sampledate = mdy(join_zoops_SP$sampledate)
 
-SPdataset %<>% rename(sampledate = sampledate.x)
-SPdataset$sampledate = mdy(SPdataset$sampledate)
+join_zoops_SP
+
+
+
+SPdataset.dates.clean.iceon= subset(SPdataset.dates.clean, Season == 0)
+SPdataset.dates.clean.iceoff= subset(SPdataset.dates.nottotals, Season == 1)
 
 
 ##########
