@@ -12,15 +12,8 @@ library(viridisLite); library(gridExtra); library(ggplot2) # data viz
 library(lubridate) # dealing with dates
 library(ggpubr); library(fuzzyjoin)
 
-##########
-#frlight
-SPdataset.dates = read.csv('data/cleanSPdataset_limiteddates.csv', stringsAsFactors = F)
-SPdataset.dates$sampledate = mdy(SPdataset.dates$sampledate)
-
-#import ice thickness, light, zoops,
-
-
-#################
+#########
+#merge zoops with rest of the dataset
 SPZoops=read.csv('data/SPZoops.csv', stringsAsFactors = F)
 SPZoops$sample_date = ymd(SPZoops$sample_date)
 SPZoops$year= year(SPZoops$sample_date)
@@ -38,21 +31,17 @@ SPZoops %<>% select(sampledate, species_code, species_name, density, individuals
 
 
 join_zoops_SP <-fuzzy_left_join(SPdataset, SPZoops, by = c("sampledate" = "bv.datePlus1", "sampledate" = "bv.dateMinus1"),
-                                    match_fun = list(`<=`, `>=`))
+                                match_fun = list(`<=`, `>=`))
 
 
-completedataset=read.csv('data/joinedSPseasonFull_06172020', stringsAsFactors = F)
+write.csv(join_zoops_SP, 'data/joinedAllVars07152020.csv', row.names = F)
 
+##########
+#frlight
+SPdataset.dates = read.csv('data/cleanSPdataset_limiteddates.csv', stringsAsFactors = F)
+SPdataset.dates$sampledate = mdy(SPdataset.dates$sampledate)
 
-write.csv(join_surfchlor_SP, 'data/joinedSPseasonFull.csv', row.names = F)
-class(join_surfchlor_SP$sampledate)
-write.csv(SP_data_season_total, 'data/SP_data_season_total.csv', row.names = F)
-joinedSPseasonFull_06172020
-
-
-
-
-
+#import ice thickness, light, zoops,
 
 
 
