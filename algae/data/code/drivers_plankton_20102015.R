@@ -170,7 +170,7 @@ TRICHOCERCA_BIROSTRIS <-subset(join_zoops_SP, species_code== 63602)
 TRICHOCERCA_CYLINDRICA <-subset(join_zoops_SP, species_code== 63603)
 TRICHOCERCA_MULTICRINIS <-subset(join_zoops_SP, species_code== 63612)
 TRICHOTRIA <-subset(join_zoops_SP, species_code== 63700)
-
+#############
 
 b<-ggplot(dataset1015, aes(dataset1015$month, dataset1015$density))+
   geom_point(aes(col=Season), size=2)+
