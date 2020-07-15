@@ -44,14 +44,27 @@ join_zoops_SP$whiteice[is.na(join_zoops_SP$whiteice)]=0
 write.csv(join_zoops_SP, 'data/joinedAllVars07152020.csv', row.names = F)
 join_zoops_SP = read.csv('data/joinedAllVars07152020_clean.csv', stringsAsFactors = F)
 join_zoops_SP$sampledate = mdy(join_zoops_SP$sampledate)
+join_zoops_SP %<>% rename(year = year4)
+join_zoops_SP$month = month(join_zoops_SP$sampledate)
 
-join_zoops_SP
+ggplot(join_zoops_SP, aes(month, density))+
+  geom_point(aes(col=Season), size=2)+
+  # geom_smooth()+
+  #geom_line()+  
+  labs(title="")+
+  theme_classic()+
+  labs(x='month', y= 'density')+
+  facet_wrap(~ month + species_code, scales = 'free')
 
 
+a<-ggplot(join_zoops_SP, aes(join_zoops_SP$month, join_zoops_SP$density))+
+  geom_point(aes(col=Season), size=2)+
+  theme_classic()+
+  facet_wrap(~ month + species_code, scales = 'free')
+a
 
-SPdataset.dates.clean.iceon= subset(SPdataset.dates.clean, Season == 0)
-SPdataset.dates.clean.iceoff= subset(SPdataset.dates.nottotals, Season == 1)
 
+dataset1015 <-join_zoops_SP(subset, year>2009)
 
 ##########
 #frlight
