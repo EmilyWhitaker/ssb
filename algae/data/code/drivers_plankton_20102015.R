@@ -19,7 +19,6 @@ SPZoops$sample_date = ymd(SPZoops$sample_date)
 SPZoops$year= year(SPZoops$sample_date)
 SPZoops %<>% rename(sampledate = sample_date)
 
-
 #write.csv(SP_data_season_total, 'data/SP_data_season_total.csv', row.names = F)
 SPdataset = read.csv('data/joinedSPseasonFull_06172020.csv', stringsAsFactors = F)
 SPdataset %<>% rename(sampledate.y = sampledate)
@@ -32,12 +31,9 @@ SPZoops %<>% select(sampledate, species_code, species_name, density, individuals
 
 join_zoops_SP <-fuzzy_left_join(SPdataset, SPZoops, by = c("sampledate" = "bv.datePlus1", "sampledate" = "bv.dateMinus1"),
                                 match_fun = list(`<=`, `>=`))
-
-write.csv(join_zoops_SP, 'data/joinedAllVars07152020.csv', row.names = F)
-
 #clean dataset
-join_zoops_SP %<>% rename(sampledate.y = sampledate)
-join_zoops_SP %<>% rename(sampledate = sampledate.x)
+#join_zoops_SP %<>% rename(sampledate.y = sampledate)
+#join_zoops_SP %<>% rename(sampledate = sampledate.x)
 join_zoops_SP %<>% rename(chlor.int = chlor.x)
 join_zoops_SP %<>% rename(chlor.surf = chlor.y)
 join_zoops_SP$avsnow[is.na(join_zoops_SP$avsnow)]=0
@@ -45,6 +41,11 @@ join_zoops_SP$totice[is.na(join_zoops_SP$totice)]=0
 join_zoops_SP$blueice[is.na(join_zoops_SP$blueice)]=0
 join_zoops_SP$whiteice[is.na(join_zoops_SP$whiteice)]=0
 
+write.csv(join_zoops_SP, 'data/joinedAllVars07152020.csv', row.names = F)
+join_zoops_SP = read.csv('data/joinedAllVars07152020.csv', stringsAsFactors = F)
+
+SPdataset %<>% rename(sampledate = sampledate.x)
+SPdataset$sampledate = mdy(SPdataset$sampledate)
 
 
 ##########
