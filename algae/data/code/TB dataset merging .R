@@ -23,6 +23,7 @@ genus$sampledate = ymd(genus$sampledate)
 TB_dataphyto.wide = pivot_wider(TB_dataphyto, names_from = taxa_name, values_from = biovolume_conc)
 TB_dataphyto.long = pivot_longer(TB_dataphyto.wide, cols=11:92, names_to="Taxa-name", values_to = "biovolume_conc")
 
+#set NAs to 0s  !!!
 write.csv(TB_dataphyto.long, 'data/CleanTBPhytos.csv', row.names = F)
 
 
@@ -48,7 +49,11 @@ ggplot(subset(genus.long, sampledate=='1997-01-14'), aes(Genus, CellBioVol))+
 TB_zoops= read.csv('data/TB_zoops.csv', stringsAsFactors = F)
 TB_zoops$sampledate = mdy(TB_zoops$sampledate)
 #need to make all of the absence data
+genus$sampledate = ymd(genus$sampledate)
+TB_zoops.wide = pivot_wider(TB_zoops, names_from = species_code, values_from = density)
+TB_zoops.long = pivot_longer(TB_zoops.wide, cols=5:84, names_to="code", values_to = "density")
 
+write.csv(TB_zoops.long, 'data/TB_zoops.csv', row.names = F)
 
 
 
