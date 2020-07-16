@@ -19,7 +19,6 @@ library(ggpubr); library(fuzzyjoin)
 TB_dataphyto = read.csv('data/TB_data_phytos.csv', stringsAsFactors = F)
 TB_dataphyto$sampledate = ymd(TB_dataphyto$sampledate)
 
-genus$sampledate = ymd(genus$sampledate)
 TB_dataphyto.wide = pivot_wider(TB_dataphyto, names_from = taxa_name, values_from = biovolume_conc)
 TB_dataphyto.long = pivot_longer(TB_dataphyto.wide, cols=11:92, names_to="Taxa-name", values_to = "biovolume_conc")
 
@@ -112,24 +111,13 @@ TB_zoops.code.wide = TB.zoops.code %>%
 TB_zoops.long = pivot_longer(TB_zoops.code.wide, cols = 2:81, names_to="species_code", values_to = "density")
 
 write.csv(TB_zoops.long, 'data/TBZoopsCode.csv', row.names = F)
+write.csv(TB_zoops.long, 'data/TBZoopsTaxaName.csv', row.names = F)
 
 
+TB.zoops.code= read.csv('data/TBZoopsCode.csv', stringsAsFactors = F)
+TB.zoops.TN= read.csv('data/TBZoopsTaxaName.csv', stringsAsFactors = F)
 
-
-
-
-
-TB_zoops.wide = pivot_wider(TB_zoops, names_from = species_name, values_from = density)
-TB_zoops.long = pivot_longer(TB_zoops.wide, cols=5:84, names_to="code", values_to = "density")
-
-
-
-
-try = unlist(TB_zoops.long$density)
-TB_zoops.long$density = try
-write.csv(TB_zoops.long, 'data/TB_zoops.csv', row.names = F)
-
-
+###############
 
 
 
