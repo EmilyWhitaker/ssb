@@ -80,8 +80,31 @@ genus.long$CellBioVol[is.na(genus.long$CellBioVol)] = 0
 TB_zoops= read.csv('data/TB_zoops.csv', stringsAsFactors = F)
 TB_zoops$sampledate = mdy(TB_zoops$sampledate)
 #need to make all of the absence data
-genus$sampledate = ymd(genus$sampledate)
-TB_zoops.wide = pivot_wider(TB_zoops, names_from = species_code, values_from = density)
+TB_zoops %<>% select(sampledate, species_name, density)
+
+
+TB_zoops %>% 
+  group_by(sampledate, species_name) %>% 
+  mutate(dupe = n() > 1) %>% 
+  filter(dupe == TRUE)
+TB_zoops.wide = TB_zoops %>% 
+  group_by(sampledate, species_name) %>% #deal with duplications
+  summarise(density = sum(density, na.rm = T)) %>% 
+  pivot_wider(names_from = species_name, values_from = density, values_fill = list(density = 0)) #fill NAs with zeros
+TB_zoops.long = pivot_longer(TB_zoops.wide, cols = 2:80, names_to="species_name", values_to = "density")
+
+genus.long$CellBioVol[is.na(genus.long$CellBioVol)] = 0
+
+write.csv(TB_zoops.long, 'data/TBZoopsTaxaName.csv', row.names = F)
+
+
+
+
+
+
+
+
+TB_zoops.wide = pivot_wider(TB_zoops, names_from = species_name, values_from = density)
 TB_zoops.long = pivot_longer(TB_zoops.wide, cols=5:84, names_to="code", values_to = "density")
 
 
