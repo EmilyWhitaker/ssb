@@ -224,6 +224,8 @@ genus2 = genus
 
 write.csv(genus2, 'data/cleanedCellBioVol05202020.csv',row.names = F)
 write.csv(totalsonly, 'data/TotalCBVonly.csv', row.names = F)
+
+genus = read.csv('data/cleanedCellBioVol05202020.csv',stringsAsFactors = F)
 ######
 #hil's info
 genus %>% 

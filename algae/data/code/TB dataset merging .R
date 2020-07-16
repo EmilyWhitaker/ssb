@@ -23,24 +23,55 @@ genus$sampledate = ymd(genus$sampledate)
 TB_dataphyto.wide = pivot_wider(TB_dataphyto, names_from = taxa_name, values_from = biovolume_conc)
 TB_dataphyto.long = pivot_longer(TB_dataphyto.wide, cols=11:92, names_to="Taxa-name", values_to = "biovolume_conc")
 
+TB_dataphyto %>% 
+  group_by(sampledate, taxa_name) %>% 
+  mutate(dupe = n() > 1) %>% 
+  filter(dupe == TRUE)
+TB_dataphyto.wide = TB_dataphyto %>% 
+  group_by(sampledate, taxa_name) %>% #deal with duplications
+  summarise(CellBioVol = sum(CellBioVol, na.rm = T)) %>% 
+  pivot_wider(names_from = Genus, values_from = CellBioVol, values_fill = list(CellBioVol = 0)) #fill NAs with zeros
+TB_dataphyto.long = pivot_longer(TB_dataphyto.wide, cols = 2:61, names_to="Genus", values_to = "CellBioVol")
+TB_dataphyto.long$CellBioVol[is.na(TB_dataphyto.long$CellBioVol)] = 0
+
+
+
+
+
+
+
+
+
+
+
 #set NAs to 0s  !!!
 write.csv(TB_dataphyto.long, 'data/CleanTBPhytos.csv', row.names = F)
 
 
 # add true 0s for all bvs for all genus - pivot-wide then zero, then pivot back to long
 genus$sampledate = ymd(genus$sampledate)
-
 genus.wide = pivot_wider(genus, names_from = Genus, values_from = CellBioVol)
-
 genus.long = pivot_longer(genus.wide, cols=12:70, names_to="Genus", values_to = "CellBioVol")
-
 try = unlist(genus.long$CellBioVol)
 genus.long$cellbv = try
 
 ggplot(subset(genus.long, sampledate=='1997-01-14'), aes(Genus, CellBioVol))+
   geom_point()
 
-
+###########
+genus = read.csv('data/cleanedCellBioVol05202020.csv',stringsAsFactors = F)
+######
+#hil's info
+genus %>% 
+  group_by(sampledate, Genus) %>% 
+  mutate(dupe = n() > 1) %>% 
+  filter(dupe == TRUE)
+genus.wide = genus %>% 
+  group_by(sampledate, Genus) %>% #deal with duplications
+  summarise(CellBioVol = sum(CellBioVol, na.rm = T)) %>% 
+  pivot_wider(names_from = Genus, values_from = CellBioVol, values_fill = list(CellBioVol = 0)) #fill NAs with zeros
+genus.long = pivot_longer(genus.wide, cols = 2:61, names_to="Genus", values_to = "CellBioVol")
+genus.long$CellBioVol[is.na(genus.long$CellBioVol)] = 0
 
 
 #need to make all of the absence data
