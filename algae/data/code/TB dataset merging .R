@@ -52,7 +52,8 @@ TB_zoops$sampledate = mdy(TB_zoops$sampledate)
 genus$sampledate = ymd(genus$sampledate)
 TB_zoops.wide = pivot_wider(TB_zoops, names_from = species_code, values_from = density)
 TB_zoops.long = pivot_longer(TB_zoops.wide, cols=5:84, names_to="code", values_to = "density")
-
+try = unlist(TB_zoops.long$density)
+TB_zoops.long$density = try
 write.csv(TB_zoops.long, 'data/TB_zoops.csv', row.names = F)
 
 
