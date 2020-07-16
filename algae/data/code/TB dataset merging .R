@@ -18,6 +18,20 @@ library(ggpubr); library(fuzzyjoin)
 #merging TB dataset-- eek 
 TB_dataphyto = read.csv('data/TB_data_phytos.csv', stringsAsFactors = F)
 TB_dataphyto$sampledate = ymd(TB_dataphyto$sampledate)
+
+genus %>% 
+  group_by(sampledate, Genus) %>% 
+  mutate(dupe = n() > 1) %>% 
+  filter(dupe == TRUE)
+genus.wide = genus %>% 
+  group_by(sampledate, Genus) %>% #deal with duplications
+  summarise(CellBioVol = sum(CellBioVol, na.rm = T)) %>% 
+  pivot_wider(names_from = Genus, values_from = CellBioVol, values_fill = list(CellBioVol = 0)) #fill NAs with zeros
+genus.long = pivot_longer(genus.wide, cols = 2:61, names_to="Genus", values_to = "CellBioVol")
+
+
+
+
 #need to make all of the absence data
 
 

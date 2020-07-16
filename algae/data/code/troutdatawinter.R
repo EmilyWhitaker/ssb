@@ -12,11 +12,17 @@ library(ggpubr); library(fuzzyjoin)
 
 ############
 
-data = read.csv('data/Trout data/snowiceTB.csv', stringsAsFactors = F)
-data$sampledate = ymd(data$sampledate)
-data %<>% rename('white ice' = whiteice)
-data %<>% rename('blue ice' = blueice)
-data.long = pivot_longer(data, cols=c("totice","white ice","blue ice"), names_to="variable", values_to = "value")
+TB_snowice= read.csv('data/Trout data/snowiceTB.csv', stringsAsFactors = F)
+TB_snowice$sampledate = ymd(TB_snowice$sampledate)
+TB_snowice %<>% rename('white ice' = whiteice)
+TB_snowice %<>% rename('blue ice' = blueice)
+
+
+
+
+
+
+TB_snowice.long = pivot_longer(TB_snowice, cols=c("totice","white ice","blue ice"), names_to="variable", values_to = "value")
 
 data.long2 = pivot_longer(data, cols=c("white ice","blue ice"), names_to="variable", values_to = "value")
 
