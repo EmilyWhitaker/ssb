@@ -56,8 +56,44 @@ TB_data_phytos.longtaxa = pivot_longer(TB_data_phytos.wide, cols = 4:86, names_t
   group_by(division, genus, taxa_name) %>% 
   filter(sum(biovolume_conc, na.rm = T) > 0)
 
-
 write.csv(TB_data_phytos.longtaxa, 'data/TBPhytos_taxa2.csv', row.names = F)
+
+
+
+
+
+
+####### correct merge#############
+uniqueTaxa = TB_data_phytos %>% select(division, genus, taxa_name) %>% 
+  distinct()
+uniqueDates = TB_data_phytos %>% select(sampledate) %>% 
+  distinct()
+combo = tidyr::expand_grid(uniqueDates, uniqueTaxa) %>% 
+  left_join(TB_data_phytos, by = c("sampledate", "division", "genus", "taxa_name"))
+combo2= combo %>% 
+  mutate(biovolume_conc = if_else(is.na(biovolume_conc), 0, biovolume_conc))
+combo3= combo2 %>% 
+  mutate(relative_total_biovolume = if_else(is.na(relative_total_biovolume), 0, relative_total_biovolume))
+write.csv(combo3, 'data/TBPhytos_Clean.csv', row.names = F)
+
+
+
+#df1 <- df1 %>%
+#  mutate(myCol1 = if_else(is.na(myCol1), 0, myCol1))
+
+
+#TB_data_phytos.longtaxa = pivot_longer(TB_data_phytos.wide, cols = 4:86, nvalues_fill = list(biovolume_conc = 0)
+
+#You still need to summarize your biovolume for your duplicates
+
+
+
+
+
+
+
+
+
 
 TB_data_phytos %>% 
   group_by(sampledate,division,taxa_name, genus) %>% 
