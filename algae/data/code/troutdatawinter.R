@@ -21,10 +21,8 @@ TB_bulkdata %<>% rename(chlor.int= chlor)
 
 TB_chloro= read.csv('data/troutchloro.csv', stringsAsFactors = F)
 TB_chloro %<>% subset(depth ==0)
-TB_chloro %>% 
-  group_by(sampledate, depth) %>% 
-  mutate(dupe = n() > 1) %>% 
-  filter(dupe == TRUE)
+write.csv(TB_chloro, 'data/TB_chloro.csv', row.names = F)
+TB_chloro.surf= read.csv('data/TB_chloro.surf.csv', stringsAsFactors = F)
 
 #fuzzy join snow ice and bulk
 
