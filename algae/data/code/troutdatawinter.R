@@ -19,6 +19,8 @@ TB_bulkdata= read.csv('data/emilyTBslice.csv', stringsAsFactors = F)
 TB_bulkdata$sampledate = mdy(TB_bulkdata$sampledate)
 TB_bulkdata %<>% rename(chlor.int= chlor)
 
+TB_chloro= read.csv('data/troutchloro.csv', stringsAsFactors = F)
+TB_chloro %<>% subset(depth ==0)
 
 #fuzzy join snow ice and bulk
 
