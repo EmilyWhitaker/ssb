@@ -23,7 +23,7 @@ TB_chloro= read.csv('data/troutchloro.csv', stringsAsFactors = F)
 TB_chloro %<>% subset(depth ==0)
 write.csv(TB_chloro, 'data/TB_chloro.csv', row.names = F)
 TB_chloro.surf= read.csv('data/TB_chloro.surf.csv', stringsAsFactors = F)
-
+TB_chloro.surf$sampledate = mdy(TB_chloro.surf$sampledate)
 #fuzzy join snow ice and bulk
 
 TB_snowice %<>% select(sampledate, avsnow, totice, whiteice, blueice, iceduration, season) %>%
@@ -38,12 +38,16 @@ TB_IceBD$totice[is.na(TB_IceBD$totice)]=0
 TB_IceBD$blueice[is.na(TB_IceBD$blueice)]=0
 TB_IceBD$whiteice[is.na(TB_IceBD$whiteice)]=0
 
+TB_chloro.surf %<>% select(sampledate, chlor.surf) %>%
+  mutate(bv.datePlus1 = sampledate + 1) %>% mutate(bv.dateMinus1 = sampledate - 1)
+
+TB_IceBD <-fuzzy_left_join(TB_IceBD, TB_chloro.surf, by = c("sampledate.x" = "bv.datePlus1", "sampledate.x" = "bv.dateMinus1"),
+                           match_fun = list(`<=`, `>=`))
+
+write.csv(TB_IceBD, 'data/TB_IceBD.csv', row.names = F)
 
 
-
-
-
-
+TB_Clean= read.csv('data/TB_IceBD.clean.csv', stringsAsFactors = F)
 
 
 
