@@ -13,9 +13,30 @@ library(ggpubr); library(fuzzyjoin)
 ############
 
 TB_snowice= read.csv('data/Trout data/snowiceTB.csv', stringsAsFactors = F)
-TB_snowice$sampledate = ymd(TB_snowice$sampledate)
-TB_snowice %<>% rename('white ice' = whiteice)
-TB_snowice %<>% rename('blue ice' = blueice)
+TB_snowice$sampledate = mdy(TB_snowice$sampledate)
+
+TB_bulkdata= read.csv('data/emilyTBslice.csv', stringsAsFactors = F)
+TB_bulkdata$sampledate = mdy(TB_bulkdata$sampledate)
+TB_bulkdata %<>% rename(chlor.int= chlor)
+
+
+#fuzzy join snow ice and bulk
+
+TB_snowice %<>% select(sampledate, avsnow, totice, whiteice, blueice, iceduration, season) %>%
+  mutate(bv.datePlus1 = sampledate + 1) %>% mutate(bv.dateMinus1 = sampledate - 1)
+
+TB_IceBD <-fuzzy_left_join(TB_bulkdata, TB_snowice, by = c("sampledate" = "bv.datePlus1", "sampledate" = "bv.dateMinus1"),
+                                 match_fun = list(`<=`, `>=`))
+
+
+TB_IceBD$avsnow[is.na(TB_IceBD$avsnow)]=0
+TB_IceBD$totice[is.na(TB_IceBD$totice)]=0
+TB_IceBD$blueice[is.na(TB_IceBD$blueice)]=0
+TB_IceBD$whiteice[is.na(TB_IceBD$whiteice)]=0
+
+
+
+
 
 
 

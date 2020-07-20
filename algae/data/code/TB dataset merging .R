@@ -16,8 +16,98 @@ library(ggpubr); library(fuzzyjoin)
 #######
 
 #merging TB dataset-- eek 
-TB_dataphyto = read.csv('data/TB_data_phytos.csv', stringsAsFactors = F)
-TB_dataphyto$sampledate = ymd(TB_dataphyto$sampledate)
+#TB_dataphyto = read.csv('data/TB_data_phytos.csv', stringsAsFactors = F)
+#TB_dataphyto$sampledate = ymd(TB_dataphyto$sampledate)
+TB_data_phytos <- read.csv("data/TB_data_phytos_totals_withNA.csv", 
+                                         na = "null")
+############################
+#genus$sampledate = ymd(genus$sampledate)
+
+#genus.wide = pivot_wider(genus, names_from = Genus, values_from = CellBioVol)
+
+#genus.long = pivot_longer(genus.wide, cols=12:70, names_to="Genus", values_to = "CellBioVol")
+TB_data_phytos <- read.csv("data/TB_data_phytos_totals_withNA.csv", na = "null")
+TB_data_phytos$sampledate = mdy(TB_data_phytos$sampledate)
+
+#TB_data_phytos %>% 
+  group_by(sampledate,division,taxa_name, genus) %>% 
+  mutate(dupe = n() > 1) %>% 
+  filter(dupe == TRUE)
+#TB_data_phytos.wide = TB_data_phytos %>% 
+  group_by(sampledate, division,taxa_name, genus) %>% #deal with duplications
+  summarise(biovolume_conc = sum(biovolume_conc, na.rm = T)) %>% 
+  pivot_wider(names_from = division, values_from = biovolume_conc, values_fill = list(biovolume_conc = 0)) #fill NAs with zeros
+#TB_data_phytos.longdiv = pivot_longer(TB_data_phytos.wide, cols = 4:14, names_to="division", values_to = "biovolume_conc")
+
+#write.csv(TB_data_phytos.longdiv, 'data/TBPhytos_div072020.csv', row.names = F)
+
+
+TB_data_phytos %>% 
+  group_by(sampledate,division,taxa_name, genus) %>% 
+  mutate(dupe = n() > 1) %>% 
+  filter(dupe == TRUE)
+TB_data_phytos.wide = TB_data_phytos %>% 
+  group_by(sampledate, division,taxa_name, genus) %>% #deal with duplications
+  summarise(biovolume_conc = sum(biovolume_conc, na.rm = T)) %>% 
+  pivot_wider(names_from = taxa_name, values_from = biovolume_conc, values_fill = list(biovolume_conc = 0)) #fill NAs with zeros
+TB_data_phytos.longtaxa = pivot_longer(TB_data_phytos.wide, cols = 4:86, names_to="taxa_name", values_to = "biovolume_conc")
+
+write.csv(TB_data_phytos.longtaxa, 'data/TBPhytos_taxa072020.csv', row.names = F)
+
+TB_data_phytos %>% 
+  group_by(sampledate,division,taxa_name, genus) %>% 
+  mutate(dupe = n() > 1) %>% 
+  filter(dupe == TRUE)
+TB_data_phytos.wide = TB_data_phytos %>% 
+  group_by(division,taxa_name, genus) %>% #deal with duplications
+  summarise_at(vars(sampledate:genus), sum, na.rm = TRUE)
+  #summarise(biovolume_conc = sum(biovolume_conc, na.rm = T)) %>% 
+  pivot_wider(names_from = taxa_name, values_from = biovolume_conc, values_fill = list(biovolume_conc = 0)) #fill NAs with zeros
+TB_data_phytos.longtaxa = pivot_longer(TB_data_phytos.wide, cols = 4:86, names_to="taxa_name", values_to = "biovolume_conc")
+
+
+summarise_at(vars(cells_per_nu:biomass_conc), sum, na.rm = TRUE)
+
+####################################
+genus %>% 
+  group_by(sampledate, Genus) %>% 
+  mutate(dupe = n() > 1) %>% 
+  filter(dupe == TRUE)
+genus.wide = genus %>% 
+  group_by(sampledate, Genus) %>% #deal with duplications
+  summarise(CellBioVol = sum(CellBioVol, na.rm = T)) %>% 
+  pivot_wider(names_from = Genus, values_from = CellBioVol, values_fill = list(CellBioVol = 0)) #fill NAs with zeros
+genus.long = pivot_longer(genus.wide, cols = 2:61, names_to="Genus", values_to = "CellBioVol")
+
+
+
+
+
+
+TB_data_phytos %>% 
+  group_by(sampledate, species_name) %>% 
+  mutate(dupe = n() > 1) %>% 
+  filter(dupe == TRUE)
+
+
+TB_data_phytos.wide2 = pivot_wider(TB_data_phytos, names_from = division, values_from = biovolume_conc)
+
+TB_data_phytos.long2 = pivot_longer(TB_data_phytos.wide2, cols=11:21, names_to="division", values_to = "biovolume_conc")
+
+
+
+
+write.csv(TB_data_phytos.long, 'data/TBPhytos_probablyno.csv', row.names = F)
+
+write.csv(TB_data_phytos.long2, 'data/TBPhytos_probablydivsion.csv', row.names = F)
+
+
+
+
+
+
+
+###############################
 
 TB_dataphyto.wide = pivot_wider(TB_dataphyto, names_from = taxa_name, values_from = biovolume_conc)
 TB_dataphyto.long = pivot_longer(TB_dataphyto.wide, cols=11:92, names_to="Taxa-name", values_to = "biovolume_conc")

@@ -288,8 +288,10 @@ genus.long = pivot_longer(genus.wide, cols=12:70, names_to="Genus", values_to = 
 try = unlist(genus.long$CellBioVol)
 genus.long$cellbv = try
 
-ggplot(subset(genus.long, sampledate=='1997-01-14'), aes(Genus, CellBioVol))+
-  geom_point()
+
+
+#ggplot(subset(genus.long, sampledate=='1997-01-14'), aes(Genus, CellBioVol))+
+#  geom_point()
 
 
 #write.csv(genus, 'data/genus_clean_03032020.csv', row.names = F)
