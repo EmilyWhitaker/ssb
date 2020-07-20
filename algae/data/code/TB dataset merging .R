@@ -50,9 +50,14 @@ TB_data_phytos.wide = TB_data_phytos %>%
   group_by(sampledate, division,taxa_name, genus) %>% #deal with duplications
   summarise(biovolume_conc = sum(biovolume_conc, na.rm = T)) %>% 
   pivot_wider(names_from = taxa_name, values_from = biovolume_conc, values_fill = list(biovolume_conc = 0)) #fill NAs with zeros
-TB_data_phytos.longtaxa = pivot_longer(TB_data_phytos.wide, cols = 4:86, names_to="taxa_name", values_to = "biovolume_conc")
+#TB_data_phytos.longtaxa = pivot_longer(TB_data_phytos.wide, cols = 4:86, names_to="taxa_name", values_to = "biovolume_conc")
+#TB_data_phytos.longtaxa %>% group_by(division, genus, taxa_name) %>%filter(sum(biovolume_conc, na.rm = T) > 0)
+TB_data_phytos.longtaxa = pivot_longer(TB_data_phytos.wide, cols = 4:86, names_to="taxa_name", values_to = "biovolume_conc") %>% 
+  group_by(division, genus, taxa_name) %>% 
+  filter(sum(biovolume_conc, na.rm = T) > 0)
 
-write.csv(TB_data_phytos.longtaxa, 'data/TBPhytos_taxa072020.csv', row.names = F)
+
+write.csv(TB_data_phytos.longtaxa, 'data/TBPhytos_taxa2.csv', row.names = F)
 
 TB_data_phytos %>% 
   group_by(sampledate,division,taxa_name, genus) %>% 

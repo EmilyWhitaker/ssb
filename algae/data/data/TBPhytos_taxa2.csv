@@ -1,0 +1,836 @@
+"sampledate","division","genus","taxa_name","biovolume_conc"
+2010-02-22,"Chlorophyta","Chlamydomonas","Chlamydomonas ",1522.6585
+2010-02-22,"Cryptophyta","Cryptomonas","Cryptomonas erosa",25377.6325
+2010-02-22,"Cyanophyta","Aphanocapsa","Aphanocapsa delicatissima",55.5137
+2010-02-22,"Cyanophyta","Synechococcus","Synechococcus ",43.6164
+2010-02-22,"Cyanophyta","Synechococcus","Synechococcus elongatus",0
+2010-02-22,"Euglenophyta","Euglena","Euglena ",91473.6948
+2010-02-22,"Euglenophyta","Euglena","Euglena acus",0
+2010-02-22,"Miscellaneous","Miscellaneous","Miscellaneous",1189.5763
+2010-02-22,"NA","Rhodospirillum","Rhodospirillum rubrum",1345.3878
+2010-02-22,"Total","Total","Total",121008.08
+2010-04-13,"Bacillariophyta","Asterionella","Asterionella formosa",1281.7498
+2010-04-13,"Chlorophyta","Chlamydomonas","Chlamydomonas ",184764.1653
+2010-04-13,"Chlorophyta","NA","Chlorococcaceae",25980.3572
+2010-04-13,"Chlorophyta","NA","Chlorophyta",5995.466
+2010-04-13,"Chrysophyta","NA","Chrysophyceae",9507.5239
+2010-04-13,"Chrysophyta","NA","Chrysocapsaceae",0
+2010-04-13,"Cryptophyta","Rhodomonas","Rhodomonas minuta",4567.9709
+2010-04-13,"Cyanophyta","Synechococcus","Synechococcus ",35.6874
+2010-04-13,"Cyanophyta","Synechococcus","Synechococcus elongatus",0
+2010-04-13,"Cyanophyta","Synechocystis","Synechocystis ",80.2943
+2010-04-13,"Euglenophyta","Euglena","Euglena ",103122.0071
+2010-04-13,"Euglenophyta","Euglena","Euglena acus",0
+2010-04-13,"Miscellaneous","Miscellaneous","Miscellaneous",4567.9754
+2010-04-13,"NA","Rhodospirillum","Rhodospirillum rubrum",52961.9967
+2010-04-13,"Pyrrhophyta","Peridinium","Peridinium ",13652.8602
+2010-04-13,"Pyrrhophyta","Peridinium","Peridinium inconspicuum",0
+2010-04-13,"Pyrrhophyta","Peridinium","Peridinium umbonatum",0
+2010-04-13,"Pyrrhophyta","Peridinium","Peridinium cinctum",0
+2010-04-13,"Total","Total","Total",406518.0542
+2010-06-10,"Bacillariophyta","Asterionella","Asterionella formosa",178118.8246
+2010-06-10,"Chlorophyta","Chlamydomonas","Chlamydomonas ",46426.7807
+2010-06-10,"Chlorophyta","NA","Chlorococcaceae",126.8885
+2010-06-10,"Chlorophyta","NA","Chlorophyta",17700.9126
+2010-06-10,"Chlorophyta","Coelastrum","Coelastrum ",7687.5653
+2010-06-10,"Chlorophyta","Monomastix","Monomastix minuta",356.8738
+2010-06-10,"Chlorophyta","Monomastix","Monomastix astigmata",0
+2010-06-10,"Chlorophyta","Oocystis","Oocystis parva",5709.9685
+2010-06-10,"Chlorophyta","Oocystis","Oocystis pusilla",0
+2010-06-10,"Chlorophyta","Schroederia","Schroederia judayi",2017.5228
+2010-06-10,"Chrysophyta","NA","Chrysophyceae",60205.5986
+2010-06-10,"Chrysophyta","NA","Chrysocapsaceae",0
+2010-06-10,"Cryptophyta","Cryptomonas","Cryptomonas erosa",544414.9075
+2010-06-10,"Cryptophyta","Rhodomonas","Rhodomonas minuta",1015.1046
+2010-06-10,"Cyanophyta","Aphanocapsa","Aphanocapsa delicatissima",253.7769
+2010-06-10,"Cyanophyta","Synechococcus","Synechococcus ",285.499
+2010-06-10,"Cyanophyta","Synechococcus","Synechococcus elongatus",0
+2010-06-10,"Euglenophyta","Euglena","Euglena ",126451.9759
+2010-06-10,"Euglenophyta","Euglena","Euglena acus",0
+2010-06-10,"Miscellaneous","Miscellaneous","Miscellaneous",31989.7774
+2010-06-10,"NA","Rhodospirillum","Rhodospirillum rubrum",6959.0389
+2010-06-10,"Pyrrhophyta","Gymnodinium","Gymnodinium sp. 2",5075.5262
+2010-06-10,"Pyrrhophyta","Gymnodinium","Gymnodinium sp. 3",2283.9862
+2010-06-10,"Pyrrhophyta","Gymnodinium","Gymnodinium sp. 1",0
+2010-06-10,"Total","Total","Total",1037080.528
+2010-07-07,"Bacillariophyta","Asterionella","Asterionella formosa",5758.4179
+2010-07-07,"Bacillariophyta","Lindavia","Lindavia intermedia",7881.953
+2010-07-07,"Chlorophyta","Chlamydomonas","Chlamydomonas ",99162.2636
+2010-07-07,"Chlorophyta","NA","Chlorococcaceae",6284.9288
+2010-07-07,"Chlorophyta","NA","Chlorophyta",2438.792
+2010-07-07,"Chlorophyta","Monomastix","Monomastix minuta",126.8885
+2010-07-07,"Chlorophyta","Monomastix","Monomastix astigmata",0
+2010-07-07,"Chlorophyta","Schroederia","Schroederia judayi",1015.1077
+2010-07-07,"Chlorophyta","Sphaerocystis","Sphaerocystis schroeteri",27407.8403
+2010-07-07,"Chrysophyta","NA","Chrysophyceae",27804.7666
+2010-07-07,"Chrysophyta","NA","Chrysocapsaceae",0
+2010-07-07,"Chrysophyta","Dinobryon","Dinobryon cylindricum",2030.2093
+2010-07-07,"Chrysophyta","Dinobryon","Dinobryon cyst",0
+2010-07-07,"Chrysophyta","Dinobryon","Dinobryon ",0
+2010-07-07,"Chrysophyta","Dinobryon","Dinobryon sociale",0
+2010-07-07,"Chrysophyta","Dinobryon","Dinobryon crenulatum",0
+2010-07-07,"Cryptophyta","Cryptomonas","Cryptomonas erosa",831548.8353
+2010-07-07,"Cyanophyta","Synechococcus","Synechococcus ",317.2211
+2010-07-07,"Cyanophyta","Synechococcus","Synechococcus elongatus",0
+2010-07-07,"Cyanophyta","Synechocystis","Synechocystis ",160.5887
+2010-07-07,"Euglenophyta","Euglena","Euglena ",44709.0336
+2010-07-07,"Euglenophyta","Euglena","Euglena acus",0
+2010-07-07,"NA","Rhodospirillum","Rhodospirillum rubrum",3580.6337
+2010-07-07,"Total","Total","Total",1060227.48
+2010-08-03,"Chlorophyta","Chlamydomonas","Chlamydomonas ",71239.4509
+2010-08-03,"Chlorophyta","NA","Chlorococcaceae",1982.6261
+2010-08-03,"Chlorophyta","NA","Chlorophyta",60.9315
+2010-08-03,"Chlorophyta","Monomastix","Monomastix minuta",356.8738
+2010-08-03,"Chlorophyta","Monomastix","Monomastix astigmata",0
+2010-08-03,"Chlorophyta","Monoraphidium","Monoraphidium griffithii",1141.9931
+2010-08-03,"Chlorophyta","Monoraphidium","Monoraphidium arcuatum",0
+2010-08-03,"Chlorophyta","Oocystis","Oocystis parva",1586.1027
+2010-08-03,"Chlorophyta","Oocystis","Oocystis pusilla",0
+2010-08-03,"Chlorophyta","Schroederia","Schroederia judayi",1268.8846
+2010-08-03,"Chlorophyta","Sphaerocystis","Sphaerocystis schroeteri",6851.9601
+2010-08-03,"Chrysophyta","NA","Chrysophyceae",8580.9834
+2010-08-03,"Chrysophyta","NA","Chrysocapsaceae",0
+2010-08-03,"Chrysophyta","Dinobryon","Dinobryon cylindricum",14100.4466
+2010-08-03,"Chrysophyta","Dinobryon","Dinobryon cyst",0
+2010-08-03,"Chrysophyta","Dinobryon","Dinobryon ",0
+2010-08-03,"Chrysophyta","Dinobryon","Dinobryon sociale",0
+2010-08-03,"Chrysophyta","Dinobryon","Dinobryon crenulatum",0
+2010-08-03,"Chrysophyta","Kephyrion","Kephyrion ",285.499
+2010-08-03,"Chrysophyta","Kephyrion","Kephyrion planctonicum",0
+2010-08-03,"Cryptophyta","Cryptomonas","Cryptomonas erosa",543436.608
+2010-08-03,"Cryptophyta","Rhodomonas","Rhodomonas minuta",507.5523
+2010-08-03,"Cyanophyta","Synechococcus","Synechococcus ",47.5832
+2010-08-03,"Cyanophyta","Synechococcus","Synechococcus elongatus",0
+2010-08-03,"Cyanophyta","Synechocystis","Synechocystis ",80.2943
+2010-08-03,"Euglenophyta","Euglena","Euglena ",69703.9061
+2010-08-03,"Euglenophyta","Euglena","Euglena acus",0
+2010-08-03,"Haptophyta","Chrysochromulina","Chrysochromulina parva",1832.2672
+2010-08-03,"NA","Rhodospirillum","Rhodospirillum rubrum",2569.564
+2010-08-03,"Pyrrhophyta","Gymnodinium","Gymnodinium sp. 2",2537.7631
+2010-08-03,"Pyrrhophyta","Gymnodinium","Gymnodinium sp. 3",0
+2010-08-03,"Pyrrhophyta","Gymnodinium","Gymnodinium sp. 1",0
+2010-08-03,"Total","Total","Total",728171.29
+2010-11-15,"Bacillariophyta","Tabellaria","Tabellaria flocculosa",3370.562
+2010-11-15,"Bacillariophyta","Tabellaria","Tabellaria binalis",0
+2010-11-15,"Chlorophyta","Chlamydomonas","Chlamydomonas ",178939.7615
+2010-11-15,"Chlorophyta","NA","Chlorococcaceae",114.1996
+2010-11-15,"Chlorophyta","NA","Chlorophyta",2357.548
+2010-11-15,"Chrysophyta","NA","Chrysophyceae",79916.4867
+2010-11-15,"Chrysophyta","NA","Chrysocapsaceae",0
+2010-11-15,"Chrysophyta","Kephyrion","Kephyrion ",0
+2010-11-15,"Chrysophyta","Kephyrion","Kephyrion planctonicum",513.8983
+2010-11-15,"Cyanophyta","Aphanizomenon","Aphanizomenon ",1213.3152
+2010-11-15,"Cyanophyta","Aphanizomenon","Aphanizomenon flos-aquae",0
+2010-11-15,"Cyanophyta","Aphanothece","Aphanothece saxicola",456.7984
+2010-11-15,"Cyanophyta","Aphanothece","Aphanothece nidulans",0
+2010-11-15,"Cyanophyta","Aphanothece","Aphanothece ",0
+2010-11-15,"Cyanophyta","Synechocystis","Synechocystis ",96.3532
+2010-11-15,"Haptophyta","Chrysochromulina","Chrysochromulina parva",29682.7278
+2010-11-15,"NA","Rhodospirillum","Rhodospirillum rubrum",6958.6844
+2010-11-15,"Total","Total","Total",303620.3351
+2011-02-15,"Bacillariophyta","Asterionella","Asterionella formosa",2044.7314
+2011-02-15,"Bacillariophyta","Tabellaria","Tabellaria flocculosa",0
+2011-02-15,"Bacillariophyta","Tabellaria","Tabellaria binalis",9693.5415
+2011-02-15,"Chlorophyta","Chlamydomonas","Chlamydomonas ",12716.7412
+2011-02-15,"Chlorophyta","NA","Chlorococcaceae",1110.271
+2011-02-15,"Chlorophyta","NA","Chlorophyta",63.4442
+2011-02-15,"Chlorophyta","Oedogonium","Oedogonium ",50738.6366
+2011-02-15,"Chlorophyta","Schroederia","Schroederia judayi",523.4126
+2011-02-15,"Chrysophyta","NA","Chrysophyceae",27756.2587
+2011-02-15,"Chrysophyta","NA","Chrysocapsaceae",0
+2011-02-15,"Cryptophyta","Cryptomonas","Cryptomonas erosa",6851.9608
+2011-02-15,"Cyanophyta","Phormidium","Phormidium ",13615.327
+2011-02-15,"Euglenophyta","Euglena","Euglena ",26346.3407
+2011-02-15,"Euglenophyta","Euglena","Euglena acus",0
+2011-02-15,"Haptophyta","Chrysochromulina","Chrysochromulina parva",229.0334
+2011-02-15,"Miscellaneous","Miscellaneous","Miscellaneous",3172.2054
+2011-02-15,"NA","Rhodospirillum","Rhodospirillum rubrum",1320.433
+2011-02-15,"Total","Total","Total",156182.3375
+2011-05-03,"Bacillariophyta","Actinella","Actinella punctata",422.8073
+2011-05-03,"Bacillariophyta","Tabellaria","Tabellaria flocculosa",2211.9313
+2011-05-03,"Bacillariophyta","Tabellaria","Tabellaria binalis",0
+2011-05-03,"Chlorophyta","Chlamydomonas","Chlamydomonas ",317705.2239
+2011-05-03,"Chlorophyta","NA","Chlorococcaceae",15188.5102
+2011-05-03,"Chlorophyta","NA","Chlorophyta",824.5202
+2011-05-03,"Chlorophyta","Gloeococcus","Gloeococcus minor",63837.4305
+2011-05-03,"Chlorophyta","Schroederia","Schroederia judayi",1811.523
+2011-05-03,"Chrysophyta","NA","Chrysophyceae",18500.8715
+2011-05-03,"Chrysophyta","NA","Chrysocapsaceae",0
+2011-05-03,"Chrysophyta","Mallomonas","Mallomonas ",98668.2359
+2011-05-03,"Chrysophyta","Mallomonas","Mallomonas akrokomas",0
+2011-05-03,"Cryptophyta","Cryptomonas","Cryptomonas erosa",882.411
+2011-05-03,"Cyanophyta","Aphanothece","Aphanothece saxicola",0
+2011-05-03,"Cyanophyta","Aphanothece","Aphanothece nidulans",1941.388
+2011-05-03,"Cyanophyta","Aphanothece","Aphanothece ",0
+2011-05-03,"Cyanophyta","Phormidium","Phormidium ",3695.0963
+2011-05-03,"Cyanophyta","Planktothrix","Planktothrix agardhii",1709.6714
+2011-05-03,"NA","Rhodospirillum","Rhodospirillum rubrum",12633.3321
+2011-05-03,"Pyrrhophyta","Gymnodinium","Gymnodinium sp. 2",5781.3417
+2011-05-03,"Pyrrhophyta","Gymnodinium","Gymnodinium sp. 3",2797.885
+2011-05-03,"Pyrrhophyta","Gymnodinium","Gymnodinium sp. 1",0
+2011-05-03,"Total","Total","Total",548612.1793
+2011-06-01,"Bacillariophyta","Asterionella","Asterionella formosa",27917.3994
+2011-06-01,"Bacillariophyta","Tabellaria","Tabellaria flocculosa",0
+2011-06-01,"Bacillariophyta","Tabellaria","Tabellaria binalis",6319.8038
+2011-06-01,"Chlorophyta","Chlamydomonas","Chlamydomonas ",265010.7344
+2011-06-01,"Chlorophyta","NA","Chlorococcaceae",133342.0113
+2011-06-01,"Chlorophyta","NA","Chlorophyta",0
+2011-06-01,"Chlorophyta","Monomastix","Monomastix minuta",385.4237
+2011-06-01,"Chlorophyta","Monomastix","Monomastix astigmata",0
+2011-06-01,"Chlorophyta","Scenedesmus","Scenedesmus bijuga",6166.7654
+2011-06-01,"Chrysophyta","NA","Chrysophyceae",2789.0163
+2011-06-01,"Chrysophyta","NA","Chrysocapsaceae",0
+2011-06-01,"Chrysophyta","Mallomonas","Mallomonas ",40981.5755
+2011-06-01,"Chrysophyta","Mallomonas","Mallomonas akrokomas",0
+2011-06-01,"Cryptophyta","Cryptomonas","Cryptomonas erosa",1418641.328
+2011-06-01,"Cyanophyta","Aphanocapsa","Aphanocapsa delicatissima",570.9981
+2011-06-01,"Cyanophyta","Phormidium","Phormidium ",2206.0277
+2011-06-01,"Euglenophyta","Euglena","Euglena ",29806.0252
+2011-06-01,"Euglenophyta","Euglena","Euglena acus",9764.045
+2011-06-01,"NA","Rhodospirillum","Rhodospirillum rubrum",30477.0215
+2011-06-01,"Total","Total","Total",1974378.175
+2011-07-25,"Bacillariophyta","Actinella","Actinella punctata",823.8362
+2011-07-25,"Bacillariophyta","Asterionella","Asterionella formosa",2240.3002
+2011-07-25,"Chlorophyta","Chlamydomonas","Chlamydomonas ",19325.8779
+2011-07-25,"Chlorophyta","","Chlorococcaceae",1827.1889
+2011-07-25,"Chlorophyta","","Chlorophyta",0
+2011-07-25,"Chlorophyta","Monoraphidium","Monoraphidium griffithii",131.9636
+2011-07-25,"Chlorophyta","Monoraphidium","Monoraphidium arcuatum",0
+2011-07-25,"Chlorophyta","Mougeotia","Mougeotia ",205558.8214
+2011-07-25,"Chlorophyta","Stichococcus","Stichococcus bacillaris",28.5499
+2011-07-25,"Chrysophyta","NA","Chrysophyceae",8873.8617
+2011-07-25,"Chrysophyta","NA","Chrysocapsaceae",0
+2011-07-25,"Chrysophyta","Dinobryon","Dinobryon cylindricum",15242.3136
+2011-07-25,"Chrysophyta","Dinobryon","Dinobryon cyst",3046.585
+2011-07-25,"Chrysophyta","Dinobryon","Dinobryon ",0
+2011-07-25,"Chrysophyta","Dinobryon","Dinobryon sociale",0
+2011-07-25,"Chrysophyta","Dinobryon","Dinobryon crenulatum",0
+2011-07-25,"Chrysophyta","Kephyrion","Kephyrion ",0
+2011-07-25,"Chrysophyta","Kephyrion","Kephyrion planctonicum",114.1996
+2011-07-25,"Cryptophyta","Cryptomonas","Cryptomonas erosa",157239.8087
+2011-07-25,"Cryptophyta","Rhodomonas","Rhodomonas minuta",406.0419
+2011-07-25,"Euglenophyta","Euglena","Euglena ",15896.5489
+2011-07-25,"Euglenophyta","Euglena","Euglena acus",0
+2011-07-25,"Haptophyta","Chrysochromulina","Chrysochromulina parva",183.2267
+2011-07-25,"Miscellaneous","Miscellaneous","Miscellaneous",2506.041
+2011-07-25,"NA","Rhodospirillum","Rhodospirillum rubrum",4782.1088
+2011-07-25,"Pyrrhophyta","Gymnodinium","Gymnodinium sp. 2",0
+2011-07-25,"Pyrrhophyta","Gymnodinium","Gymnodinium sp. 3",456.7972
+2011-07-25,"Pyrrhophyta","Gymnodinium","Gymnodinium sp. 1",0
+2011-07-25,"Total","Total","Total",438684.0712
+2011-08-23,"Chlorophyta","Chlamydomonas","Chlamydomonas ",108663.0247
+2011-08-23,"Chlorophyta","","Chlorococcaceae",2055.5876
+2011-08-23,"Chlorophyta","","Chlorophyta",549.6801
+2011-08-23,"Chlorophyta","Mucidosphaerium","Mucidosphaerium pulchellum",1044.6487
+2011-08-23,"Chlorophyta","Oocystis","Oocystis parva",5329.3043
+2011-08-23,"Chlorophyta","Oocystis","Oocystis pusilla",0
+2011-08-23,"Chlorophyta","Schroederia","Schroederia judayi",102.78
+2011-08-23,"Chlorophyta","Sphaerocystis","Sphaerocystis schroeteri",22573.4021
+2011-08-23,"Chrysophyta","NA","Chrysophyceae",35533.475
+2011-08-23,"Chrysophyta","NA","Chrysocapsaceae",0
+2011-08-23,"Chrysophyta","Gonyostomum","Gonyostomum semen",456797.3798
+2011-08-23,"Cryptophyta","Cryptomonas","Cryptomonas erosa",2067023.336
+2011-08-23,"Cyanophyta","Phormidium","Phormidium ",1812.0311
+2011-08-23,"Cyanophyta","Synechocystis","Synechocystis ",64.2355
+2011-08-23,"Euglenophyta","Euglena","Euglena ",8313.7125
+2011-08-23,"Euglenophyta","Euglena","Euglena acus",0
+2011-08-23,"NA","Rhodospirillum","Rhodospirillum rubrum",7744.1612
+2011-08-23,"Total","Total","Total",2717606.759
+2011-11-11,"Bacillariophyta","Asterionella","Asterionella formosa",585.167
+2011-11-11,"Chlorophyta","Chlamydomonas","Chlamydomonas ",7079.0888
+2011-11-11,"Chrysophyta","NA","Chrysophyceae",20700.1792
+2011-11-11,"Chrysophyta","NA","Chrysocapsaceae",0
+2011-11-11,"Chrysophyta","Mallomonas","Mallomonas ",68519.6067
+2011-11-11,"Chrysophyta","Mallomonas","Mallomonas akrokomas",0
+2011-11-11,"Cryptophyta","Cryptomonas","Cryptomonas erosa",728330.1268
+2011-11-11,"Euglenophyta","Euglena","Euglena ",8983.6819
+2011-11-11,"Euglenophyta","Euglena","Euglena acus",0
+2011-11-11,"NA","Rhodospirillum","Rhodospirillum rubrum",1723.6813
+2011-11-11,"Pyrrhophyta","Gymnodinium","Gymnodinium sp. 2",1605.9283
+2011-11-11,"Pyrrhophyta","Gymnodinium","Gymnodinium sp. 3",0
+2011-11-11,"Pyrrhophyta","Gymnodinium","Gymnodinium sp. 1",0
+2011-11-11,"Total","Total","Total",837527.46
+2012-02-20,"Bacillariophyta","Tabellaria","Tabellaria flocculosa",3681.071
+2012-02-20,"Bacillariophyta","Tabellaria","Tabellaria binalis",0
+2012-02-20,"Chlorophyta","Chlamydomonas","Chlamydomonas ",185529.3382
+2012-02-20,"Chlorophyta","Spinocosmarium","Spinocosmarium ",4111.7957
+2012-02-20,"Chrysophyta","NA","Chrysophyceae",10905.3472
+2012-02-20,"Chrysophyta","NA","Chrysocapsaceae",0
+2012-02-20,"Chrysophyta","Mallomonas","Mallomonas ",4414.7737
+2012-02-20,"Chrysophyta","Mallomonas","Mallomonas akrokomas",0
+2012-02-20,"Cryptophyta","Cryptomonas","Cryptomonas erosa",142624.2236
+2012-02-20,"Cryptophyta","Rhodomonas","Rhodomonas minuta",3153.4078
+2012-02-20,"Cyanophyta","Synechococcus","Synechococcus ",0
+2012-02-20,"Cyanophyta","Synechococcus","Synechococcus elongatus",39.4177
+2012-02-20,"Euglenophyta","Euglena","Euglena ",54751.0818
+2012-02-20,"Euglenophyta","Euglena","Euglena acus",0
+2012-02-20,"Miscellaneous","Miscellaneous","Miscellaneous",5676.1378
+2012-02-20,"NA","Rhodospirillum","Rhodospirillum rubrum",2983.2721
+2012-02-20,"Total","Total","Total",417869.8666
+2012-04-02,"Bacillariophyta","Cyclotella","Cyclotella sp. 1",3591.9308
+2012-04-02,"Bacillariophyta","Cyclotella","Cyclotella ocellata",0
+2012-04-02,"Chlorophyta","Chlamydomonas","Chlamydomonas ",1433268.301
+2012-04-02,"Chrysophyta","NA","Chrysophyceae",114500.5215
+2012-04-02,"Chrysophyta","NA","Chrysocapsaceae",0
+2012-04-02,"Cryptophyta","Cryptomonas","Cryptomonas erosa",31928.2729
+2012-04-02,"Cyanophyta","Synechococcus","Synechococcus ",0
+2012-04-02,"Cyanophyta","Synechococcus","Synechococcus elongatus",88.6899
+2012-04-02,"Cyanophyta","Synechocystis","Synechocystis ",224.4899
+2012-04-02,"NA","Rhodospirillum","Rhodospirillum rubrum",40324.1163
+2012-04-02,"Pyrrhophyta","Gymnodinium","Gymnodinium sp. 2",62792.2674
+2012-04-02,"Pyrrhophyta","Gymnodinium","Gymnodinium sp. 3",0
+2012-04-02,"Pyrrhophyta","Gymnodinium","Gymnodinium sp. 1",0
+2012-04-02,"Total","Total","Total",1686718.59
+2012-06-26,"Bacillariophyta","Stephanodiscus","Stephanodiscus parvus",4730.114
+2012-06-26,"Bacillariophyta","Stephanodiscus","Stephanodiscus medius",0
+2012-06-26,"Chlorophyta","Chlamydomonas","Chlamydomonas ",72709.2984
+2012-06-26,"Chlorophyta","Monomastix","Monomastix minuta",554.3116
+2012-06-26,"Chlorophyta","Monomastix","Monomastix astigmata",0
+2012-06-26,"Chlorophyta","Monoraphidium","Monoraphidium griffithii",975.5856
+2012-06-26,"Chlorophyta","Monoraphidium","Monoraphidium arcuatum",0
+2012-06-26,"Chrysophyta","NA","Chrysophyceae",31087.5373
+2012-06-26,"Chrysophyta","NA","Chrysocapsaceae",0
+2012-06-26,"Chrysophyta","Dinobryon","Dinobryon cylindricum",1576.7039
+2012-06-26,"Chrysophyta","Dinobryon","Dinobryon cyst",0
+2012-06-26,"Chrysophyta","Dinobryon","Dinobryon ",0
+2012-06-26,"Chrysophyta","Dinobryon","Dinobryon sociale",0
+2012-06-26,"Chrysophyta","Dinobryon","Dinobryon crenulatum",0
+2012-06-26,"Chrysophyta","Gonyostomum","Gonyostomum semen",25698.7234
+2012-06-26,"Chrysophyta","Mallomonas","Mallomonas ",34490.4206
+2012-06-26,"Chrysophyta","Mallomonas","Mallomonas akrokomas",0
+2012-06-26,"Cryptophyta","Cryptomonas","Cryptomonas erosa",296814.7088
+2012-06-26,"Euglenophyta","Euglena","Euglena ",113404.5155
+2012-06-26,"Euglenophyta","Euglena","Euglena acus",0
+2012-06-26,"Haptophyta","Chrysochromulina","Chrysochromulina parva",711.4889
+2012-06-26,"NA","Rhodospirillum","Rhodospirillum rubrum",7021.2805
+2012-06-26,"Total","Total","Total",589774.6885
+2012-07-23,"Chlorophyta","Chlamydomonas","Chlamydomonas ",3680.6207
+2012-07-23,"Chlorophyta","NA","Chlorococcaceae",8634.9244
+2012-07-23,"Chlorophyta","NA","Chlorophyta",0
+2012-07-23,"Chlorophyta","Monoraphidium","Monoraphidium griffithii",591.2657
+2012-07-23,"Chlorophyta","Monoraphidium","Monoraphidium arcuatum",0
+2012-07-23,"Chlorophyta","Mucidosphaerium","Mucidosphaerium pulchellum",1181.3994
+2012-07-23,"Chrysophyta","NA","Chrysophyceae",34294.3154
+2012-07-23,"Chrysophyta","NA","Chrysocapsaceae",0
+2012-07-23,"Chrysophyta","Gonyostomum","Gonyostomum semen",1351039.017
+2012-07-23,"Chrysophyta","Mallomonas","Mallomonas ",17737.9294
+2012-07-23,"Chrysophyta","Mallomonas","Mallomonas akrokomas",0
+2012-07-23,"Cryptophyta","Cryptomonas","Cryptomonas erosa",32933.4232
+2012-07-23,"Cyanophyta","Synechocystis","Synechocystis ",49.8866
+2012-07-23,"Euglenophyta","Euglena","Euglena ",34101.1744
+2012-07-23,"Euglenophyta","Euglena","Euglena acus",0
+2012-07-23,"NA","Rhodospirillum","Rhodospirillum rubrum",4972.1201
+2012-07-23,"Pyrrhophyta","Gymnodinium","Gymnodinium sp. 2",0
+2012-07-23,"Pyrrhophyta","Gymnodinium","Gymnodinium sp. 3",1064.2755
+2012-07-23,"Pyrrhophyta","Gymnodinium","Gymnodinium sp. 1",0
+2012-07-23,"Total","Total","Total",1490280.352
+2012-08-21,"Bacillariophyta","Cyclotella","Cyclotella sp. 1",2394.6205
+2012-08-21,"Bacillariophyta","Cyclotella","Cyclotella ocellata",692.8881
+2012-08-21,"Chlorophyta","Botryococcus","Botryococcus braunii",71897.7441
+2012-08-21,"Chlorophyta","Chlamydomonas","Chlamydomonas ",115813.1856
+2012-08-21,"Chlorophyta","NA","Chlorococcaceae",10583.6339
+2012-08-21,"Chlorophyta","NA","Chlorophyta",0
+2012-08-21,"Chlorophyta","Monomastix","Monomastix minuta",6073.3808
+2012-08-21,"Chlorophyta","Monomastix","Monomastix astigmata",0
+2012-08-21,"Chlorophyta","Monoraphidium","Monoraphidium griffithii",931.2407
+2012-08-21,"Chlorophyta","Monoraphidium","Monoraphidium arcuatum",0
+2012-08-21,"Chrysophyta","NA","Chrysophyceae",47682.6559
+2012-08-21,"Chrysophyta","NA","Chrysocapsaceae",0
+2012-08-21,"Chrysophyta","Gonyostomum","Gonyostomum semen",376931.0182
+2012-08-21,"Chrysophyta","Mallomonas","Mallomonas ",36050.5699
+2012-08-21,"Chrysophyta","Mallomonas","Mallomonas akrokomas",0
+2012-08-21,"Chrysophyta","Uroglena","Uroglena ",1108.6204
+2012-08-21,"Cryptophyta","Cryptomonas","Cryptomonas erosa",178585.4826
+2012-08-21,"Cryptophyta","Rhodomonas","Rhodomonas minuta",1330.3451
+2012-08-21,"Cyanophyta","Synechocystis","Synechocystis ",49.8866
+2012-08-21,"Euglenophyta","Euglena","Euglena ",30863.9917
+2012-08-21,"Euglenophyta","Euglena","Euglena acus",0
+2012-08-21,"NA","Rhodospirillum","Rhodospirillum rubrum",3602.8138
+2012-08-21,"Pyrrhophyta","Peridinium","Peridinium ",0
+2012-08-21,"Pyrrhophyta","Peridinium","Peridinium inconspicuum",4434.483
+2012-08-21,"Pyrrhophyta","Peridinium","Peridinium umbonatum",0
+2012-08-21,"Pyrrhophyta","Peridinium","Peridinium cinctum",0
+2012-08-21,"Total","Total","Total",889026.5609
+2012-11-05,"Bacillariophyta","Actinella","Actinella punctata",13020.6865
+2012-11-05,"Bacillariophyta","Asterionella","Asterionella formosa",3768.5987
+2012-11-05,"Chlorophyta","Chlamydomonas","Chlamydomonas ",119724.6544
+2012-11-05,"Chlorophyta","NA","Chlorococcaceae",1402.4042
+2012-11-05,"Chlorophyta","NA","Chlorophyta",0
+2012-11-05,"Chlorophyta","Monomastix","Monomastix minuta",803.7518
+2012-11-05,"Chlorophyta","Monomastix","Monomastix astigmata",0
+2012-11-05,"Chlorophyta","Monoraphidium","Monoraphidium griffithii",498.8794
+2012-11-05,"Chlorophyta","Monoraphidium","Monoraphidium arcuatum",0
+2012-11-05,"Chlorophyta","Oocystis","Oocystis parva",1995.5176
+2012-11-05,"Chlorophyta","Oocystis","Oocystis pusilla",0
+2012-11-05,"Chrysophyta","NA","Chrysophyceae",10931.8169
+2012-11-05,"Chrysophyta","NA","Chrysocapsaceae",0
+2012-11-05,"Cryptophyta","Cryptomonas","Cryptomonas erosa",42792.7551
+2012-11-05,"Cyanophyta","Aphanocapsa","Aphanocapsa delicatissima",199.5522
+2012-11-05,"Cyanophyta","Synechococcus","Synechococcus ",44.3449
+2012-11-05,"Cyanophyta","Synechococcus","Synechococcus elongatus",0
+2012-11-05,"Cyanophyta","Synechocystis","Synechocystis ",18.7075
+2012-11-05,"Euglenophyta","Euglena","Euglena ",4150.6761
+2012-11-05,"Euglenophyta","Euglena","Euglena acus",0
+2012-11-05,"Haptophyta","Chrysochromulina","Chrysochromulina parva",960.51
+2012-11-05,"Miscellaneous","Miscellaneous","Miscellaneous",40655.3397
+2012-11-05,"NA","Rhodospirillum","Rhodospirillum rubrum",494.7231
+2012-11-05,"Pyrrhophyta","Gymnodinium","Gymnodinium sp. 2",0
+2012-11-05,"Pyrrhophyta","Gymnodinium","Gymnodinium sp. 3",0
+2012-11-05,"Pyrrhophyta","Gymnodinium","Gymnodinium sp. 1",99775.858
+2012-11-05,"Pyrrhophyta","Peridinium","Peridinium ",0
+2012-11-05,"Pyrrhophyta","Peridinium","Peridinium inconspicuum",0
+2012-11-05,"Pyrrhophyta","Peridinium","Peridinium umbonatum",143677.2353
+2012-11-05,"Pyrrhophyta","Peridinium","Peridinium cinctum",0
+2012-11-05,"Total","Total","Total",484916.0114
+2013-02-18,"Chlorophyta","Chlamydomonas","Chlamydomonas ",18447.4539
+2013-02-18,"Chlorophyta","Monomastix","Monomastix minuta",53.2139
+2013-02-18,"Chlorophyta","Monomastix","Monomastix astigmata",0
+2013-02-18,"Chrysophyta","NA","Chrysophyceae",15646.324
+2013-02-18,"Chrysophyta","NA","Chrysocapsaceae",0
+2013-02-18,"Chrysophyta","Mallomonas","Mallomonas ",4730.1145
+2013-02-18,"Chrysophyta","Mallomonas","Mallomonas akrokomas",0
+2013-02-18,"Cryptophyta","Cryptomonas","Cryptomonas erosa",8656.1099
+2013-02-18,"Cryptophyta","Rhodomonas","Rhodomonas minuta",1324.4313
+2013-02-18,"Cyanophyta","Synechococcus","Synechococcus ",11.8253
+2013-02-18,"Cyanophyta","Synechococcus","Synechococcus elongatus",0
+2013-02-18,"Cyanophyta","Synechocystis","Synechocystis ",9.9773
+2013-02-18,"Euglenophyta","Euglena","Euglena ",2469.1193
+2013-02-18,"Euglenophyta","Euglena","Euglena acus",0
+2013-02-18,"Euglenophyta","Lepocinclis","Lepocinclis ",2270.4553
+2013-02-18,"Miscellaneous","Miscellaneous","Miscellaneous",143038.6838
+2013-02-18,"NA","Rhodospirillum","Rhodospirillum rubrum",2234.9844
+2013-02-18,"Pyrrhophyta","Peridinium","Peridinium ",5978.8652
+2013-02-18,"Pyrrhophyta","Peridinium","Peridinium inconspicuum",0
+2013-02-18,"Pyrrhophyta","Peridinium","Peridinium umbonatum",0
+2013-02-18,"Pyrrhophyta","Peridinium","Peridinium cinctum",0
+2013-02-18,"Total","Total","Total",204871.5581
+2013-05-13,"Bacillariophyta","Cyclotella","Cyclotella sp. 1",4257.1026
+2013-05-13,"Bacillariophyta","Cyclotella","Cyclotella ocellata",0
+2013-05-13,"Bacillariophyta","Tabellaria","Tabellaria flocculosa",0
+2013-05-13,"Bacillariophyta","Tabellaria","Tabellaria binalis",818.0158
+2013-05-13,"Chlorophyta","Chlamydomonas","Chlamydomonas ",399990.3306
+2013-05-13,"Chlorophyta","Monoraphidium","Monoraphidium griffithii",4727.1474
+2013-05-13,"Chlorophyta","Monoraphidium","Monoraphidium arcuatum",1050.0288
+2013-05-13,"Chrysophyta","NA","Chrysophyceae",41310.7274
+2013-05-13,"Chrysophyta","NA","Chrysocapsaceae",0
+2013-05-13,"Chrysophyta","Dinobryon","Dinobryon cylindricum",0
+2013-05-13,"Chrysophyta","Dinobryon","Dinobryon cyst",418946.8478
+2013-05-13,"Chrysophyta","Dinobryon","Dinobryon ",793194.1593
+2013-05-13,"Chrysophyta","Dinobryon","Dinobryon sociale",32205.4329
+2013-05-13,"Chrysophyta","Dinobryon","Dinobryon crenulatum",0
+2013-05-13,"Chrysophyta","Gonyostomum","Gonyostomum semen",532137.9065
+2013-05-13,"Chrysophyta","Mallomonas","Mallomonas ",36052.3449
+2013-05-13,"Chrysophyta","Mallomonas","Mallomonas akrokomas",0
+2013-05-13,"Cryptophyta","Cryptomonas","Cryptomonas erosa",171703.1682
+2013-05-13,"Cryptophyta","Rhodomonas","Rhodomonas minuta",22172.4138
+2013-05-13,"Cyanophyta","Synechococcus","Synechococcus ",0
+2013-05-13,"Cyanophyta","Synechococcus","Synechococcus elongatus",44.3449
+2013-05-13,"Cyanophyta","Synechocystis","Synechocystis ",37.415
+2013-05-13,"Euglenophyta","Euglena","Euglena ",7716.0008
+2013-05-13,"Euglenophyta","Euglena","Euglena acus",0
+2013-05-13,"Euglenophyta","Trachelomonas","Trachelomonas ",25542.62
+2013-05-13,"Miscellaneous","Miscellaneous","Miscellaneous",66517.2351
+2013-05-13,"NA","Rhodospirillum","Rhodospirillum rubrum",6305.2946
+2013-05-13,"Pyrrhophyta","Gymnodinium","Gymnodinium sp. 2",60663.7299
+2013-05-13,"Pyrrhophyta","Gymnodinium","Gymnodinium sp. 3",0
+2013-05-13,"Pyrrhophyta","Gymnodinium","Gymnodinium sp. 1",53213.7902
+2013-05-13,"Pyrrhophyta","Peridinium","Peridinium ",7581.1234
+2013-05-13,"Pyrrhophyta","Peridinium","Peridinium inconspicuum",0
+2013-05-13,"Pyrrhophyta","Peridinium","Peridinium umbonatum",0
+2013-05-13,"Pyrrhophyta","Peridinium","Peridinium cinctum",0
+2013-05-13,"Total","Total","Total",2686187.18
+2013-07-10,"Bacillariophyta","Asterionella","Asterionella formosa",6402.7438
+2013-07-10,"Bacillariophyta","Fragilaria","Fragilaria filiformis",11077.7631
+2013-07-10,"Bacillariophyta","Tabellaria","Tabellaria flocculosa",13415.2727
+2013-07-10,"Bacillariophyta","Tabellaria","Tabellaria binalis",0
+2013-07-10,"Chlorophyta","Chlamydomonas","Chlamydomonas ",22935.1619
+2013-07-10,"Chlorophyta","NA","Chlorococcaceae",15160.6065
+2013-07-10,"Chlorophyta","NA","Chlorophyta",0
+2013-07-10,"Chlorophyta","Cosmarium","Cosmarium ",567.6134
+2013-07-10,"Chlorophyta","Monomastix","Monomastix minuta",1117.4922
+2013-07-10,"Chlorophyta","Monomastix","Monomastix astigmata",177.3797
+2013-07-10,"Chlorophyta","Monoraphidium","Monoraphidium griffithii",478.9252
+2013-07-10,"Chlorophyta","Monoraphidium","Monoraphidium arcuatum",12966.6767
+2013-07-10,"Chlorophyta","Oocystis","Oocystis parva",199.5513
+2013-07-10,"Chlorophyta","Oocystis","Oocystis pusilla",70.9519
+2013-07-10,"Chlorophyta","Staurastrum","Staurastrum ",13644.9026
+2013-07-10,"Chlorophyta","Staurastrum","Staurastrum hexacerum",1181.346
+2013-07-10,"Chlorophyta","Teilingia","Teilingia granulata",1219.5702
+2013-07-10,"Chrysophyta","NA","Chrysophyceae",24125.2626
+2013-07-10,"Chrysophyta","NA","Chrysocapsaceae",0
+2013-07-10,"Chrysophyta","Dinobryon","Dinobryon cylindricum",0
+2013-07-10,"Chrysophyta","Dinobryon","Dinobryon cyst",0
+2013-07-10,"Chrysophyta","Dinobryon","Dinobryon ",0
+2013-07-10,"Chrysophyta","Dinobryon","Dinobryon sociale",0
+2013-07-10,"Chrysophyta","Dinobryon","Dinobryon crenulatum",1330.3445
+2013-07-10,"Chrysophyta","Mallomonas","Mallomonas ",0
+2013-07-10,"Chrysophyta","Mallomonas","Mallomonas akrokomas",4301.4497
+2013-07-10,"Chrysophyta","Stichogloea","Stichogloea olivacea",15104.0726
+2013-07-10,"Cryptophyta","Cryptomonas","Cryptomonas erosa",75293.4138
+2013-07-10,"Cryptophyta","Rhodomonas","Rhodomonas minuta",2838.067
+2013-07-10,"Cyanophyta","Synechocystis","Synechocystis ",3442.1777
+2013-07-10,"Haptophyta","Chrysochromulina","Chrysochromulina parva",64034.0017
+2013-07-10,"Miscellaneous","Miscellaneous","Miscellaneous",567.6134
+2013-07-10,"Pyrrhophyta","Gymnodinium","Gymnodinium sp. 2",1702.8411
+2013-07-10,"Pyrrhophyta","Gymnodinium","Gymnodinium sp. 3",869.1589
+2013-07-10,"Pyrrhophyta","Gymnodinium","Gymnodinium sp. 1",0
+2013-07-10,"Pyrrhophyta","Peridinium","Peridinium ",0
+2013-07-10,"Pyrrhophyta","Peridinium","Peridinium inconspicuum",0
+2013-07-10,"Pyrrhophyta","Peridinium","Peridinium umbonatum",0
+2013-07-10,"Pyrrhophyta","Peridinium","Peridinium cinctum",340568.2609
+2013-07-10,"Total","Total","Total",634792.6211
+2013-08-06,"Bacillariophyta","Asterionella","Asterionella formosa",21681.2489
+2013-08-06,"Bacillariophyta","Cyclotella","Cyclotella sp. 1",1795.9654
+2013-08-06,"Bacillariophyta","Cyclotella","Cyclotella ocellata",0
+2013-08-06,"Chlorophyta","Chlamydomonas","Chlamydomonas ",144683.854
+2013-08-06,"Chlorophyta","","Chlorococcaceae",6208.2732
+2013-08-06,"Chlorophyta","","Chlorophyta",0
+2013-08-06,"Chlorophyta","Monomastix","Monomastix minuta",1596.4175
+2013-08-06,"Chlorophyta","Monomastix","Monomastix astigmata",0
+2013-08-06,"Chlorophyta","Monoraphidium","Monoraphidium griffithii",3059.798
+2013-08-06,"Chlorophyta","Monoraphidium","Monoraphidium arcuatum",0
+2013-08-06,"Chlorophyta","Oocystis","Oocystis parva",71151.2527
+2013-08-06,"Chlorophyta","Oocystis","Oocystis pusilla",0
+2013-08-06,"Chrysophyta","NA","Chrysophyceae",7646.7055
+2013-08-06,"Chrysophyta","NA","Chrysocapsaceae",0
+2013-08-06,"Chrysophyta","Dinobryon","Dinobryon cylindricum",0
+2013-08-06,"Chrysophyta","Dinobryon","Dinobryon cyst",0
+2013-08-06,"Chrysophyta","Dinobryon","Dinobryon ",0
+2013-08-06,"Chrysophyta","Dinobryon","Dinobryon sociale",41551.1013
+2013-08-06,"Chrysophyta","Dinobryon","Dinobryon crenulatum",0
+2013-08-06,"Chrysophyta","Mallomonas","Mallomonas ",25542.6221
+2013-08-06,"Chrysophyta","Mallomonas","Mallomonas akrokomas",0
+2013-08-06,"Cryptophyta","Cryptomonas","Cryptomonas erosa",510816.8882
+2013-08-06,"Euglenophyta","Euglena","Euglena ",16602.7043
+2013-08-06,"Euglenophyta","Euglena","Euglena acus",0
+2013-08-06,"Haptophyta","Chrysochromulina","Chrysochromulina parva",3201.7001
+2013-08-06,"Miscellaneous","Miscellaneous","Miscellaneous",297997.2579
+2013-08-06,"NA","Rhodospirillum","Rhodospirillum rubrum",6095.7869
+2013-08-06,"Pyrrhophyta","Peridinium","Peridinium ",4257.1026
+2013-08-06,"Pyrrhophyta","Peridinium","Peridinium inconspicuum",0
+2013-08-06,"Pyrrhophyta","Peridinium","Peridinium umbonatum",0
+2013-08-06,"Pyrrhophyta","Peridinium","Peridinium cinctum",0
+2013-08-06,"Total","Total","Total",1163888.679
+2013-11-08,"Chlorophyta","Chlamydomonas","Chlamydomonas ",9460.229
+2013-11-08,"Chlorophyta","Monomastix","Monomastix minuta",591.2657
+2013-11-08,"Chlorophyta","Monomastix","Monomastix astigmata",0
+2013-11-08,"Chrysophyta","NA","Chrysophyceae",1390.7844
+2013-11-08,"Chrysophyta","NA","Chrysocapsaceae",0
+2013-11-08,"Chrysophyta","Dinobryon","Dinobryon cylindricum",0
+2013-11-08,"Chrysophyta","Dinobryon","Dinobryon cyst",0
+2013-11-08,"Chrysophyta","Dinobryon","Dinobryon ",7194.5046
+2013-11-08,"Chrysophyta","Dinobryon","Dinobryon sociale",0
+2013-11-08,"Chrysophyta","Dinobryon","Dinobryon crenulatum",0
+2013-11-08,"Cryptophyta","Cryptomonas","Cryptomonas erosa",856527.0521
+2013-11-08,"Cyanophyta","Pseudanabaena","Pseudanabaena limnetica",1995.5162
+2013-11-08,"Cyanophyta","Synechocystis","Synechocystis ",97278.9361
+2013-11-08,"Miscellaneous","Miscellaneous","Miscellaneous",18920.458
+2013-11-08,"NA","Rhodospirillum","Rhodospirillum rubrum",4988.8045
+2013-11-08,"Total","Total","Total",998347.5506
+2014-02-20,"Chlorophyta","Microspora","Microspora ",29267.5846
+2014-02-20,"Chlorophyta","Oocystis","Oocystis parva",2414.3294
+2014-02-20,"Chlorophyta","Oocystis","Oocystis pusilla",0
+2014-02-20,"Chrysophyta","NA","Chrysophyceae",17107.3646
+2014-02-20,"Chrysophyta","NA","Chrysocapsaceae",0
+2014-02-20,"Cryptophyta","Rhodomonas","Rhodomonas minuta",1261.3631
+2014-02-20,"Cyanophyta","Synechococcus","Synechococcus ",5617.078
+2014-02-20,"Cyanophyta","Synechococcus","Synechococcus elongatus",1385.7367
+2014-02-20,"Cyanophyta","Synechocystis","Synechocystis ",7482.9951
+2014-02-20,"Euglenophyta","Euglena","Euglena ",3074.5742
+2014-02-20,"Euglenophyta","Euglena","Euglena acus",0
+2014-02-20,"Miscellaneous","Miscellaneous","Miscellaneous",244783.4507
+2014-02-20,"NA","Rhodospirillum","Rhodospirillum rubrum",665.1739
+2014-02-20,"Pyrrhophyta","Gymnodinium","Gymnodinium sp. 2",0
+2014-02-20,"Pyrrhophyta","Gymnodinium","Gymnodinium sp. 3",0
+2014-02-20,"Pyrrhophyta","Gymnodinium","Gymnodinium sp. 1",51085.239
+2014-02-20,"Total","Total","Total",364144.8893
+2014-05-21,"Bacillariophyta","Eunotia","Eunotia ",5676.1378
+2014-05-21,"Bacillariophyta","Tabellaria","Tabellaria flocculosa",0
+2014-05-21,"Bacillariophyta","Tabellaria","Tabellaria binalis",4090.0789
+2014-05-21,"Chlorophyta","Chlamydomonas","Chlamydomonas ",116316.8427
+2014-05-21,"Chlorophyta","NA","Chlorococcaceae",615.8999
+2014-05-21,"Chlorophyta","NA","Chlorophyta",0
+2014-05-21,"Chlorophyta","Monomastix","Monomastix minuta",394.1771
+2014-05-21,"Chlorophyta","Monomastix","Monomastix astigmata",0
+2014-05-21,"Chlorophyta","Monoraphidium","Monoraphidium griffithii",2499.863
+2014-05-21,"Chlorophyta","Monoraphidium","Monoraphidium arcuatum",385.787
+2014-05-21,"Chrysophyta","NA","Chrysophyceae",742373.7355
+2014-05-21,"Chrysophyta","NA","Chrysocapsaceae",0
+2014-05-21,"Chrysophyta","Gonyostomum","Gonyostomum semen",165948.1921
+2014-05-21,"Chrysophyta","Mallomonas","Mallomonas ",2128.5519
+2014-05-21,"Chrysophyta","Mallomonas","Mallomonas akrokomas",0
+2014-05-21,"Cryptophyta","Cryptomonas","Cryptomonas erosa",1892.0456
+2014-05-21,"Cyanophyta","Aphanizomenon","Aphanizomenon ",0
+2014-05-21,"Cyanophyta","Aphanizomenon","Aphanizomenon flos-aquae",8277.7004
+2014-05-21,"Cyanophyta","Synechococcus","Synechococcus ",433.5949
+2014-05-21,"Cyanophyta","Synechococcus","Synechococcus elongatus",137.962
+2014-05-21,"Cyanophyta","Synechocystis","Synechocystis ",10226.76
+2014-05-21,"Miscellaneous","Miscellaneous","Miscellaneous",79465.9354
+2014-05-21,"NA","Rhodospirillum","Rhodospirillum rubrum",10310.1961
+2014-05-21,"Pyrrhophyta","Gymnodinium","Gymnodinium sp. 2",5676.1368
+2014-05-21,"Pyrrhophyta","Gymnodinium","Gymnodinium sp. 3",0
+2014-05-21,"Pyrrhophyta","Gymnodinium","Gymnodinium sp. 1",0
+2014-05-21,"Pyrrhophyta","Peridinium","Peridinium ",14254.2253
+2014-05-21,"Pyrrhophyta","Peridinium","Peridinium inconspicuum",0
+2014-05-21,"Pyrrhophyta","Peridinium","Peridinium umbonatum",0
+2014-05-21,"Pyrrhophyta","Peridinium","Peridinium cinctum",0
+2014-05-21,"Total","Total","Total",1171103.822
+2014-06-16,"Bacillariophyta","Asterionella","Asterionella formosa",17912.438
+2014-06-16,"Chlorophyta","Chlamydomonas","Chlamydomonas ",140425.3772
+2014-06-16,"Chlorophyta","NA","Chlorococcaceae",7061.9131
+2014-06-16,"Chlorophyta","NA","Chlorophyta",44280.9696
+2014-06-16,"Chlorophyta","Colonial","Colonial ",11352.2744
+2014-06-16,"Chlorophyta","Monomastix","Monomastix minuta",1515.1128
+2014-06-16,"Chlorophyta","Monomastix","Monomastix astigmata",0
+2014-06-16,"Chlorophyta","Monoraphidium","Monoraphidium griffithii",3292.6046
+2014-06-16,"Chlorophyta","Monoraphidium","Monoraphidium arcuatum",0
+2014-06-16,"Chlorophyta","Schroederia","Schroederia judayi",798.2066
+2014-06-16,"Chrysophyta","NA","Chrysophyceae",45679.7785
+2014-06-16,"Chrysophyta","NA","Chrysocapsaceae",0
+2014-06-16,"Chrysophyta","Dinobryon","Dinobryon cylindricum",0
+2014-06-16,"Chrysophyta","Dinobryon","Dinobryon cyst",0
+2014-06-16,"Chrysophyta","Dinobryon","Dinobryon ",0
+2014-06-16,"Chrysophyta","Dinobryon","Dinobryon sociale",8868.9647
+2014-06-16,"Chrysophyta","Dinobryon","Dinobryon crenulatum",0
+2014-06-16,"Cyanophyta","Synechococcus","Synechococcus ",9312.4352
+2014-06-16,"Cyanophyta","Synechococcus","Synechococcus elongatus",88.6899
+2014-06-16,"Cyanophyta","Synechocystis","Synechocystis ",3741.4975
+2014-06-16,"Miscellaneous","Miscellaneous","Miscellaneous",409391.4387
+2014-06-16,"NA","Rhodospirillum","Rhodospirillum rubrum",7760.3626
+2014-06-16,"Total","Total","Total",711482.0634
+2014-07-16,"Bacillariophyta","Asterionella","Asterionella formosa",2508.4944
+2014-07-16,"Chlorophyta","Chlamydomonas","Chlamydomonas ",443426.6049
+2014-07-16,"Chlorophyta","NA","Chlorococcaceae",5356.0254
+2014-07-16,"Chlorophyta","NA","Chlorophyta",0
+2014-07-16,"Chlorophyta","Monomastix","Monomastix minuta",1646.3055
+2014-07-16,"Chlorophyta","Monomastix","Monomastix astigmata",0
+2014-07-16,"Chlorophyta","Monoraphidium","Monoraphidium griffithii",1346.9741
+2014-07-16,"Chlorophyta","Monoraphidium","Monoraphidium arcuatum",0
+2014-07-16,"Chlorophyta","Oocystis","Oocystis parva",54743.6818
+2014-07-16,"Chlorophyta","Oocystis","Oocystis pusilla",0
+2014-07-16,"Chlorophyta","Schroederia","Schroederia judayi",159.6409
+2014-07-16,"Chrysophyta","NA","Chrysophyceae",28277.3284
+2014-07-16,"Chrysophyta","NA","Chrysocapsaceae",0
+2014-07-16,"Chrysophyta","Dinobryon","Dinobryon cylindricum",0
+2014-07-16,"Chrysophyta","Dinobryon","Dinobryon cyst",0
+2014-07-16,"Chrysophyta","Dinobryon","Dinobryon ",0
+2014-07-16,"Chrysophyta","Dinobryon","Dinobryon sociale",831.4653
+2014-07-16,"Chrysophyta","Dinobryon","Dinobryon crenulatum",0
+2014-07-16,"Chrysophyta","Mallomonas","Mallomonas ",12771.31
+2014-07-16,"Chrysophyta","Mallomonas","Mallomonas akrokomas",0
+2014-07-16,"Cryptophyta","Cryptomonas","Cryptomonas erosa",8519.1267
+2014-07-16,"Cyanophyta","Synechococcus","Synechococcus ",133.0348
+2014-07-16,"Cyanophyta","Synechococcus","Synechococcus elongatus",5055.3219
+2014-07-16,"Cyanophyta","Synechocystis","Synechocystis ",112.2449
+2014-07-16,"Miscellaneous","Miscellaneous","Miscellaneous",419058.5814
+2014-07-16,"NA","Rhodospirillum","Rhodospirillum rubrum",2211.7033
+2014-07-16,"Total","Total","Total",986157.8437
+2014-08-11,"Bacillariophyta","Asterionella","Asterionella formosa",18052.2011
+2014-08-11,"Chlorophyta","Chlamydomonas","Chlamydomonas ",328887.0455
+2014-08-11,"Chlorophyta","NA","Chlorococcaceae",2483.3118
+2014-08-11,"Chlorophyta","NA","Chlorophyta",0
+2014-08-11,"Chlorophyta","Monomastix","Monomastix minuta",498.8805
+2014-08-11,"Chlorophyta","Monomastix","Monomastix astigmata",0
+2014-08-11,"Chlorophyta","Oocystis","Oocystis parva",159579.2764
+2014-08-11,"Chlorophyta","Oocystis","Oocystis pusilla",0
+2014-08-11,"Chlorophyta","Quadrigula","Quadrigula lacustris",1596.4132
+2014-08-11,"Chlorophyta","Schroederia","Schroederia judayi",319.2818
+2014-08-11,"Chrysophyta","NA","Chrysophyceae",39572.3698
+2014-08-11,"Chrysophyta","NA","Chrysocapsaceae",0
+2014-08-11,"Chrysophyta","Dinobryon","Dinobryon cylindricum",0
+2014-08-11,"Chrysophyta","Dinobryon","Dinobryon cyst",0
+2014-08-11,"Chrysophyta","Dinobryon","Dinobryon ",0
+2014-08-11,"Chrysophyta","Dinobryon","Dinobryon sociale",43236.2044
+2014-08-11,"Chrysophyta","Dinobryon","Dinobryon crenulatum",0
+2014-08-11,"Chrysophyta","Gonyostomum","Gonyostomum semen",28380.6891
+2014-08-11,"Cryptophyta","Cryptomonas","Cryptomonas erosa",57470.895
+2014-08-11,"Cyanophyta","Synechococcus","Synechococcus ",598.6565
+2014-08-11,"Cyanophyta","Synechococcus","Synechococcus elongatus",1995.5218
+2014-08-11,"Cyanophyta","Synechocystis","Synechocystis ",149.6599
+2014-08-11,"Euglenophyta","Euglena","Euglena ",13835.5862
+2014-08-11,"Euglenophyta","Euglena","Euglena acus",0
+2014-08-11,"Miscellaneous","Miscellaneous","Miscellaneous",399103.4108
+2014-08-11,"NA","Rhodospirillum","Rhodospirillum rubrum",3783.1768
+2014-08-11,"Total","Total","Total",1099542.581
+2014-11-07,"Bacillariophyta","Asterionella","Asterionella formosa",1791.7817
+2014-11-07,"Chlorophyta","Chlamydomonas","Chlamydomonas ",801373.7052
+2014-11-07,"Chlorophyta","NA","Chlorococcaceae",239.4626
+2014-11-07,"Chlorophyta","NA","Chlorophyta",0
+2014-11-07,"Chlorophyta","Monomastix","Monomastix minuta",239.4626
+2014-11-07,"Chlorophyta","Monomastix","Monomastix astigmata",0
+2014-11-07,"Chlorophyta","Monoraphidium","Monoraphidium griffithii",638.567
+2014-11-07,"Chlorophyta","Monoraphidium","Monoraphidium arcuatum",0
+2014-11-07,"Chlorophyta","Oocystis","Oocystis parva",94011.0299
+2014-11-07,"Chlorophyta","Oocystis","Oocystis pusilla",0
+2014-11-07,"Chrysophyta","NA","Chrysophyceae",71955.7117
+2014-11-07,"Chrysophyta","NA","Chrysocapsaceae",0
+2014-11-07,"Cryptophyta","Cryptomonas","Cryptomonas erosa",16652.773
+2014-11-07,"Cyanophyta","Aphanothece","Aphanothece saxicola",0
+2014-11-07,"Cyanophyta","Aphanothece","Aphanothece nidulans",0
+2014-11-07,"Cyanophyta","Aphanothece","Aphanothece ",258619.0179
+2014-11-07,"Miscellaneous","Miscellaneous","Miscellaneous",87270.6176
+2014-11-07,"NA","Rhodospirillum","Rhodospirillum rubrum",3092.9013
+2014-11-07,"Pyrrhophyta","Peridinium","Peridinium ",10416.5492
+2014-11-07,"Pyrrhophyta","Peridinium","Peridinium inconspicuum",0
+2014-11-07,"Pyrrhophyta","Peridinium","Peridinium umbonatum",0
+2014-11-07,"Pyrrhophyta","Peridinium","Peridinium cinctum",0
+2014-11-07,"Total","Total","Total",1346301.58
+2015-03-06,"Chlorophyta","Chlamydomonas","Chlamydomonas ",178764.1327
+2015-03-06,"Chlorophyta","NA","Chlorococcaceae",1064.2755
+2015-03-06,"Chlorophyta","NA","Chlorophyta",0
+2015-03-06,"Chlorophyta","Monomastix","Monomastix minuta",1535.645
+2015-03-06,"Chlorophyta","Monomastix","Monomastix astigmata",0
+2015-03-06,"Chlorophyta","Oocystis","Oocystis parva",1231.8008
+2015-03-06,"Chlorophyta","Oocystis","Oocystis pusilla",0
+2015-03-06,"Chrysophyta","NA","Chrysophyceae",679.7072
+2015-03-06,"Chrysophyta","NA","Chrysocapsaceae",0
+2015-03-06,"Cryptophyta","Cryptomonas","Cryptomonas erosa",2741.1971
+2015-03-06,"Cryptophyta","Rhodomonas","Rhodomonas minuta",3061.0253
+2015-03-06,"Cyanophyta","Aphanothece","Aphanothece saxicola",0
+2015-03-06,"Cyanophyta","Aphanothece","Aphanothece nidulans",0
+2015-03-06,"Cyanophyta","Aphanothece","Aphanothece ",20895.202
+2015-03-06,"Cyanophyta","Synechococcus","Synechococcus ",827.772
+2015-03-06,"Cyanophyta","Synechococcus","Synechococcus elongatus",88.6899
+2015-03-06,"Euglenophyta","Lepocinclis","Lepocinclis ",49666.2051
+2015-03-06,"Haptophyta","Chrysochromulina","Chrysochromulina parva",284.5956
+2015-03-06,"Miscellaneous","Miscellaneous","Miscellaneous",8829.5474
+2015-03-06,"NA","Rhodospirillum","Rhodospirillum rubrum",1733.1477
+2015-03-06,"Total","Total","Total",271402.9433
+2015-04-21,"Bacillariophyta","Actinella","Actinella punctata",9933.2406
+2015-04-21,"Bacillariophyta","Asterionella","Asterionella formosa",3764.1057
+2015-04-21,"Bacillariophyta","Cyclotella","Cyclotella sp. 1",461.9254
+2015-04-21,"Bacillariophyta","Cyclotella","Cyclotella ocellata",0
+2015-04-21,"Bacillariophyta","Stephanodiscus","Stephanodiscus parvus",0
+2015-04-21,"Bacillariophyta","Stephanodiscus","Stephanodiscus medius",51085.239
+2015-04-21,"Bacillariophyta","Tabellaria","Tabellaria flocculosa",11779.4271
+2015-04-21,"Bacillariophyta","Tabellaria","Tabellaria binalis",0
+2015-04-21,"Chlorophyta","Chlamydomonas","Chlamydomonas ",1885759.581
+2015-04-21,"Chlorophyta","Monomastix","Monomastix minuta",769.8772
+2015-04-21,"Chlorophyta","Monomastix","Monomastix astigmata",110.8623
+2015-04-21,"Chlorophyta","Schroederia","Schroederia judayi",496.6615
+2015-04-21,"Chrysophyta","Chrysococcus","Chrysococcus minutus",284.5956
+2015-04-21,"Chrysophyta","NA","Chrysophyceae",53696.3361
+2015-04-21,"Chrysophyta","NA","Chrysocapsaceae",0
+2015-04-21,"Chrysophyta","Gonyostomum","Gonyostomum semen",275923.3589
+2015-04-21,"Cryptophyta","Rhodomonas","Rhodomonas minuta",1202.2375
+2015-04-21,"Cyanophyta","Aphanothece","Aphanothece saxicola",0
+2015-04-21,"Cyanophyta","Aphanothece","Aphanothece nidulans",0
+2015-04-21,"Cyanophyta","Aphanothece","Aphanothece ",640.5379
+2015-04-21,"Cyanophyta","Synechococcus","Synechococcus ",270.9968
+2015-04-21,"Cyanophyta","Synechococcus","Synechococcus elongatus",0
+2015-04-21,"Euglenophyta","Lepocinclis","Lepocinclis ",38633.2122
+2015-04-21,"NA","Rhodospirillum","Rhodospirillum rubrum",4009.5207
+2015-04-21,"Pyrrhophyta","Gymnodinium","Gymnodinium sp. 2",5676.1378
+2015-04-21,"Pyrrhophyta","Gymnodinium","Gymnodinium sp. 3",0
+2015-04-21,"Pyrrhophyta","Gymnodinium","Gymnodinium sp. 1",0
+2015-04-21,"Pyrrhophyta","Peridinium","Peridinium ",0
+2015-04-21,"Pyrrhophyta","Peridinium","Peridinium inconspicuum",0
+2015-04-21,"Pyrrhophyta","Peridinium","Peridinium umbonatum",0
+2015-04-21,"Pyrrhophyta","Peridinium","Peridinium cinctum",156882.1384
+2015-04-21,"Total","Total","Total",2501379.992
+2015-06-17,"Bacillariophyta","Asterionella","Asterionella formosa",367.5181
+2015-06-17,"Bacillariophyta","Cyclotella","Cyclotella sp. 1",5232.689
+2015-06-17,"Bacillariophyta","Cyclotella","Cyclotella ocellata",0
+2015-06-17,"Chlorophyta","Chlamydomonas","Chlamydomonas ",1088847.465
+2015-06-17,"Chlorophyta","NA","Chlorococcaceae",59.1266
+2015-06-17,"Chlorophyta","NA","Chlorophyta",0
+2015-06-17,"Chlorophyta","Monomastix","Monomastix minuta",15334.4655
+2015-06-17,"Chlorophyta","Monomastix","Monomastix astigmata",354.7594
+2015-06-17,"Chlorophyta","Monoraphidium","Monoraphidium griffithii",384.3227
+2015-06-17,"Chlorophyta","Monoraphidium","Monoraphidium arcuatum",0
+2015-06-17,"Chlorophyta","Oocystis","Oocystis parva",24182.7116
+2015-06-17,"Chlorophyta","Oocystis","Oocystis pusilla",0
+2015-06-17,"Chlorophyta","Schroederia","Schroederia judayi",1596.4132
+2015-06-17,"Chrysophyta","NA","Chrysophyceae",48958.5805
+2015-06-17,"Chrysophyta","NA","Chrysocapsaceae",0
+2015-06-17,"Cryptophyta","Cryptomonas","Cryptomonas erosa",243453.0901
+2015-06-17,"Cryptophyta","Rhodomonas","Rhodomonas minuta",473.0112
+2015-06-17,"Cyanophyta","Aphanothece","Aphanothece saxicola",0
+2015-06-17,"Cyanophyta","Aphanothece","Aphanothece nidulans",0
+2015-06-17,"Cyanophyta","Aphanothece","Aphanothece ",532.1392
+2015-06-17,"Cyanophyta","Synechococcus","Synechococcus ",88.6899
+2015-06-17,"Cyanophyta","Synechococcus","Synechococcus elongatus",221.7204
+2015-06-17,"Haptophyta","Chrysochromulina","Chrysochromulina parva",426.8933
+2015-06-17,"NA","Rhodospirillum","Rhodospirillum rubrum",3298.1541
+2015-06-17,"Total","Total","Total",1433811.75
+2015-07-15,"Bacillariophyta","Asterionella","Asterionella formosa",1308.8252
+2015-07-15,"Bacillariophyta","Cyclotella","Cyclotella sp. 1",1197.3103
+2015-07-15,"Bacillariophyta","Cyclotella","Cyclotella ocellata",0
+2015-07-15,"Chlorophyta","Chlamydomonas","Chlamydomonas ",1241982.725
+2015-07-15,"Chlorophyta","NA","Chlorococcaceae",982.9764
+2015-07-15,"Chlorophyta","NA","Chlorophyta",0
+2015-07-15,"Chlorophyta","Monomastix","Monomastix minuta",118.2531
+2015-07-15,"Chlorophyta","Monomastix","Monomastix astigmata",166.2935
+2015-07-15,"Chlorophyta","Monoraphidium","Monoraphidium griffithii",1170.7027
+2015-07-15,"Chlorophyta","Monoraphidium","Monoraphidium arcuatum",0
+2015-07-15,"Chlorophyta","Oocystis","Oocystis parva",256437.2716
+2015-07-15,"Chlorophyta","Oocystis","Oocystis pusilla",0
+2015-07-15,"Chlorophyta","Schroederia","Schroederia judayi",425.7091
+2015-07-15,"Chrysophyta","NA","Chrysophyceae",12897.5778
+2015-07-15,"Chrysophyta","NA","Chrysocapsaceae",0
+2015-07-15,"Chrysophyta","Dinobryon","Dinobryon cylindricum",0
+2015-07-15,"Chrysophyta","Dinobryon","Dinobryon cyst",14196.2578
+2015-07-15,"Chrysophyta","Dinobryon","Dinobryon ",2217.2408
+2015-07-15,"Chrysophyta","Dinobryon","Dinobryon sociale",16259.7707
+2015-07-15,"Chrysophyta","Dinobryon","Dinobryon crenulatum",0
+2015-07-15,"Cryptophyta","Cryptomonas","Cryptomonas erosa",125986.6021
+2015-07-15,"Cryptophyta","Rhodomonas","Rhodomonas minuta",2276.3674
+2015-07-15,"Cyanophyta","Synechococcus","Synechococcus ",9755.7998
+2015-07-15,"Cyanophyta","Synechococcus","Synechococcus elongatus",1995.5218
+2015-07-15,"Haptophyta","Chrysochromulina","Chrysochromulina parva",1280.68
+2015-07-15,"NA","Rhodospirillum","Rhodospirillum rubrum",4489.6954
+2015-07-15,"Pyrrhophyta","Glenodinium","Glenodinium quadridens",18920.4594
+2015-07-15,"Total","Total","Total",1714066.04
+2015-08-11,"Chlorophyta","Chlamydomonas","Chlamydomonas ",635887.748
+2015-08-11,"Chlorophyta","NA","Chlorococcaceae",1995.5218
+2015-08-11,"Chlorophyta","NA","Chlorophyta",0
+2015-08-11,"Chlorophyta","Monomastix","Monomastix minuta",2874.1057
+2015-08-11,"Chlorophyta","Monomastix","Monomastix astigmata",0
+2015-08-11,"Chlorophyta","Mougeotia","Mougeotia ",143677.2343
+2015-08-11,"Chlorophyta","Oocystis","Oocystis parva",137823.729
+2015-08-11,"Chlorophyta","Oocystis","Oocystis pusilla",0
+2015-08-11,"Chlorophyta","Schroederia","Schroederia judayi",2660.6852
+2015-08-11,"Chrysophyta","NA","Chrysophyceae",38928.6823
+2015-08-11,"Chrysophyta","NA","Chrysocapsaceae",2394.6198
+2015-08-11,"Chrysophyta","Mallomonas","Mallomonas ",8514.2074
+2015-08-11,"Chrysophyta","Mallomonas","Mallomonas akrokomas",0
+2015-08-11,"Cryptophyta","Cryptomonas","Cryptomonas erosa",80352.8256
+2015-08-11,"Cyanophyta","Aphanothece","Aphanothece saxicola",0
+2015-08-11,"Cyanophyta","Aphanothece","Aphanothece nidulans",28309.7063
+2015-08-11,"Cyanophyta","Aphanothece","Aphanothece ",88.6899
+2015-08-11,"Cyanophyta","Synechococcus","Synechococcus ",6208.2901
+2015-08-11,"Cyanophyta","Synechococcus","Synechococcus elongatus",2328.1088
+2015-08-11,"Haptophyta","Chrysochromulina","Chrysochromulina parva",1921.0201
+2015-08-11,"Miscellaneous","Miscellaneous","Miscellaneous",58269.1037
+2015-08-11,"NA","Rhodospirillum","Rhodospirillum rubrum",2993.3674
+2015-08-11,"Pyrrhophyta","Gymnodinium","Gymnodinium sp. 2",0
+2015-08-11,"Pyrrhophyta","Gymnodinium","Gymnodinium sp. 3",1596.4132
+2015-08-11,"Pyrrhophyta","Gymnodinium","Gymnodinium sp. 1",0
+2015-08-11,"Total","Total","Total",1156824.059
+2015-11-17,"Bacillariophyta","Actinella","Actinella punctata",1402.0645
+2015-11-17,"Bacillariophyta","Asterionella","Asterionella formosa",752.5745
+2015-11-17,"Bacillariophyta","Tabellaria","Tabellaria flocculosa",14626.122
+2015-11-17,"Bacillariophyta","Tabellaria","Tabellaria binalis",0
+2015-11-17,"Chlorophyta","Chlamydomonas","Chlamydomonas ",6811.3659
+2015-11-17,"Chlorophyta","NA","Chlorococcaceae",141.9038
+2015-11-17,"Chlorophyta","NA","Chlorophyta",0
+2015-11-17,"Chlorophyta","Monomastix","Monomastix minuta",598.6565
+2015-11-17,"Chlorophyta","Monomastix","Monomastix astigmata",0
+2015-11-17,"Chlorophyta","Oocystis","Oocystis parva",57281.685
+2015-11-17,"Chlorophyta","Oocystis","Oocystis pusilla",0
+2015-11-17,"Chlorophyta","Schroederia","Schroederia judayi",702.4216
+2015-11-17,"Chrysophyta","NA","Chrysophyceae",170065.6563
+2015-11-17,"Chrysophyta","NA","Chrysocapsaceae",0
+2015-11-17,"Chrysophyta","Dinobryon","Dinobryon cylindricum",0
+2015-11-17,"Chrysophyta","Dinobryon","Dinobryon cyst",0
+2015-11-17,"Chrysophyta","Dinobryon","Dinobryon ",0
+2015-11-17,"Chrysophyta","Dinobryon","Dinobryon sociale",1330.3445
+2015-11-17,"Chrysophyta","Dinobryon","Dinobryon crenulatum",0
+2015-11-17,"Cyanophyta","Synechococcus","Synechococcus ",434.5803
+2015-11-17,"Cyanophyta","Synechococcus","Synechococcus elongatus",35.4759
+2015-11-17,"NA","Rhodospirillum","Rhodospirillum rubrum",6872.3546
+2015-11-17,"Pyrrhophyta","Peridinium","Peridinium ",4276.2676
+2015-11-17,"Pyrrhophyta","Peridinium","Peridinium inconspicuum",0
+2015-11-17,"Pyrrhophyta","Peridinium","Peridinium umbonatum",0
+2015-11-17,"Pyrrhophyta","Peridinium","Peridinium cinctum",0
+2015-11-17,"Total","Total","Total",265331.473
