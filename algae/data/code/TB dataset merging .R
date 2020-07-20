@@ -76,7 +76,7 @@ combo3= combo2 %>%
   mutate(relative_total_biovolume = if_else(is.na(relative_total_biovolume), 0, relative_total_biovolume))
 write.csv(combo3, 'data/TBPhytos_Clean.csv', row.names = F)
 
-
+############
 
 #df1 <- df1 %>%
 #  mutate(myCol1 = if_else(is.na(myCol1), 0, myCol1))
@@ -229,7 +229,39 @@ write.csv(TB_zoops.long, 'data/TBZoopsTaxaName.csv', row.names = F)
 TB.zoops.code= read.csv('data/TB_zoops.csv', stringsAsFactors = F)
 TB.zoops.code$sampledate = mdy(TB.zoops.code$sampledate)
 #need to make all of the absence data
-TB.zoops.code %<>% select(sampledate, species_code, density)
+#TB.zoops.code %<>% select(sampledate, species_code, density)
+
+#####################
+uniqueTaxa = TB_data_phytos %>% select(division, genus, taxa_name) %>% 
+  distinct()
+uniqueDates = TB_data_phytos %>% select(sampledate) %>% 
+  distinct()
+combo = tidyr::expand_grid(uniqueDates, uniqueTaxa) %>% 
+  left_join(TB_data_phytos, by = c("sampledate", "division", "genus", "taxa_name"))
+combo2= combo %>% 
+  mutate(biovolume_conc = if_else(is.na(biovolume_conc), 0, biovolume_conc))
+combo3= combo2 %>% 
+  mutate(relative_total_biovolume = if_else(is.na(relative_total_biovolume), 0, relative_total_biovolume))
+write.csv(combo3, 'data/TBPhytos_Clean.csv', row.names = F)
+
+
+
+############
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 TB.zoops.code %>% 
   group_by(sampledate, species_name) %>% 
