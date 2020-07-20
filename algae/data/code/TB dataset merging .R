@@ -232,12 +232,15 @@ TB.zoops.code$sampledate = mdy(TB.zoops.code$sampledate)
 #TB.zoops.code %<>% select(sampledate, species_code, density)
 
 #####################
-uniqueZoop = TB.zoops.code %>% select(division, genus, taxa_name) %>% 
+uniqueZoop = TB.zoops.code %>% select(species_code, species_name, density, individuals_measured, avg_length) %>% 
   distinct()
 uniqueDates = TB.zoops.code %>% select(sampledate) %>% 
   distinct()
-combo = tidyr::expand_grid(uniqueZoop, uniqueTaxa) %>% 
-  left_join(TB.zoops.code, by = c("sampledate", "division", "genus", "taxa_name"))
+combo = tidyr::expand_grid(uniqueDates, uniqueZoop) %>% 
+  left_join(TB.zoops.code, by = c("sampledate", "species_code", "species_name", "density", "individuals_measured", "avg_length"))
+write.csv(combo, 'data/TBZoops_Clean.csv', row.names = F)
+
+
 combo2= combo %>% 
   mutate(biovolume_conc = if_else(is.na(biovolume_conc), 0, biovolume_conc))
 
@@ -249,7 +252,17 @@ write.csv(combo3, 'data/TBZoops_Clean.csv', row.names = F)
 
 ############
 
-
+uniqueTaxa = TB_data_phytos %>% select(division, genus, taxa_name) %>% 
+  distinct()
+uniqueDates = TB_data_phytos %>% select(sampledate) %>% 
+  distinct()
+combo = tidyr::expand_grid(uniqueDates, uniqueTaxa) %>% 
+  left_join(TB_data_phytos, by = c("sampledate", "division", "genus", "taxa_name"))
+combo2= combo %>% 
+  mutate(biovolume_conc = if_else(is.na(biovolume_conc), 0, biovolume_conc))
+combo3= combo2 %>% 
+  mutate(relative_total_biovolume = if_else(is.na(relative_total_biovolume), 0, relative_total_biovolume))
+write.csv(combo3, 'data/TBPhytos_Clean.csv', row.names = F)
 
 
 
