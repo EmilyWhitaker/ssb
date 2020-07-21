@@ -36,7 +36,7 @@ combo3= combo2 %>%
 write.csv(combo3, 'data/TBPhytos_Clean.csv', row.names = F)
 
 ############
-
+#TB ZOOPS
 
 TB.zoops.code= read.csv('data/TB_zoops.csv', stringsAsFactors = F)
 TB.zoops.code$sampledate = mdy(TB.zoops.code$sampledate)
@@ -52,8 +52,6 @@ combo = tidyr::expand_grid(uniqueDates, uniqueZoop) %>%
 combo2= combo %>% 
   mutate(density = if_else(is.na(density), 0, density))
 write.csv(combo2, 'data/TBZoops_Clean.csv', row.names = F)
-
-
 
 
 combo3= combo2 %>% 
@@ -84,7 +82,7 @@ combo5= combo4 %>%
 write.csv(combo5, 'data/SPPhytos_Clean.csv', row.names = F)
 
 
-
+#SP_Chems1 = read.csv("data/fulldatasetclean05202020.csv", stringsAsFactors = F)
 
 
 
@@ -106,17 +104,6 @@ SPdataset.dates.clean.iceoff_nozeros= subset(SPdataset.dates.clean.iceoff_nozero
 
 
 
-uniqueTaxa = TB_data_phytos %>% select(division, genus, taxa_name) %>% 
-  distinct()
-uniqueDates = TB_data_phytos %>% select(sampledate) %>% 
-  distinct()
-combo = tidyr::expand_grid(uniqueDates, uniqueTaxa) %>% 
-  left_join(TB_data_phytos, by = c("sampledate", "division", "genus", "taxa_name"))
-combo2= combo %>% 
-  mutate(biovolume_conc = if_else(is.na(biovolume_conc), 0, biovolume_conc))
-combo3= combo2 %>% 
-  mutate(relative_total_biovolume = if_else(is.na(relative_total_biovolume), 0, relative_total_biovolume))
-write.csv(combo3, 'data/TBPhytos_Clean.csv', row.names = F)
 
 
 
