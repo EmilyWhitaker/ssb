@@ -43,12 +43,12 @@ TB.zoops.code$sampledate = mdy(TB.zoops.code$sampledate)
 #need to make all of the absence data
 #TB.zoops.code %<>% select(sampledate, species_code, density)
 
-uniqueZoop = TB.zoops.code %>% select(species_code, density) %>% 
+uniqueZoop = TB.zoops.code %>% select(species_code, species_name) %>% 
   distinct()
 uniqueDates = TB.zoops.code %>% select(sampledate) %>% 
   distinct()
 combo = tidyr::expand_grid(uniqueDates, uniqueZoop) %>% 
-  left_join(TB.zoops.code, by = c("sampledate", "species_code", "density"))
+  left_join(TB.zoops.code, by = c("sampledate", "species_code", "species_name"))
 combo2= combo %>% 
   mutate(density = if_else(is.na(density), 0, density))
 write.csv(combo2, 'data/TBZoops_Clean.csv', row.names = F)
@@ -151,29 +151,22 @@ combo = tidyr::expand_grid(uniqueDates, uniqueZoops) %>%
   left_join(SPZoops, by = c("sampledate", "species_code", "species_name"))
 combo2= combo %>% 
   mutate(density = if_else(is.na(density), 0, density))
-
+CleanSPZoops=combo2
+write.csv(CleanSPZoops, 'data/CleanSPZoops.csv', row.names = F)
 
 unique(SPZoops$species_code)
 unique(SPZoops$sample_date)
 
 
 
+CleanSPZoops %<>% select(sampledate, species_code, species_name, density, individuals_measured, avg_length) %>%
+  mutate(bv.datePlus1 = sampledate + 1) %>% mutate(bv.dateMinus1 = sampledate - 1)
 
-SPZoops %>% 
-  group_by(sampledate,species_code, species_name, density) %>% 
-  mutate(dupe = n() > 1) %>% 
-  filter(dupe == TRUE)
-SPdata_zoops.wide = SPZoops %>% 
-  group_by(sampledate, species_code, species_name) %>% #deal with duplications
-  summarise(density = sum(density, na.rm = T)) %>% 
-  pivot_wider(names_from = species_code, values_from = density, values_fill = list(density = 0)) #fill NAs with zeros
+SPdataset.clean <-fuzzy_left_join(join_surfchlor_SP, CleanSPZoops, by = c("sampledate" = "bv.datePlus1", "sampledate" = "bv.dateMinus1"),
+                                    match_fun = list(`<=`, `>=`))
 
-SP_data_zoops.longtaxa = pivot_longer(SPdata_zoops.wide, cols = 3:126, names_to="species_code", values_to = "density") %>% 
-  group_by(species_code, species_name) %>% 
-  filter(sum(density, na.rm = T) > 0)
-
-
-
+#join_surfchlor_SP %<>% rename(sampledate = sampledate.x)
+#join_surfchlor_SP %<>% rename(biovolume = biovolume_conc)
 
 
 
