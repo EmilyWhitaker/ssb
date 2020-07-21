@@ -81,6 +81,7 @@ combo5= combo4 %>%
   mutate(cells_per_ml = if_else(is.na(cells_per_ml), 0, cells_per_ml))
 write.csv(combo5, 'data/SPPhytos_Clean.csv', row.names = F)
 
+SP_Phytos_clean=combo5
 
 #SP_Chems1 = read.csv("data/fulldatasetclean05202020.csv", stringsAsFactors = F)
 
@@ -112,7 +113,13 @@ join_ice <- left_join(join, ice, by= c('sampledate'))
 
 write.csv(join_ice, 'data/joinedbioticandaboitic.csv', row.names = F)
 
+SP_Phytos_clean %<>% select(sampledate, division, taxa_name, genus, biovolume_conc, Season) %>%
+  mutate(bv.datePlus1 = sampledate + 1) %>% mutate(bv.dateMinus1 = sampledate - 1)
 
+join_surfchlor_SP <-fuzzy_left_join(join_ice, SP_Phytos_clean, by = c("sampledate" = "bv.datePlus1", "sampledate" = "bv.dateMinus1"),
+                                    match_fun = list(`<=`, `>=`))
+
+join_surfchlor_SP %<>% rename(sampledate= sampledate.y)
 
 
 
