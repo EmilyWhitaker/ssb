@@ -149,22 +149,38 @@ combo2= combo %>%
 CleanSPZoops=combo2
 write.csv(CleanSPZoops, 'data/CleanSPZoops.csv', row.names = F)
 SPZoops = read.csv('data/CleanSPZoops.csv',stringsAsFactors = F)
+SPZoops$sampledate = ymd(SPZoops$sampledate)
 SPZoops$year = year(SPZoops$sampledate)
 
-CleanSPZoops.subset = subset(SPZoops, year > 2008)
+CleanSPZoops.subset = subset(SPZoops, year >= 2008)
 
 #cut this data short?
 
+join_ice = read.csv('data/joinedbioticandaboitic.csv',stringsAsFactors = F)
+join_ice$sampledate = ymd(join_ice$sampledate)
+SP_Phytos_clean = read.csv('data/SPPhytos_Clean.csv',stringsAsFactors = F)
+SP_Phytos_clean$sampledate = ymd(SP_Phytos_clean$sampledate)
 
-unique(SPZoops$species_code)
-unique(SPZoops$sample_date)
+SP_Phytos_clean %<>% select(sampledate, division, taxa_name, genus, biovolume_conc, cells_per_ml, relative_total_biovolume) %>%
+  mutate(bv.datePlus1 = sampledate + 1) %>% mutate(bv.dateMinus1 = sampledate - 1)
 
+join_surfchlor_SP <-fuzzy_left_join(join_ice, SP_Phytos_clean, by = c("sampledate" = "bv.datePlus1", "sampledate" = "bv.dateMinus1"),
+                                    match_fun = list(`<=`, `>=`))
+
+join_surfchlor_SP %<>% rename(sampledate= sampledate.y)
+
+join_surfchlor_SP %<>% rename(chlor.int = chlor.x)
+join_surfchlor_SP %<>% rename(chlor.surf = chlor.y)
+join_surfchlor_SP$avsnow[is.na(join_surfchlor_SP$avsnow)]=0
+join_surfchlor_SP$totice[is.na(join_surfchlor_SP$totice)]=0
+join_surfchlor_SP$blueice[is.na(join_surfchlor_SP$blueice)]=0
+join_surfchlor_SP$whiteice[is.na(join_surfchlor_SP$whiteice)]=0
 
 
 CleanSPZoops.subset %<>% select(sampledate, species_code, species_name, density, individuals_measured, avg_length) %>%
-  mutate(bv.datePlus1 = sampledate + 1) %>% mutate(bv.dateMinus1 = sampledate - 1)
+  mutate(cl.datePlus1 = sampledate + 1) %>% mutate(cl.dateMinus1 = sampledate - 1)
 
-SPdataset.clean <-fuzzy_left_join(join_surfchlor_SP, CleanSPZoops, by = c("sampledate" = "bv.datePlus1", "sampledate" = "bv.dateMinus1"),
+SPdataset.clean <-fuzzy_left_join(join_surfchlor_SP, CleanSPZoops.subset, by = c("sampledate" = "bv.datePlus1", "sampledate" = "bv.dateMinus1"),
                                     match_fun = list(`<=`, `>=`))
 
 #join_surfchlor_SP %<>% rename(sampledate = sampledate.x)
