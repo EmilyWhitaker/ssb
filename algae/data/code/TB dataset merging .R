@@ -132,20 +132,45 @@ join_surfchlor_SP$whiteice[is.na(join_surfchlor_SP$whiteice)]=0
 write.csv(SPdataset, 'data/cleanSPdataset.csv', row.names = F)
 
 
-SPdataset.dates.clean.iceoff_nozeros= subset(SPdataset.dates.clean.iceoff, doc>=0)
-SPdataset.dates.clean.iceoff_nozeros= subset(SPdataset.dates.clean.iceoff, toc>=0)
-SPdataset.dates.clean.iceoff_nozeros= subset(SPdataset.dates.clean.iceoff, no3no2>=0)
-SPdataset.dates.clean.iceoff_nozeros= subset(SPdataset.dates.clean.iceoff, nh4>=0)
-SPdataset.dates.clean.iceoff_nozeros= subset(SPdataset.dates.clean.iceoff_nozeros, toc>=0)
+#SPdataset.dates.clean.iceoff_nozeros= subset(SPdataset.dates.clean.iceoff, doc>=0)
+#SPdataset.dates.clean.iceoff_nozeros= subset(SPdataset.dates.clean.iceoff, toc>=0)
+#SPdataset.dates.clean.iceoff_nozeros= subset(SPdataset.dates.clean.iceoff, no3no2>=0)
+#SPdataset.dates.clean.iceoff_nozeros= subset(SPdataset.dates.clean.iceoff, nh4>=0)
+#SPdataset.dates.clean.iceoff_nozeros= subset(SPdataset.dates.clean.iceoff_nozeros, toc>=0)
+
+
+# SP Zoops 
+SPZoops = read.csv('data/SPZoops.csv',stringsAsFactors = F)
+SPZoops$sampledate = mdy(SPZoops$sampledate)
+
+uniqueZoops = SPZoops %>% select(species_code) %>% 
+  distinct()
+uniqueDates = SPZoops %>% select(sampledate) %>% 
+  distinct()
+combo = tidyr::expand_grid(uniqueDates, uniqueZoops) %>% 
+  left_join(SPZoops, by = c("sampledate", "species_code"))
+combo2= combo %>% 
+  mutate(density = if_else(is.na(density), 0, density))
+
+
+unique(SPZoops$species_code)
+unique(SPZoops$sample_date)
 
 
 
 
+SPZoops %>% 
+  group_by(sampledate,species_code, species_name, density) %>% 
+  mutate(dupe = n() > 1) %>% 
+  filter(dupe == TRUE)
+SPdata_zoops.wide = SPZoops %>% 
+  group_by(sampledate, species_code, species_name) %>% #deal with duplications
+  summarise(density = sum(density, na.rm = T)) %>% 
+  pivot_wider(names_from = species_code, values_from = density, values_fill = list(density = 0)) #fill NAs with zeros
 
-
-
-
-
+SP_data_zoops.longtaxa = pivot_longer(SPdata_zoops.wide, cols = 3:126, names_to="species_code", values_to = "density") %>% 
+  group_by(species_code, species_name) %>% 
+  filter(sum(density, na.rm = T) > 0)
 
 
 
