@@ -53,12 +53,7 @@ combo2= combo %>%
   mutate(density = if_else(is.na(density), 0, density))
 write.csv(combo2, 'data/TBZoops_Clean.csv', row.names = F)
 
-
-combo3= combo2 %>% 
-  mutate(relative_total_biovolume = if_else(is.na(relative_total_biovolume), 0, relative_total_biovolume))
-write.csv(combo3, 'data/TBZoops_Clean.csv', row.names = F)
-
-
+#probably should cut this data short
 
 ####SP merging and zeroing#######
 
@@ -153,6 +148,9 @@ combo2= combo %>%
   mutate(density = if_else(is.na(density), 0, density))
 CleanSPZoops=combo2
 write.csv(CleanSPZoops, 'data/CleanSPZoops.csv', row.names = F)
+
+#cut this data short?
+
 
 unique(SPZoops$species_code)
 unique(SPZoops$sample_date)
