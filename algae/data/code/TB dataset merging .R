@@ -180,7 +180,7 @@ join_surfchlor_SP$whiteice[is.na(join_surfchlor_SP$whiteice)]=0
 CleanSPZoops.subset %<>% select(sampledate, species_code, species_name, density, individuals_measured, avg_length) %>%
   mutate(cl.datePlus1 = sampledate + 1) %>% mutate(cl.dateMinus1 = sampledate - 1)
 
-SPdataset.clean <-fuzzy_left_join(join_surfchlor_SP, CleanSPZoops.subset, by = c("sampledate" = "bv.datePlus1", "sampledate" = "bv.dateMinus1"),
+SPdataset.clean <-fuzzy_left_join(join_surfchlor_SP, CleanSPZoops.subset, by = c("sampledate" = "cl.datePlus1", "sampledate" = "cl.dateMinus1"),
                                     match_fun = list(`<=`, `>=`))
 
 #join_surfchlor_SP %<>% rename(sampledate = sampledate.x)
