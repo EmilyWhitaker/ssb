@@ -143,12 +143,12 @@ write.csv(SPdataset, 'data/cleanSPdataset.csv', row.names = F)
 SPZoops = read.csv('data/SPZoops.csv',stringsAsFactors = F)
 SPZoops$sampledate = mdy(SPZoops$sampledate)
 
-uniqueZoops = SPZoops %>% select(species_code) %>% 
+uniqueZoops = SPZoops %>% select(species_code, species_name) %>% 
   distinct()
 uniqueDates = SPZoops %>% select(sampledate) %>% 
   distinct()
 combo = tidyr::expand_grid(uniqueDates, uniqueZoops) %>% 
-  left_join(SPZoops, by = c("sampledate", "species_code"))
+  left_join(SPZoops, by = c("sampledate", "species_code", "species_name"))
 combo2= combo %>% 
   mutate(density = if_else(is.na(density), 0, density))
 
