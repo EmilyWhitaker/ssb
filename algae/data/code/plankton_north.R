@@ -225,7 +225,7 @@ join_ice <- left_join(join, ice, by= c('sampledate'))
 
 write.csv(join_ice, 'data/joinedbioticandaboitic.csv', row.names = F)
 
-
+########
 #totalbv_TB = read.csv("data/TotalBVs.csv", stringsAsFactors = F)
 #totalbv= read.csv("../TotalBVs.csv")
 #totalbv$sampledate = ymd(totalbv$sampledate)
@@ -241,7 +241,7 @@ join_surfchlor %<>% rename(sampledate= sampledate.y)
 write.csv(join_surfchlor, 'data/joinedTBseasonFull.csv', row.names = F)
 
 class(join_surfchlor$sampledate)
-
+######
 #Cleaning col names
 joinedTBseasonFull = read.csv('data/joinedTBseasonFull.csv', stringsAsFactors = F)
 
@@ -265,7 +265,7 @@ Genera$sampledate = ymd(Genera$sampledate)
 
 fulldatasetclean05202020 = full_join(join_surfchlor, Genera, by=c('sampledate'))
 write.csv(fulldatasetclean05202020, 'data/fulldatasetclean05202020.csv', row.names = F)
-
+##############
 #####
 #combine SP data 
 

@@ -113,7 +113,7 @@ join_ice <- left_join(join, ice, by= c('sampledate'))
 
 write.csv(join_ice, 'data/joinedbioticandaboitic.csv', row.names = F)
 
-SP_Phytos_clean %<>% select(sampledate, division, taxa_name, genus, biovolume_conc, Season) %>%
+SP_Phytos_clean %<>% select(sampledate, division, taxa_name, genus, biovolume_conc, cells_per_ml, relative_total_biovolume) %>%
   mutate(bv.datePlus1 = sampledate + 1) %>% mutate(bv.dateMinus1 = sampledate - 1)
 
 join_surfchlor_SP <-fuzzy_left_join(join_ice, SP_Phytos_clean, by = c("sampledate" = "bv.datePlus1", "sampledate" = "bv.dateMinus1"),
@@ -121,7 +121,15 @@ join_surfchlor_SP <-fuzzy_left_join(join_ice, SP_Phytos_clean, by = c("sampledat
 
 join_surfchlor_SP %<>% rename(sampledate= sampledate.y)
 
-
+join_surfchlor_SP %<>% rename(chlor.int = chlor.x)
+join_surfchlor_SP %<>% rename(chlor.surf = chlor.y)
+join_surfchlor_SP$avsnow[is.na(join_surfchlor_SP$avsnow)]=0
+join_surfchlor_SP$totice[is.na(join_surfchlor_SP$totice)]=0
+join_surfchlor_SP$blueice[is.na(join_surfchlor_SP$blueice)]=0
+join_surfchlor_SP$whiteice[is.na(join_surfchlor_SP$whiteice)]=0
+#join_surfchlor_SP %<>% rename(sampledate = sampledate.x)
+#join_surfchlor_SP %<>% rename(biovolume = biovolume_conc)  
+write.csv(SPdataset, 'data/cleanSPdataset.csv', row.names = F)
 
 
 SPdataset.dates.clean.iceoff_nozeros= subset(SPdataset.dates.clean.iceoff, doc>=0)
