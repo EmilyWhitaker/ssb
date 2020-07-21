@@ -94,6 +94,24 @@ intchems = read.csv("data/SPFullChem.csv", stringsAsFactors = F)
 intchems$sampledate = mdy(intchems$sampledate)
 intchems %<>% subset(lakeid == "SP")
 intchems$frlight[intchems$frlight=="1"] <- NA #one iceon point with no light point to calc frlight against
+intchems2 = intchems %>% select(intchemsDate = sampledate, wtemp:mn)
+
+chl2 = chl %>% select(chlDate = sampledate,chlor) %>%
+  mutate(datePlus1 = chlDate + 1) %>% mutate(dateMinus1 = chlDate - 1)
+
+join <- fuzzy_left_join(intchems2, chl2, by = c("intchemsDate" = "datePlus1", "intchemsDate" = "dateMinus1"),
+                        match_fun = list(`<=`, `>=`))
+
+join %<>% rename(sampledate = intchemsDate)
+ice = read.csv('data/snowicedepth.csv',stringsAsFactors = F)
+ice %<>% subset(lakeid == "SP") %>%
+  select(year4, daynum, sampledate, avsnow, totice, whiteice, blueice)
+ice$sampledate = ymd(ice$sampledate)
+
+join_ice <- left_join(join, ice, by= c('sampledate'))
+
+write.csv(join_ice, 'data/joinedbioticandaboitic.csv', row.names = F)
+
 
 
 
