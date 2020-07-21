@@ -148,6 +148,10 @@ combo2= combo %>%
   mutate(density = if_else(is.na(density), 0, density))
 CleanSPZoops=combo2
 write.csv(CleanSPZoops, 'data/CleanSPZoops.csv', row.names = F)
+SPZoops = read.csv('data/CleanSPZoops.csv',stringsAsFactors = F)
+SPZoops$year = year(SPZoops$sampledate)
+
+CleanSPZoops.subset = subset(SPZoops, year > 2008)
 
 #cut this data short?
 
@@ -157,7 +161,7 @@ unique(SPZoops$sample_date)
 
 
 
-CleanSPZoops %<>% select(sampledate, species_code, species_name, density, individuals_measured, avg_length) %>%
+CleanSPZoops.subset %<>% select(sampledate, species_code, species_name, density, individuals_measured, avg_length) %>%
   mutate(bv.datePlus1 = sampledate + 1) %>% mutate(bv.dateMinus1 = sampledate - 1)
 
 SPdataset.clean <-fuzzy_left_join(join_surfchlor_SP, CleanSPZoops, by = c("sampledate" = "bv.datePlus1", "sampledate" = "bv.dateMinus1"),
