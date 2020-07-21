@@ -84,14 +84,17 @@ write.csv(combo5, 'data/SPPhytos_Clean.csv', row.names = F)
 
 #SP_Chems1 = read.csv("data/fulldatasetclean05202020.csv", stringsAsFactors = F)
 
-
+chl = read.csv('data/chloro_all.csv',stringsAsFactors = F)
+chl %<>% subset(lakeid == "SP" & depth == 0) %>%
+  select(year4, daynum, sampledate, chlor)
+chl$sampledate =  ymd(chl$sampledate)
 
 #Inegrated Chems
 intchems = read.csv("data/SPFullChem.csv", stringsAsFactors = F)
 intchems$sampledate = mdy(intchems$sampledate)
 intchems %<>% subset(lakeid == "SP")
 intchems$frlight[intchems$frlight=="1"] <- NA #one iceon point with no light point to calc frlight against
-intchems
+
 
 
 
