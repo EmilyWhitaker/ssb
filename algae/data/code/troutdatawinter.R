@@ -51,46 +51,58 @@ TB_Clean= read.csv('data/TB_IceBD.clean.csv', stringsAsFactors = F)
 
 
 
-TB_snowice.long = pivot_longer(TB_snowice, cols=c("totice","white ice","blue ice"), names_to="variable", values_to = "value")
-
-data.long2 = pivot_longer(data, cols=c("white ice","blue ice"), names_to="variable", values_to = "value")
 
 
 
-ggplot(data.long, aes(sampledate, value,color=variable))+
+###################
+
+
+TB_snowice= read.csv('data/Trout data/snowiceTB.csv', stringsAsFactors = F)
+TB_snowice$sampledate = mdy(TB_snowice$sampledate)
+TB_snowice.long = pivot_longer(TB_snowice, cols=c("whiteice","blueice"), names_to="variable", values_to = "value")
+
+#data.long2 = pivot_longer(data, cols=c("whiteice","blueice"), names_to="variable", values_to = "value")
+
+
+
+ggplot(TB_snowice.long, aes(sampledate, value,color=variable))+
   ylab('cm')+
   geom_point()+
   geom_smooth(aes(group=variable))+
   geom_bar(aes(group=variable))+
   geom_smooth(aes(group=variable))
 
-ggplot(data.long2, aes(fill=variable, y=value, x=sampledate))+
+a<-ggplot(TB_snowice.long, aes(fill=variable, y=value, x=sampledate))+
   xlab("Sample Date")+
   ylab("Ice Thickness (cm)")+
   labs(fill='Ice Composition')+
-  theme_update(text = element_text(size=25))+
   theme_classic()+
 #  theme(axis.text.x=element_text(size=rel(1.5)))+
   geom_bar(position = "stack", stat= "identity", width = 80)
+a
+ggsave("tbicecomp.png", plot=a ,width = 6, height = 3, units = 'in')
+
+#How are you exporting your figures? Leave the text size as default (aka, don't include that line), and make sure you're 
+#exporting your figures to the appropriate width/height that your want them. Like ggsave(figure.png, width = 6, height = 3, units = 'in')
 
 
-
-
-ggplot(data, aes(sampledate, value,color=variable))+
+ggplot(TB_snowice.long, aes(sampledate, value,color=variable))+
   ylab('cm')+
   geom_point()+
   geom_smooth(aes(group=variable))+
   geom_bar(aes(group=variable))+
   geom_smooth(aes(group=variable))
 
-ggplot(data, aes(y=avsnow, x=sampledate))+
+b<-ggplot(TB_snowice.long, aes(y=avsnow, x=sampledate))+
   xlab("Sample Date")+
   ylab("Average Snow (cm)")+
-  theme_update(text = element_text(size=600))+
+#  theme_update(text = element_text(size=600))+
   theme_classic()+
   geom_bar(stat= "identity", width= 100, fill= "grey")
+b
+ggsave("tbsnowcomp.png", plot=b ,width = 6, height = 3, units = 'in')
 
-ggplot(data, aes(sampledate, avsnow))+
+ggplot(TB_snowice.long, aes(sampledate, avsnow))+
   ylab('average snow fall (cm)')+
   xlab('sample date')+
   geom_point()+
