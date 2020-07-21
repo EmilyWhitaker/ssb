@@ -64,6 +64,45 @@ write.csv(combo3, 'data/TBZoops_Clean.csv', row.names = F)
 
 ####SP merging and zeroing#######
 
+SP_data_phytos = read.csv('data/SP_data_phytos_totals.csv', stringsAsFactors = F)
+SP_data_phytos$sampledate = mdy(SP_data_phytos$sampledate)
+
+uniqueTaxa = SP_data_phytos %>% select(division, genus, taxa_name) %>% 
+  distinct()
+uniqueDates = SP_data_phytos %>% select(sampledate) %>% 
+  distinct()
+combo = tidyr::expand_grid(uniqueDates, uniqueTaxa) %>% 
+  left_join(SP_data_phytos, by = c("sampledate", "division", "genus", "taxa_name"))
+combo2= combo %>% 
+  mutate(biovolume_conc = if_else(is.na(biovolume_conc), 0, biovolume_conc))
+combo3= combo2 %>% 
+  mutate(relative_total_biovolume = if_else(is.na(relative_total_biovolume), 0, relative_total_biovolume))
+combo4= combo3 %>% 
+  mutate(biomass_conc = if_else(is.na(biomass_conc), 0, biomass_conc))
+combo5= combo4 %>% 
+  mutate(cells_per_ml = if_else(is.na(cells_per_ml), 0, cells_per_ml))
+write.csv(combo5, 'data/SPPhytos_Clean.csv', row.names = F)
+
+
+
+
+
+
+#Inegrated Chems
+intchems = read.csv("data/SPFullChem.csv", stringsAsFactors = F)
+intchems$sampledate = mdy(intchems$sampledate)
+intchems %<>% subset(lakeid == "SP")
+intchems$frlight[intchems$frlight=="1"] <- NA #one iceon point with no light point to calc frlight against
+intchems
+
+
+
+
+SPdataset.dates.clean.iceoff_nozeros= subset(SPdataset.dates.clean.iceoff, doc>=0)
+SPdataset.dates.clean.iceoff_nozeros= subset(SPdataset.dates.clean.iceoff, toc>=0)
+SPdataset.dates.clean.iceoff_nozeros= subset(SPdataset.dates.clean.iceoff, no3no2>=0)
+SPdataset.dates.clean.iceoff_nozeros= subset(SPdataset.dates.clean.iceoff, nh4>=0)
+SPdataset.dates.clean.iceoff_nozeros= subset(SPdataset.dates.clean.iceoff_nozeros, toc>=0)
 
 
 
